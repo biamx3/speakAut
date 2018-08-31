@@ -1,0 +1,621 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AB35F3E32139836500FACE51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F3E22139836500FACE51 /* AppDelegate.swift */; };
+		AB35F3E52139836500FACE51 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = AB35F3E42139836500FACE51 /* art.scnassets */; };
+		AB35F3E72139836500FACE51 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F3E62139836500FACE51 /* GameViewController.swift */; };
+		AB35F3EA2139836500FACE51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB35F3E82139836500FACE51 /* Main.storyboard */; };
+		AB35F3EC2139836800FACE51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB35F3EB2139836800FACE51 /* Assets.xcassets */; };
+		AB35F3EF2139836800FACE51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB35F3ED2139836800FACE51 /* LaunchScreen.storyboard */; };
+		AB35F3FA2139836900FACE51 /* speakAutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F3F92139836900FACE51 /* speakAutTests.swift */; };
+		AB35F4052139836900FACE51 /* speakAutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F4042139836900FACE51 /* speakAutUITests.swift */; };
+		AB35F4132139840600FACE51 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F4122139840600FACE51 /* Card.swift */; };
+		AB35F4152139841600FACE51 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F4142139841600FACE51 /* Sentence.swift */; };
+		AB35F4172139843100FACE51 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F4162139843100FACE51 /* Character.swift */; };
+		AB35F4192139843B00FACE51 /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F4182139843B00FACE51 /* DAO.swift */; };
+		AB35F41B2139848100FACE51 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F41A2139848100FACE51 /* CardViewModel.swift */; };
+		AB35F41D213984B800FACE51 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = AB35F41C213984B800FACE51 /* GameScene.sks */; };
+		AB35F41F2139856000FACE51 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F41E2139856000FACE51 /* GameScene.swift */; };
+		AB35F421213986A500FACE51 /* SoundTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F420213986A500FACE51 /* SoundTrack.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AB35F3F62139836900FACE51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB35F3D72139836500FACE51 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB35F3DE2139836500FACE51;
+			remoteInfo = speakAut;
+		};
+		AB35F4012139836900FACE51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB35F3D72139836500FACE51 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB35F3DE2139836500FACE51;
+			remoteInfo = speakAut;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AB35F3DF2139836500FACE51 /* speakAut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = speakAut.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB35F3E22139836500FACE51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AB35F3E42139836500FACE51 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		AB35F3E62139836500FACE51 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		AB35F3E92139836500FACE51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AB35F3EB2139836800FACE51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AB35F3EE2139836800FACE51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AB35F3F02139836800FACE51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB35F3F52139836900FACE51 /* speakAutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = speakAutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB35F3F92139836900FACE51 /* speakAutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = speakAutTests.swift; sourceTree = "<group>"; };
+		AB35F3FB2139836900FACE51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB35F4002139836900FACE51 /* speakAutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = speakAutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB35F4042139836900FACE51 /* speakAutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = speakAutUITests.swift; sourceTree = "<group>"; };
+		AB35F4062139836900FACE51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB35F4122139840600FACE51 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		AB35F4142139841600FACE51 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
+		AB35F4162139843100FACE51 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		AB35F4182139843B00FACE51 /* DAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
+		AB35F41A2139848100FACE51 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		AB35F41C213984B800FACE51 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		AB35F41E2139856000FACE51 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		AB35F420213986A500FACE51 /* SoundTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundTrack.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AB35F3DC2139836500FACE51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB35F3F22139836900FACE51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB35F3FD2139836900FACE51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AB35F3D62139836500FACE51 = {
+			isa = PBXGroup;
+			children = (
+				AB35F3E12139836500FACE51 /* speakAut */,
+				AB35F3F82139836900FACE51 /* speakAutTests */,
+				AB35F4032139836900FACE51 /* speakAutUITests */,
+				AB35F3E02139836500FACE51 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AB35F3E02139836500FACE51 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AB35F3DF2139836500FACE51 /* speakAut.app */,
+				AB35F3F52139836900FACE51 /* speakAutTests.xctest */,
+				AB35F4002139836900FACE51 /* speakAutUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AB35F3E12139836500FACE51 /* speakAut */ = {
+			isa = PBXGroup;
+			children = (
+				AB35F4122139840600FACE51 /* Card.swift */,
+				AB35F3E22139836500FACE51 /* AppDelegate.swift */,
+				AB35F3E42139836500FACE51 /* art.scnassets */,
+				AB35F3E62139836500FACE51 /* GameViewController.swift */,
+				AB35F3E82139836500FACE51 /* Main.storyboard */,
+				AB35F3EB2139836800FACE51 /* Assets.xcassets */,
+				AB35F3ED2139836800FACE51 /* LaunchScreen.storyboard */,
+				AB35F3F02139836800FACE51 /* Info.plist */,
+				AB35F4142139841600FACE51 /* Sentence.swift */,
+				AB35F41C213984B800FACE51 /* GameScene.sks */,
+				AB35F420213986A500FACE51 /* SoundTrack.swift */,
+				AB35F41E2139856000FACE51 /* GameScene.swift */,
+				AB35F4162139843100FACE51 /* Character.swift */,
+				AB35F4182139843B00FACE51 /* DAO.swift */,
+				AB35F41A2139848100FACE51 /* CardViewModel.swift */,
+			);
+			path = speakAut;
+			sourceTree = "<group>";
+		};
+		AB35F3F82139836900FACE51 /* speakAutTests */ = {
+			isa = PBXGroup;
+			children = (
+				AB35F3F92139836900FACE51 /* speakAutTests.swift */,
+				AB35F3FB2139836900FACE51 /* Info.plist */,
+			);
+			path = speakAutTests;
+			sourceTree = "<group>";
+		};
+		AB35F4032139836900FACE51 /* speakAutUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AB35F4042139836900FACE51 /* speakAutUITests.swift */,
+				AB35F4062139836900FACE51 /* Info.plist */,
+			);
+			path = speakAutUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AB35F3DE2139836500FACE51 /* speakAut */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB35F4092139836900FACE51 /* Build configuration list for PBXNativeTarget "speakAut" */;
+			buildPhases = (
+				AB35F3DB2139836500FACE51 /* Sources */,
+				AB35F3DC2139836500FACE51 /* Frameworks */,
+				AB35F3DD2139836500FACE51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = speakAut;
+			productName = speakAut;
+			productReference = AB35F3DF2139836500FACE51 /* speakAut.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AB35F3F42139836900FACE51 /* speakAutTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB35F40C2139836900FACE51 /* Build configuration list for PBXNativeTarget "speakAutTests" */;
+			buildPhases = (
+				AB35F3F12139836900FACE51 /* Sources */,
+				AB35F3F22139836900FACE51 /* Frameworks */,
+				AB35F3F32139836900FACE51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AB35F3F72139836900FACE51 /* PBXTargetDependency */,
+			);
+			name = speakAutTests;
+			productName = speakAutTests;
+			productReference = AB35F3F52139836900FACE51 /* speakAutTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AB35F3FF2139836900FACE51 /* speakAutUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB35F40F2139836900FACE51 /* Build configuration list for PBXNativeTarget "speakAutUITests" */;
+			buildPhases = (
+				AB35F3FC2139836900FACE51 /* Sources */,
+				AB35F3FD2139836900FACE51 /* Frameworks */,
+				AB35F3FE2139836900FACE51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AB35F4022139836900FACE51 /* PBXTargetDependency */,
+			);
+			name = speakAutUITests;
+			productName = speakAutUITests;
+			productReference = AB35F4002139836900FACE51 /* speakAutUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AB35F3D72139836500FACE51 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Beatriz Melo Mousinho Magalhães";
+				TargetAttributes = {
+					AB35F3DE2139836500FACE51 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					AB35F3F42139836900FACE51 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = AB35F3DE2139836500FACE51;
+					};
+					AB35F3FF2139836900FACE51 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = AB35F3DE2139836500FACE51;
+					};
+				};
+			};
+			buildConfigurationList = AB35F3DA2139836500FACE51 /* Build configuration list for PBXProject "speakAut" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AB35F3D62139836500FACE51;
+			productRefGroup = AB35F3E02139836500FACE51 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AB35F3DE2139836500FACE51 /* speakAut */,
+				AB35F3F42139836900FACE51 /* speakAutTests */,
+				AB35F3FF2139836900FACE51 /* speakAutUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AB35F3DD2139836500FACE51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB35F3E52139836500FACE51 /* art.scnassets in Resources */,
+				AB35F41D213984B800FACE51 /* GameScene.sks in Resources */,
+				AB35F3EF2139836800FACE51 /* LaunchScreen.storyboard in Resources */,
+				AB35F3EC2139836800FACE51 /* Assets.xcassets in Resources */,
+				AB35F3EA2139836500FACE51 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB35F3F32139836900FACE51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB35F3FE2139836900FACE51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AB35F3DB2139836500FACE51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB35F421213986A500FACE51 /* SoundTrack.swift in Sources */,
+				AB35F4192139843B00FACE51 /* DAO.swift in Sources */,
+				AB35F3E72139836500FACE51 /* GameViewController.swift in Sources */,
+				AB35F41F2139856000FACE51 /* GameScene.swift in Sources */,
+				AB35F4132139840600FACE51 /* Card.swift in Sources */,
+				AB35F4172139843100FACE51 /* Character.swift in Sources */,
+				AB35F4152139841600FACE51 /* Sentence.swift in Sources */,
+				AB35F3E32139836500FACE51 /* AppDelegate.swift in Sources */,
+				AB35F41B2139848100FACE51 /* CardViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB35F3F12139836900FACE51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB35F3FA2139836900FACE51 /* speakAutTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB35F3FC2139836900FACE51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB35F4052139836900FACE51 /* speakAutUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AB35F3F72139836900FACE51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB35F3DE2139836500FACE51 /* speakAut */;
+			targetProxy = AB35F3F62139836900FACE51 /* PBXContainerItemProxy */;
+		};
+		AB35F4022139836900FACE51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB35F3DE2139836500FACE51 /* speakAut */;
+			targetProxy = AB35F4012139836900FACE51 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AB35F3E82139836500FACE51 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB35F3E92139836500FACE51 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AB35F3ED2139836800FACE51 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB35F3EE2139836800FACE51 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AB35F4072139836900FACE51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AB35F4082139836900FACE51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AB35F40A2139836900FACE51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G4ZD65HM7G;
+				INFOPLIST_FILE = speakAut/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = beatriz3m.speakAut;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		AB35F40B2139836900FACE51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G4ZD65HM7G;
+				INFOPLIST_FILE = speakAut/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = beatriz3m.speakAut;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		AB35F40D2139836900FACE51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = speakAutTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = beatriz3m.speakAutTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/speakAut.app/speakAut";
+			};
+			name = Debug;
+		};
+		AB35F40E2139836900FACE51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = speakAutTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = beatriz3m.speakAutTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/speakAut.app/speakAut";
+			};
+			name = Release;
+		};
+		AB35F4102139836900FACE51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = speakAutUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = beatriz3m.speakAutUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = speakAut;
+			};
+			name = Debug;
+		};
+		AB35F4112139836900FACE51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = speakAutUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = beatriz3m.speakAutUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = speakAut;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AB35F3DA2139836500FACE51 /* Build configuration list for PBXProject "speakAut" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB35F4072139836900FACE51 /* Debug */,
+				AB35F4082139836900FACE51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB35F4092139836900FACE51 /* Build configuration list for PBXNativeTarget "speakAut" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB35F40A2139836900FACE51 /* Debug */,
+				AB35F40B2139836900FACE51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB35F40C2139836900FACE51 /* Build configuration list for PBXNativeTarget "speakAutTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB35F40D2139836900FACE51 /* Debug */,
+				AB35F40E2139836900FACE51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB35F40F2139836900FACE51 /* Build configuration list for PBXNativeTarget "speakAutUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB35F4102139836900FACE51 /* Debug */,
+				AB35F4112139836900FACE51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AB35F3D72139836500FACE51 /* Project object */;
+}
