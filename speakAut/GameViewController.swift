@@ -27,7 +27,7 @@ class GameViewController: UIViewController {
 
         
         // create a new scene
-        let scene = SCNScene(named: "art.scnassets/character_1.dae")!
+        let scene = SCNScene(named: "art.scnassets/character.dae")!
        // let scene = SCNScene()
         
         sceneView = scene
@@ -35,27 +35,6 @@ class GameViewController: UIViewController {
         //headMesh = character.childNode(withName: "headMesh", recursively: true)
 
        // headMesh?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "texture")
-//
-
-        
-        
-//
-//        let hair = SCNScene(named: "hair3.dae")?.rootNode ?? SCNNode()
-//
-//        print("hairScene - ", hair.childNodes.count)
-//
-//        hair.geometry = character.geometry
-        
-//        if let x = character.skinner  {
-//            print("existe")
-//        }
-
-//        hair.skinner = SCNSkinner(baseGeometry: hair.geometry, bones: [], boneInverseBindTransforms: [], boneWeights: nil, boneIndices: nil)
-//        hair.skinner!.skeleton =  character.skinner?.skeleton
-//
-//        character.addChildNode(hair)
-
-      
         //let material = result.node.geometry!.firstMaterial!
         
         // create and add a camera to the scene
@@ -64,13 +43,14 @@ class GameViewController: UIViewController {
         scene.rootNode.addChildNode(cameraNode)
         
         // place the camera
-        cameraNode.position = SCNVector3(x: 0, y: 0, z: 5)
+        //default:  cameraNode.position = SCNVector3(x: 0, y: 5, z: 15)
+        cameraNode.position = SCNVector3(x: 0, y: 5, z: 30)
         
         // create and add a light to the scene
         let lightNode = SCNNode()
         lightNode.light = SCNLight()
         lightNode.light!.type = .omni
-        lightNode.position = SCNVector3(x: 0, y: 10, z: 5)
+        lightNode.position = SCNVector3(x: 0, y: 30, z: 5)
         scene.rootNode.addChildNode(lightNode)
         
         // create and add an ambient light to the scene
@@ -100,21 +80,10 @@ class GameViewController: UIViewController {
         
         animations.first?.value.usesSceneTimeBase = true
         
-        addHair(named: "art.scnassets/hair3.dae")
+    
+    
         
         printAllNodes(tab: "", node: character)
-//        let hairSceneName = "art.scnassets/hair3.dae"
-//        if let scene = SCNScene(named: hairSceneName) {
-//            if let hair = scene.rootNode.childNode(withName: "hair1", recursively: true) {
-//                print(hair.name!)
-//                if let headRef = character.childNode(withName: "QuickRigCharacter1_Head", recursively: true) {
-//                    print("Adicionando em ", headRef.name)
-//                    headRef.addChildNode(hair)
-//                }
-//
-//            }
-//        }
-
 
 
 
@@ -125,12 +94,15 @@ class GameViewController: UIViewController {
     
     
     func addHair(named hairSceneName: String) {
+        
+//        let headRef = character.childNode(withName: "mixamorig_Head", recursively: true)
+//        let hairScene = SCNScene(named: "art.scnassets/hair3.dae")
+//        let hairMesh = hairScene?.rootNode.childNode(withName: "hair3", recursively: true)
+//        headRef?.addChildNode(hairMesh!)
+        
         if let scene = SCNScene(named: hairSceneName) {
             if let hair = scene.rootNode.childNode(withName: "hair3", recursively: true) {
-                print(hair.name!)
-                hair.scale = SCNVector3(500, 500, 500)
-                hair.geometry?.firstMaterial?.diffuse.contents = UIColor.red
-                if let headRef = character.childNode(withName: "QuickRigCharacter1_Head", recursively: true) {
+                if let headRef = character.childNode(withName: "mixamorig_Head", recursively: true) {
                     print("Adicionando em ", headRef.name)
                     headRef.addChildNode(hair)
                 }
@@ -172,9 +144,7 @@ class GameViewController: UIViewController {
             material.diffuse.contents = SKTexture(imageNamed: "BodyTexture.png")
             SCNTransaction.animationDuration = 0.5
             
-//            let hairNode = SCNScene(named: "art.scnassets/hair3.dae")?.rootNode.childNode(withName: "hair3", recursively: true)
-//
-//            sceneView.rootNode.childNode(withName: "QuickRigCharacter1_Head", recursively: true)?.addChildNode(hairNode!)
+            addHair(named: "art.scnassets/hair2.dae")
 
             // on completion - unhighlight
             SCNTransaction.completionBlock = {
@@ -218,7 +188,7 @@ class GameViewController: UIViewController {
       //  addHair(named: "art.scnassets/hair3.dae")
         
         // Load all the DAE animations
-        loadAnimation(withKey: "dancing", sceneName: "art.scnassets/character_2", animationIdentifier: "character_2-1")
+        loadAnimation(withKey: "dancing", sceneName: "art.scnassets/character", animationIdentifier: "character-1")
         
     }
     
