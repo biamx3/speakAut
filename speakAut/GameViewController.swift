@@ -33,7 +33,6 @@ class GameViewController: UIViewController {
         sceneView = scene
         character = scene.rootNode
         //headMesh = character.childNode(withName: "headMesh", recursively: true)
-
        // headMesh?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "texture")
         //let material = result.node.geometry!.firstMaterial!
         
@@ -50,7 +49,7 @@ class GameViewController: UIViewController {
         let lightNode = SCNNode()
         lightNode.light = SCNLight()
         lightNode.light!.type = .omni
-        lightNode.position = SCNVector3(x: 0, y: 30, z: 5)
+        lightNode.position = SCNVector3(x: 0, y: 10, z: 5)
         scene.rootNode.addChildNode(lightNode)
         
         // create and add an ambient light to the scene
@@ -73,35 +72,39 @@ class GameViewController: UIViewController {
         scnView.showsStatistics = true
         
         // configure the view
-        scnView.backgroundColor = UIColor.black
+        scnView.backgroundColor = UIColor.white
         
         // Load the DAE animations
         loadAnimations()
         
         animations.first?.value.usesSceneTimeBase = true
         
-    
-    
-        
         printAllNodes(tab: "", node: character)
 
-
-
-//        // add a tap gesture recognizer
+        // add a tap gesture recognizer
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         scnView.addGestureRecognizer(tapGesture)
+        
+        
+        addHair(named: "art.scnassets/hair_z_head_zeroed3.dae")
     }
     
     
+    //How to export a hair mesh from Maya to Xcode:
+    /*
+     First position hair on top of a rigged T-Stance character. Then, edit pivot. Turn on snap to point tool and snap pivot to the mixamorig_Head bone. Rotate y axis to point at mixamorig_HeadTop_End. Delete rigged T-Stance character, leaving only hair. Turn off snap to point tool and turn on snap to grid. Move hair until pivot is on 0,0,0. Delete history and freeze transformations. Export as DAE with Axis conversion to Z. Import to Xcode. Change Local Euler X rotation coordinates from 90 to 0.
+    */
+    
+    //Hair naming convention:
+    /*
+     The .dae file should always be started with "hair_", followed by length ("cropped", "short", "medium", "long") and then a quirky adjective or name (for example, "boyish", "pigtail", "mohawk"). The name of the mesh should always be "hair".
+     */
+    
     func addHair(named hairSceneName: String) {
         
-//        let headRef = character.childNode(withName: "mixamorig_Head", recursively: true)
-//        let hairScene = SCNScene(named: "art.scnassets/hair3.dae")
-//        let hairMesh = hairScene?.rootNode.childNode(withName: "hair3", recursively: true)
-//        headRef?.addChildNode(hairMesh!)
-        
         if let scene = SCNScene(named: hairSceneName) {
-            if let hair = scene.rootNode.childNode(withName: "hair3", recursively: true) {
+            
+            if let hair = scene.rootNode.childNode(withName: "hair", recursively: true) {
                 if let headRef = character.childNode(withName: "mixamorig_Head", recursively: true) {
                     print("Adicionando em ", headRef.name)
                     headRef.addChildNode(hair)
@@ -144,7 +147,7 @@ class GameViewController: UIViewController {
             material.diffuse.contents = SKTexture(imageNamed: "BodyTexture.png")
             SCNTransaction.animationDuration = 0.5
             
-            addHair(named: "art.scnassets/hair2.dae")
+
 
             // on completion - unhighlight
             SCNTransaction.completionBlock = {
