@@ -7,7 +7,20 @@
 //
 
 import UIKit
+import SpriteKit
 
-class CardViewModel: NSObject {
-
+class CardViewModel: SKScene {
+    
+    private var blankCard: SKSpriteNode! = nil
+    
+    override func didMove(to view: SKView) {
+        self.blankCard = self.childNode(withName: "blankCard") as! SKSpriteNode
+        self.blankCard.alpha = 0.5
+    }
+    
+    
+    override func update(_ currentTime: TimeInterval) {
+        // Called before each frame is rendered
+    }
+    
 }

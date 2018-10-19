@@ -24,9 +24,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         self.scaleMode = .resizeFill
         
+        
+        let blankCard = CardViewModel()
+        blankCard.position = CGPoint(x: 0.0, y: 0.0)
+        blankCard.zPosition = 6
+        self.addChild(blankCard)
+        
         addBackground()
         addGaps()
         addCards()
+       // setUpForCollisions()
+        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -58,6 +66,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 sprite.position = CGPoint(x: -150.0, y: 170.0)
             }
             sprite.zPosition = 5
+            sprite.physicsBody = SKPhysicsBody.init(rectangleOf: CGSize(width: sprite.size.width, height: sprite.size.height))
+            sprite.physicsBody?.usesPreciseCollisionDetection = true
+            sprite.physicsBody?.isDynamic = true
+            sprite.physicsBody?.affectedByGravity = false
+            sprite.physicsBody?.categoryBitMask = cardCategory
+            sprite.physicsBody?.contactTestBitMask = gapCategory
+            sprite.physicsBody?.collisionBitMask = 0
             background.addChild(sprite)
         }
         
@@ -71,7 +86,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for i in 0...numberOfGaps {
             
             let sprite = SKSpriteNode(imageNamed: "gap")
-            sprite.name = gapNodeName
+            sprite.name = gapImageName
             
             if i == 0 {
                 sprite.position = CGPoint(x: 180.0, y: -160.0)
@@ -80,6 +95,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 sprite.position = CGPoint(x: -150.0, y: -160.0)
             }
             sprite.zPosition = 4
+            sprite.physicsBody?.usesPreciseCollisionDetection = true
+            sprite.physicsBody = SKPhysicsBody.init(rectangleOf: CGSize(width: sprite.size.width, height: sprite.size.height))
+            sprite.physicsBody?.categoryBitMask = gapCategory
+            sprite.physicsBody?.contactTestBitMask = cardCategory
+            sprite.physicsBody?.collisionBitMask = 0
+            sprite.physicsBody?.isDynamic = false
             background.addChild(sprite)
         }
     }
@@ -92,28 +113,46 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func setUpForCollisions () {
         for child in (self.scene?.children)! {
             if (child.name?.starts(with: "card"))! {
-                child.physicsBody?.contactTestBitMask = gapCategory
+                child.physicsBody?.categoryBitMask = gapCategory
+                child.physicsBody?.contactTestBitMask = cardCategory
+                child.physicsBody?.collisionBitMask = 0
             }
             if (child.name?.starts(with: "gap"))! {
-                child.physicsBody?.contactTestBitMask = cardCategory
+                child.physicsBody?.categoryBitMask = cardCategory
+                child.physicsBody?.contactTestBitMask = gapCategory
+                child.physicsBody?.collisionBitMask = 0
             }
         }
     }
     
- 
+//    func didBegin(_ contact: SKPhysicsContact) {
+//        if (contact.bodyA.categoryBitMask == cardCategory) {
+//            print("colisao")
+//        }
+//
+//    }
+    
+    
     func didBegin(_ contact: SKPhysicsContact) {
         print("collided")
-//        print("didBeginContact entered for \(String(describing: contact.bodyA.node!.name)) and \(String(describing: contact.bodyB.node!.name))")
-//
-//        let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
-//
-//        switch contactMask {
-//        case cardCategory | gapCategory:
-//            print("card touched gap.")
-//
-//        default:
-//            print("Some other contact occurred")
-//        }
+        print("didBeginContact entered for \(String(describing: contact.bodyA.node!.name)) and \(String(describing: contact.bodyB.node!.name))")
+        
+        let card = contact.bodyB.node!
+        let gap = contact.bodyA.node!
+        
+        let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+
+        switch contactMask {
+        case cardCategory | gapCategory:
+            print("card touched gap.")
+            let moveToGap = SKAction.move(to: gap.position, duration: 0.5)
+            card.run(moveToGap)
+            contact.bodyB.node!.isUserInteractionEnabled = false
+
+        default:
+            print("Some other contact occurred")
+            contact.bodyA.node!.position = contact.bodyB.node!.position
+        }
     }
     
     

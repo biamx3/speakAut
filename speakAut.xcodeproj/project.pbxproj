@@ -25,6 +25,7 @@
 		AB35F41D213984B800FACE51 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = AB35F41C213984B800FACE51 /* GameScene.sks */; };
 		AB35F41F2139856000FACE51 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F41E2139856000FACE51 /* GameScene.swift */; };
 		AB35F421213986A500FACE51 /* SoundTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F420213986A500FACE51 /* SoundTrack.swift */; };
+		AB7214B5217A12EF00A9A0BE /* CardViewModel.sks in Resources */ = {isa = PBXBuildFile; fileRef = AB7214B4217A12EF00A9A0BE /* CardViewModel.sks */; };
 		ABE1CAC021750EED0057BA53 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE1CABF21750EED0057BA53 /* GameViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		AB35F41C213984B800FACE51 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		AB35F41E2139856000FACE51 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		AB35F420213986A500FACE51 /* SoundTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundTrack.swift; sourceTree = "<group>"; };
+		AB7214B4217A12EF00A9A0BE /* CardViewModel.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CardViewModel.sks; sourceTree = "<group>"; };
 		ABE1CABF21750EED0057BA53 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +147,7 @@
 				AB35F3F02139836800FACE51 /* Info.plist */,
 				AB35F4142139841600FACE51 /* Sentence.swift */,
 				AB35F41C213984B800FACE51 /* GameScene.sks */,
+				AB7214B4217A12EF00A9A0BE /* CardViewModel.sks */,
 				AB35F420213986A500FACE51 /* SoundTrack.swift */,
 				AB35F41E2139856000FACE51 /* GameScene.swift */,
 				AB35F4162139843100FACE51 /* Character.swift */,
@@ -240,13 +243,16 @@
 				TargetAttributes = {
 					AB35F3DE2139836500FACE51 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 					AB35F3F42139836900FACE51 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = AB35F3DE2139836500FACE51;
 					};
 					AB35F3FF2139836900FACE51 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = AB35F3DE2139836500FACE51;
 					};
 				};
@@ -277,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB35F3E52139836500FACE51 /* art.scnassets in Resources */,
+				AB7214B5217A12EF00A9A0BE /* CardViewModel.sks in Resources */,
 				AB35F41D213984B800FACE51 /* GameScene.sks in Resources */,
 				AB0984442155976A005C420F /* esfera.scn in Resources */,
 				AB35F3EF2139836800FACE51 /* LaunchScreen.storyboard in Resources */,
@@ -497,7 +504,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = beatriz3m.speakAut;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -515,7 +522,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = beatriz3m.speakAut;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
@@ -534,7 +541,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = beatriz3m.speakAutTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/speakAut.app/speakAut";
 			};
@@ -554,7 +561,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = beatriz3m.speakAutTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/speakAut.app/speakAut";
 			};
@@ -573,7 +580,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = beatriz3m.speakAutUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = speakAut;
 			};
@@ -592,7 +599,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = beatriz3m.speakAutUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = speakAut;
 			};
