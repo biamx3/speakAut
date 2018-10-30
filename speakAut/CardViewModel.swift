@@ -9,17 +9,22 @@
 import UIKit
 import SpriteKit
 
-class CardViewModel: SKScene {
+class CardViewModel: SKNode {
 
     var card = SKSpriteNode()
     var wordNode = SKLabelNode()
     var imageNode = SKSpriteNode()
     
+    init(word: String, image: String) {
+        super.init()
+        createCard()
+        self.wordNode.text = word
+        imageNode.texture = SKTexture(imageNamed: image)
+        self.addChild(card)
+    }
     
-    override func didMove(to view: SKView) {
-        self.card =  SKSpriteNode(color: .red, size: CGSize(width: 400.0, height: 400.0))
-        self.wordNode =  SKLabelNode(text: "word")
-        self.imageNode =  SKSpriteNode(color: .red, size: CGSize(width: 400.0, height: 400.0))
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     
@@ -43,6 +48,9 @@ class CardViewModel: SKScene {
         card.addChild(wordNode)
     }
     
+    func fillInImage(){
+        print("fill")
+    }
     
     func cardSetUp() {
         self.card = SKSpriteNode(texture: SKTexture(imageNamed: "blankCard"))
@@ -51,15 +59,13 @@ class CardViewModel: SKScene {
     }
     
     
-    func getCard() -> SKSpriteNode {
+    func createCard() {
         cardSetUp()
         imageSetUp()
         wordSetUp()
-
-        return card
     }
     
-    override func update(_ currentTime: TimeInterval) {
+    func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
     }
     

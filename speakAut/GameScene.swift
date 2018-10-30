@@ -26,21 +26,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
        //addBackground()
         
-
-        addCardFrom()
         printAllNodes(tab: "", node: self.scene!)
         
        // addGaps()
-       // addCards()
+       addCards()
        // setUpForCollisions()
         
-    }
-    
-    func addCardFrom() {
-        let cardViewModel = CardViewModel()
-        let card = cardViewModel.getCard()
-        card.zPosition = 15
-        self.addChild(card)
     }
     
     
@@ -71,6 +62,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func addCards() {
+        let dao = DAO()
+        let character = dao.createCharacter()
+        let sentence = character.sentenceArray[0]
+        
+        
+        
+        let cardModel1 = sentence.cardArray[0]
+    //    let cardModel2 = sentence.cardArray[1]
+        
+//        for i in 0 ... sentence.cardArray.count {
+//            let card = CardViewModel(word: cardModel1.word, image: cardModel1.imageName)
+//        }
+        
+        let card1 = CardViewModel(word: cardModel1.word, image: cardModel1.imageName)
+        
+        self.addChild(card1)
+    }
+    
+/*    func addCards() {
         let imageNames = ["card", "card2"]
 
         for i in 0..<imageNames.count {
@@ -96,7 +106,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             background.addChild(sprite)
         }
         
-    }
+    } */
     
     func addGaps() {
         
