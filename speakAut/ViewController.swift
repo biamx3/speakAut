@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let dao = DAO()
-        dao.getCharacter()
+        //dao.getCharacter()
 
         
         // create a new scene

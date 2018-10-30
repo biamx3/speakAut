@@ -24,28 +24,48 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         self.scaleMode = .resizeFill
         
+       //addBackground()
         
-        let blankCard = CardViewModel()
-        blankCard.position = CGPoint(x: 0.0, y: 0.0)
-        blankCard.zPosition = 6
-        self.addChild(blankCard)
+
+        addCardFrom()
+        printAllNodes(tab: "", node: self.scene!)
         
-        addBackground()
-        addGaps()
-        addCards()
+       // addGaps()
+       // addCards()
        // setUpForCollisions()
         
     }
+    
+    func addCardFrom() {
+        let cardViewModel = CardViewModel()
+        let card = cardViewModel.getCard()
+        card.zPosition = 15
+        self.addChild(card)
+    }
+    
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self)
             let touchedNode = self.atPoint(location)
+    
+            if (touchedNode.name?.starts(with: "cardChild"))! {
+                touchedNode.parent!.position.x = location.x
+                touchedNode.parent!.position.y = location.y
+            }
             
-            if (touchedNode.name?.starts(with: "card"))! {
+            else if (touchedNode.name?.starts(with: "cardParent"))! {
                 touchedNode.position.x = location.x
                 touchedNode.position.y = location.y
             }
+        }
+    }
+    
+    func printAllNodes(tab:String, node:SKNode) {
+        let aTab = tab + "  "
+        for child in node.children {
+            print(aTab, child.name ?? "--- sem nome ---")
+            printAllNodes(tab: aTab, node: child)
             
         }
     }
@@ -108,6 +128,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func addBackground () {
         self.background = self.childNode(withName: "backgroundImage") as! SKSpriteNode
         self.background.name = "background"
+
+        printAllNodes(tab: "", node: self.scene!)
+        
     }
     
     func setUpForCollisions () {
@@ -163,3 +186,4 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
 }
+
