@@ -14,7 +14,6 @@ class CardViewModel: SKSpriteNode {
     var card = SKSpriteNode()
     var wordNode = SKLabelNode()
     var imageNode = SKSpriteNode()
-    private var destination : CGPoint!
     
     
     init(cardModel:Card) {
@@ -22,25 +21,18 @@ class CardViewModel: SKSpriteNode {
         let image = cardModel.imageName
         super.init(texture: nil, color: .blue, size: CGSize.card)
         createCard()
-        //setUpCollision()
+        setUpCollision()
         self.wordNode.text = word
         imageNode.texture = SKTexture(imageNamed: image)
         self.name = word
         self.isUserInteractionEnabled = true
+        self.zPosition = 15
+        self.name = "card"
         self.addChild(card)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    public func updatePosition(point : CGPoint) {
-        position = point
-        destination = point
-    }
-    
-    public func setDestination(destination : CGPoint) {
-        self.destination = destination
     }
 
     
@@ -48,7 +40,7 @@ class CardViewModel: SKSpriteNode {
         self.imageNode = SKSpriteNode(color: .red, size: CGSize.cardImage)
         imageNode.zPosition = 5
         imageNode.position = CGPoint(x: 0, y: 20)
-        imageNode.isUserInteractionEnabled = false
+      //  imageNode.isUserInteractionEnabled = false
         imageNode.name = "cardChildImage"
         card.addChild(imageNode)
     }
@@ -60,20 +52,20 @@ class CardViewModel: SKSpriteNode {
         wordNode.position = CGPoint(x: 0, y: -125)
         wordNode.zPosition = 5
         wordNode.name = "cardChildWord"
-       wordNode.isUserInteractionEnabled = false
+    //   wordNode.isUserInteractionEnabled = false
         card.addChild(wordNode)
     }
     
     func setUpCollision() {
-        card.physicsBody = SKPhysicsBody.init(rectangleOf: CGSize.card)
-        card.physicsBody?.usesPreciseCollisionDetection = true
-        card.physicsBody?.isDynamic = true
-        card.physicsBody?.affectedByGravity = false
+        self.physicsBody = SKPhysicsBody.init(rectangleOf: CGSize.card)
+        self.physicsBody?.usesPreciseCollisionDetection = true
+        self.physicsBody?.isDynamic = false
+        self.physicsBody?.affectedByGravity = false
     }
     
     func cardSetUp() {
         self.card = SKSpriteNode(texture: SKTexture(imageNamed: "blankCard"))
-        card.isUserInteractionEnabled = false
+      //  card.isUserInteractionEnabled = true
         card.zPosition = 4
         card.name = "cardParent"
     }
@@ -90,24 +82,18 @@ class CardViewModel: SKSpriteNode {
     }
     
  
-    
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("toquei em ", self.name ?? "")
+
+       // print("toquei em ", self.name ?? "")
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        let touchPoint = touches.first?.location(in: self)
-        
-        if let point = touchPoint {
-            self.setDestination(destination: point)
-//        guard let touch = touches.first else { return }
-//        let location = touch.location(in: self)
-//        for touch in touches {
-//            self.position.x = location.x
-//            self.position.y = location.y
-//        }
+        guard let touch = touches.first else { return }
+        let location = touch.location(in: self.parent ?? self)
+       // print("Location", location)
+        for touch in touches {
+            self.run(SKAction.move(to: location, duration: 0.00001))
+          //  self.position = location
         }
     }
 }

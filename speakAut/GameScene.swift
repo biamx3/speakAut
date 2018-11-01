@@ -25,35 +25,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.scaleMode = .resizeFill
         
         addBackground()
-        
-
-       // addGaps()
+        addGaps()
         addCards()
-        //setUpForCollisions()
+//setUpForCollisions()
         printAllNodes(tab: "", node: self.scene!)
 
     }
     
-    
-//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        for touch in touches {
-//            let location = touch.location(in: self)
-//            let touchedNode = self.atPoint(location)
-//
-//            print(touchedNode.name, "was touched")
-//
-//            if (touchedNode.name?.starts(with: "cardChild"))! {
-//                touchedNode.parent!.position.x = location.x
-//                touchedNode.parent!.position.y = location.y
-//            }
-//
-//            else if (touchedNode.name?.starts(with: "cardParent"))! {
-//                touchedNode.position.x = location.x
-//                touchedNode.position.y = location.y
-//            }
-//        }
-//    }
-//
     func printAllNodes(tab:String, node:SKNode) {
         let aTab = tab + "  "
         for child in node.children {
@@ -71,8 +49,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for i in 0 ... (sentence.cardArray.count - 1){
             let cardModel = sentence.cardArray[i]
             let card = CardViewModel(cardModel: cardModel)
-           // let zPosition = CGFloat(i + 7)
-           // card.zPosition = zPosition
+
             
             switch i {
             case 0:
@@ -83,6 +60,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             default:
                 break
             }
+            card.physicsBody?.categoryBitMask = gapCategory
+            card.physicsBody?.contactTestBitMask = cardCategory
+            card.physicsBody?.collisionBitMask = 0
             self.background.addChild(card)
         }
     }
@@ -163,7 +143,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             contact.bodyA.node!.position = contact.bodyB.node!.position
         }
     }
-    
     
    
     
