@@ -22,10 +22,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let dao = DAO()
-        //dao.getCharacter()
-
-        
         // create a new scene
         let scene = SCNScene(named: "art.scnassets/character.dae")!
        // let scene = SCNScene()

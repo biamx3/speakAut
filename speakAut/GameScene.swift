@@ -24,40 +24,42 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         self.scaleMode = .resizeFill
         
-       //addBackground()
+        addBackground()
         
-        printAllNodes(tab: "", node: self.scene!)
-        
+
        // addGaps()
-       addCards()
-       // setUpForCollisions()
-        
+        addCards()
+        //setUpForCollisions()
+        printAllNodes(tab: "", node: self.scene!)
+
     }
     
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches {
-            let location = touch.location(in: self)
-            let touchedNode = self.atPoint(location)
-    
-            if (touchedNode.name?.starts(with: "cardChild"))! {
-                touchedNode.parent!.position.x = location.x
-                touchedNode.parent!.position.y = location.y
-            }
-            
-            else if (touchedNode.name?.starts(with: "cardParent"))! {
-                touchedNode.position.x = location.x
-                touchedNode.position.y = location.y
-            }
-        }
-    }
-    
+//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        for touch in touches {
+//            let location = touch.location(in: self)
+//            let touchedNode = self.atPoint(location)
+//
+//            print(touchedNode.name, "was touched")
+//
+//            if (touchedNode.name?.starts(with: "cardChild"))! {
+//                touchedNode.parent!.position.x = location.x
+//                touchedNode.parent!.position.y = location.y
+//            }
+//
+//            else if (touchedNode.name?.starts(with: "cardParent"))! {
+//                touchedNode.position.x = location.x
+//                touchedNode.position.y = location.y
+//            }
+//        }
+//    }
+//
     func printAllNodes(tab:String, node:SKNode) {
         let aTab = tab + "  "
         for child in node.children {
             print(aTab, child.name ?? "--- sem nome ---")
             printAllNodes(tab: aTab, node: child)
-            
+
         }
     }
     
@@ -65,48 +67,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let dao = DAO()
         let character = dao.createCharacter()
         let sentence = character.sentenceArray[0]
-        
-        
-        
-        let cardModel1 = sentence.cardArray[0]
-    //    let cardModel2 = sentence.cardArray[1]
-        
-//        for i in 0 ... sentence.cardArray.count {
-//            let card = CardViewModel(word: cardModel1.word, image: cardModel1.imageName)
-//        }
-        
-        let card1 = CardViewModel(word: cardModel1.word, image: cardModel1.imageName)
-        
-        self.addChild(card1)
+
+        for i in 0 ... (sentence.cardArray.count - 1){
+            let cardModel = sentence.cardArray[i]
+            let card = CardViewModel(cardModel: cardModel)
+           // let zPosition = CGFloat(i + 7)
+           // card.zPosition = zPosition
+            
+            switch i {
+            case 0:
+                card.position = CGPoint(x: 180.0, y: 170.0)
+            case 1:
+                card.position = CGPoint(x: -150.0, y: 170.0)
+
+            default:
+                break
+            }
+            self.background.addChild(card)
+        }
     }
     
-/*    func addCards() {
-        let imageNames = ["card", "card2"]
-
-        for i in 0..<imageNames.count {
-            let imageName = imageNames[i]
-            
-            let sprite = SKSpriteNode(imageNamed: imageName)
-            sprite.name = cardNodeName
-            
-            if i == 0 {
-                sprite.position = CGPoint(x: 180.0, y: 170.0)
-                
-            } else {
-                sprite.position = CGPoint(x: -150.0, y: 170.0)
-            }
-            sprite.zPosition = 5
-            sprite.physicsBody = SKPhysicsBody.init(rectangleOf: CGSize(width: sprite.size.width, height: sprite.size.height))
-            sprite.physicsBody?.usesPreciseCollisionDetection = true
-            sprite.physicsBody?.isDynamic = true
-            sprite.physicsBody?.affectedByGravity = false
+/*
             sprite.physicsBody?.categoryBitMask = cardCategory
             sprite.physicsBody?.contactTestBitMask = gapCategory
             sprite.physicsBody?.collisionBitMask = 0
             background.addChild(sprite)
-        }
-        
-    } */
+*/
     
     func addGaps() {
         
@@ -137,10 +123,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func addBackground () {
         self.background = self.childNode(withName: "backgroundImage") as! SKSpriteNode
+        self.background.isUserInteractionEnabled = false
         self.background.name = "background"
-
-        printAllNodes(tab: "", node: self.scene!)
-        
     }
     
     func setUpForCollisions () {
@@ -157,14 +141,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
-    
-//    func didBegin(_ contact: SKPhysicsContact) {
-//        if (contact.bodyA.categoryBitMask == cardCategory) {
-//            print("colisao")
-//        }
-//
-//    }
-    
     
     func didBegin(_ contact: SKPhysicsContact) {
         print("collided")

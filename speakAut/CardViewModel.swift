@@ -9,22 +9,38 @@
 import UIKit
 import SpriteKit
 
-class CardViewModel: SKNode {
+class CardViewModel: SKSpriteNode {
 
     var card = SKSpriteNode()
     var wordNode = SKLabelNode()
     var imageNode = SKSpriteNode()
+    private var destination : CGPoint!
     
-    init(word: String, image: String) {
-        super.init()
+    
+    init(cardModel:Card) {
+        let word = cardModel.word
+        let image = cardModel.imageName
+        super.init(texture: nil, color: .blue, size: CGSize.card)
         createCard()
+        //setUpCollision()
         self.wordNode.text = word
         imageNode.texture = SKTexture(imageNamed: image)
+        self.name = word
+        self.isUserInteractionEnabled = true
         self.addChild(card)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func updatePosition(point : CGPoint) {
+        position = point
+        destination = point
+    }
+    
+    public func setDestination(destination : CGPoint) {
+        self.destination = destination
     }
 
     
@@ -44,16 +60,20 @@ class CardViewModel: SKNode {
         wordNode.position = CGPoint(x: 0, y: -125)
         wordNode.zPosition = 5
         wordNode.name = "cardChildWord"
-        wordNode.isUserInteractionEnabled = false
+       wordNode.isUserInteractionEnabled = false
         card.addChild(wordNode)
     }
     
-    func fillInImage(){
-        print("fill")
+    func setUpCollision() {
+        card.physicsBody = SKPhysicsBody.init(rectangleOf: CGSize.card)
+        card.physicsBody?.usesPreciseCollisionDetection = true
+        card.physicsBody?.isDynamic = true
+        card.physicsBody?.affectedByGravity = false
     }
     
     func cardSetUp() {
         self.card = SKSpriteNode(texture: SKTexture(imageNamed: "blankCard"))
+        card.isUserInteractionEnabled = false
         card.zPosition = 4
         card.name = "cardParent"
     }
@@ -69,6 +89,27 @@ class CardViewModel: SKNode {
         // Called before each frame is rendered
     }
     
+ 
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("toquei em ", self.name ?? "")
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        let touchPoint = touches.first?.location(in: self)
+        
+        if let point = touchPoint {
+            self.setDestination(destination: point)
+//        guard let touch = touches.first else { return }
+//        let location = touch.location(in: self)
+//        for touch in touches {
+//            self.position.x = location.x
+//            self.position.y = location.y
+//        }
+        }
+    }
 }
 
 extension UIColor {
