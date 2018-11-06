@@ -9,18 +9,38 @@
 import Foundation
 import SpriteKit
 
-extension SKSpriteNode {
-    func near(_ anotherNode:[SKSpriteNode?])->Int? {
-        for i in 0..<anotherNode.count {
+
+extension UInt32 {
+    @nonobjc static var cardCategory: UInt32 {
+        return UInt32(1 << 0)
+    }
+    
+    @nonobjc static var gapCategory: UInt32 {
+        return UInt32(1 << 1)
+    }
+}
+
+extension SKNode {
+    func near(_ anotherNodes:[SKNode?])->Int? {
+        for i in 0..<anotherNodes.count {
             //            print(i, "--->", self.position, "--->", anotherNodes[i]!.position)
-            if let node = anotherNode[i] {
-                if abs(self.position.x - node.position.x) < 30 &&
-                    abs(self.position.y - node.position.y) < 30 {
+            if let node = anotherNodes[i] {
+                if abs(self.position.x - node.position.x) < CGSize.card.width &&
+                    abs(self.position.y - node.position.y) < CGSize.card.width {
                     return i
                 }
             }
         }
         return nil
+    }
+    func allDescendants()->[SKNode] {
+        var all:[SKNode] = []
+        for child in self.children {
+            all.append(child)
+             all.append(contentsOf: child.allDescendants())
+        }
+            return all
+        
     }
 }
 
@@ -35,6 +55,18 @@ extension SKNode {
     }
 }
 
+extension Array where Element == SKNode {
+    var isInOrderedInX:Bool {
+        if self.count == 0 {return true}
+        var previous = self.first!
+        
+        for element in self {
+            if element == self.first { break }
+            if previous.position.x > element.position.x {return false}
+        }
+        return true
+    }
+}
 
 extension UIColor {
     

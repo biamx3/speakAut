@@ -19,10 +19,15 @@ class GapViewModel: SKSpriteNode {
     }
     
     init(numberOfGaps: Int){
-        super.init(texture: nil, color: .clear, size: CGSize(width: CGSize.card.width*3, height: CGSize.card.height))
-        self.zPosition = 15
-        self.name = "gap"
+
+        super.init(texture: nil, color: .blue, size: CGSize(width: CGSize.card.width*3, height: CGSize.card.height))
+        self.zPosition = 2
+        self.name = "setOfGaps"
+        let sceneSize = self.parent?.frame.size
+        self.size.width = sceneSize?.width ?? CGSize.card.width
+        self.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2, y: (sceneSize?.height ?? 0.0) - 180)
         gapSetUp()
+        setUpCollisions()
         addGaps(number: numberOfGaps)
     }
     
@@ -32,8 +37,16 @@ class GapViewModel: SKSpriteNode {
     
     func gapSetUp() {
         self.gapTexture = SKSpriteNode(texture: SKTexture(imageNamed: "gap"))
-        self.name = "gap"
         self.gapTexture.size = CGSize.card
+    }
+    
+    func setUpCollisions(){
+        for child in self.children {
+            child.physicsBody?.categoryBitMask = UInt32.gapCategory
+            child.physicsBody?.contactTestBitMask = UInt32.cardCategory
+            child.physicsBody?.collisionBitMask = 0
+            child.physicsBody?.isDynamic = false
+        }
     }
     
     func addGaps(number: Int) {
@@ -51,19 +64,30 @@ class GapViewModel: SKSpriteNode {
             
             gap3.name = "gap3"
             
-            gap1.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2 - 310, y: (sceneSize?.height ?? 0.0) - 180)
-            gap2.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2, y: (sceneSize?.height ?? 0.0) - 180)
-            gap3.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2 + 310, y: (sceneSize?.height ?? 0.0) - 180)
+            gap1.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2 - 310, y: 0)
+            gap2.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2, y: 0)
+            gap3.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2 + 310, y: 0)
             
             self.addChild(gap3)
             
         default:
-            gap1.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2 - 160, y: (sceneSize?.height ?? 0.0) - 180)
-            gap2.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2 + 160, y: (sceneSize?.height ?? 0.0) - 180)
+            gap1.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2 - 160, y: 0)
+            gap2.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2 + 160, y: 0)
         }
     
         self.addChild(gap1)
         self.addChild(gap2)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let brothers = self.parent?.allDescendants() else {return}
+        let card = brothers.filter {($0.name?.starts(with: "card") ?? false)}
+        let gaps = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
+//        for child in self.children {
+//            if child.near(card) {
+//               print("uhul")// self.run(SKAction.move(to: card[index].position, duration: 0.1))
+//            }
+//        }
     }
     
     func update(_ currentTime: TimeInterval) {

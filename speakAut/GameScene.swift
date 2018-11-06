@@ -10,30 +10,28 @@ import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    var background = SKSpriteNode()
-    var selectedNode = SKSpriteNode()
-    
-    private let cardCategory: UInt32 = 1 << 0
-    private let gapCategory: UInt32 = 1 << 1
-    private let radiusCategory: UInt32 = 1 << 2
-    
-    private var cardArray = [CardViewModel]()
-    
+    private var background = SKSpriteNode()
+    private var selectedNode = SKSpriteNode()
+
     override func didMove(to view: SKView) {
         
         physicsWorld.contactDelegate = self
         self.scaleMode = .resizeFill
         
-//        addBackground()
-        addGaps()
-      //  addCards()
+        addBackground()
+        addCardsAndGaps()
         //setUpForCollisions()
         printAllNodes(tab: "", node: self.scene!)
     }
     
-    func addGaps(){
-        let gap = GapViewModel(numberOfGaps: 2)
-        self.addChild(gap)
+    func addCardsAndGaps(){
+        let dao = DAO()
+        let character = dao.createCharacter()
+        let sentence = character.sentenceArray[0]
+        let cardSet = sentence.cardArray
+        
+        let cardSetViewModel = CardSetViewModel(cardSet: cardSet)
+        self.addChild(cardSetViewModel)
     }
     
     func printAllNodes(tab:String, node:SKNode) {
@@ -45,82 +43,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touches Ended")
-    }
-    
-    func addCards() {
-        let dao = DAO()
-        let character = dao.createCharacter()
-        let sentence = character.sentenceArray[0]
-
-        for i in 0 ... (sentence.cardArray.count - 1){
-            let cardModel = sentence.cardArray[i]
-            let card = CardViewModel(cardModel: cardModel)
-
-            
-            switch i {
-            case 0:
-                card.position = CGPoint(x: 180.0, y: 170.0)
-            case 1:
-                card.position = CGPoint(x: -150.0, y: 170.0)
-
-            default:
-                break
-            }
-            card.name = "card"
-            card.physicsBody?.categoryBitMask = cardCategory
-            card.physicsBody?.contactTestBitMask = radiusCategory
-            card.physicsBody?.collisionBitMask = 0
-            cardArray.append(card)
-            self.background.addChild(card)
-        }
-    }
-    
-    func drawCircle(withCenter: CGPoint){
-        
-        let circle = SKShapeNode(circleOfRadius: 40 ) // Size of Circle
-        circle.position = withCenter
-        circle.glowWidth = 1.0
-        circle.fillColor = SKColor.orange
-        circle.zPosition = 10
-        circle.name = "radius"
-        circle.physicsBody?.usesPreciseCollisionDetection = true
-        circle.physicsBody = SKPhysicsBody.init(circleOfRadius: 40)
-        circle.physicsBody?.categoryBitMask = radiusCategory
-        circle.physicsBody?.contactTestBitMask = cardCategory
-        circle.physicsBody?.collisionBitMask = 0
-        circle.physicsBody?.isDynamic = false
-        self.addChild(circle)
-    }
-    
     func addBackground () {
-        self.background = self.childNode(withName: "backgroundImage") as! SKSpriteNode
+        self.background = SKSpriteNode(texture: SKTexture(imageNamed: "backgroundImage"), color: .blue, size: self.scene?.size ?? SKTexture(imageNamed: "backgroundImage").size())
+        self.background.position = CGPoint.zero
         self.background.isUserInteractionEnabled = false
+        self.background.physicsBody? = SKPhysicsBody(rectangleOf: self.background.size)
+        self.background.physicsBody?.affectedByGravity = false
+        self.background.physicsBody?.isDynamic = false 
         self.background.name = "background"
-    }
-    
-    func setUpForCollisions () {
-        for child in (self.scene?.children)! {
-            child.physicsBody = SKPhysicsBody.init(rectangleOf: CGSize.card)
-            child.physicsBody?.usesPreciseCollisionDetection = true
-            if (child.name?.starts(with: "card"))! {
-                child.physicsBody?.categoryBitMask = cardCategory
-                child.physicsBody?.contactTestBitMask = gapCategory
-                child.physicsBody?.collisionBitMask = 0
-                child.physicsBody?.isDynamic = true
-            }
-            if (child.name?.starts(with: "gap"))! {
-                child.physicsBody?.categoryBitMask = gapCategory
-                child.physicsBody?.contactTestBitMask = cardCategory
-                child.physicsBody?.collisionBitMask = 0
-                child.physicsBody?.isDynamic = false
-            }
-        }
+        addChild(background)
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-  //      print("didBeginContact entered for \(String(describing: contact.bodyA.node!.name)) and \(String(describing: contact.bodyB.node!.name))")
+        print("didBeginContact entered for \(String(describing: contact.bodyA.node!.name)) and \(String(describing: contact.bodyB.node!.name))")
         
         print(contact.bodyA.node!.name)
         
@@ -140,7 +75,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //
         switch contactMask {
             
-        case cardCategory | gapCategory :
+        case UInt32.cardCategory | UInt32.gapCategory :
             let gapPosition = gap.position
             let moveToGap = SKAction.move(to: gapPosition, duration: 0.5)
             card.run(moveToGap)
@@ -154,9 +89,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             print("failed")
         }
     }
-
-
-    
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
