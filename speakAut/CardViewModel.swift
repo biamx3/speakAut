@@ -14,6 +14,7 @@ class CardViewModel: SKSpriteNode {
     var card = SKSpriteNode()
     var wordNode = SKLabelNode()
     var imageNode = SKSpriteNode()
+    var isTouching = Bool()
     
     
     init(cardModel:Card) {
@@ -28,6 +29,7 @@ class CardViewModel: SKSpriteNode {
         self.isUserInteractionEnabled = true
         self.zPosition = 15
         self.name = "card"
+        isTouching = false
         self.addChild(card)
     }
     
@@ -59,7 +61,7 @@ class CardViewModel: SKSpriteNode {
     func setUpCollision() {
         self.physicsBody = SKPhysicsBody.init(rectangleOf: CGSize.card)
         self.physicsBody?.usesPreciseCollisionDetection = true
-        self.physicsBody?.isDynamic = false
+        self.physicsBody?.isDynamic = true
         self.physicsBody?.affectedByGravity = false
     }
     
@@ -81,22 +83,60 @@ class CardViewModel: SKSpriteNode {
         // Called before each frame is rendered
     }
     
- 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-
-       // print("toquei em ", self.name ?? "")
+        isTouching = true
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         let location = touch.location(in: self.parent ?? self)
-       // print("Location", location)
+        let previousPosition = touch.previousLocation(in: self.parent ?? self)
+        
         for touch in touches {
-            self.run(SKAction.move(to: location, duration: 0.00001))
-          //  self.position = location
+            var translation:CGPoint = CGPoint(x: location.x - previousPosition.x , y: location.y - previousPosition.y )
+            let newPosition = CGPoint(x: self.position.x + translation.x , y: self.position.y + translation.y)
+            self.position = newPosition
         }
     }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        isTouching = false
+        //checkSentences()
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        isTouching = false 
+    }
 }
+
+
+
+extension SKSpriteNode {
+    func near(_ anotherNode:[SKSpriteNode?])->Int? {
+        for i in 0..<anotherNode.count {
+            //            print(i, "--->", self.position, "--->", anotherNodes[i]!.position)
+            if let node = anotherNode[i] {
+                if abs(self.position.x - node.position.x) < 30 &&
+                    abs(self.position.y - node.position.y) < 30 {
+                    return i
+                }
+            }
+        }
+        return nil
+    }
+}
+
+extension SKNode {
+    func isOneOf(_ nodes: [SKSpriteNode?])->Bool {
+        for node in nodes {
+            if self == node {
+                return true
+            }
+        }
+        return false
+    }
+}
+
 
 extension UIColor {
     
