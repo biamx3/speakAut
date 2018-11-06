@@ -27,6 +27,8 @@
 		AB35F421213986A500FACE51 /* SoundTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F420213986A500FACE51 /* SoundTrack.swift */; };
 		ABDDD3472191B96D00641318 /* GapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDDD3462191B96D00641318 /* GapViewModel.swift */; };
 		ABE1CAC021750EED0057BA53 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE1CABF21750EED0057BA53 /* GameViewController.swift */; };
+		ABE9A0ED2191CA82008827EF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9A0EC2191CA82008827EF /* Extensions.swift */; };
+		ABE9A0EF2191CB50008827EF /* CardSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		AB35F420213986A500FACE51 /* SoundTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundTrack.swift; sourceTree = "<group>"; };
 		ABDDD3462191B96D00641318 /* GapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapViewModel.swift; sourceTree = "<group>"; };
 		ABE1CABF21750EED0057BA53 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		ABE9A0EC2191CA82008827EF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +156,8 @@
 				AB35F4162139843100FACE51 /* Character.swift */,
 				AB35F4182139843B00FACE51 /* DAO.swift */,
 				AB35F41A2139848100FACE51 /* CardViewModel.swift */,
+				ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */,
+				ABE9A0EC2191CA82008827EF /* Extensions.swift */,
 				ABDDD3462191B96D00641318 /* GapViewModel.swift */,
 			);
 			path = speakAut;
@@ -319,7 +325,9 @@
 				AB35F3E72139836500FACE51 /* ViewController.swift in Sources */,
 				AB35F41F2139856000FACE51 /* GameScene.swift in Sources */,
 				AB35F4132139840600FACE51 /* Card.swift in Sources */,
+				ABE9A0ED2191CA82008827EF /* Extensions.swift in Sources */,
 				AB35F4172139843100FACE51 /* Character.swift in Sources */,
+				ABE9A0EF2191CB50008827EF /* CardSetViewModel.swift in Sources */,
 				AB35F4152139841600FACE51 /* Sentence.swift in Sources */,
 				AB35F3E32139836500FACE51 /* AppDelegate.swift in Sources */,
 				AB35F41B2139848100FACE51 /* CardViewModel.swift in Sources */,

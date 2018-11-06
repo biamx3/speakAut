@@ -25,15 +25,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.scaleMode = .resizeFill
         
 //        addBackground()
-        addPrettyGaps()
-      //  addGaps()
+        addGaps()
       //  addCards()
         //setUpForCollisions()
         printAllNodes(tab: "", node: self.scene!)
     }
     
-    func addPrettyGaps(){
-        let gap = GapViewModel(numberOfGaps: 3)
+    func addGaps(){
+        let gap = GapViewModel(numberOfGaps: 2)
         self.addChild(gap)
     }
     
@@ -49,7 +48,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("touches Ended")
     }
-    
     
     func addCards() {
         let dao = DAO()
@@ -96,35 +94,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(circle)
     }
     
-    func addGaps() {
-        
-        let numberOfGaps = 2
-        let gapImageName = "gap"
-        
-        for i in 0...numberOfGaps {
-            
-            let sprite = SKSpriteNode(imageNamed: "gap")
-            sprite.name = gapImageName
-            
-            if i == 0 {
-                sprite.position = CGPoint(x: 180.0, y: -160.0)
-                drawCircle(withCenter: CGPoint(x: sprite.position.x, y: (sprite.position.y - 50)))
-                
-            } else {
-                sprite.position = CGPoint(x: -150.0, y: -160.0)
-                drawCircle(withCenter: sprite.position)
-            }
-            sprite.zPosition = 4
-            sprite.physicsBody?.usesPreciseCollisionDetection = true
-            sprite.physicsBody = SKPhysicsBody.init(rectangleOf: CGSize(width: sprite.size.width, height: sprite.size.height))
-            sprite.physicsBody?.categoryBitMask = gapCategory
-            sprite.physicsBody?.contactTestBitMask = cardCategory
-            sprite.physicsBody?.collisionBitMask = 0
-            sprite.physicsBody?.isDynamic = false
-            background.addChild(sprite)
-        }
-    }
-    
     func addBackground () {
         self.background = self.childNode(withName: "backgroundImage") as! SKSpriteNode
         self.background.isUserInteractionEnabled = false
@@ -133,15 +102,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setUpForCollisions () {
         for child in (self.scene?.children)! {
+            child.physicsBody = SKPhysicsBody.init(rectangleOf: CGSize.card)
+            child.physicsBody?.usesPreciseCollisionDetection = true
             if (child.name?.starts(with: "card"))! {
-                child.physicsBody?.categoryBitMask = gapCategory
-                child.physicsBody?.contactTestBitMask = cardCategory
-                child.physicsBody?.collisionBitMask = 0
-            }
-            if (child.name?.starts(with: "gap"))! {
                 child.physicsBody?.categoryBitMask = cardCategory
                 child.physicsBody?.contactTestBitMask = gapCategory
                 child.physicsBody?.collisionBitMask = 0
+                child.physicsBody?.isDynamic = true
+            }
+            if (child.name?.starts(with: "gap"))! {
+                child.physicsBody?.categoryBitMask = gapCategory
+                child.physicsBody?.contactTestBitMask = cardCategory
+                child.physicsBody?.collisionBitMask = 0
+                child.physicsBody?.isDynamic = false
             }
         }
     }
