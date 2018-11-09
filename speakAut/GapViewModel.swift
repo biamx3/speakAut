@@ -20,14 +20,13 @@ class GapViewModel: SKSpriteNode {
     
     init(numberOfGaps: Int){
 
-        super.init(texture: nil, color: .blue, size: CGSize(width: CGSize.card.width*3, height: CGSize.card.height))
+        super.init(texture: nil, color: .clear, size: CGSize(width: CGSize.card.width*3, height: CGSize.card.height))
         self.zPosition = 2
         self.name = "setOfGaps"
         let sceneSize = self.parent?.frame.size
         self.size.width = sceneSize?.width ?? CGSize.card.width
         self.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2, y: (sceneSize?.height ?? 0.0) - 180)
         gapSetUp()
-        setUpCollisions()
         addGaps(number: numberOfGaps)
     }
     
@@ -38,15 +37,6 @@ class GapViewModel: SKSpriteNode {
     func gapSetUp() {
         self.gapTexture = SKSpriteNode(texture: SKTexture(imageNamed: "gap"))
         self.gapTexture.size = CGSize.card
-    }
-    
-    func setUpCollisions(){
-        for child in self.children {
-            child.physicsBody?.categoryBitMask = UInt32.gapCategory
-            child.physicsBody?.contactTestBitMask = UInt32.cardCategory
-            child.physicsBody?.collisionBitMask = 0
-            child.physicsBody?.isDynamic = false
-        }
     }
     
     func addGaps(number: Int) {

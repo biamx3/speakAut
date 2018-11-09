@@ -9,13 +9,10 @@
 import UIKit
 import SpriteKit
 
-class CardSetViewModel: SKSpriteNode {
-    init(){
-        super.init(texture: SKTexture(imageNamed: "gap"), color: .clear, size: CGSize.card)
-    }
+class CardSetViewModel: SKNode {
     
     init(cardSet: [Card]){
-        super.init(texture: nil, color: .clear, size: CGSize(width: CGSize.card.width*3, height: CGSize.card.height))
+        super.init()
         self.name = "set"
         let gaps = GapViewModel(numberOfGaps: cardSet.count)
         self.isUserInteractionEnabled = false

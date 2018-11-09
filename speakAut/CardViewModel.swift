@@ -14,39 +14,23 @@ class CardViewModel: SKSpriteNode {
     private var card = SKSpriteNode()
     private var wordNode = SKLabelNode()
     private var imageNode = SKSpriteNode()
-    private var isTouching = Bool()
- 
-    
     
     init(cardModel:Card) {
         let word = cardModel.word
         let image = cardModel.imageName
         super.init(texture: nil, color: .blue, size: CGSize.card)
         createCard()
-        setUpCollision()
         self.wordNode.text = word
         imageNode.texture = SKTexture(imageNamed: image)
+        self.isUserInteractionEnabled = true
         self.zPosition = 7
         self.name = "card"
-        setUpCollisions()
-        isTouching = false
         self.addChild(card)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func setUpCollisions() {
-        self.physicsBody? = SKPhysicsBody(rectangleOf: CGSize.card)
-        self.isUserInteractionEnabled = true
-        self.physicsBody?.categoryBitMask = UInt32.cardCategory
-        self.physicsBody?.contactTestBitMask = UInt32.gapCategory
-        self.physicsBody?.collisionBitMask = 0
-        self.physicsBody?.affectedByGravity = false
-        self.physicsBody?.isDynamic = true
-    }
-
     
     func imageSetUp() {
         self.imageNode = SKSpriteNode(color: .red, size: CGSize.cardImage)
@@ -67,19 +51,11 @@ class CardViewModel: SKSpriteNode {
         card.addChild(wordNode)
     }
     
-    func setUpCollision() {
-        self.physicsBody = SKPhysicsBody.init(rectangleOf: CGSize.card)
-        self.physicsBody?.usesPreciseCollisionDetection = true
-        self.physicsBody?.isDynamic = true
-        self.physicsBody?.affectedByGravity = false
-    }
-    
     func cardSetUp() {
         self.card = SKSpriteNode(texture: SKTexture(imageNamed: "blankCard"))
         card.zPosition = 4
         card.name = "blankCard"
     }
-    
     
     func createCard() {
         cardSetUp()
@@ -92,7 +68,7 @@ class CardViewModel: SKSpriteNode {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        isTouching = true
+        print("touchesBegan")
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -120,8 +96,5 @@ class CardViewModel: SKSpriteNode {
         }
     }
     
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        isTouching = false 
-    }
 }
 
