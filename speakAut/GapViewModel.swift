@@ -10,63 +10,20 @@ import UIKit
 import SpriteKit
 
 class GapViewModel: SKSpriteNode {
-    
-    private var gapTexture = SKSpriteNode()
-    private var sceneSize = CGSize()
-    
-    init(){
-        super.init(texture: SKTexture(imageNamed: "gap"), color: .clear, size: CGSize.card)
-    }
-    
-    init(numberOfGaps: Int){
 
-        super.init(texture: nil, color: .clear, size: CGSize(width: CGSize.card.width*3, height: CGSize.card.height))
-        self.zPosition = 2
-        self.name = "setOfGaps"
-        let sceneSize = self.parent?.frame.size
-        self.size.width = sceneSize?.width ?? CGSize.card.width
-        self.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2, y: (sceneSize?.height ?? 0.0) - 180)
-        gapSetUp()
-        addGaps(number: numberOfGaps)
+    convenience init() {
+        let texture = SKTexture(imageNamed: "gap")
+        self.init(texture: texture, color: .clear, size: CGSize.card)
     }
     
+    //We need to override this to allow for class to work in SpriteKit Scene Builder
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder:aDecoder)
     }
     
-    func gapSetUp() {
-        self.gapTexture = SKSpriteNode(texture: SKTexture(imageNamed: "gap"))
-        self.gapTexture.size = CGSize.card
-    }
-    
-    func addGaps(number: Int) {
-        let sceneSize = self.parent?.frame.size
-        
-        let gap1 = GapViewModel()
-        let gap2 = GapViewModel()
-        
-        gap1.name = "gap1"
-        gap2.name = "gap2"
-        
-        switch number {
-        case 3:
-            let gap3 = GapViewModel()
-            
-            gap3.name = "gap3"
-            
-            gap1.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2 - 310, y: 0)
-            gap2.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2, y: 0)
-            gap3.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2 + 310, y: 0)
-            
-            self.addChild(gap3)
-            
-        default:
-            gap1.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2 - 160, y: 0)
-            gap2.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2 + 160, y: 0)
-        }
-    
-        self.addChild(gap1)
-        self.addChild(gap2)
+    //Override this to allow Hero to have access all convenience init methods
+    override init(texture: SKTexture?, color: UIColor, size: CGSize){
+        super.init(texture: texture, color: color, size: size)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -78,9 +35,5 @@ class GapViewModel: SKSpriteNode {
 //               print("uhul")// self.run(SKAction.move(to: card[index].position, duration: 0.1))
 //            }
 //        }
-    }
-    
-    func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
     }
 }

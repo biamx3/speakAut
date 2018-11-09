@@ -18,7 +18,7 @@ class CardViewModel: SKSpriteNode {
     init(cardModel:Card) {
         let word = cardModel.word
         let image = cardModel.imageName
-        super.init(texture: nil, color: .blue, size: CGSize.card)
+        super.init(texture: nil, color: .clear, size: CGSize.card)
         createCard()
         self.wordNode.text = word
         imageNode.texture = SKTexture(imageNamed: image)
@@ -36,7 +36,6 @@ class CardViewModel: SKSpriteNode {
         self.imageNode = SKSpriteNode(color: .red, size: CGSize.cardImage)
         imageNode.zPosition = 5
         imageNode.position = CGPoint(x: 0, y: 20)
-      //  imageNode.isUserInteractionEnabled = false
         imageNode.name = "image"
         card.addChild(imageNode)
     }
@@ -92,7 +91,9 @@ class CardViewModel: SKSpriteNode {
         }
 //        print("gaps ", gaps.count, "brothers ", brothers.count)
         if let index = self.near(gaps) {
-            self.run(SKAction.move(to: CGPoint(x: gaps[index].position.x, y:gaps[index].position.y ), duration: 0.1))
+            let stickAnimation = SKAction.move(to: CGPoint(x: gaps[index].position.x, y:gaps[index].position.y ), duration: 0.2)
+            stickAnimation.timingMode = .easeOut
+            self.run(stickAnimation)
         }
     }
     

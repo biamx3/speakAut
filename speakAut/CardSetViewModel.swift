@@ -11,13 +11,15 @@ import SpriteKit
 
 class CardSetViewModel: SKNode {
     
+    private var gap1 = GapViewModel()
+    
     init(cardSet: [Card]){
         super.init()
-        self.name = "set"
-        let gaps = GapViewModel(numberOfGaps: cardSet.count)
+        self.name = "setOfCardsAndGaps"
         self.isUserInteractionEnabled = false
-        self.addChild(gaps)
-        addCards(number: cardSet.count, cardSet: cardSet)
+        let numberOfCards = cardSet.count
+        addCards(number: numberOfCards, cardSet: cardSet)
+        addGaps(number: numberOfCards)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -52,6 +54,35 @@ class CardSetViewModel: SKNode {
         
         self.addChild(card1)
         self.addChild(card2)
+    }
+    
+    func addGaps(number: Int) {
+        let sceneSize = self.parent?.frame.size
+        
+        let gap2 = GapViewModel()
+        
+        gap1.name = "gap1"
+        gap2.name = "gap2"
+        
+        switch number {
+        case 3:
+            let gap3 = GapViewModel()
+            
+            gap3.name = "gap3"
+            
+            gap1.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2 - 310, y:  (sceneSize?.height ?? 0.0) - 180)
+            gap2.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2, y: (sceneSize?.height ?? 0.0) - 180)
+            gap3.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2 + 310, y: (sceneSize?.height ?? 0.0) - 180)
+            
+            self.addChild(gap3)
+            
+        default:
+            gap1.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2 - 160, y: (sceneSize?.height ?? 0.0) - 180)
+            gap2.position = CGPoint(x: (sceneSize?.width ?? 0.0)/2 + 160, y: (sceneSize?.height ?? 0.0) - 180)
+        }
+        
+        self.addChild(gap1)
+        self.addChild(gap2)
     }
     
     func update(_ currentTime: TimeInterval) {
