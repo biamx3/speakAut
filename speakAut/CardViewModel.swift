@@ -14,6 +14,7 @@ class CardViewModel: SKSpriteNode {
     private var card = SKSpriteNode()
     private var wordNode = SKLabelNode()
     private var imageNode = SKSpriteNode()
+    private var cardIndex = Int()
     
     init(cardModel:Card) {
         let word = cardModel.word
@@ -67,7 +68,7 @@ class CardViewModel: SKSpriteNode {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touchesBegan")
+//        print("touchesBegan")
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -84,11 +85,49 @@ class CardViewModel: SKSpriteNode {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let brothers = self.parent?.allDescendants() else {return}
+        let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
         let gaps = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
+        var filledOutCards: [SKNode] = []
         
-        for gap in gaps {
-            print("gaps position", gap.position)
+        if filledOutCards.count == cards.count - 1 {
+            print("time to check")
         }
+        
+        for i in 0 ... cards.count - 1 {
+            if (cards[i].near(gaps) != nil) {
+                filledOutCards.append(cards[i] as! SKSpriteNode)
+            }
+            
+            if cards[i].near(gaps) != nil && filledOutCards.count == cards.count {
+                
+            }
+            
+            if cards[i].near(gaps) != nil && filledOutCards.count == cards.count && filledOutCards.isInOrderedInX == true {
+                print("Cards are in correct order")
+            }
+            
+            if cards[i].near(gaps) != nil && filledOutCards.count == cards.count && filledOutCards.isInOrderedInX == false {
+                print("Cards are in incorrect order")
+            }
+            
+            /*else if cards[i].near(gaps) == nil || filledOutCards.count > 0 {
+                let index = filledOutCards.lastIndex(of: cards[i] as! SKSpriteNode)
+                filledOutCards.remove(at: index ?? 0)
+                print("filledOutCards ", filledOutCards)
+              //  filledOutCards.remove(at: filledOutCards[cards[i]])
+            }*/
+        }
+        
+//        for card in cards {
+//            if (card.near(gaps) != nil) {
+//                print("near")
+//                filledOutCards.append(card as! SKSpriteNode)
+//            }
+//        }
+        
+//        for gap in gaps {
+// 
+//        }
 //        print("gaps ", gaps.count, "brothers ", brothers.count)
         if let index = self.near(gaps) {
             let stickAnimation = SKAction.move(to: CGPoint(x: gaps[index].position.x, y:gaps[index].position.y ), duration: 0.2)
@@ -96,6 +135,5 @@ class CardViewModel: SKSpriteNode {
             self.run(stickAnimation)
         }
     }
-    
 }
 

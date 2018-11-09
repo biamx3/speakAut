@@ -10,16 +10,7 @@ import Foundation
 import SpriteKit
 
 
-extension UInt32 {
-    @nonobjc static var cardCategory: UInt32 {
-        return UInt32(1 << 0)
-    }
-    
-    @nonobjc static var gapCategory: UInt32 {
-        return UInt32(1 << 1)
-    }
-}
-
+//Detecta se há um SKNode dentro de um range
 extension SKNode {
     func near(_ anotherNodes:[SKNode?])->Int? {
         for i in 0..<anotherNodes.count {
@@ -40,7 +31,6 @@ extension SKNode {
              all.append(contentsOf: child.allDescendants())
         }
             return all
-        
     }
 }
 

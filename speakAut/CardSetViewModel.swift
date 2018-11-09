@@ -84,8 +84,5 @@ class CardSetViewModel: SKNode {
         self.addChild(gap1)
         self.addChild(gap2)
     }
-    
-    func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
-    }
+
 }
