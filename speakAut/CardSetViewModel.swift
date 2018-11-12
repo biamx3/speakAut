@@ -20,6 +20,8 @@ class CardSetViewModel: SKSpriteNode {
     
     init(cardSet: [Card]){
         super.init(texture: nil, color: .clear, size: CGSize.card)
+        self.size = self.parent?.frame.size ?? CGSize.card
+        print("my size is ", self.size)
         self.name = "setOfCardsAndGaps"
         self.isUserInteractionEnabled = true
         let numberOfCards = cardSet.count
@@ -89,57 +91,8 @@ class CardSetViewModel: SKSpriteNode {
         self.addChild(gap1)
         self.addChild(gap2)
     }
-
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let brothers = self.parent?.allDescendants() else {return}
-        let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
-        let gaps = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
-        let cardArray = cards as! [CardViewModel]
-        
-        
-        guard let touch = touches.first else { return }
-        let location = touch.location(in: self)
-        let touchedNode = self.nodes(at: location)
-        
-        if touchedNode == cardArray {
-            print("touchesEnded")
-        }
-        
-//        if([card1 containsPoint: touchLocation])
-//        {
-//           print("touchesended")
-//        }
+      //  print("touches ended")
     }
-    
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        guard let brothers = self.parent?.allDescendants() else {return}
-//        let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
-//        let cardArray = cards as! [CardViewModel]
-//
-//
-//        guard let touch = touches.first else { return }
-//        let location = touch.location(in: self)
-//        let touchedNode = self.nodes(at: location)
-//
-//        if touchedNode == cardArray {
-//            print("touchesEnded")
-//        }
-//    }
-             print("uhul")
-        for touch in touches{
-
-            let location = touch.location(in: self)
-            let nodesAtLocation = self.nodes(at: location)
-            
-            for node in nodesAtLocation {
-                
-                let nodeName = node.name
-                
-                print("Node Name \(nodeName)")
-                
-            }
-        }
-    }
-    
 }

@@ -83,36 +83,31 @@ class CardViewModel: SKSpriteNode {
         let location = touch.location(in: self.parent ?? self)
         let previousPosition = touch.previousLocation(in: self.parent ?? self)
         
-        for touch in touches {
-            var translation:CGPoint = CGPoint(x: location.x - previousPosition.x , y: location.y - previousPosition.y )
+        for _ in touches {
+            let translation:CGPoint = CGPoint(x: location.x - previousPosition.x , y: location.y - previousPosition.y )
             let newPosition = CGPoint(x: self.position.x + translation.x , y: self.position.y + translation.y)
             self.position = newPosition
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else { return }
-        let location = touch.location(in: self.parent ?? self)
-        
         guard let brothers = self.parent?.allDescendants() else {return}
         let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
         let gaps = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
         let cardArray = cards as! [CardViewModel]
+
         
-//        if filledOutCards.count == cardArray.count - 1 {
-//            print("time to check")
-//        }
+        print(cardArray.isOrderedInX)
         
-        if cardArray.isOrderedInX == false {
-            print("look at me I'm false")
+        if cards.near(gaps) {
+            if cardArray.isOrderedInX {
+                print("cards are correct")
+            } else {
+                print("cards are incorrect")
+                
+            }
         }
 
-        if cards.near(gaps) == true && cardArray.isOrderedInX == true {
-            print("cards are correct")
-        }   else if cardArray.isOrderedInX == false  {
-            print("cards are incorrect")
-        }
-        
 
         if let index = self.near(gaps) {
             let stickAnimation = SKAction.move(to: CGPoint(x: gaps[index].position.x, y:gaps[index].position.y ), duration: 0.2)

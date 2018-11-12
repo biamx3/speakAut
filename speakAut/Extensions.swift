@@ -9,24 +9,13 @@
 import Foundation
 import SpriteKit
 
-
-//Is it ordered in the X axis?
 extension Array where Element == SKNode {
     func near(_ anotherNodes:[SKNode?])-> Bool {
-        var isNextToAnotherNodes: [Bool] = []
-        for i in 0..<anotherNodes.count {
-                if (self[i].near([anotherNodes[i]]) != nil) {
-                    isNextToAnotherNodes.append(true)
-                } else {
-                    isNextToAnotherNodes.append(false)
-                }
+        
+        for element in self {
+            guard let _ = element.near(anotherNodes) else { return false }
         }
-        if isNextToAnotherNodes.contains(false) {
-            return false
-        } else if !isNextToAnotherNodes.contains(false) {
-            return true
-        }
-        return false
+        return true
     }
 }
 
@@ -45,7 +34,6 @@ extension SKNode {
         return nil
     }
 
-    
     func allDescendants()->[SKNode] {
         var all:[SKNode] = []
         for child in self.children {
@@ -75,8 +63,9 @@ extension Array where Element == CardViewModel {
         let previous = self.first!
         
         for element in self {
-            if element == self.first { break }
-            if previous.position.x > element.position.x {return false}
+           if element != self.first {
+                if previous.position.x > element.position.x {return false}
+            }
         }
         return true
     }
