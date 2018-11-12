@@ -9,14 +9,19 @@
 import UIKit
 import SpriteKit
 
-class CardSetViewModel: SKNode {
+class CardSetViewModel: SKSpriteNode {
     
     private var gap1 = GapViewModel()
+    private var gap2 = GapViewModel()
+    private var gap3 = GapViewModel()
+    private var card1: CardViewModel!
+    private var card2: CardViewModel!
+    private var card3: CardViewModel!
     
     init(cardSet: [Card]){
-        super.init()
+        super.init(texture: nil, color: .clear, size: CGSize.card)
         self.name = "setOfCardsAndGaps"
-        self.isUserInteractionEnabled = false
+        self.isUserInteractionEnabled = true
         let numberOfCards = cardSet.count
         addCards(number: numberOfCards, cardSet: cardSet)
         addGaps(number: numberOfCards)
@@ -29,15 +34,15 @@ class CardSetViewModel: SKNode {
     func addCards(number: Int, cardSet: [Card]) {
         let sceneSize = self.parent?.frame.size
         
-        let card1 = CardViewModel(cardModel: cardSet[0])
-        let card2 = CardViewModel(cardModel: cardSet[1])
+        card1 = CardViewModel(cardModel: cardSet[0])
+        card2 = CardViewModel(cardModel: cardSet[1])
         
         card1.name = "card1"
         card2.name = "card2"
         
         switch number {
         case 3:
-            let card3 = CardViewModel(cardModel: cardSet[2])
+            card3 = CardViewModel(cardModel: cardSet[2])
             
             card3.name = "card3"
             
@@ -59,7 +64,7 @@ class CardSetViewModel: SKNode {
     func addGaps(number: Int) {
         let sceneSize = self.parent?.frame.size
         
-        let gap2 = GapViewModel()
+        gap2 = GapViewModel()
         
         gap1.name = "gap1"
         gap2.name = "gap2"
@@ -85,4 +90,56 @@ class CardSetViewModel: SKNode {
         self.addChild(gap2)
     }
 
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let brothers = self.parent?.allDescendants() else {return}
+        let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
+        let gaps = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
+        let cardArray = cards as! [CardViewModel]
+        
+        
+        guard let touch = touches.first else { return }
+        let location = touch.location(in: self)
+        let touchedNode = self.nodes(at: location)
+        
+        if touchedNode == cardArray {
+            print("touchesEnded")
+        }
+        
+//        if([card1 containsPoint: touchLocation])
+//        {
+//           print("touchesended")
+//        }
+    }
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        guard let brothers = self.parent?.allDescendants() else {return}
+//        let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
+//        let cardArray = cards as! [CardViewModel]
+//
+//
+//        guard let touch = touches.first else { return }
+//        let location = touch.location(in: self)
+//        let touchedNode = self.nodes(at: location)
+//
+//        if touchedNode == cardArray {
+//            print("touchesEnded")
+//        }
+//    }
+             print("uhul")
+        for touch in touches{
+
+            let location = touch.location(in: self)
+            let nodesAtLocation = self.nodes(at: location)
+            
+            for node in nodesAtLocation {
+                
+                let nodeName = node.name
+                
+                print("Node Name \(nodeName)")
+                
+            }
+        }
+    }
+    
 }

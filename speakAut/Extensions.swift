@@ -10,6 +10,29 @@ import Foundation
 import SpriteKit
 
 
+//Is it ordered in the X axis?
+extension Array where Element == SKNode {
+    func near(_ anotherNodes:[SKNode?])-> Bool {
+        var isNextToAnotherNodes: [Bool] = []
+        for i in 0..<anotherNodes.count {
+            if let node = anotherNodes[i] {
+                
+                if (self[i].near([anotherNodes[i]]) != nil) {
+                    isNextToAnotherNodes.append(true)
+                } else {
+                    isNextToAnotherNodes.append(false)
+                }
+            }
+        }
+        if isNextToAnotherNodes.contains(false) {
+            return false
+        } else if !isNextToAnotherNodes.contains(false) {
+            return true
+        }
+        return false
+    }
+}
+
 //Detecta se há um SKNode dentro de um range
 extension SKNode {
     func near(_ anotherNodes:[SKNode?])->Int? {
@@ -24,6 +47,8 @@ extension SKNode {
         }
         return nil
     }
+
+    
     func allDescendants()->[SKNode] {
         var all:[SKNode] = []
         for child in self.children {
@@ -33,6 +58,7 @@ extension SKNode {
             return all
     }
 }
+
 
 extension SKNode {
     func isOneOf(_ nodes: [SKSpriteNode?])->Bool {
@@ -45,14 +71,28 @@ extension SKNode {
     }
 }
 
-extension Array where Element == SKNode {
-    var isInOrderedInX:Bool {
+//Is it ordered in the X axis?
+extension Array where Element == CardViewModel {
+    var isOrderedInX:Bool {
         if self.count == 0 {return true}
-        var previous = self.first!
+        let previous = self.first!
         
         for element in self {
             if element == self.first { break }
             if previous.position.x > element.position.x {return false}
+        }
+        return true
+    }
+}
+
+extension Array where Element == Int {
+    var correctOrder:Bool {
+        if self.count == 0 {return true}
+        let previous = self.first!
+        
+        for element in self {
+            if element == self.first { break }
+            if element > previous {return false}
         }
         return true
     }

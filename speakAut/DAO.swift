@@ -46,8 +46,8 @@ import UIKit
             
             //dançou sozinha
             character1.sentenceArray.append(Sentence(index: 0, cardArray: [], animation: "hello", sentenceNarration: "hello"))
-            character1.sentenceArray[0].cardArray.append(Card(index: 0, word: "a menina", imageName: "menina", wordNarration: "lala"))
-            character1.sentenceArray[0].cardArray.append(Card(index: 1, word: "dançou", imageName: "dancou", wordNarration: "dancou"))
+            character1.sentenceArray[0].cardArray.append(Card(index: 5, word: "a menina", imageName: "menina", wordNarration: "lala"))
+            character1.sentenceArray[0].cardArray.append(Card(index: 7, word: "dançou", imageName: "dancou", wordNarration: "dancou"))
             
             return character1
 

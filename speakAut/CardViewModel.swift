@@ -6,6 +6,9 @@
 //  Copyright © 2018 Beatriz Melo Mousinho Magalhães. All rights reserved.
 //
 
+
+//TO DO: VERIFY IF GAP IS OCCUPIED
+
 import UIKit
 import SpriteKit
 
@@ -14,9 +17,13 @@ class CardViewModel: SKSpriteNode {
     private var card = SKSpriteNode()
     private var wordNode = SKLabelNode()
     private var imageNode = SKSpriteNode()
+    private var cardModel: Card!
+    
+    //Criar um Array com os índices pré estabelecidos na classe Card a partir do cardModel provido. Esse array será verificado pelo .is
     private var cardIndex = Int()
     
     init(cardModel:Card) {
+        self.cardModel = cardModel
         let word = cardModel.word
         let image = cardModel.imageName
         super.init(texture: nil, color: .clear, size: CGSize.card)
@@ -25,7 +32,7 @@ class CardViewModel: SKSpriteNode {
         imageNode.texture = SKTexture(imageNamed: image)
         self.isUserInteractionEnabled = true
         self.zPosition = 7
-        self.name = "card"
+        self.name = "cardModel"
         self.addChild(card)
     }
     
@@ -84,51 +91,29 @@ class CardViewModel: SKSpriteNode {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        let location = touch.location(in: self.parent ?? self)
+        
         guard let brothers = self.parent?.allDescendants() else {return}
         let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
         let gaps = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
-        var filledOutCards: [SKNode] = []
+        let cardArray = cards as! [CardViewModel]
         
-        if filledOutCards.count == cards.count - 1 {
-            print("time to check")
-        }
-        
-        for i in 0 ... cards.count - 1 {
-            if (cards[i].near(gaps) != nil) {
-                filledOutCards.append(cards[i] as! SKSpriteNode)
-            }
-            
-            if cards[i].near(gaps) != nil && filledOutCards.count == cards.count {
-                
-            }
-            
-            if cards[i].near(gaps) != nil && filledOutCards.count == cards.count && filledOutCards.isInOrderedInX == true {
-                print("Cards are in correct order")
-            }
-            
-            if cards[i].near(gaps) != nil && filledOutCards.count == cards.count && filledOutCards.isInOrderedInX == false {
-                print("Cards are in incorrect order")
-            }
-            
-            /*else if cards[i].near(gaps) == nil || filledOutCards.count > 0 {
-                let index = filledOutCards.lastIndex(of: cards[i] as! SKSpriteNode)
-                filledOutCards.remove(at: index ?? 0)
-                print("filledOutCards ", filledOutCards)
-              //  filledOutCards.remove(at: filledOutCards[cards[i]])
-            }*/
-        }
-        
-//        for card in cards {
-//            if (card.near(gaps) != nil) {
-//                print("near")
-//                filledOutCards.append(card as! SKSpriteNode)
-//            }
+//        if filledOutCards.count == cardArray.count - 1 {
+//            print("time to check")
 //        }
         
-//        for gap in gaps {
-// 
-//        }
-//        print("gaps ", gaps.count, "brothers ", brothers.count)
+        if cardArray.isOrderedInX == false {
+            print("look at me I'm false")
+        }
+
+        if cards.near(gaps) == true && cardArray.isOrderedInX == true {
+            print("cards are correct")
+        }   else if cardArray.isOrderedInX == false  {
+            print("cards are incorrect")
+        }
+        
+
         if let index = self.near(gaps) {
             let stickAnimation = SKAction.move(to: CGPoint(x: gaps[index].position.x, y:gaps[index].position.y ), duration: 0.2)
             stickAnimation.timingMode = .easeOut
