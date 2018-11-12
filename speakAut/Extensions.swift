@@ -15,14 +15,11 @@ extension Array where Element == SKNode {
     func near(_ anotherNodes:[SKNode?])-> Bool {
         var isNextToAnotherNodes: [Bool] = []
         for i in 0..<anotherNodes.count {
-            if let node = anotherNodes[i] {
-                
                 if (self[i].near([anotherNodes[i]]) != nil) {
                     isNextToAnotherNodes.append(true)
                 } else {
                     isNextToAnotherNodes.append(false)
                 }
-            }
         }
         if isNextToAnotherNodes.contains(false) {
             return false
