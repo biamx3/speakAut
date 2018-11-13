@@ -14,6 +14,7 @@ class GameScene: SKScene {
         self.scaleMode = .resizeFill
         addCardsAndGaps()
         printAllNodes(tab: "", node: self.scene!)
+        self.isUserInteractionEnabled = true
     }
     
     func addCardsAndGaps(){
@@ -35,8 +36,32 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+        //Filter all nodes in scene to identify gaps and cards
+        let brothers = self.allDescendants()
+        let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
+        let gaps = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
+        let cardArray = cards as! [CardViewModel]
+        
+        for i in 0...cardArray.count - 1{
+            let card = cardArray[i]
+            let index = i
+            let lastItem = cardArray.last
+            let lastIndex = cardArray.index(of: lastItem ?? card)
+            
+            if index != lastIndex {
+                if card.position == cardArray[lastIndex ?? 0].position {
+                    card.run(SKAction.move(by: CGVector(dx: 0, dy: 180), duration: 0.5))
+                }
+            }
+        }
+        
     }
+
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print(type(of:self), #function)
+    }
 }
+
+
 

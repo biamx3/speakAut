@@ -23,7 +23,7 @@ class CardViewModel: SKSpriteNode {
         self.cardModel = cardModel
         let word = cardModel.word
         let image = cardModel.imageName
-        super.init(texture: nil, color: .blue, size: CGSize.card)
+        super.init(texture: nil, color: .clear, size: CGSize.card)
         createCard()
         self.zPosition = 2
         self.wordNode.text = word
@@ -97,26 +97,17 @@ class CardViewModel: SKSpriteNode {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print(type(of:self), #function)
+        
+        //Filter all nodes in scene to identify gaps and cards
         guard let brothers = self.parent?.allDescendants() else {return}
         let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
         let gaps = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
         let cardArray = cards as! [CardViewModel]
         
-        
-        //Check if cards are in the correct order when all gaps are filled
-        if cards.near(gaps) {
-            if cardArray.isOrderedInX {
-                print("cards are correct")
-            } else {
-                print("cards are incorrect")
-            }
-        }
-        
-        if cards.near(gaps) {
-            if cards.near(cards){
-                self.run(SKAction.move(to: CGPoint(x: 300, y: 200), duration: 0.3))
-            }
-        }
+        //Get all cards in scene excluding the one that is being touched
+        let filteredCards = cards.filter { $0 != self }
+        let cardBros = filteredCards as! [CardViewModel]
         
         //Have cards stick to gaps
         if let index = self.near(gaps) {
@@ -124,6 +115,12 @@ class CardViewModel: SKSpriteNode {
             stickAnimation.timingMode = .easeOut
             self.run(stickAnimation)
         }
+        
+        self.parent?.touchesEnded(touches, with: event)
     }
+    
+//    func update(_ currentTime: TimeInterval) {
+// 
+//    }
 }
 

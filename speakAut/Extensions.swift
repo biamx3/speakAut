@@ -11,7 +11,6 @@ import SpriteKit
 
 extension Array where Element == SKNode {
     func near(_ anotherNodes:[SKNode?])-> Bool {
-        
         for element in self {
             guard let _ = element.near(anotherNodes) else { return false }
         }
@@ -25,8 +24,8 @@ extension SKNode {
         for i in 0..<anotherNodes.count {
             //            print(i, "--->", self.position, "--->", anotherNodes[i]!.position)
             if let node = anotherNodes[i] {
-                if abs(self.position.x - node.position.x) < CGSize.card.width &&
-                    abs(self.position.y - node.position.y) < CGSize.card.width {
+                if abs(self.position.x - node.position.x) < CGSize.card.width * 0.5 &&
+                    abs(self.position.y - node.position.y) < CGSize.card.width * 0.5 {
                     return i
                 }
             }
