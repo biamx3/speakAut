@@ -139,7 +139,7 @@
 		AB35F3E12139836500FACE51 /* speakAut */ = {
 			isa = PBXGroup;
 			children = (
-				AB35F4122139840600FACE51 /* Card.swift */,
+				BBDC8142219B792B00B8CB1C /* Model */,
 				AB35F3E22139836500FACE51 /* AppDelegate.swift */,
 				AB35F3E42139836500FACE51 /* art.scnassets */,
 				AB35F3E62139836500FACE51 /* ViewController.swift */,
@@ -153,12 +153,8 @@
 				AB35F41C213984B800FACE51 /* GameScene.sks */,
 				AB35F420213986A500FACE51 /* SoundTrack.swift */,
 				AB35F41E2139856000FACE51 /* GameScene.swift */,
-				AB35F4162139843100FACE51 /* Character.swift */,
-				AB35F4182139843B00FACE51 /* DAO.swift */,
-				AB35F41A2139848100FACE51 /* CardViewModel.swift */,
-				ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */,
 				ABE9A0EC2191CA82008827EF /* Extensions.swift */,
-				ABDDD3462191B96D00641318 /* GapViewModel.swift */,
+				BBDC8141219B78FA00B8CB1C /* ViewModel */,
 			);
 			path = speakAut;
 			sourceTree = "<group>";
@@ -179,6 +175,26 @@
 				AB35F4062139836900FACE51 /* Info.plist */,
 			);
 			path = speakAutUITests;
+			sourceTree = "<group>";
+		};
+		BBDC8141219B78FA00B8CB1C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */,
+				AB35F41A2139848100FACE51 /* CardViewModel.swift */,
+				ABDDD3462191B96D00641318 /* GapViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BBDC8142219B792B00B8CB1C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AB35F4122139840600FACE51 /* Card.swift */,
+				AB35F4162139843100FACE51 /* Character.swift */,
+				AB35F4182139843B00FACE51 /* DAO.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

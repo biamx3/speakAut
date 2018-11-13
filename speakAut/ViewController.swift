@@ -102,7 +102,7 @@ class ViewController: UIViewController {
             
             if let hair = scene.rootNode.childNode(withName: "hair", recursively: true) {
                 if let headRef = character.childNode(withName: "mixamorig_Head", recursively: true) {
-                    print("Adicionando em ", headRef.name)
+                    print("Adicionando em ", headRef.name ?? "")
                     headRef.addChildNode(hair)
                 }
 

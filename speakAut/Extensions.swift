@@ -24,8 +24,8 @@ extension SKNode {
         for i in 0..<anotherNodes.count {
             //            print(i, "--->", self.position, "--->", anotherNodes[i]!.position)
             if let node = anotherNodes[i] {
-                if abs(self.position.x - node.position.x) < CGSize.card.width * 0.5 &&
-                    abs(self.position.y - node.position.y) < CGSize.card.width * 0.5 {
+                if abs(self.position.x - node.position.x) < node.frame.size.width * 0.5 &&
+                    abs(self.position.y - node.position.y) < node.frame.size.width * 0.5 {
                     return i
                 }
             }
@@ -140,3 +140,13 @@ extension CGSize {
         return CGSize(width: 267.0, height: 287.0)
     }
 }
+
+extension Int {
+    var firstEven:Int {
+        return  ( (self / 2) * 2) + 1
+    }
+    var cgFloat:CGFloat {
+        return CGFloat(self)
+    }
+}
+

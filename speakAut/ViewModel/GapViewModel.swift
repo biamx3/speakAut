@@ -14,6 +14,7 @@ class GapViewModel: SKSpriteNode {
     convenience init() {
         let texture = SKTexture(imageNamed: "gap")
         self.init(texture: texture, color: .clear, size: CGSize.card)
+        self.name = "gap"
         self.zPosition = 1
     }
 

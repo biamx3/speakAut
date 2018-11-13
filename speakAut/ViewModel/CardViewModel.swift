@@ -17,24 +17,34 @@ class CardViewModel: SKSpriteNode {
     private var card = SKSpriteNode()
     private var wordNode = SKLabelNode()
     private var imageNode = SKSpriteNode()
-    private var cardModel: Card!
+    private var cardModel: Card
 
     init(cardModel:Card) {
+        // minimum init
         self.cardModel = cardModel
-        let word = cardModel.word
-        let image = cardModel.imageName
         super.init(texture: nil, color: .clear, size: CGSize.card)
-        createCard()
         self.zPosition = 2
-        self.wordNode.text = word
-        imageNode.texture = SKTexture(imageNamed: image)
+        self.wordNode.text = cardModel.word
         self.isUserInteractionEnabled = true
-        self.name = "cardModel"
-        self.addChild(card)
+        self.name = "card " + cardModel.word
+
+        // add card elements
+        cardSetUp()
+        imageNode.texture = SKTexture(imageNamed: cardModel.imageName)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func cardSetUp() {
+        self.card = SKSpriteNode(texture: SKTexture(imageNamed: "blankCard"))
+        card.zPosition = 1
+        card.name = "blankCard"
+        
+        imageSetUp()
+        wordSetUp()
+        self.addChild(card)
     }
     
     func imageSetUp() {
@@ -42,6 +52,7 @@ class CardViewModel: SKSpriteNode {
         imageNode.position = CGPoint(x: 0, y: 20)
         imageNode.zPosition = 1
         imageNode.name = "image"
+        
         card.addChild(imageNode)
     }
     
@@ -52,20 +63,10 @@ class CardViewModel: SKSpriteNode {
         wordNode.position = CGPoint(x: 0, y: -125)
         wordNode.zPosition = 1
         wordNode.name = "word"
+        
         card.addChild(wordNode)
     }
-    
-    func cardSetUp() {
-        self.card = SKSpriteNode(texture: SKTexture(imageNamed: "blankCard"))
-        card.zPosition = 1
-        card.name = "blankCard"
-    }
-    
-    func createCard() {
-        cardSetUp()
-        imageSetUp()
-        wordSetUp()
-    }
+
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let brothers = self.parent?.allDescendants() else {return}
@@ -101,13 +102,14 @@ class CardViewModel: SKSpriteNode {
         
         //Filter all nodes in scene to identify gaps and cards
         guard let brothers = self.parent?.allDescendants() else {return}
-        let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
         let gaps = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
-        let cardArray = cards as! [CardViewModel]
+
+//        let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
+//        let cardArray = cards as! [CardViewModel]
         
         //Get all cards in scene excluding the one that is being touched
-        let filteredCards = cards.filter { $0 != self }
-        let cardBros = filteredCards as! [CardViewModel]
+//        let filteredCards = cards.filter { $0 != self }
+//        let cardBros = filteredCards as! [CardViewModel]
         
         //Have cards stick to gaps
         if let index = self.near(gaps) {
@@ -119,8 +121,6 @@ class CardViewModel: SKSpriteNode {
         self.parent?.touchesEnded(touches, with: event)
     }
     
-//    func update(_ currentTime: TimeInterval) {
-// 
-//    }
+
 }
 
