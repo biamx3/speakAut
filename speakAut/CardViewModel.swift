@@ -39,8 +39,8 @@ class CardViewModel: SKSpriteNode {
     
     func imageSetUp() {
         self.imageNode = SKSpriteNode(color: .red, size: CGSize.cardImage)
-       // imageNode.zPosition = 2
         imageNode.position = CGPoint(x: 0, y: 20)
+        imageNode.zPosition = 1
         imageNode.name = "image"
         card.addChild(imageNode)
     }
@@ -50,14 +50,14 @@ class CardViewModel: SKSpriteNode {
         wordNode.fontColor = UIColor.greyishBrown
         wordNode.fontSize = 32
         wordNode.position = CGPoint(x: 0, y: -125)
-       // wordNode.zPosition = 2
+        wordNode.zPosition = 1
         wordNode.name = "word"
         card.addChild(wordNode)
     }
     
     func cardSetUp() {
         self.card = SKSpriteNode(texture: SKTexture(imageNamed: "blankCard"))
-        card.zPosition = 3
+        card.zPosition = 1
         card.name = "blankCard"
     }
     
@@ -67,24 +67,21 @@ class CardViewModel: SKSpriteNode {
         wordSetUp()
     }
     
-    func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let brothers = self.parent?.allDescendants() else {return}
         let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
         
-        let cardBros = cards.filter { $0 != self }
-        
-        print("cardbros ", cardBros)
-        
+        //Get all cards in scene excluding the one that is being touched
+        let filteredCards = cards.filter { $0 != self }
+        let cardBros = filteredCards as! [CardViewModel]
+
+        //Move card that is being touched higher in the hierarchy
         for index in cardBros {
-//            index.zPosition = 6
             self.zPosition = 3
+            self.card.zPosition = 2
             index.zPosition = self.zPosition - 1
+            index.card.zPosition = self.card.zPosition - 1
         }
-        print("my name is ", self.name, self.zPosition)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {

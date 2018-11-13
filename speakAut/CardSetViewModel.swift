@@ -41,8 +41,6 @@ class CardSetViewModel: SKSpriteNode {
         
         card1.name = "card1"
         card2.name = "card2"
-        card1.zPosition = 6
-        card2.zPosition = 6
         
         switch number {
         case 3:
