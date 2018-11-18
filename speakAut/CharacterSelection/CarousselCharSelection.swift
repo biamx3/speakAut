@@ -74,6 +74,10 @@ class CarousselCharSelection: SCNScene {
         self.centralCharacter.position = positionCenter
         rightCharacter.position = positionRight
         
+        leftCharacter.opacity = 0.7
+        rightCharacter.opacity = 0.7
+
+        
         self.rootNode.addChildNode(leftCharacter)
         self.rootNode.addChildNode(centralCharacter)
         self.rootNode.addChildNode(rightCharacter)
@@ -81,17 +85,27 @@ class CarousselCharSelection: SCNScene {
     
     func previousPosition(){
         let centralCharIndex = totalCharacters.index(of: centralCharacter ?? totalCharacters[0])
-        let moveToFarLeft = SCNAction.move(to: positionFarLeft, duration: 0.2)
         let moveToLeft = SCNAction.move(to: positionLeft, duration: 0.2)
         let moveToCenter = SCNAction.move(to: positionCenter, duration: 0.2)
         let moveToRight = SCNAction.move(to: positionRight, duration: 0.2)
         let moveToFarRight = SCNAction.move(to: positionFarRight, duration: 0.2)
         
-        self.rightCharacter.runAction(moveToFarRight)
+        let lowerOpacity = SCNAction.fadeOpacity(to: 0.7, duration: 0.2)
+        let heightenOpacity = SCNAction.fadeOpacity(to: 1.0, duration: 0.2)
+        let fadeOut = SCNAction.fadeOut(duration: 0.2)
+        
+        let moveToRightLowerOpacity = SCNAction.group([moveToRight, lowerOpacity])
+        let moveToLeftLowerOpacity = SCNAction.group([moveToLeft, lowerOpacity])
+        
+        let moveToCenterHeightenOpacity = SCNAction.group([moveToCenter, heightenOpacity])
+        
+        let moveToFarRightFadeOut = SCNAction.group([moveToFarRight, fadeOut])
+        
+        self.rightCharacter.runAction(moveToFarRightFadeOut)
         self.rightCharacter.removeFromParentNode()
-        self.centralCharacter.runAction(moveToRight)
+        self.centralCharacter.runAction(moveToRightLowerOpacity)
         self.rightCharacter = centralCharacter
-        self.leftCharacter.runAction(moveToCenter)
+        self.leftCharacter.runAction(moveToCenterHeightenOpacity)
         self.centralCharacter = leftCharacter
         
         let leftCharIndex = totalCharacters.index(of: leftCharacter)
@@ -105,7 +119,7 @@ class CarousselCharSelection: SCNScene {
         let newCharacter = totalCharacters[previousIndex]
         newCharacter.position = positionFarLeft
         self.rootNode.addChildNode(newCharacter)
-        newCharacter.runAction(moveToLeft)
+        newCharacter.runAction(moveToLeftLowerOpacity)
         self.leftCharacter = newCharacter
     }
     
@@ -116,11 +130,22 @@ class CarousselCharSelection: SCNScene {
         let moveToCenter = SCNAction.move(to: positionCenter, duration: 0.2)
         let moveToRight = SCNAction.move(to: positionRight, duration: 0.2)
         
-        self.leftCharacter.runAction(moveToFarLeft)
+        let lowerOpacity = SCNAction.fadeOpacity(to: 0.7, duration: 0.2)
+        let heightenOpacity = SCNAction.fadeOpacity(to: 1.0, duration: 0.2)
+        let fadeOut = SCNAction.fadeOut(duration: 0.2)
+        
+        let moveToRightLowerOpacity = SCNAction.group([moveToRight, lowerOpacity])
+        let moveToLeftLowerOpacity = SCNAction.group([moveToLeft, lowerOpacity])
+        
+        let moveToCenterHeightenOpacity = SCNAction.group([moveToCenter, heightenOpacity])
+        
+        let moveToFarLeftFadeOut = SCNAction.group([moveToFarLeft, fadeOut])
+        
+        self.leftCharacter.runAction(moveToFarLeftFadeOut)
         self.leftCharacter.removeFromParentNode()
-        self.centralCharacter.runAction(moveToLeft)
+        self.centralCharacter.runAction(moveToLeftLowerOpacity)
         self.leftCharacter = centralCharacter
-        self.rightCharacter.runAction(moveToCenter)
+        self.rightCharacter.runAction(moveToCenterHeightenOpacity)
         self.centralCharacter = rightCharacter
         
         let rightCharIndex = totalCharacters.index(of: rightCharacter)
@@ -134,7 +159,7 @@ class CarousselCharSelection: SCNScene {
         let newCharacter = totalCharacters[nextIndex]
         newCharacter.position = positionFarRight
         self.rootNode.addChildNode(newCharacter)
-        newCharacter.runAction(moveToRight)
+        newCharacter.runAction(moveToRightLowerOpacity)
         self.rightCharacter = newCharacter
     }
 
