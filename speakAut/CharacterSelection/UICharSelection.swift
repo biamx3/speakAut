@@ -25,7 +25,7 @@ class UICharSelection: SKScene {
     override init(size: CGSize) {
         super.init(size: size)
         self.backgroundColor = .clear
-        
+        self.zPosition = 10
         setUpCarousselButtons()
         setUpInstructionsLabel()
         setUpChooseButton()
@@ -110,7 +110,7 @@ class UICharSelection: SKScene {
         switch touchedNode.name {
         case "charNext":
             print("next character")
-            self.uiCharSelectionDelegate?.previousCharacter()
+            self.uiCharSelectionDelegate?.nextCharacter()
             
         case "charBack":
             print("last character")

@@ -37,12 +37,11 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
     }
     
     func previousCharacter() {
-       self.scene.turnRed()
         print("uhul")
     }
     
     func nextCharacter() {
-        
+        self.scene.nextPosition()
     }
     
     func printAllNodes(tab:String, node:SKNode) {
