@@ -19,8 +19,8 @@ extension Array where Element == SKNode {
     }
 }
 
+//Animação de botões
 extension SKAction {
-    
         @nonobjc class var animateButton: SKAction {
             
         let scaleSmall = SKAction.scale(to: 0.9, duration: 0.08)

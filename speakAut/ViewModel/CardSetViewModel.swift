@@ -19,7 +19,7 @@ class CardSetViewModel: SKSpriteNode {
     private var gaps: [GapViewModel] = []
     
     init(cardSet: [Card]){
-        super.init(texture: nil, color: .blue, size: UIScreen.main.bounds.size)
+        super.init(texture: nil, color: .clear, size: UIScreen.main.bounds.size)
         self.name = "setOfCardsAndGaps"
         self.isUserInteractionEnabled = true
 

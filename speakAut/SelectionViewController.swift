@@ -10,26 +10,38 @@ import UIKit
 import SceneKit
 import SpriteKit
 
-class SelectionViewController: UIViewController {
+class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICharSelectionDelegate {
 
     var sceneView: SCNView!
     var spriteScene: UICharSelection!
+    private var scene = CarousselCharSelection()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
         self.sceneView = SCNView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
-        self.sceneView.scene = CarousselCharSelection()
+        self.sceneView.scene = scene
+        self.sceneView.delegate = self
+        
         
         self.spriteScene = UICharSelection(size: self.view.bounds.size)
+        spriteScene.uiCharSelectionDelegate = self
         self.sceneView.overlaySKScene = self.spriteScene
         
         self.view.addSubview(self.sceneView)
         
         printAllNodes(tab: "", node: self.spriteScene)
+        
+    }
+    
+    func previousCharacter() {
+       self.scene.turnRed()
+        print("uhul")
+    }
+    
+    func nextCharacter() {
         
     }
     

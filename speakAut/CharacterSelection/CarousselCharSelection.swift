@@ -15,12 +15,21 @@ class CarousselCharSelection: SCNScene {
     private var cubeNode: SCNNode!
     private var cameraNode: SCNNode!
     private var lightNode: SCNNode!
-    var character:SCNNode!
-    var headMesh:SCNNode!
+    private var character:SCNNode!
+    private var headMesh:SCNNode!
+    
+    private var customRootNode: SCNNode!
+    
     
     override init() {
         super.init()
         
+        let cube = SCNBox(width: 3, height: 3, length: 3, chamferRadius: 0)
+        let cubeMaterial = SCNMaterial()
+        cubeMaterial.diffuse.contents = UIColor.blue
+        cube.materials = [cubeMaterial]
+        self.cubeNode = SCNNode(geometry: cube)
+        self.cubeNode.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 0.01, z: 0, duration: 1.0/60.0)))
    
         let camera = SCNCamera()
         camera.xFov = 60
@@ -56,13 +65,18 @@ class CarousselCharSelection: SCNScene {
        let brothers = self.rootNode.allDescendants()
         print("brothers ", brothers, "end of brothers")
         
-        
+        let cube2 = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
+        let cubeMaterial2 = SCNMaterial()
+        cubeMaterial2.diffuse.contents = UIColor.red
+        cube2.materials = [cubeMaterial2]
+        self.customRootNode = SCNNode(geometry: cube2)
+        self.rootNode.addChildNode(customRootNode)
         
     }
     
     func turnRed() {
-        print("Entrei na função")
-        self.rootNode.removeAllActions()
+        print("turn red")
+        self.customRootNode.addChildNode(self.cubeNode)
     }
     
     

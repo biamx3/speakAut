@@ -161,6 +161,7 @@
 				AB35F420213986A500FACE51 /* SoundTrack.swift */,
 				ABD9FF3421A1AB1700A45FEA /* GameScene.swift */,
 				ABD9FF3221A1AB0200A45FEA /* Extensions.swift */,
+				ABD9FF3B21A1AB4C00A45FEA /* SelectionViewController.swift */,
 				ABD9FF4021A1AB5500A45FEA /* CharacterSelection */,
 				BBDC8141219B78FA00B8CB1C /* ViewModel */,
 			);
@@ -190,7 +191,6 @@
 			children = (
 				ABD9FF3821A1AB4C00A45FEA /* CarousselCharSelection.swift */,
 				ABD9FF3A21A1AB4C00A45FEA /* CharacterSelectionViewController.swift */,
-				ABD9FF3B21A1AB4C00A45FEA /* SelectionViewController.swift */,
 				ABD9FF3921A1AB4C00A45FEA /* UICharSelection.swift */,
 			);
 			path = CharacterSelection;

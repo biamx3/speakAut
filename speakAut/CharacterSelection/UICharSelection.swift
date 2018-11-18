@@ -19,10 +19,13 @@ class UICharSelection: SKScene {
     private var chooseButton: SKSpriteNode!
     private var chooseButtonLabel: SKLabelNode!
     
+    weak var uiCharSelectionDelegate: UICharSelectionDelegate?
+    
     
     override init(size: CGSize) {
         super.init(size: size)
         self.backgroundColor = .clear
+        
         setUpCarousselButtons()
         setUpInstructionsLabel()
         setUpChooseButton()
@@ -45,7 +48,7 @@ class UICharSelection: SKScene {
     func setUpCarousselButtons() {
         let sceneSize = self.frame.size
         let charBackButtonTexture = SKTexture(imageNamed: "characterBackButton")
-        let charNextButtonTexture = SKTexture(imageNamed: "characterNextButton")
+        let charNextButtonTexture = SKTexture(imageNamed: "characterForwardButton")
         
         self.charBackButton = SKSpriteNode(texture: charBackButtonTexture, color: .clear, size: charBackButtonTexture.size())
         self.charNextButton = SKSpriteNode(texture: charNextButtonTexture, color: .clear, size: charNextButtonTexture.size())
@@ -107,15 +110,15 @@ class UICharSelection: SKScene {
         switch touchedNode.name {
         case "charNext":
             print("next character")
+            self.uiCharSelectionDelegate?.previousCharacter()
             
         case "charBack":
             print("last character")
-            let carousselCharSelection = CarousselCharSelection()
-            carousselCharSelection.turnRed()
+            self.uiCharSelectionDelegate?.previousCharacter()
             
         case "charChoose":
             print("chose character")
-
+            self.uiCharSelectionDelegate?.previousCharacter()
             
             
         default:
@@ -129,3 +132,7 @@ class UICharSelection: SKScene {
     
 }
 
+protocol UICharSelectionDelegate: class {
+    func previousCharacter()
+    func nextCharacter()
+}
