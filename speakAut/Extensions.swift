@@ -8,6 +8,7 @@
 
 import Foundation
 import SpriteKit
+import SceneKit
 
 extension Array where Element == SKNode {
     func near(_ anotherNodes:[SKNode?])-> Bool {
@@ -15,6 +16,22 @@ extension Array where Element == SKNode {
             guard let _ = element.near(anotherNodes) else { return false }
         }
         return true
+    }
+}
+
+extension SKAction {
+    
+        @nonobjc class var animateButton: SKAction {
+            
+        let scaleSmall = SKAction.scale(to: 0.9, duration: 0.08)
+        let lowerOpacity = SKAction.fadeAlpha(to: 0.95, duration: 0.08)
+        let smallAnimationGroup = SKAction.group([scaleSmall, lowerOpacity])
+        
+        let scaleBig = SKAction.scale(to: 1.0, duration: 0.05)
+        let heightenOpacity = SKAction.fadeAlpha(to: 1.0, duration: 0.01)
+        let bigAnimationGroup = SKAction.group([scaleBig, heightenOpacity])
+        
+        return SKAction.sequence([smallAnimationGroup, bigAnimationGroup])
     }
 }
 
@@ -40,6 +57,17 @@ extension SKNode {
              all.append(contentsOf: child.allDescendants())
         }
             return all
+    }
+}
+
+extension SCNNode {
+    func allDescendants()->[SCNNode] {
+        var all:[SCNNode] = []
+        for child in self.childNodes {
+            all.append(child)
+            all.append(contentsOf: child.allDescendants())
+        }
+        return all
     }
 }
 

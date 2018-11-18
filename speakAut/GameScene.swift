@@ -26,6 +26,7 @@ class GameScene: SKScene {
         self.addChild(cardSetViewModel)
     }
     
+    //Prints all nodes in node tree
     func printAllNodes(tab:String, node:SKNode) {
         let aTab = tab + "  "
         for child in node.children {
@@ -35,28 +36,32 @@ class GameScene: SKScene {
         }
     }
     
-//    override func update(_ currentTime: TimeInterval) {
+    override func update(_ currentTime: TimeInterval) {
         //Filter all nodes in scene to identify gaps and cards
-//        let brothers = self.allDescendants()
-//        let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
-//        let gaps = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
-//        let cardArray = cards as! [CardViewModel]
-//
-//        for i in 0...cardArray.count - 1{
-//            let card = cardArray[i]
-//            let index = i
-//            let lastItem = cardArray.last
-//            let lastIndex = cardArray.index(of: lastItem ?? card)
-//
-//            if index != lastIndex {
-//                if card.position == cardArray[lastIndex ?? 0].position {
-//                    card.run(SKAction.move(by: CGVector(dx: 0, dy: 180), duration: 0.5))
-//                }
-//            }
-//        }
-//
-//    }
+        let brothers = self.allDescendants()
+        let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
+        let cardArray = cards as! [CardViewModel]
 
+        //Compare each card's position with the last card in the array
+        for i in 0...cardArray.count - 1{
+            let card = cardArray[i]
+            let index = i
+            let lastItem = cardArray.last
+            let lastIndex = cardArray.index(of: lastItem ?? card)
+            let nextCard = cardArray[lastIndex ?? 0]
+            let removeCardFromGap = SKAction.move(by: CGVector(dx: 0, dy: 180), duration: 0.2)
+            removeCardFromGap.timingMode = .easeOut
+            
+            //If two cards have the same position, remove the card with the lowest zPosition from the gap
+            if index != lastIndex && card.position == nextCard.position   {
+                if card.zPosition < nextCard.zPosition {
+                    card.run(removeCardFromGap)
+                } else {
+                    nextCard.run(removeCardFromGap)
+                }
+            }
+        }
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print(type(of:self), #function)
