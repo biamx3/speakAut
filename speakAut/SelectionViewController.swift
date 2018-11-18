@@ -37,7 +37,7 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
     }
     
     func previousCharacter() {
-        print("uhul")
+        self.scene.previousPosition()
     }
     
     func nextCharacter() {
