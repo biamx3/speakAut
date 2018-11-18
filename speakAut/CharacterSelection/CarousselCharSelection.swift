@@ -77,57 +77,83 @@ class CarousselCharSelection: SCNScene {
         self.rootNode.addChildNode(leftCharacter)
         self.rootNode.addChildNode(centralCharacter)
         self.rootNode.addChildNode(rightCharacter)
-        
-        print("central char index is ", centralCharIndex)
-        print("characters are ", leftCharacter.name, centralCharacter.name, rightCharacter.name)
-        //self.visibleCharacters.append(contentsOf: [leftCharacter, centralCharacter, rightCharacter])
     }
     
-    func nextPosition(){
-        //Change nodes in visibleCharacters
-        //Get CentralCharacter index CCI
-        //visible nodes: totalCharacters[CCI - 1], centralCharacter, totalCharacters[CCI + 1]
-        //Next position:
-        //if node não pertence à visible characters, remova; se pertence e não está adicionado, adicione
-        let centralCharIndex = totalCharacters.index(of: centralCharacter ?? totalCharacters[0])
-        
-        if centralCharIndex ?? 0 < totalCharacters.count - 1 {
-            let moveToFarLeft = SCNAction.move(to: positionFarLeft, duration: 0.2)
-            let moveToLeft = SCNAction.move(to: positionLeft, duration: 0.2)
-            let moveToCenter = SCNAction.move(to: positionCenter, duration: 0.2)
-            let moveToRight = SCNAction.move(to: positionRight, duration: 0.2)
-            
-            self.leftCharacter.runAction(moveToFarLeft)
-            self.leftCharacter.removeFromParentNode()
-            
-            self.centralCharacter.runAction(moveToLeft)
-            self.leftCharacter = centralCharacter
-            
-            self.rightCharacter.runAction(moveToCenter)
-            self.centralCharacter = rightCharacter
-            
-            let nextIndex = (centralCharIndex ?? 0) + 1
-            let newCharacter = totalCharacters[nextIndex]
-            self.rootNode.addChildNode(newCharacter)
-            newCharacter.position = positionFarRight
-            newCharacter.runAction(moveToRight)
-            self.rightCharacter = newCharacter
-            
-            print("character names: ", leftCharacter, centralCharacter, rightCharacter)
-            print("new centralCharIndex ", centralCharIndex)
-        }
-
-//        self.leftCharacter.removeFromParentNode()
-//        self.leftCharacter = centralCharacter
-//        self.rootNode.addChildNode(leftCharacter)
-//        self.centralCharacter = self.rightCharacter
+//    func nextPosition(){
 //        let centralCharIndex = totalCharacters.index(of: centralCharacter ?? totalCharacters[0])
-//        self.rightCharacter = totalCharacters[centralCharIndex ?? 0 + 1]
-//        self.rootNode.addChildNode(rightCharacter)
-//        self.visibleCharacters.removeFirst()
-//        self.visibleCharacters.append(totalCharacters[centralCharIndex ?? 0 + 1])
+//        let moveToFarLeft = SCNAction.move(to: positionFarLeft, duration: 0.2)
+//        let moveToLeft = SCNAction.move(to: positionLeft, duration: 0.2)
+//        let moveToCenter = SCNAction.move(to: positionCenter, duration: 0.2)
+//        let moveToRight = SCNAction.move(to: positionRight, duration: 0.2)
+//
+//        self.leftCharacter.runAction(moveToFarLeft)
+//        self.leftCharacter.removeFromParentNode()
+//        self.centralCharacter.runAction(moveToLeft)
+//        self.leftCharacter = centralCharacter
+//        self.rightCharacter.runAction(moveToCenter)
+//        self.centralCharacter = rightCharacter
+//
+//        if centralCharIndex ?? 0 < totalCharacters.count - 2 {
+//            let nextIndex = (centralCharIndex ?? 0) + 2
+//            let newCharacter = totalCharacters[nextIndex]
+//            newCharacter.position = positionFarRight
+//            self.rootNode.addChildNode(newCharacter)
+//            newCharacter.runAction(moveToRight)
+//            self.rightCharacter = newCharacter
+//        } else {
+//            let nextIndex = 0
+//            self.centralCharacter = totalCharacters.last
+//            let newCharacter = totalCharacters[nextIndex]
+//            newCharacter.position = positionFarRight
+//            self.rootNode.addChildNode(newCharacter)
+//            newCharacter.runAction(moveToRight)
+//            print("right character is ", rightCharacter.name)
+//            print("center character is ", centralCharacter.name)
+//            self.rightCharacter = newCharacter
+//            print("right character is ", rightCharacter.name)
+//            print("center character is ", centralCharacter.name)
+//
+//        }
+    
+    func nextPosition(){
+        let centralCharIndex = totalCharacters.index(of: centralCharacter ?? totalCharacters[0])
+        let moveToFarLeft = SCNAction.move(to: positionFarLeft, duration: 0.2)
+        let moveToLeft = SCNAction.move(to: positionLeft, duration: 0.2)
+        let moveToCenter = SCNAction.move(to: positionCenter, duration: 0.2)
+        let moveToRight = SCNAction.move(to: positionRight, duration: 0.2)
         
+        self.leftCharacter.runAction(moveToFarLeft)
+        self.leftCharacter.removeFromParentNode()
+        self.centralCharacter.runAction(moveToLeft)
+        self.leftCharacter = centralCharacter
+        self.rightCharacter.runAction(moveToCenter)
+        self.centralCharacter = rightCharacter
+        
+        var rightCharIndex = totalCharacters.index(of: rightCharacter)
+        
+        var nextIndex = 0
+        if rightCharIndex == totalCharacters.endIndex || centralCharIndex == totalCharacters.endIndex - 2{
+            print("end index is" , totalCharacters.endIndex)
+            nextIndex = 0
+        } else {
+            nextIndex = (rightCharIndex ?? 0) + 1
+        }
+        
+//        if rightCharIndex ?? 0 < totalCharacters.endIndex - 1 {
+//            nextIndex = (centralCharIndex ?? 0) + 2
+//        }
+        print("next Index ", nextIndex)
+        let newCharacter = totalCharacters[nextIndex]
+        newCharacter.position = positionFarRight
+        self.rootNode.addChildNode(newCharacter)
+        newCharacter.runAction(moveToRight)
+        self.rightCharacter = newCharacter
+            print("center character is ", centralCharacter.name)
+            print("right character is ", rightCharacter.name)
     }
+
+
+
     
     func addLights(){
         let ambientLight = SCNLight()
