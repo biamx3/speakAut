@@ -64,6 +64,79 @@ class CardSetViewModel: SKSpriteNode {
         }
     }
     
+    func setUpInvisibleNode() {
+        let sceneSize = self.frame.size
+        invisibleNode = SKSpriteNode(color: .clear, size: sceneSize)
+        invisibleNode.isUserInteractionEnabled = false
+        invisibleNode.zPosition = 20
+    }
+    
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+    //CARDS ARE IN CORRECT ORDER
+    
+    func successMessage() -> SKLabelNode {
+        let sceneSize = self.frame.size
+        let sucessMessage = SKLabelNode(text: "Você acertou!")
+        sucessMessage.name = "instructionsLabel"
+        sucessMessage.fontSize = 32
+        sucessMessage.fontColor = UIColor.greyishBrown
+        sucessMessage.zPosition = 15
+        sucessMessage.position = CGPoint(x: 0, y: sceneSize.height/2.7)
+        return sucessMessage
+    }
+    
+    func cardsAreRight(cardNodes: [CardViewModel]) {
+        let successLabel = successMessage()
+        self.addChild(successLabel)
+        
+        //Turn off user interaction
+        self.addChild(invisibleNode)
+        self.isUserInteractionEnabled = false
+        
+        //Animate error label appearance
+        let fadeIn = SKAction.fadeAlpha(to: 3.0, duration: 1.0)
+        let wait = SKAction.wait(forDuration: 5.0)
+        let fadeOut = SKAction.fadeOut(withDuration: 1.0)
+        let animation = SKAction.sequence([wait,fadeOut])
+        
+        self.hideGaps()
+        successLabel.run(fadeIn, completion: {
+            self.prepareCardsForRepeatExercise(cards: cardNodes)
+            successLabel.run(animation, completion: {
+            successLabel.removeFromParent()
+            })
+
+        })
+    }
+    
+    func prepareCardsForRepeatExercise(cards: [CardViewModel]){
+        //Animate cards going to center of screen
+        let prepareCards = SKAction.move(by: CGVector(dx: 0, dy: CGSize.card.height*0.5), duration: 0.2)
+        prepareCards.timingMode = .easeOut
+        
+        for card in cards {
+            card.run(prepareCards, completion: {
+                //MARK go to repeat scene
+            })
+        }
+    }
+    
+    func hideGaps(){
+        guard let brothers = self.parent?.allDescendants() else {return}
+        let gapsInScreen = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
+        
+        for gap in gapsInScreen {
+            gap.alpha = 0
+        }
+    }
+    
+    func createConfettiParticles(){
+        
+    }
+    
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+    //WHEN CARDS ARE IN WRONG ORDER
+    
     func errorMessage() -> SKLabelNode {
         let sceneSize = self.frame.size
         let errorMessage = SKLabelNode(text: "Tente novamente")
@@ -78,13 +151,6 @@ class CardSetViewModel: SKSpriteNode {
         return errorMessage
     }
     
-    func setUpInvisibleNode() {
-        let sceneSize = self.frame.size
-        invisibleNode = SKSpriteNode(color: .clear, size: sceneSize)
-        invisibleNode.isUserInteractionEnabled = false
-        invisibleNode.zPosition = 20
-    }
-    
     func cardsAreWrong(cardNodes: [CardViewModel]){
         let errorLabel = errorMessage()
         self.addChild(errorLabel)
@@ -92,7 +158,8 @@ class CardSetViewModel: SKSpriteNode {
         //Turn off user interaction
         self.addChild(invisibleNode)
         self.isUserInteractionEnabled = false
-        
+
+        //Animate error label appearance
         let fadeIn = SKAction.fadeAlpha(to: 3.0, duration: 0.8)
         let wait = SKAction.wait(forDuration: 2.0)
         let fadeOut = SKAction.fadeOut(withDuration: 0.5)
@@ -126,6 +193,7 @@ class CardSetViewModel: SKSpriteNode {
         }
     }
     
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         //Filter all nodes in scene to identify gaps and cards
         guard let brothers = self.parent?.allDescendants() else {return}
@@ -138,10 +206,11 @@ class CardSetViewModel: SKSpriteNode {
         if (cardViews as [SKNode]).near(gapsInScreen) {
 
             if cardViews.isOrderedInX {
-                print("cards are correct")
+//                let successLabel = successMessage()
+//                self.addChild(successLabel)
+                cardsAreRight(cardNodes: cardViews)
             } else {
                 cardsAreWrong(cardNodes: cardViews)
-                print("cards are incorrect")
             }
         }
     }
