@@ -58,6 +58,8 @@ class GameScene: SKScene {
             let lastItem = cardArray.last
             let lastIndex = cardArray.index(of: lastItem ?? card)
             let nextCard = cardArray[lastIndex ?? 0]
+            
+            //Animate cards moving out of gap
             let removeCardFromGap = SKAction.move(by: CGVector(dx: 0, dy: 180), duration: 0.2)
             let randomRotation = self.randomRotation()
             let removeCardFromGapGroup = SKAction.group([removeCardFromGap, randomRotation])
@@ -77,11 +79,14 @@ class GameScene: SKScene {
     func addBackButton() {
         let sceneSize = UIScreen.main.bounds.size
         let backButtonTexture = SKTexture(imageNamed: "backButton")
+        let touchArea = SKShapeNode(circleOfRadius: backButtonTexture.size().width*1.3)
+        touchArea.strokeColor = .clear
+        touchArea.name = "backButton"
+        touchArea.position = CGPoint(x: -sceneSize.width/2.3 , y: sceneSize.height/2.4)
         let backButton = SKSpriteNode(texture: backButtonTexture, color: .clear, size: backButtonTexture.size())
-        backButton.position = CGPoint(x: -sceneSize.width/2.3 , y: sceneSize.height/2.4)
         backButton.name = "backButton"
-        self.addChild(backButton)
-        print("scene size " , sceneSize)
+        touchArea.addChild(backButton)
+        self.scene?.addChild(touchArea)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -89,6 +94,7 @@ class GameScene: SKScene {
         let position = touch.location(in: self)
         let touchedNode = atPoint(position)
         
+        //Go to previous screen
         if touchedNode.name == "backButton" {
             touchedNode.run(SKAction.animateButton)
             self.gameSceneDelegate?.goToCharacterSelectionScreen()

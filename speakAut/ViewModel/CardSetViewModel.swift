@@ -65,9 +65,17 @@ class CardSetViewModel: SKSpriteNode {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-   //Check if cards are in the correct order when all gaps are filled
-        if (cards as [SKNode]).near(gaps) {
-            if cards.isOrderedInX {
+        //Filter all nodes in scene to identify gaps and cards
+        guard let brothers = self.parent?.allDescendants() else {return}
+        let cardsInScreen = brothers.filter {($0.name?.starts(with: "card") ?? false)}
+        let gapsInScreen = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
+        
+        let cardViews = cardsInScreen as! [CardViewModel]
+        
+        //Check if cards are in the correct order when all gaps are filled
+        if (cardViews as [SKNode]).near(gapsInScreen) {
+
+            if cardViews.isOrderedInX {
                 print("cards are correct")
             } else {
                 print("cards are incorrect")

@@ -17,21 +17,19 @@ class CardViewModel: SKSpriteNode {
     private var card = SKSpriteNode()
     private var wordNode = SKLabelNode()
     private var imageNode = SKSpriteNode()
-    private var cardModel: Card
 
     init(cardModel:Card) {
         // minimum init
-        self.cardModel = cardModel
         super.init(texture: nil, color: .clear, size: CGSize.card)
         self.zPosition = 2
-        self.wordNode.text = cardModel.word
         self.isUserInteractionEnabled = true
-        self.name = "card " + cardModel.word
+        self.name = "card" + cardModel.word
 
         // add card elements
         randomRotation()
         cardSetUp()
         imageNode.texture = SKTexture(imageNamed: cardModel.imageName)
+        self.wordNode.text = cardModel.word
     }
     
     required init?(coder aDecoder: NSCoder) {
