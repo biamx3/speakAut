@@ -8,7 +8,7 @@
 
     import UIKit
     import SpriteKit
-    import GameplayKit
+    import SAConfettiView
     
     @objc(GameViewController)
 class GameViewController: UIViewController, GameSceneDelegate {
@@ -20,6 +20,8 @@ class GameViewController: UIViewController, GameSceneDelegate {
         override func viewDidLoad() {
             super.viewDidLoad()
             
+
+            
             if let view = self.view as! SKView? {
                 // Load the SKScene from 'GameScene.sks'
                 if let scene = GameScene(fileNamed: "GameScene") {
@@ -30,12 +32,19 @@ class GameViewController: UIViewController, GameSceneDelegate {
                     view.presentScene(scene)
                     
                     scene.gameSceneDelegate = self
+                    
+                    let confettiView = SAConfettiView(frame: CGRect(x: self.view.bounds.maxX, y: self.view.bounds.maxY, width: self.view.bounds.height, height: self.view.bounds.width))
+                    confettiView.type = .Star
+                    view.addSubview(confettiView)
+                    confettiView.startConfetti()
                 }
                 
                 view.ignoresSiblingOrder = true
                 
                 view.showsFPS = false
                 view.showsNodeCount = true
+                
+
             }
         }
         
