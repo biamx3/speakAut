@@ -11,8 +11,6 @@ import SceneKit
 
 class CarousselCharSelection: SCNScene {
     
-    private var cube: SCNBox!
-    private var cubeNode: SCNNode!
     private var cameraNode: SCNNode!
     private var lightNode: SCNNode!
     
@@ -31,7 +29,6 @@ class CarousselCharSelection: SCNScene {
     
     override init() {
         super.init()
-        
         setPositionValues()
         createCubes()
         addCamera()

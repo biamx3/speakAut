@@ -10,10 +10,13 @@ import SpriteKit
 
 class GameScene: SKScene {
 
+    weak var gameSceneDelegate: GameSceneDelegate?
+    
     override func didMove(to view: SKView) {
         self.scaleMode = .resizeFill
         addCardsAndGaps()
         printAllNodes(tab: "", node: self.scene!)
+        addBackButton()
         self.isUserInteractionEnabled = true
     }
     
@@ -63,10 +66,28 @@ class GameScene: SKScene {
         }
     }
     
+    func addBackButton() {
+        let sceneSize = UIScreen.main.bounds.size
+        let backButtonTexture = SKTexture(imageNamed: "backButton")
+        let backButton = SKSpriteNode(texture: backButtonTexture, color: .clear, size: backButtonTexture.size())
+        backButton.position = CGPoint(x: -sceneSize.width/2.3 , y: sceneSize.height/2.4)
+        backButton.name = "backButton"
+        self.addChild(backButton)
+        print("scene size " , sceneSize)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print(type(of:self), #function)
+        guard let touch = touches.first else { return }
+        let position = touch.location(in: self)
+        let touchedNode = atPoint(position)
+        
+        if touchedNode.name == "backButton" {
+            touchedNode.run(SKAction.animateButton)
+            self.gameSceneDelegate?.goToCharacterSelectionScreen()
+        }
     }
 }
 
-
-
+protocol GameSceneDelegate: class {
+    func goToCharacterSelectionScreen()
+}

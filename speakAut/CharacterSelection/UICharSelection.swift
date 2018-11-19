@@ -118,7 +118,11 @@ class UICharSelection: SKScene {
             
         case "charChoose":
             print("chose character")
-            self.uiCharSelectionDelegate?.previousCharacter()
+            self.uiCharSelectionDelegate?.selectCharacter()
+            
+        case "chooseLabel":
+            print("chose character")
+            self.uiCharSelectionDelegate?.selectCharacter()
             
             
         default:
@@ -135,4 +139,6 @@ class UICharSelection: SKScene {
 protocol UICharSelectionDelegate: class {
     func previousCharacter()
     func nextCharacter()
+    func selectCharacter()
+    func goToMenuScreen()
 }

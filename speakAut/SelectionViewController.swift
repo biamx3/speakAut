@@ -44,6 +44,19 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
         self.scene.nextPosition()
     }
     
+    func selectCharacter() {
+        print("character was selected")
+        let gameViewController = GameViewController()
+        present(gameViewController, animated: true, completion: nil)
+        if self.isBeingPresented {
+            self.dismiss(animated: false, completion: {})
+        }
+    }
+    
+    func goToMenuScreen() {
+        print("go to menu screen")
+    }
+    
     func printAllNodes(tab:String, node:SKNode) {
         let aTab = tab + "  "
         for child in node.children {

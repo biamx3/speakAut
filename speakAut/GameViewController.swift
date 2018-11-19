@@ -11,8 +11,8 @@
     import GameplayKit
     
     @objc(GameViewController)
-    class GameViewController: UIViewController {
-        
+class GameViewController: UIViewController, GameSceneDelegate {
+
         override func loadView() {
             self.view = SKView()
         }
@@ -22,18 +22,28 @@
             
             if let view = self.view as! SKView? {
                 // Load the SKScene from 'GameScene.sks'
-                if let scene = SKScene(fileNamed: "GameScene") {
+                if let scene = GameScene(fileNamed: "GameScene") {
                     // Set the scale mode to scale to fit the window
                     scene.scaleMode = .resizeFill
                     
                     // Present the scene
                     view.presentScene(scene)
+                    
+                    scene.gameSceneDelegate = self
                 }
                 
                 view.ignoresSiblingOrder = true
                 
                 view.showsFPS = false
                 view.showsNodeCount = true
+            }
+        }
+        
+        func goToCharacterSelectionScreen() {
+            let selectionViewController = SelectionViewController()
+            present(selectionViewController, animated: true, completion: nil)
+            if self.isBeingPresented {
+                self.dismiss(animated: false, completion: {})
             }
         }
         

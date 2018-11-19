@@ -98,18 +98,10 @@ class CardViewModel: SKSpriteNode {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print(type(of:self), #function)
         
         //Filter all nodes in scene to identify gaps and cards
         guard let brothers = self.parent?.allDescendants() else {return}
         let gaps = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
-
-//        let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
-//        let cardArray = cards as! [CardViewModel]
-        
-        //Get all cards in scene excluding the one that is being touched
-//        let filteredCards = cards.filter { $0 != self }
-//        let cardBros = filteredCards as! [CardViewModel]
         
         //Have cards stick to gaps
         if let index = self.near(gaps) {
