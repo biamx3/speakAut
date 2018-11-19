@@ -19,6 +19,10 @@ class CardSetViewModel: SKSpriteNode {
     private var gaps: [GapViewModel] = []
     private var invisibleNode: SKSpriteNode!
     
+    init(){
+        super.init(texture: nil, color: .clear, size: UIScreen.main.bounds.size)
+    }
+    
     init(cardSet: [Card]){
         super.init(texture: nil, color: .clear, size: UIScreen.main.bounds.size)
         self.name = "setOfCardsAndGaps"
@@ -89,13 +93,16 @@ class CardSetViewModel: SKSpriteNode {
         let successLabel = successMessage()
         self.addChild(successLabel)
         
+        let parent = self.parent as! GameScene
+        parent.gameSceneDelegate?.turnOnConfetti()
+        
         //Turn off user interaction
         self.addChild(invisibleNode)
         self.isUserInteractionEnabled = false
         
         //Animate error label appearance
         let fadeIn = SKAction.fadeAlpha(to: 3.0, duration: 1.0)
-        let wait = SKAction.wait(forDuration: 5.0)
+        let wait = SKAction.wait(forDuration: 4.0)
         let fadeOut = SKAction.fadeOut(withDuration: 1.0)
         let animation = SKAction.sequence([wait,fadeOut])
         
@@ -104,6 +111,7 @@ class CardSetViewModel: SKSpriteNode {
             self.prepareCardsForRepeatExercise(cards: cardNodes)
             successLabel.run(animation, completion: {
             successLabel.removeFromParent()
+            parent.gameSceneDelegate?.turnOffConfetti()
             })
 
         })
@@ -206,8 +214,6 @@ class CardSetViewModel: SKSpriteNode {
         if (cardViews as [SKNode]).near(gapsInScreen) {
 
             if cardViews.isOrderedInX {
-//                let successLabel = successMessage()
-//                self.addChild(successLabel)
                 cardsAreRight(cardNodes: cardViews)
             } else {
                 cardsAreWrong(cardNodes: cardViews)

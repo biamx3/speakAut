@@ -104,4 +104,6 @@ class GameScene: SKScene {
 
 protocol GameSceneDelegate: class {
     func goToCharacterSelectionScreen()
+    func turnOnConfetti()
+    func turnOffConfetti()
 }

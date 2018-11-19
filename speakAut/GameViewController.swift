@@ -12,6 +12,8 @@
     
     @objc(GameViewController)
 class GameViewController: UIViewController, GameSceneDelegate {
+        
+        private var confettiView: SAConfettiView!
 
         override func loadView() {
             self.view = SKView()
@@ -19,8 +21,6 @@ class GameViewController: UIViewController, GameSceneDelegate {
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            
-
             
             if let view = self.view as! SKView? {
                 // Load the SKScene from 'GameScene.sks'
@@ -33,19 +33,22 @@ class GameViewController: UIViewController, GameSceneDelegate {
                     
                     scene.gameSceneDelegate = self
                     
-                    let confettiView = SAConfettiView(frame: CGRect(x: self.view.bounds.maxX, y: self.view.bounds.maxY, width: self.view.bounds.height, height: self.view.bounds.width))
-                    confettiView.type = .Star
-                    view.addSubview(confettiView)
-                    confettiView.startConfetti()
+                    
+                    //Why is size 0 in the beginning?
+                    print("size : ", self.view.bounds)
+                    print("scene size: ", scene.size)
                 }
                 
                 view.ignoresSiblingOrder = true
                 
                 view.showsFPS = false
                 view.showsNodeCount = true
-                
-
             }
+            
+            confettiView = SAConfettiView(frame: CGRect(x: 0, y: 0, width: 1000, height: 0))
+            confettiView.type = .Star
+            confettiView.intensity = 0.9
+            view.addSubview(confettiView)
         }
         
         func goToCharacterSelectionScreen() {
@@ -66,6 +69,15 @@ class GameViewController: UIViewController, GameSceneDelegate {
             } else {
                 return .landscape
             }
+        }
+        
+        func turnOnConfetti(){
+            print("turn on confetti")
+            confettiView.startConfetti()
+        }
+        
+        func turnOffConfetti() {
+            confettiView.stopConfetti()
         }
         
         override func didReceiveMemoryWarning() {
