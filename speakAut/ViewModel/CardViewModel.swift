@@ -29,12 +29,18 @@ class CardViewModel: SKSpriteNode {
         self.name = "card " + cardModel.word
 
         // add card elements
+        randomRotation()
         cardSetUp()
         imageNode.texture = SKTexture(imageNamed: cardModel.imageName)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func randomRotation(){
+        let randomAngle = Float.random(in: -0.5 ..< 0.3)
+        self.run(SKAction.rotate(byAngle: CGFloat(randomAngle), duration: 0))
     }
     
     func cardSetUp() {
@@ -66,7 +72,6 @@ class CardViewModel: SKSpriteNode {
         
         card.addChild(wordNode)
     }
-
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let brothers = self.parent?.allDescendants() else {return}
@@ -75,6 +80,13 @@ class CardViewModel: SKSpriteNode {
         //Get all cards in scene excluding the one that is being touched
         let filteredCards = cards.filter { $0 != self }
         let cardBros = filteredCards as! [CardViewModel]
+        
+        //Animate up
+        let scaleUp = SKAction.scale(to: 1.15, duration: 0.2)
+        let rotateToCorrect = SKAction.rotate(toAngle: 0.0, duration: 0.2)
+        let scaleUpGroup = SKAction.group([scaleUp, rotateToCorrect])
+        scaleUpGroup.timingMode = .easeOut
+        self.run(scaleUpGroup)
 
         //Move card that is being touched higher in the hierarchy
         for index in cardBros {
@@ -84,6 +96,7 @@ class CardViewModel: SKSpriteNode {
             index.card.zPosition = self.card.zPosition - 1
         }
     }
+    
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
@@ -102,6 +115,11 @@ class CardViewModel: SKSpriteNode {
         //Filter all nodes in scene to identify gaps and cards
         guard let brothers = self.parent?.allDescendants() else {return}
         let gaps = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
+        
+        //Animate back to correct scale
+        let scaleDown = SKAction.scale(to: 1.0, duration: 0.2)
+        scaleDown.timingMode = .easeOut
+        self.run(scaleDown)
         
         //Have cards stick to gaps
         if let index = self.near(gaps) {

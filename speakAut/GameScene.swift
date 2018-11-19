@@ -39,6 +39,12 @@ class GameScene: SKScene {
         }
     }
     
+    func randomRotation() -> SKAction {
+        let randomAngle = Float.random(in: -0.3 ..< 0.3)
+        let randomRotation = SKAction.rotate(byAngle: CGFloat(randomAngle), duration: 0.15)
+        return randomRotation
+    }
+    
     override func update(_ currentTime: TimeInterval) {
         //Filter all nodes in scene to identify gaps and cards
         let brothers = self.allDescendants()
@@ -53,14 +59,16 @@ class GameScene: SKScene {
             let lastIndex = cardArray.index(of: lastItem ?? card)
             let nextCard = cardArray[lastIndex ?? 0]
             let removeCardFromGap = SKAction.move(by: CGVector(dx: 0, dy: 180), duration: 0.2)
-            removeCardFromGap.timingMode = .easeOut
+            let randomRotation = self.randomRotation()
+            let removeCardFromGapGroup = SKAction.group([removeCardFromGap, randomRotation])
+            removeCardFromGapGroup.timingMode = .easeOut
             
             //If two cards have the same position, remove the card with the lowest zPosition from the gap
             if index != lastIndex && card.position == nextCard.position   {
                 if card.zPosition < nextCard.zPosition {
-                    card.run(removeCardFromGap)
+                    card.run(removeCardFromGapGroup)
                 } else {
-                    nextCard.run(removeCardFromGap)
+                    nextCard.run(removeCardFromGapGroup)
                 }
             }
         }
