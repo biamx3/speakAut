@@ -32,6 +32,15 @@ class CardSetViewModel: SKSpriteNode {
         addGaps(from: cards)
     }
     
+    //Init for use in RepeatWordsScene
+    init(cardsOnly: [Card]){
+        super.init(texture: nil, color: .clear, size: UIScreen.main.bounds.size)
+        self.name = "setOfCardsAndGaps"
+        self.isUserInteractionEnabled = true
+        setUpInvisibleNode()
+        addCards(from: cardsOnly)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -112,6 +121,7 @@ class CardSetViewModel: SKSpriteNode {
             successLabel.run(animation, completion: {
             successLabel.removeFromParent()
             parent.gameSceneDelegate?.turnOffConfetti()
+            parent.goToRepeatWordsScene()
             })
 
         })
