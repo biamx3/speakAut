@@ -32,7 +32,7 @@
 		ABD9FF3F21A1AB4C00A45FEA /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD9FF3B21A1AB4C00A45FEA /* SelectionViewController.swift */; };
 		ABDDD3472191B96D00641318 /* GapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDDD3462191B96D00641318 /* GapViewModel.swift */; };
 		ABDFF25621A463390059193F /* RepeatWordsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDFF25421A463380059193F /* RepeatWordsScene.swift */; };
-		ABDFF25721A463390059193F /* RepeatWordsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = ABDFF25521A463390059193F /* RepeatWordsScene.sks */; };
+		ABDFF25921A47E740059193F /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDFF25821A47E740059193F /* CardType.swift */; };
 		ABE1CAC021750EED0057BA53 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE1CABF21750EED0057BA53 /* GameViewController.swift */; };
 		ABE9A0EF2191CB50008827EF /* CardSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */; };
 		ABFBD0D221A32B05001C5E05 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = ABFBD0D121A32B05001C5E05 /* Podfile */; };
@@ -89,7 +89,7 @@
 		ABD9FF3B21A1AB4C00A45FEA /* SelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 		ABDDD3462191B96D00641318 /* GapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapViewModel.swift; sourceTree = "<group>"; };
 		ABDFF25421A463380059193F /* RepeatWordsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatWordsScene.swift; sourceTree = "<group>"; };
-		ABDFF25521A463390059193F /* RepeatWordsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RepeatWordsScene.sks; sourceTree = "<group>"; };
+		ABDFF25821A47E740059193F /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
 		ABE1CABF21750EED0057BA53 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetViewModel.swift; sourceTree = "<group>"; };
 		ABFBD0D121A32B05001C5E05 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -170,7 +170,6 @@
 				AB35F3F02139836800FACE51 /* Info.plist */,
 				AB35F41C213984B800FACE51 /* GameScene.sks */,
 				AB35F420213986A500FACE51 /* SoundTrack.swift */,
-				ABDFF25521A463390059193F /* RepeatWordsScene.sks */,
 				ABDFF25421A463380059193F /* RepeatWordsScene.swift */,
 				ABD9FF3421A1AB1700A45FEA /* GameScene.swift */,
 				ABD9FF3221A1AB0200A45FEA /* Extensions.swift */,
@@ -214,6 +213,7 @@
 			children = (
 				ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */,
 				AB35F41A2139848100FACE51 /* CardViewModel.swift */,
+				ABDFF25821A47E740059193F /* CardType.swift */,
 				ABDDD3462191B96D00641318 /* GapViewModel.swift */,
 			);
 			path = ViewModel;
@@ -349,7 +349,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB35F3E52139836500FACE51 /* art.scnassets in Resources */,
-				ABDFF25721A463390059193F /* RepeatWordsScene.sks in Resources */,
 				AB35F41D213984B800FACE51 /* GameScene.sks in Resources */,
 				AB0984442155976A005C420F /* esfera.scn in Resources */,
 				AB35F3EF2139836800FACE51 /* LaunchScreen.storyboard in Resources */,
@@ -444,6 +443,7 @@
 				AB35F3E32139836500FACE51 /* AppDelegate.swift in Sources */,
 				ABD9FF3C21A1AB4C00A45FEA /* CarousselCharSelection.swift in Sources */,
 				AB35F41B2139848100FACE51 /* CardViewModel.swift in Sources */,
+				ABDFF25921A47E740059193F /* CardType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

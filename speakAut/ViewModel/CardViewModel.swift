@@ -17,16 +17,19 @@ class CardViewModel: SKSpriteNode {
     private var card = SKSpriteNode()
     private var wordNode = SKLabelNode()
     private var imageNode = SKSpriteNode()
+    private var cardType: CardType!
 
-    init(cardModel:Card) {
+    init(cardModel:Card, type: CardType) {
         // minimum init
         super.init(texture: nil, color: .clear, size: CGSize.card)
         self.zPosition = 2
         self.isUserInteractionEnabled = true
         self.name = "card" + cardModel.word
-
+        
+        //Is this card being used in the GameScene or RepeatWordsScene?
+        self.cardType = type
+        
         // add card elements
-        randomRotation()
         cardSetUp()
         imageNode.texture = SKTexture(imageNamed: cardModel.imageName)
         self.wordNode.text = cardModel.word
@@ -75,60 +78,82 @@ class CardViewModel: SKSpriteNode {
         guard let brothers = self.parent?.allDescendants() else {return}
         let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
         
-        //Get all cards in scene excluding the one that is being touched
-        let filteredCards = cards.filter { $0 != self }
-        let cardBros = filteredCards as! [CardViewModel]
+        let parent = self.parent as! CardSetViewModel
         
-        //Animate up
-        let scaleUp = SKAction.scale(to: 1.15, duration: 0.2)
-        let rotateToCorrect = SKAction.rotate(toAngle: 0.0, duration: 0.2)
-        let scaleUpGroup = SKAction.group([scaleUp, rotateToCorrect])
-        scaleUpGroup.timingMode = .easeOut
-        self.run(scaleUpGroup)
-
-        //Move card that is being touched higher in the hierarchy
-        for index in cardBros {
-            self.zPosition = 3
-            self.card.zPosition = 2
-            index.zPosition = self.zPosition - 1
-            index.card.zPosition = self.card.zPosition - 1
+        if parent.cardType == .GameScene {
+            //---------- The card you touch is highest in the hierarchy ------//
+            //Get all cards in scene excluding the one that is being touched
+            let filteredCards = cards.filter { $0 != self }
+            let cardBros = filteredCards as! [CardViewModel]
+            
+            //Animate up
+            let scaleUp = SKAction.scale(to: 1.15, duration: 0.2)
+            let rotateToCorrect = SKAction.rotate(toAngle: 0.0, duration: 0.2)
+            let scaleUpGroup = SKAction.group([scaleUp, rotateToCorrect])
+            scaleUpGroup.timingMode = .easeOut
+            self.run(scaleUpGroup)
+            
+            //Move card that is being touched higher in the hierarchy
+            for index in cardBros {
+                self.zPosition = 3
+                self.card.zPosition = 2
+                index.zPosition = self.zPosition - 1
+                index.card.zPosition = self.card.zPosition - 1
+            }
+        }
+        
+        if parent.cardType == .RepeatWordsScene {
+            let scaleUp = SKAction.scale(to: 1.15, duration: 0.2)
+            print("play card sound")
         }
     }
     
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else { return }
-        let location = touch.location(in: self.parent ?? self)
-        let previousPosition = touch.previousLocation(in: self.parent ?? self)
+        let parent = self.parent as! CardSetViewModel
+        if parent.cardType == .GameScene {
+            guard let touch = touches.first else { return }
+            let location = touch.location(in: self.parent ?? self)
+            let previousPosition = touch.previousLocation(in: self.parent ?? self)
+            
+            for _ in touches {
+                let translation:CGPoint = CGPoint(x: location.x - previousPosition.x , y: location.y - previousPosition.y )
+                let newPosition = CGPoint(x: self.position.x + translation.x , y: self.position.y + translation.y)
+                self.position = newPosition
+            }
+        }
         
-        for _ in touches {
-            let translation:CGPoint = CGPoint(x: location.x - previousPosition.x , y: location.y - previousPosition.y )
-            let newPosition = CGPoint(x: self.position.x + translation.x , y: self.position.y + translation.y)
-            self.position = newPosition
+        if parent.cardType == .RepeatWordsScene {
+        
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        //Filter all nodes in scene to identify gaps and cards
-        guard let brothers = self.parent?.allDescendants() else {return}
-        let gaps = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
-        
-        //Animate back to correct scale
-        let scaleDown = SKAction.scale(to: 1.0, duration: 0.2)
-        scaleDown.timingMode = .easeOut
-        self.run(scaleDown)
-        
-        //Have cards stick to gaps
-        if let index = self.near(gaps) {
-            let stickAnimation = SKAction.move(to: CGPoint(x: gaps[index].position.x, y:gaps[index].position.y ), duration: 0.2)
-            stickAnimation.timingMode = .easeOut
-            self.run(stickAnimation)
+        let parent = self.parent as! CardSetViewModel
+        if  parent.cardType == .GameScene {
+            //Filter all nodes in scene to identify gaps and cards
+            guard let brothers = self.parent?.allDescendants() else {return}
+            let gaps = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
+            
+            //Animate back to correct scale
+            let scaleDown = SKAction.scale(to: 1.0, duration: 0.2)
+            scaleDown.timingMode = .easeOut
+            self.run(scaleDown)
+            
+            //Have cards stick to gaps
+            if let index = self.near(gaps) {
+                let stickAnimation = SKAction.move(to: CGPoint(x: gaps[index].position.x, y:gaps[index].position.y ), duration: 0.2)
+                stickAnimation.timingMode = .easeOut
+                self.run(stickAnimation)
+            }
+            
+            self.parent?.touchesEnded(touches, with: event)
         }
         
-        self.parent?.touchesEnded(touches, with: event)
+        if parent.cardType == .RepeatWordsScene {
+            print("repeatWords")
+        }
     }
     
-
 }
 

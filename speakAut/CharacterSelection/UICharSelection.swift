@@ -12,15 +12,7 @@ import SceneKit
 
 class UICharSelection: SKScene {
     
-    private var charNextButton: SKSpriteNode!
-    private var charBackButton: SKSpriteNode!
-    private var backButton: SKSpriteNode!
-    private var instructionsLabel: SKLabelNode!
-    private var chooseButton: SKSpriteNode!
-    private var chooseButtonLabel: SKLabelNode!
-    
     weak var uiCharSelectionDelegate: UICharSelectionDelegate?
-    
     
     override init(size: CGSize) {
         super.init(size: size)
@@ -31,16 +23,14 @@ class UICharSelection: SKScene {
         setUpChooseButton()
     }
     
-    
     func setUpInstructionsLabel() {
         let sceneSize = self.frame.size
-        
-        self.instructionsLabel = SKLabelNode(text: "Escolha um personagem!")
-        self.instructionsLabel.name = "instructionsLabel"
-        self.instructionsLabel.fontSize = 32
-        self.instructionsLabel.fontColor = UIColor.greyishBrown
-        self.instructionsLabel.zPosition = 15
-        self.instructionsLabel.position = CGPoint(x: sceneSize.width/2, y: sceneSize.height - 100)
+        let instructionsLabel = SKLabelNode(text: "Escolha um personagem!")
+        instructionsLabel.name = "instructionsLabel"
+        instructionsLabel.fontSize = 32
+        instructionsLabel.fontColor = UIColor.greyishBrown
+        instructionsLabel.zPosition = 15
+        instructionsLabel.position = CGPoint(x: sceneSize.width/2, y: sceneSize.height - 100)
         
         self.addChild(instructionsLabel)
     }
@@ -50,18 +40,18 @@ class UICharSelection: SKScene {
         let charBackButtonTexture = SKTexture(imageNamed: "characterBackButton")
         let charNextButtonTexture = SKTexture(imageNamed: "characterForwardButton")
         
-        self.charBackButton = SKSpriteNode(texture: charBackButtonTexture, color: .clear, size: charBackButtonTexture.size())
-        self.charNextButton = SKSpriteNode(texture: charNextButtonTexture, color: .clear, size: charNextButtonTexture.size())
+        let charBackButton = SKSpriteNode(texture: charBackButtonTexture, color: .clear, size: charBackButtonTexture.size())
+        let charNextButton = SKSpriteNode(texture: charNextButtonTexture, color: .clear, size: charNextButtonTexture.size())
         
-        self.charBackButton.name = "charBack"
-        self.charNextButton.name = "charNext"
+        charBackButton.name = "charBack"
+        charNextButton.name = "charNext"
         
-        self.charBackButton.zPosition = 15
-        self.charNextButton.zPosition = 15
+        charBackButton.zPosition = 15
+        charNextButton.zPosition = 15
         
         
-        self.charBackButton.position = CGPoint(x: sceneSize.width/2 - 390, y: sceneSize.height/2 - charBackButtonTexture.size().height/2)
-        self.charNextButton.position = CGPoint(x: sceneSize.width/2 + 390, y: sceneSize.height/2 - charBackButtonTexture.size().height/2)
+        charBackButton.position = CGPoint(x: sceneSize.width/2 - 390, y: sceneSize.height/2 - charBackButtonTexture.size().height/2)
+        charNextButton.position = CGPoint(x: sceneSize.width/2 + 390, y: sceneSize.height/2 - charBackButtonTexture.size().height/2)
         
         self.addChild(charBackButton)
         self.addChild(charNextButton)
@@ -71,18 +61,18 @@ class UICharSelection: SKScene {
         let sceneSize = self.frame.size
         let chooseButtonTexture = SKTexture(imageNamed: "bigButton")
         
-        self.chooseButton = SKSpriteNode(texture: chooseButtonTexture, color: .clear, size: chooseButtonTexture.size())
-        self.chooseButton.position = CGPoint(x: sceneSize.width/2, y: chooseButtonTexture.size().height*0.6)
-        self.chooseButton.name = "charChoose"
+        let chooseButton = SKSpriteNode(texture: chooseButtonTexture, color: .clear, size: chooseButtonTexture.size())
+        chooseButton.position = CGPoint(x: sceneSize.width/2, y: chooseButtonTexture.size().height*0.6)
+        chooseButton.name = "charChoose"
 
         
-        self.chooseButtonLabel = SKLabelNode(text: "escolher")
-        self.chooseButtonLabel.name = "chooseLabel"
-        self.chooseButtonLabel.fontSize = 50
-        self.chooseButtonLabel.fontColor = .white
-        self.chooseButtonLabel.zPosition = 15
-        self.chooseButtonLabel.position = CGPoint(x: 0, y: -10)
-        self.chooseButton.addChild(chooseButtonLabel)
+        let chooseButtonLabel = SKLabelNode(text: "escolher")
+        chooseButtonLabel.name = "chooseLabel"
+        chooseButtonLabel.fontSize = 50
+        chooseButtonLabel.fontColor = .white
+        chooseButtonLabel.zPosition = 15
+        chooseButtonLabel.position = CGPoint(x: 0, y: -10)
+        chooseButton.addChild(chooseButtonLabel)
         self.addChild(chooseButton)
     }
     
@@ -123,7 +113,6 @@ class UICharSelection: SKScene {
         case "chooseLabel":
             print("chose character")
             self.uiCharSelectionDelegate?.selectCharacter()
-            
             
         default:
             break

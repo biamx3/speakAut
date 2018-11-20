@@ -12,9 +12,11 @@ class GameScene: SKScene {
 
     weak var gameSceneDelegate: GameSceneDelegate?
     var cardSet: [Card]!
+    var cardType: CardType!
     
     override func didMove(to view: SKView) {
         self.scaleMode = .resizeFill
+        self.cardType = .GameScene
         addCardsAndGaps()
         printAllNodes(tab: "", node: self.scene!)
         addBackButton()
@@ -26,7 +28,7 @@ class GameScene: SKScene {
         let character = dao.createCharacter()
         let sentence = character.sentenceArray[0]
         self.cardSet = sentence.cardArray
-        let cardSetViewModel = CardSetViewModel(cardSet: cardSet)
+        let cardSetViewModel = CardSetViewModel(cardSet: cardSet, type: .GameScene)
         self.addChild(cardSetViewModel)
     }
     
@@ -79,7 +81,7 @@ class GameScene: SKScene {
     
     func goToRepeatWordsScene(){
         let transition = SKTransition.reveal(with: .down, duration: 0.5)
-        let nextScene = RepeatWordsScene(size: self.frame.size)
+        let nextScene = RepeatWordsScene(size: self.view?.bounds.size ?? CGSize(width: 500, height: 500))
         nextScene.cardSet = self.cardSet
         nextScene.scaleMode = .aspectFill
         self.scene?.view?.presentScene(nextScene, transition: transition)

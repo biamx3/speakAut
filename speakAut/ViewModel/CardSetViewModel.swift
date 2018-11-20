@@ -18,27 +18,27 @@ class CardSetViewModel: SKSpriteNode {
     private var cards: [CardViewModel] = []
     private var gaps: [GapViewModel] = []
     private var invisibleNode: SKSpriteNode!
+    var cardType: CardType!
     
     init(){
         super.init(texture: nil, color: .clear, size: UIScreen.main.bounds.size)
     }
     
-    init(cardSet: [Card]){
+    init(cardSet: [Card], type: CardType){
         super.init(texture: nil, color: .clear, size: UIScreen.main.bounds.size)
         self.name = "setOfCardsAndGaps"
         self.isUserInteractionEnabled = true
+        self.cardType = type
         setUpInvisibleNode()
+        
+        if self.cardType == .GameScene {
         addCards(from: cardSet)
         addGaps(from: cards)
-    }
-    
-    //Init for use in RepeatWordsScene
-    init(cardsOnly: [Card]){
-        super.init(texture: nil, color: .clear, size: UIScreen.main.bounds.size)
-        self.name = "setOfCardsAndGaps"
-        self.isUserInteractionEnabled = true
-        setUpInvisibleNode()
-        addCards(from: cardsOnly)
+        }
+        
+        if self.cardType == .RepeatWordsScene {
+        addCardsToRepeatWordsScene(from: cardSet)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -56,15 +56,42 @@ class CardSetViewModel: SKSpriteNode {
         let firstXposition = -((totalSpace / 2) - (CGSize.card.width / 2))
         
         for i in 0..<cardSet.count {
-            let cardView = CardViewModel(cardModel: cardSet[i])
+            let cardView = CardViewModel(cardModel: cardSet[i], type: .GameScene)
             
             let cardXPosition = firstXposition + (cardConstantSpacing * i.cgFloat)
             cardView.position = CGPoint(x: cardXPosition, y: (sceneSize?.height ?? 0.0) + 180)
-
+            randomRotation(node: cardView)
+            
             self.addChild(cardView)
             cards.append(cardView)
 
         }
+    }
+    
+    func addCardsToRepeatWordsScene(from cardSet: [Card]) {
+        let sceneSize = self.parent?.frame.size
+        
+        let cardMargin:CGFloat = 60 // Margem entre cartas
+        let cardQnt = CGFloat(cardSet.count) // Quantidade de cartas
+        let cardConstantSpacing = CGSize.card.width + cardMargin // Distância entre os centros das cartas
+        
+        let totalSpace = (CGSize.card.width * cardQnt) + (cardMargin * (cardQnt - 1))
+        let firstXposition = -((totalSpace / 2) - (CGSize.card.width / 2))
+        
+        for i in 0..<cardSet.count {
+            let cardView = CardViewModel(cardModel: cardSet[i], type: .GameScene)
+            
+            let cardXPosition = firstXposition + (cardConstantSpacing * i.cgFloat)
+            cardView.position = CGPoint(x: cardXPosition, y: (sceneSize?.height ?? 0.0))
+            self.addChild(cardView)
+            cards.append(cardView)
+            
+        }
+    }
+    
+    func randomRotation(node: SKSpriteNode){
+        let randomAngle = Float.random(in: -0.5 ..< 0.3)
+        node.run(SKAction.rotate(byAngle: CGFloat(randomAngle), duration: 0))
     }
     
     func addGaps(from cards: [CardViewModel]) {
@@ -220,14 +247,19 @@ class CardSetViewModel: SKSpriteNode {
         
         let cardViews = cardsInScreen as! [CardViewModel]
         
-        //Check if cards are in the correct order when all gaps are filled
-        if (cardViews as [SKNode]).near(gapsInScreen) {
-
-            if cardViews.isOrderedInX {
-                cardsAreRight(cardNodes: cardViews)
-            } else {
-                cardsAreWrong(cardNodes: cardViews)
+        if self.cardType == .GameScene {
+            //Check if cards are in the correct order when all gaps are filled
+            if (cardViews as [SKNode]).near(gapsInScreen) {
+                
+                if cardViews.isOrderedInX {
+                    cardsAreRight(cardNodes: cardViews)
+                } else {
+                    cardsAreWrong(cardNodes: cardViews)
+                }
             }
+        }
+        if self.cardType == .RepeatWordsScene {
+            
         }
     }
 }
