@@ -18,6 +18,8 @@ class CardViewModel: SKSpriteNode {
     private var wordNode = SKLabelNode()
     private var imageNode = SKSpriteNode()
     private var cardType: CardType!
+    private var cardModel: Card!
+    private var touchedCards: [CardViewModel] = []
 
     init(cardModel:Card, type: CardType) {
         // minimum init
@@ -26,13 +28,16 @@ class CardViewModel: SKSpriteNode {
         self.isUserInteractionEnabled = true
         self.name = "card" + cardModel.word
         
+        self.cardModel = cardModel
+        touchedCards = []
+        
         //Is this card being used in the GameScene or RepeatWordsScene?
         self.cardType = type
         
         // add card elements
         cardSetUp()
-        imageNode.texture = SKTexture(imageNamed: cardModel.imageName)
-        self.wordNode.text = cardModel.word
+        imageNode.texture = SKTexture(imageNamed: self.cardModel.imageName)
+        self.wordNode.text = self.cardModel.word
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -103,8 +108,21 @@ class CardViewModel: SKSpriteNode {
         }
         
         if parent.cardType == .RepeatWordsScene {
-            let scaleUp = SKAction.scale(to: 1.15, duration: 0.2)
-            print("play card sound")
+            if self.size == CGSize.card {
+                let scaleUp = SKAction.scale(to: 1.15, duration: 0.2)
+                scaleUp.timingMode = .easeOut
+                self.run(scaleUp)
+                self.touchedCards.append(self)
+                //TO DO: PLAY SOUND
+            } else {
+                let scaleToNormal = SKAction.scale(to: 1.0, duration: 0.2)
+                scaleToNormal.timingMode = .easeOut
+                self.run(scaleToNormal)
+                let index = self.touchedCards.index(of: self)
+                if self.touchedCards.count > 0 {
+                self.touchedCards.remove(at: index ?? 0)
+                }
+            }
         }
     }
     
@@ -128,12 +146,24 @@ class CardViewModel: SKSpriteNode {
         }
     }
     
+    func repeatCardsRight(){
+        print("cards are right")
+    }
+    
+    func repeatCardsWrong(){
+        print("cards are wrong")
+    }
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let parent = self.parent as! CardSetViewModel
+        guard let brothers = self.parent?.allDescendants() else {return}
+        let gaps = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
+        let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
+        
+        let cardViews = cards as! [CardViewModel]
+        
         if  parent.cardType == .GameScene {
             //Filter all nodes in scene to identify gaps and cards
-            guard let brothers = self.parent?.allDescendants() else {return}
-            let gaps = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
             
             //Animate back to correct scale
             let scaleDown = SKAction.scale(to: 1.0, duration: 0.2)
@@ -150,8 +180,32 @@ class CardViewModel: SKSpriteNode {
             self.parent?.touchesEnded(touches, with: event)
         }
         
+        //If card is being used in RepeatWordsScene
         if parent.cardType == .RepeatWordsScene {
-            print("repeatWords")
+            print("touchedCards ", self.touchedCards)
+            if cardViews.count == self.touchedCards.count{
+                print(type(of:self), #function)
+                self.parent?.touchesEnded(touches, with: event)
+            }
+
+            
+           // print("entrou")
+//            let brothers = self.parent?.allDescendants()
+//            let cards = brothers?.filter {($0.name?.starts(with: "card") ?? false)
+//            print(type(of:self), #function)
+//            self.parent?.touchesEnded(touches, with: event)
+
+//            if touchedCards.count == cards?.count {
+//                print("entrou")
+//                for i in 0...touchedCards.count - 1 {
+//                    if touchedCards[i].cardModel.index < touchedCards[i + 1].cardModel.index {
+//                        repeatCardsRight()
+//                    } else {
+//                        repeatCardsWrong()
+//                    }
+//                }
+//            }
+            //Check if you tapped on the cards in the right order
         }
     }
     

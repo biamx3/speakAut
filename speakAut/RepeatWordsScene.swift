@@ -20,6 +20,7 @@ class RepeatWordsScene: SKScene {
        // addBackButton()
         addBackground()
         addCards()
+        setUpInstructionsLabel()
         printAllNodes(tab: "", node: self.scene!)
     }
     
@@ -41,6 +42,18 @@ class RepeatWordsScene: SKScene {
             printAllNodes(tab: aTab, node: child)
             
         }
+    }
+    
+    func setUpInstructionsLabel() {
+        let sceneSize = self.frame.size
+        let instructionsLabel = SKLabelNode(text: "Agora, toque nas cartas na ordem certa e repita as palavras!")
+        instructionsLabel.name = "instructionsLabel"
+        instructionsLabel.fontSize = 32
+        instructionsLabel.fontColor = UIColor.greyishBrown
+        instructionsLabel.zPosition = 15
+        instructionsLabel.position = CGPoint(x: sceneSize.width/2, y: sceneSize.height - 100)
+        
+        self.addChild(instructionsLabel)
     }
     
     func addBackground(){
@@ -65,5 +78,47 @@ class RepeatWordsScene: SKScene {
         touchArea.addChild(backButton)
         touchArea.zPosition = 4
         self.addChild(touchArea)
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        //Filter all nodes in scene to identify gaps and cards
+        let brothers = self.allDescendants()
+        let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
+        let cardArray = cards as! [CardViewModel]
+        var bigCardArray: [CardViewModel] = []
+        
+
+        for i in 0...cardArray.count - 1{
+            let card = cardArray[i]
+            let index = i
+            
+            if card.size.width > CGSize.card.width {
+                if cardArray.isOrderedInXWithScale {
+                    print("is ordered: ", cardArray.isOrderedInXWithScale)
+                } else {
+                    print("is not ordered", cardArray.isOrderedInXWithScale)
+                }
+            
+//            if card.size.width > CGSize.card.width {
+//             bigCardArray.append(card)
+//                if bigCardArray.isOrderedInXWithScale && bigCardArray.count == cardArray.count {
+//                    print("correct")
+//                } else {
+//                    print("incorrect")
+//                }
+//            }
+//            if card.size.width <= CGSize.card.width && bigCardArray.contains(card) {
+//                bigCardArray.remove(at: index)
+//            }
+
+            
+//            if bigCardArray.isOrderedInXWithScale {
+//                if bigCardArray.count == cardArray.count {
+//                    print("correct")
+//                }
+//            } else {
+//                print("incorrect")
+            }
+        }
     }
 }

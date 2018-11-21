@@ -11,9 +11,9 @@ import SpriteKit
 import SceneKit
 
 extension Array where Element == SKNode {
-    func near(_ anotherNodes:[SKNode?])-> Bool {
+    func near(_ otherNodes:[SKNode?])-> Bool {
         for element in self {
-            guard let _ = element.near(anotherNodes) else { return false }
+            guard let _ = element.near(otherNodes) else { return false }
         }
         return true
     }
@@ -37,10 +37,10 @@ extension SKAction {
 
 //Detecta se há um SKNode dentro de um range
 extension SKNode {
-    func near(_ anotherNodes:[SKNode?])->Int? {
-        for i in 0..<anotherNodes.count {
-            //            print(i, "--->", self.position, "--->", anotherNodes[i]!.position)
-            if let node = anotherNodes[i] {
+    func near(_ otherNodes:[SKNode?])->Int? {
+        for i in 0..<otherNodes.count {
+            //            print(i, "--->", self.position, "--->", otherNodes[i]!.position)
+            if let node = otherNodes[i] {
                 if abs(self.position.x - node.position.x) < node.frame.size.width * 0.5 &&
                     abs(self.position.y - node.position.y) < node.frame.size.width * 0.5 {
                     return i
@@ -49,6 +49,7 @@ extension SKNode {
         }
         return nil
     }
+    
 
     func allDescendants()->[SKNode] {
         var all:[SKNode] = []
@@ -57,6 +58,15 @@ extension SKNode {
              all.append(contentsOf: child.allDescendants())
         }
             return all
+    }
+    
+    func isOneOf(_ nodes: [SKSpriteNode?])->Bool {
+        for node in nodes {
+            if self == node {
+                return true
+            }
+        }
+        return false
     }
 }
 
@@ -71,18 +81,6 @@ extension SCNNode {
     }
 }
 
-
-extension SKNode {
-    func isOneOf(_ nodes: [SKSpriteNode?])->Bool {
-        for node in nodes {
-            if self == node {
-                return true
-            }
-        }
-        return false
-    }
-}
-
 //Is it ordered in the X axis?
 extension Array where Element == CardViewModel {
     var isOrderedInX:Bool {
@@ -92,6 +90,21 @@ extension Array where Element == CardViewModel {
         for element in self {
            if element != self.first {
                 if previous.position.x > element.position.x {return false}
+            }
+        }
+        return true
+    }
+    
+    //For repeatWordsScene: is it ordered in X and Scaled correctly?
+    var isOrderedInXWithScale:Bool {
+        if self.count == 0 {return true}
+        let previous = self.first!
+        
+        for element in self {
+            if element != self.first {
+                if previous.position.x < element.position.x {
+                    if previous.size.width < element.size.width {return false}
+                }
             }
         }
         return true

@@ -112,7 +112,7 @@ class CardSetViewModel: SKSpriteNode {
     }
     
     //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-    //CARDS ARE IN CORRECT ORDER
+    //GAMESCENE: CARDS ARE IN CORRECT ORDER
     
     func successMessage() -> SKLabelNode {
         let sceneSize = self.frame.size
@@ -175,12 +175,8 @@ class CardSetViewModel: SKSpriteNode {
         }
     }
     
-    func createConfettiParticles(){
-        
-    }
-    
     //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-    //WHEN CARDS ARE IN WRONG ORDER
+    //GAMESCENE: WHEN CARDS ARE IN WRONG ORDER
     
     func errorMessage() -> SKLabelNode {
         let sceneSize = self.frame.size
@@ -259,7 +255,11 @@ class CardSetViewModel: SKSpriteNode {
             }
         }
         if self.cardType == .RepeatWordsScene {
-            
+//            if cardViews.isOrderedInXWithScale {
+//                print("is Ordered In X with Scale: ", cardViews.isOrderedInXWithScale)
+//            } else {
+//                print("ELSE is Ordered In X with Scale: ", cardViews.isOrderedInXWithScale)
+//            }
         }
     }
 }
