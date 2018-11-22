@@ -32,7 +32,7 @@ class Card {
     var word: String = ""
     var imageName: String = ""
     var wordNarration: String = ""
-    var index: Int = 0
+    var index = 0
     
     init(index: Int, word: String, imageName: String, wordNarration: String) {
         self.word = word

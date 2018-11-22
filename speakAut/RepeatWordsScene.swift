@@ -48,6 +48,8 @@ class RepeatWordsScene: SKScene {
         let sceneSize = self.frame.size
         let instructionsLabel = SKLabelNode(text: "Agora, toque nas cartas na ordem certa e repita as palavras!")
         instructionsLabel.name = "instructionsLabel"
+        instructionsLabel.preferredMaxLayoutWidth = sceneSize.width*0.8
+        instructionsLabel.fontName = "PeachyKeenJF"
         instructionsLabel.fontSize = 32
         instructionsLabel.fontColor = UIColor.greyishBrown
         instructionsLabel.zPosition = 15
@@ -85,40 +87,81 @@ class RepeatWordsScene: SKScene {
         let brothers = self.allDescendants()
         let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
         let cardArray = cards as! [CardViewModel]
-        var bigCardArray: [CardViewModel] = []
         
-
-        for i in 0...cardArray.count - 1{
-            let card = cardArray[i]
-            let index = i
-            
-            if card.size.width > CGSize.card.width {
-                if cardArray.isOrderedInXWithScale {
-                    print("is ordered: ", cardArray.isOrderedInXWithScale)
-                } else {
-                    print("is not ordered", cardArray.isOrderedInXWithScale)
-                }
-            
-//            if card.size.width > CGSize.card.width {
-//             bigCardArray.append(card)
-//                if bigCardArray.isOrderedInXWithScale && bigCardArray.count == cardArray.count {
-//                    print("correct")
+//        var bigCards: [CardViewModel] = []
+//        
+//        
+//        //Add cards that are big to bigCards array
+//        for card in cardArray {
+//            let index = cardArray.index(of: card)
+//            let lastIndex = cardArray.endIndex
+//            
+//            if card.size.width > CGSize.card.width && !bigCards.contains(card) {
+//                bigCards.append(card)
+//                print("big cards ", bigCards)
+//            }
+//            
+//            if card.size.width == CGSize.card.width && bigCards.contains(card) {
+//                bigCards.remove(at: index ?? 0)
+//            }
+//            
+//            
+//            if bigCards.count == cardArray.count {
+//                if bigCards == cardArray {
+//                    print("success")
 //                } else {
-//                    print("incorrect")
+//                    print("failure")
 //                }
 //            }
-//            if card.size.width <= CGSize.card.width && bigCardArray.contains(card) {
-//                bigCardArray.remove(at: index)
-//            }
-
             
-//            if bigCardArray.isOrderedInXWithScale {
-//                if bigCardArray.count == cardArray.count {
-//                    print("correct")
+            //Check if bigCards array is in order
+//            if bigCards.count == cardArray.count {
+//                for card in bigCards {
+//                    let cardIndex = bigCards.index(of: card)
+//                    let previousCardIndex = bigCards.index(before: cardIndex ?? 1)
+//                    let previousCard = bigCards[previousCardIndex]
+//
+//                    if card != bigCards[0] {
+//                        if card.cardModel.index > previousCard.cardModel.index {
+//                        print("correct order of bigCards")
+//                        } else {
+//                        print("incorrect order of bigCards")
+//                        }
+//                    }
 //                }
-//            } else {
-//                print("incorrect")
-            }
+//            }
         }
-    }
+        
+        
+        
+        //Compare each card's position with the last card in the array
+//        for i in 0...cardArray.endIndex {
+//            let card = cardArray[i]
+//            let previousCard = cardArray[i - 1]
+//
+//            var bigCards: [CardViewModel] = []
+//
+//            if card.size.width > CGSize.card.width && !bigCards.contains(card) {
+//                bigCards.append(card)
+//            }
+//
+//            if card.size.width == CGSize.card.width && bigCards.contains(card) {
+//                bigCards.remove(at: i)
+//            }
+//
+//            let cardIndex1 = card.cardModel!.index
+//            let cardIndex2 = previousCard.cardModel!.index
+//
+//            if card != cardArray.first{
+//                if bigCards.count == cardArray.count {
+//                    if cardIndex1 < cardIndex2 {
+//                        print("order is incorrect")
+//                    } else {
+//                        print("order is correct")
+//                    }
+//                }
+//            }
+//        }
+//    }
+
 }

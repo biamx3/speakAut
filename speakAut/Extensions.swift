@@ -94,6 +94,9 @@ extension Array where Element == CardViewModel {
         }
         return true
     }
+
+    //A cada toque adicionar carta ao array; checar se o índice das cartas está na ordem certa. 
+    
     
     //For repeatWordsScene: is it ordered in X and Scaled correctly?
     var isOrderedInXWithScale:Bool {
@@ -166,7 +169,7 @@ extension UIColor {
         return UIColor(white: 74.0 / 255.0, alpha: 1.0)
     }
     
-    @nonobjc class var white: UIColor {
+    @nonobjc class var whiteish: UIColor {
         return UIColor(white: 247.0 / 255.0, alpha: 1.0)
     }
     

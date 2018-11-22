@@ -18,8 +18,7 @@ class CardViewModel: SKSpriteNode {
     private var wordNode = SKLabelNode()
     private var imageNode = SKSpriteNode()
     private var cardType: CardType!
-    private var cardModel: Card!
-    private var touchedCards: [CardViewModel] = []
+    var cardModel: Card!
 
     init(cardModel:Card, type: CardType) {
         // minimum init
@@ -29,8 +28,6 @@ class CardViewModel: SKSpriteNode {
         self.name = "card" + cardModel.word
         
         self.cardModel = cardModel
-        touchedCards = []
-        
         //Is this card being used in the GameScene or RepeatWordsScene?
         self.cardType = type
         
@@ -71,6 +68,7 @@ class CardViewModel: SKSpriteNode {
     func wordSetUp() {
         self.wordNode = SKLabelNode(text: "word")
         wordNode.fontColor = UIColor.greyishBrown
+        wordNode.fontName = "SF-Pro-Text-Regular"
         wordNode.fontSize = 32
         wordNode.position = CGPoint(x: 0, y: -125)
         wordNode.zPosition = 1
@@ -112,17 +110,20 @@ class CardViewModel: SKSpriteNode {
                 let scaleUp = SKAction.scale(to: 1.15, duration: 0.2)
                 scaleUp.timingMode = .easeOut
                 self.run(scaleUp)
-                self.touchedCards.append(self)
-                //TO DO: PLAY SOUND
-            } else {
+//                if !bigCards.contains(self) {
+//                    bigCards.append(self)
+//                    print("big cards ", bigCards)
+                } else {
                 let scaleToNormal = SKAction.scale(to: 1.0, duration: 0.2)
                 scaleToNormal.timingMode = .easeOut
                 self.run(scaleToNormal)
-                let index = self.touchedCards.index(of: self)
-                if self.touchedCards.count > 0 {
-                self.touchedCards.remove(at: index ?? 0)
-                }
-            }
+//                if !bigCards.contains(self) {
+//                    let index = bigCards.index(of: self)
+//                    bigCards.remove(at: index ?? 0)
+//                    print("big cards ", bigCards)
+//                }
+           // }
+        }
         }
     }
     
@@ -150,8 +151,10 @@ class CardViewModel: SKSpriteNode {
         print("cards are right")
     }
     
-    func repeatCardsWrong(){
-        print("cards are wrong")
+    func repeatedCardsWrong(){
+        let scaleDown = SKAction.scale(to: 1.0, duration: 0.2)
+        scaleDown.timingMode = .easeOut
+        self.run(scaleDown)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -182,32 +185,25 @@ class CardViewModel: SKSpriteNode {
         
         //If card is being used in RepeatWordsScene
         if parent.cardType == .RepeatWordsScene {
-            print("touchedCards ", self.touchedCards)
-            if cardViews.count == self.touchedCards.count{
-                print(type(of:self), #function)
-                self.parent?.touchesEnded(touches, with: event)
-            }
-
             
-           // print("entrou")
-//            let brothers = self.parent?.allDescendants()
-//            let cards = brothers?.filter {($0.name?.starts(with: "card") ?? false)
-//            print(type(of:self), #function)
-//            self.parent?.touchesEnded(touches, with: event)
-
-//            if touchedCards.count == cards?.count {
-//                print("entrou")
-//                for i in 0...touchedCards.count - 1 {
-//                    if touchedCards[i].cardModel.index < touchedCards[i + 1].cardModel.index {
-//                        repeatCardsRight()
-//                    } else {
-//                        repeatCardsWrong()
-//                    }
-//                }
-//            }
-            //Check if you tapped on the cards in the right order
+            //If the card is big, append to parent's bigCardsArray
+            if self.size.width > CGSize.card.width {
+                if !parent.bigCards.contains(self) {
+                    parent.bigCards.append(self)
+                    print("parent bigCards: ", parent.bigCards)
+                    print("added card to bigCardArray")
+                    self.parent?.touchesEnded(touches, with: event)
+                }
+            } else {
+                if parent.bigCards.contains(self) {
+                    let index = parent.bigCards.index(of: self)
+                    parent.bigCards.remove(at: index ?? 0)
+                    print("removed card from bigCardArray")
+                    print("parent bigCards: ", parent.bigCards)
+                    self.parent?.touchesEnded(touches, with: event)
+                }
+            }
         }
     }
-    
 }
 

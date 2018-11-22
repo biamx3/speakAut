@@ -27,10 +27,16 @@ class UICharSelection: SKScene {
         let sceneSize = self.frame.size
         let instructionsLabel = SKLabelNode(text: "Escolha um personagem!")
         instructionsLabel.name = "instructionsLabel"
+        instructionsLabel.fontName = "PeachyKeenJF"
         instructionsLabel.fontSize = 32
         instructionsLabel.fontColor = UIColor.greyishBrown
         instructionsLabel.zPosition = 15
         instructionsLabel.position = CGPoint(x: sceneSize.width/2, y: sceneSize.height - 100)
+        
+        for family in UIFont.familyNames.sorted() {
+            let names = UIFont.fontNames(forFamilyName: family)
+            print("Family: \(family) Font names: \(names)")
+        }
         
         self.addChild(instructionsLabel)
     }
@@ -68,8 +74,9 @@ class UICharSelection: SKScene {
         
         let chooseButtonLabel = SKLabelNode(text: "escolher")
         chooseButtonLabel.name = "chooseLabel"
-        chooseButtonLabel.fontSize = 50
-        chooseButtonLabel.fontColor = .white
+        chooseButtonLabel.fontSize = 45
+        chooseButtonLabel.fontName = "PeachyKeenJF"
+        chooseButtonLabel.fontColor = .whiteish
         chooseButtonLabel.zPosition = 15
         chooseButtonLabel.position = CGPoint(x: 0, y: -10)
         chooseButton.addChild(chooseButtonLabel)

@@ -83,6 +83,7 @@ class ViewController: UIViewController {
         
         
         addHair(named: "art.scnassets/hair_z_head_zeroed3.dae")
+        addEars(named: "art.scnassets/ears.dae")
     }
     
     
@@ -106,6 +107,20 @@ class ViewController: UIViewController {
                     headRef.addChildNode(hair)
                 }
 
+            }
+        }
+    }
+    
+    func addEars(named earSceneName: String) {
+        
+        if let scene = SCNScene(named: earSceneName) {
+            
+            if let ears = scene.rootNode.childNode(withName: "ears", recursively: true) {
+                if let headRef = character.childNode(withName: "mixamorig_Head", recursively: true) {
+                    print("Adicionando em ", headRef.name ?? "")
+                    headRef.addChildNode(ears)
+                }
+                
             }
         }
     }

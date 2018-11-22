@@ -15,10 +15,11 @@ import SpriteKit
 
 class CardSetViewModel: SKSpriteNode {
     
-    private var cards: [CardViewModel] = []
+    var cards: [CardViewModel] = [] //private
     private var gaps: [GapViewModel] = []
     private var invisibleNode: SKSpriteNode!
     var cardType: CardType!
+    var bigCards: [CardViewModel] = []
     
     init(){
         super.init(texture: nil, color: .clear, size: UIScreen.main.bounds.size)
@@ -116,13 +117,14 @@ class CardSetViewModel: SKSpriteNode {
     
     func successMessage() -> SKLabelNode {
         let sceneSize = self.frame.size
-        let sucessMessage = SKLabelNode(text: "Você acertou!")
-        sucessMessage.name = "instructionsLabel"
-        sucessMessage.fontSize = 32
-        sucessMessage.fontColor = UIColor.greyishBrown
-        sucessMessage.zPosition = 15
-        sucessMessage.position = CGPoint(x: 0, y: sceneSize.height/2.7)
-        return sucessMessage
+        let sucessMessageLabel = SKLabelNode(text: "Você acertou!")
+        sucessMessageLabel.name = "instructionsLabel"
+        sucessMessageLabel.fontSize = 32
+        sucessMessageLabel.fontColor = UIColor.greyishBrown
+        sucessMessageLabel.zPosition = 15
+        sucessMessageLabel.fontName = "PeachyKeenJF"
+        sucessMessageLabel.position = CGPoint(x: 0, y: sceneSize.height/2.7)
+        return sucessMessageLabel
     }
     
     func cardsAreRight(cardNodes: [CardViewModel]) {
@@ -183,6 +185,7 @@ class CardSetViewModel: SKSpriteNode {
         let errorMessage = SKLabelNode(text: "Tente novamente")
         errorMessage.name = "instructionsLabel"
         errorMessage.fontSize = 32
+        errorMessage.fontName = "PeachyKeenJF"
         errorMessage.fontColor = UIColor.greyishBrown
         errorMessage.zPosition = 15
         errorMessage.name = "error message"
@@ -255,11 +258,17 @@ class CardSetViewModel: SKSpriteNode {
             }
         }
         if self.cardType == .RepeatWordsScene {
-//            if cardViews.isOrderedInXWithScale {
-//                print("is Ordered In X with Scale: ", cardViews.isOrderedInXWithScale)
-//            } else {
-//                print("ELSE is Ordered In X with Scale: ", cardViews.isOrderedInXWithScale)
-//            }
+            if self.bigCards.count == self.cards.count {
+                if self.bigCards == self.cards {
+                    print("you tapped in the correct order")
+                } else {
+                    for card in self.cards {
+                        card.repeatedCardsWrong()
+                        self.bigCards = []
+                    }
+                    print("you tapped in the incorrect order")
+                }
+            }
         }
     }
 }

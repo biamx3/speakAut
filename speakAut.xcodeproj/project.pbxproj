@@ -33,6 +33,7 @@
 		ABDDD3472191B96D00641318 /* GapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDDD3462191B96D00641318 /* GapViewModel.swift */; };
 		ABDFF25621A463390059193F /* RepeatWordsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDFF25421A463380059193F /* RepeatWordsScene.swift */; };
 		ABDFF25921A47E740059193F /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDFF25821A47E740059193F /* CardType.swift */; };
+		ABDFF25D21A5AA340059193F /* PeachyKeenJF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABDFF25C21A5AA2E0059193F /* PeachyKeenJF.ttf */; };
 		ABE1CAC021750EED0057BA53 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE1CABF21750EED0057BA53 /* GameViewController.swift */; };
 		ABE9A0EF2191CB50008827EF /* CardSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */; };
 		ABFBD0D221A32B05001C5E05 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = ABFBD0D121A32B05001C5E05 /* Podfile */; };
@@ -90,6 +91,7 @@
 		ABDDD3462191B96D00641318 /* GapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapViewModel.swift; sourceTree = "<group>"; };
 		ABDFF25421A463380059193F /* RepeatWordsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatWordsScene.swift; sourceTree = "<group>"; };
 		ABDFF25821A47E740059193F /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
+		ABDFF25C21A5AA2E0059193F /* PeachyKeenJF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PeachyKeenJF.ttf; sourceTree = "<group>"; };
 		ABE1CABF21750EED0057BA53 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetViewModel.swift; sourceTree = "<group>"; };
 		ABFBD0D121A32B05001C5E05 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -169,6 +171,7 @@
 				AB35F3ED2139836800FACE51 /* LaunchScreen.storyboard */,
 				AB35F3F02139836800FACE51 /* Info.plist */,
 				AB35F41C213984B800FACE51 /* GameScene.sks */,
+				ABDFF25C21A5AA2E0059193F /* PeachyKeenJF.ttf */,
 				AB35F420213986A500FACE51 /* SoundTrack.swift */,
 				ABDFF25421A463380059193F /* RepeatWordsScene.swift */,
 				ABD9FF3421A1AB1700A45FEA /* GameScene.swift */,
@@ -355,6 +358,7 @@
 				AB35F3EC2139836800FACE51 /* Assets.xcassets in Resources */,
 				ABFBD0D221A32B05001C5E05 /* Podfile in Resources */,
 				AB35F3EA2139836500FACE51 /* Main.storyboard in Resources */,
+				ABDFF25D21A5AA340059193F /* PeachyKeenJF.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
