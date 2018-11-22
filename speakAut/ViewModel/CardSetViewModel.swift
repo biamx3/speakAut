@@ -131,31 +131,21 @@ class CardSetViewModel: SKSpriteNode {
     
     
     func cardsAreRight(cardNodes: [CardViewModel]) {
-        let successLabel = successMessage()
-        self.addChild(successLabel)
-    
-        self.addParticles()
-        
         //Turn off user interaction
         self.addChild(invisibleNode)
         self.isUserInteractionEnabled = false
         
-        //Animate error label appearance
+        let successLabel = successMessage()
+        self.addChild(successLabel)
+        
+        self.addParticles()
+        
         let fadeIn = SKAction.fadeAlpha(to: 3.0, duration: 0.2)
-        let scaleUp1 = SKAction.scale(to: 1.2, duration: 0.2)
         
-        let groupFadeScale = SKAction.group([fadeIn, scaleUp1])
-        
-        let scaleDown1 = SKAction.scale(to: 0.9, duration: 0.2)
-        let scaleUp2 = SKAction.scale(to: 1.3, duration: 0.3)
-        let wait = SKAction.wait(forDuration: 6.0)
-        
-        let popAnimation = SKAction.sequence([groupFadeScale, scaleDown1, scaleUp2, wait])
-    
         self.hideGaps()
         successLabel.run(fadeIn, completion: {
-            self.prepareCardsForRepeatExercise(cards: cardNodes)
-            successLabel.run(popAnimation, completion: {
+            self.animateCards(cards: cardNodes)
+            successLabel.run(self.labelAnimation(), completion: {
             successLabel.removeFromParent()
             //Turn off confetti
             self.goToRepeatWordsScene()
@@ -164,27 +154,52 @@ class CardSetViewModel: SKSpriteNode {
         })
     }
     
-    func prepareCardsForRepeatExercise(cards: [CardViewModel]){
+    func labelAnimation()->SKAction {
+        //Animate error label appearance
+        let scaleUp = SKAction.scale(to: 2.0, duration: 0.15)
+        let moveDown = SKAction.moveBy(x: 0, y: -15, duration: 0.2)
+        moveDown.timingMode = .easeOut
+        let wait = SKAction.wait(forDuration: 3.0)
+        let scaleAndMove = SKAction.group([scaleUp, moveDown])
+        let popAnimation = SKAction.sequence([scaleAndMove, wait])
+        
+        return popAnimation
+    }
+    
+    func animateCards(cards: [CardViewModel]){
+        
+        //Animate cards scaling
         let scaleUp1 = SKAction.scale(to: 1.2, duration: 0.1)
+        scaleUp1.timingMode = .easeOut
         let scaleDown1 = SKAction.scale(to: 0.9, duration: 0.1)
-        let scaleUp2 = SKAction.scale(to: 1.3, duration: 0.2)
+        scaleDown1.timingMode = .easeOut
+        let scaleUp2 = SKAction.scale(to: 1.4, duration: 0.2)
+        scaleUp2.timingMode = .easeOut
         
         let scaleSequence = SKAction.sequence([scaleUp1, scaleDown1])
         let move = SKAction.move(by: CGVector(dx: 0, dy: CGSize.card.height*0.5), duration: 0.2)
         let animation = SKAction.group([scaleSequence, move, scaleUp2])
         animation.timingMode = .easeInEaseOut
         
-        //Animate cards going to center of screen
+        //Animate cards twisting
         for card in cards {
-            card.run(animation, completion: {
-                //MARK go to repeat scene
-            })
+            let cardIndex = CGFloat(cards.index(of: card) ?? 1)
+            let increasingAngle = 0.1*cardIndex
+            let rotation = SKAction.rotate(byAngle: CGFloat(-increasingAngle), duration: 0.2)
+            rotation.timingMode = .easeOut
+            let animationGroup = SKAction.group([animation, rotation])
+            
+            if card == cards[0] {
+                let rotation = SKAction.rotate(byAngle: 0.1, duration: 0.2)
+                rotation.timingMode = .easeOut
+                card.run(animationGroup)
+            } else {
+                card.run(animationGroup)
+            }
         }
     }
     
 
-    
-    
     func hideGaps(){
         guard let brothers = self.parent?.allDescendants() else {return}
         let gapsInScreen = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
@@ -288,6 +303,76 @@ class CardSetViewModel: SKSpriteNode {
     }
     
     
+    
+    func successMessage2() -> SKLabelNode {
+        let sceneSize = self.frame.size
+        let sucessMessageLabel = SKLabelNode(text: "Você acertou!")
+        sucessMessageLabel.name = "instructionsLabel"
+        sucessMessageLabel.fontSize = 32
+        sucessMessageLabel.fontColor = UIColor.pumpkinOrange
+        sucessMessageLabel.zPosition = 15
+        sucessMessageLabel.fontName = "PeachyKeenJF"
+        sucessMessageLabel.position = CGPoint(x: 0, y: sceneSize.height/2.7)
+        return sucessMessageLabel
+    }
+    
+    
+    func cardsAreRight2(cardNodes: [CardViewModel]) {
+        //Turn off user interaction
+        self.addChild(invisibleNode)
+        self.isUserInteractionEnabled = false
+        
+        let successLabel = successMessage()
+        self.addChild(successLabel)
+        
+        self.addParticles()
+        
+        let fadeIn = SKAction.fadeAlpha(to: 3.0, duration: 0.2)
+        
+        self.hideGaps()
+        successLabel.run(fadeIn, completion: {
+            self.animateCards2(cards: cardNodes)
+            successLabel.run(self.labelAnimation(), completion: {
+                successLabel.removeFromParent()
+                //Turn off confetti
+            })
+            
+        })
+    }
+    
+    func animateCards2(cards: [CardViewModel]){
+        
+        //Animate cards scaling
+        let scaleUp1 = SKAction.scale(to: 1.2, duration: 0.1)
+        scaleUp1.timingMode = .easeOut
+        let scaleDown1 = SKAction.scale(to: 0.9, duration: 0.1)
+        scaleDown1.timingMode = .easeOut
+        let scaleUp2 = SKAction.scale(to: 1.4, duration: 0.2)
+        scaleUp2.timingMode = .easeOut
+        
+        let scaleSequence = SKAction.sequence([scaleUp1, scaleDown1])
+        let animation = SKAction.group([scaleSequence, scaleUp2])
+        animation.timingMode = .easeInEaseOut
+        
+        //Animate cards twisting
+        for card in cards {
+            let cardIndex = CGFloat(cards.index(of: card) ?? 1)
+            let increasingAngle = 0.1*cardIndex
+            let rotation = SKAction.rotate(byAngle: CGFloat(-increasingAngle), duration: 0.2)
+            rotation.timingMode = .easeOut
+            let animationGroup = SKAction.group([animation, rotation])
+            
+            if card == cards[0] {
+                let rotation = SKAction.rotate(byAngle: 0.1, duration: 0.2)
+                rotation.timingMode = .easeOut
+                card.run(animationGroup)
+            } else {
+                card.run(animationGroup)
+            }
+        }
+    }
+    
+    
     //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         //Filter all nodes in scene to identify gaps and cards
@@ -315,6 +400,7 @@ class CardSetViewModel: SKSpriteNode {
             if self.bigCards.count == self.cards.count {
                 if self.bigCards == self.cards {
                     addParticles()
+                    cardsAreRight2(cardNodes: cardViews)
                     print("you tapped in the correct order")
                 } else {
                     for card in self.cards {

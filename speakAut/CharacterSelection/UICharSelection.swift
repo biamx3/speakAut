@@ -41,6 +41,8 @@ class UICharSelection: SKScene {
         self.addChild(instructionsLabel)
     }
     
+
+    
     func setUpCarousselButtons() {
         let sceneSize = self.frame.size
         let charBackButtonTexture = SKTexture(imageNamed: "characterBackButton")
@@ -69,9 +71,8 @@ class UICharSelection: SKScene {
         
         let chooseButton = SKSpriteNode(texture: chooseButtonTexture, color: .clear, size: chooseButtonTexture.size())
         chooseButton.position = CGPoint(x: sceneSize.width/2, y: chooseButtonTexture.size().height*0.6)
-        chooseButton.name = "charChoose"
+        chooseButton.name = "chooseLabel"
 
-        
         let chooseButtonLabel = SKLabelNode(text: "escolher")
         chooseButtonLabel.name = "chooseLabel"
         chooseButtonLabel.fontSize = 45
@@ -87,7 +88,7 @@ class UICharSelection: SKScene {
         guard let touch = touches.first else { return }
         let position = touch.location(in: self)
         let touchedNode = atPoint(position)
-
+        
         if touchedNode.name?.starts(with: "char") ?? true {
             touchedNode.run(SKAction.animateButton)
         }

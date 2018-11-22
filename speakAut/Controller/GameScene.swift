@@ -27,6 +27,7 @@ class GameScene: SKScene {
     
     func addInstructions(){
         let instructionsViewModel = InstructionsViewModel(cardType: .GameScene)
+        instructionsViewModel.zPosition = 15
         self.addChild(instructionsViewModel)
     }
     

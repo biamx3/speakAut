@@ -39,6 +39,8 @@
 		ABE6B89121A7149E0019DD98 /* RepeatWordsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = ABE6B89021A7149E0019DD98 /* RepeatWordsScene.sks */; };
 		ABE6B89721A73D910019DD98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABE6B89521A73D910019DD98 /* Assets.xcassets */; };
 		ABE6B89E21A748720019DD98 /* particle.sks in Resources */ = {isa = PBXBuildFile; fileRef = ABE6B89D21A748720019DD98 /* particle.sks */; };
+		ABE6B8A121A75EA70019DD98 /* buttonParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = ABE6B89F21A75EA70019DD98 /* buttonParticle.sks */; };
+		ABE6B8A221A75EA70019DD98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABE6B8A021A75EA70019DD98 /* Assets.xcassets */; };
 		ABE9A0EF2191CB50008827EF /* CardSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */; };
 		ABFBD0D221A32B05001C5E05 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = ABFBD0D121A32B05001C5E05 /* Podfile */; };
 /* End PBXBuildFile section */
@@ -101,6 +103,8 @@
 		ABE6B89021A7149E0019DD98 /* RepeatWordsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RepeatWordsScene.sks; sourceTree = "<group>"; };
 		ABE6B89521A73D910019DD98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Controller/Assets.xcassets; sourceTree = "<group>"; };
 		ABE6B89D21A748720019DD98 /* particle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = particle.sks; sourceTree = "<group>"; };
+		ABE6B89F21A75EA70019DD98 /* buttonParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = buttonParticle.sks; sourceTree = "<group>"; };
+		ABE6B8A021A75EA70019DD98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ViewModel/Assets.xcassets; sourceTree = "<group>"; };
 		ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetViewModel.swift; sourceTree = "<group>"; };
 		ABFBD0D121A32B05001C5E05 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E32AF562D70A252CFE9FDD5E /* Pods_speakAut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_speakAut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +186,8 @@
 				ABDFF25C21A5AA2E0059193F /* PeachyKeenJF.ttf */,
 				AB35F420213986A500FACE51 /* SoundTrack.swift */,
 				ABE6B89D21A748720019DD98 /* particle.sks */,
+				ABE6B89F21A75EA70019DD98 /* buttonParticle.sks */,
+				ABE6B8A021A75EA70019DD98 /* Assets.xcassets */,
 				ABE6B89021A7149E0019DD98 /* RepeatWordsScene.sks */,
 				ABE6B89521A73D910019DD98 /* Assets.xcassets */,
 				ABD9FF3221A1AB0200A45FEA /* Extensions.swift */,
@@ -376,6 +382,8 @@
 				AB35F41D213984B800FACE51 /* GameScene.sks in Resources */,
 				AB0984442155976A005C420F /* esfera.scn in Resources */,
 				AB35F3EF2139836800FACE51 /* LaunchScreen.storyboard in Resources */,
+				ABE6B8A121A75EA70019DD98 /* buttonParticle.sks in Resources */,
+				ABE6B8A221A75EA70019DD98 /* Assets.xcassets in Resources */,
 				AB35F3EC2139836800FACE51 /* Assets.xcassets in Resources */,
 				ABFBD0D221A32B05001C5E05 /* Podfile in Resources */,
 				ABE6B89E21A748720019DD98 /* particle.sks in Resources */,

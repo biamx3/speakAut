@@ -47,7 +47,13 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
     func selectCharacter() {
         print("character was selected")
         let gameViewController = GameViewController()
-        present(gameViewController, animated: true, completion: nil)
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+        view.window!.layer.add(transition, forKey: kCATransition)
+        present(gameViewController, animated: false, completion: nil)
         if self.isBeingPresented {
             self.dismiss(animated: false, completion: {})
         }

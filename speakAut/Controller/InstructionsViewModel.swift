@@ -14,7 +14,7 @@ class InstructionsViewModel: SKSpriteNode {
     init(cardType: CardType){
         super.init(texture: SKTexture(imageNamed: "backgroundImage"), color: .clear, size: UIScreen.main.bounds.size)
         self.isUserInteractionEnabled = false
-        self.position = CGPoint(x: 0, y: self.size.height*2)
+        self.position = CGPoint(x: 0, y: 0)
         setUpInstructionsLabel(cardType: cardType)
         animate()
     }
@@ -48,13 +48,12 @@ class InstructionsViewModel: SKSpriteNode {
     func animate(){
         
         //TO DO: Play Sound
-        let moveIn = SKAction.move(to: CGPoint.zero, duration: 0.4)
-        let wait = SKAction.wait(forDuration: 1)
-        let moveOut = SKAction.move(to: CGPoint(x: 0, y: self.size.height*2), duration: 0.4)
-        let group = SKAction.sequence([moveIn, wait, moveOut])
+        let wait = SKAction.wait(forDuration: 5)
+        let moveOut = SKAction.move(to: CGPoint(x: 0, y: self.size.height*2), duration: 0.6)
+        let group = SKAction.sequence([wait, moveOut])
         group.timingMode = .easeInEaseOut
         
-        self.run(wait, completion: {
+        self.run(group, completion: {
             self.removeFromParent()
         })
     }

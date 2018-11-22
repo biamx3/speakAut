@@ -40,6 +40,7 @@ class RepeatWordsScene: SKScene {
     
     func addInstructions(){
         let instructionsViewModel = InstructionsViewModel(cardType: .RepeatWordsScene)
+        instructionsViewModel.zPosition = 15
         self.addChild(instructionsViewModel)
     }
 
