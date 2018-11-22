@@ -15,12 +15,19 @@ class GameScene: SKScene {
     var cardType: CardType!
     
     override func didMove(to view: SKView) {
+        
         self.scaleMode = .resizeFill
         self.cardType = .GameScene
         addCardsAndGaps()
         printAllNodes(tab: "", node: self.scene!)
         addBackButton()
         self.isUserInteractionEnabled = true
+        addInstructions()
+    }
+    
+    func addInstructions(){
+        let instructionsViewModel = InstructionsViewModel(cardType: .GameScene)
+        self.addChild(instructionsViewModel)
     }
     
     func addCardsAndGaps(){
@@ -79,14 +86,6 @@ class GameScene: SKScene {
         }
     }
     
-    func goToRepeatWordsScene(){
-        let transition = SKTransition.reveal(with: .down, duration: 0.5)
-        let nextScene = RepeatWordsScene(size: self.view?.bounds.size ?? CGSize(width: 500, height: 500))
-        nextScene.cardSet = self.cardSet
-        nextScene.scaleMode = .aspectFill
-        self.scene?.view?.presentScene(nextScene, transition: transition)
-    }
-    
     func addBackButton() {
         let sceneSize = UIScreen.main.bounds.size
         let backButtonTexture = SKTexture(imageNamed: "backButton")
@@ -111,10 +110,18 @@ class GameScene: SKScene {
             self.gameSceneDelegate?.goToCharacterSelectionScreen()
         }
     }
+    
+    func goToRepeatWordsScene(){
+        let transition = SKTransition.reveal(with: .left, duration: 0.8)
+        if let nextScene = RepeatWordsScene(fileNamed: "RepeatWordsScene") {
+            nextScene.cardSet = self.cardSet
+            nextScene.scaleMode = .aspectFill
+            self.scene?.view?.presentScene(nextScene, transition: transition)
+        }
+    }
 }
+
 
 protocol GameSceneDelegate: class {
     func goToCharacterSelectionScreen()
-    func turnOnConfetti()
-    func turnOffConfetti()
 }

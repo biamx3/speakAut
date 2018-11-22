@@ -159,15 +159,13 @@ class CardViewModel: SKSpriteNode {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let parent = self.parent as! CardSetViewModel
+        
+        //Filter all nodes in scene to identify gaps and cards
         guard let brothers = self.parent?.allDescendants() else {return}
         let gaps = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
-        let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
         
-        let cardViews = cards as! [CardViewModel]
         
         if  parent.cardType == .GameScene {
-            //Filter all nodes in scene to identify gaps and cards
-            
             //Animate back to correct scale
             let scaleDown = SKAction.scale(to: 1.0, duration: 0.2)
             scaleDown.timingMode = .easeOut

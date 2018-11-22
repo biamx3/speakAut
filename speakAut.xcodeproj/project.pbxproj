@@ -34,13 +34,11 @@
 		ABDFF25621A463390059193F /* RepeatWordsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDFF25421A463380059193F /* RepeatWordsScene.swift */; };
 		ABDFF25921A47E740059193F /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDFF25821A47E740059193F /* CardType.swift */; };
 		ABDFF25D21A5AA340059193F /* PeachyKeenJF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABDFF25C21A5AA2E0059193F /* PeachyKeenJF.ttf */; };
-		ABE1AFD221A6F0350087FF5A /* GameSceneInstructions.sks in Resources */ = {isa = PBXBuildFile; fileRef = ABE1AFD121A6F0350087FF5A /* GameSceneInstructions.sks */; };
-		ABE1AFD421A6F1010087FF5A /* RepeatWordsSceneInstructions.sks in Resources */ = {isa = PBXBuildFile; fileRef = ABE1AFD321A6F1010087FF5A /* RepeatWordsSceneInstructions.sks */; };
-		ABE1AFD621A701460087FF5A /* GameSceneInstructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE1AFD521A701460087FF5A /* GameSceneInstructions.swift */; };
-		ABE1AFD821A7035B0087FF5A /* InstructionsViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE1AFD721A7035B0087FF5A /* InstructionsViewControler.swift */; };
 		ABE1CAC021750EED0057BA53 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE1CABF21750EED0057BA53 /* GameViewController.swift */; };
-		ABE6B88D21A705E00019DD98 /* VCType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE6B88C21A705E00019DD98 /* VCType.swift */; };
-		ABE6B88F21A70A160019DD98 /* RepeatWordsSceneInstructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE6B88E21A70A160019DD98 /* RepeatWordsSceneInstructions.swift */; };
+		ABE6B88F21A70A160019DD98 /* InstructionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE6B88E21A70A160019DD98 /* InstructionsViewModel.swift */; };
+		ABE6B89121A7149E0019DD98 /* RepeatWordsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = ABE6B89021A7149E0019DD98 /* RepeatWordsScene.sks */; };
+		ABE6B89721A73D910019DD98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABE6B89521A73D910019DD98 /* Assets.xcassets */; };
+		ABE6B89E21A748720019DD98 /* particle.sks in Resources */ = {isa = PBXBuildFile; fileRef = ABE6B89D21A748720019DD98 /* particle.sks */; };
 		ABE9A0EF2191CB50008827EF /* CardSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */; };
 		ABFBD0D221A32B05001C5E05 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = ABFBD0D121A32B05001C5E05 /* Podfile */; };
 /* End PBXBuildFile section */
@@ -98,13 +96,11 @@
 		ABDFF25421A463380059193F /* RepeatWordsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatWordsScene.swift; sourceTree = "<group>"; };
 		ABDFF25821A47E740059193F /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
 		ABDFF25C21A5AA2E0059193F /* PeachyKeenJF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PeachyKeenJF.ttf; sourceTree = "<group>"; };
-		ABE1AFD121A6F0350087FF5A /* GameSceneInstructions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameSceneInstructions.sks; sourceTree = "<group>"; };
-		ABE1AFD321A6F1010087FF5A /* RepeatWordsSceneInstructions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RepeatWordsSceneInstructions.sks; sourceTree = "<group>"; };
-		ABE1AFD521A701460087FF5A /* GameSceneInstructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneInstructions.swift; sourceTree = "<group>"; };
-		ABE1AFD721A7035B0087FF5A /* InstructionsViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewControler.swift; sourceTree = "<group>"; };
 		ABE1CABF21750EED0057BA53 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		ABE6B88C21A705E00019DD98 /* VCType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCType.swift; sourceTree = "<group>"; };
-		ABE6B88E21A70A160019DD98 /* RepeatWordsSceneInstructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatWordsSceneInstructions.swift; sourceTree = "<group>"; };
+		ABE6B88E21A70A160019DD98 /* InstructionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewModel.swift; sourceTree = "<group>"; };
+		ABE6B89021A7149E0019DD98 /* RepeatWordsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RepeatWordsScene.sks; sourceTree = "<group>"; };
+		ABE6B89521A73D910019DD98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Controller/Assets.xcassets; sourceTree = "<group>"; };
+		ABE6B89D21A748720019DD98 /* particle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = particle.sks; sourceTree = "<group>"; };
 		ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetViewModel.swift; sourceTree = "<group>"; };
 		ABFBD0D121A32B05001C5E05 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E32AF562D70A252CFE9FDD5E /* Pods_speakAut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_speakAut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,13 +180,10 @@
 				AB35F3F02139836800FACE51 /* Info.plist */,
 				AB35F41C213984B800FACE51 /* GameScene.sks */,
 				ABDFF25C21A5AA2E0059193F /* PeachyKeenJF.ttf */,
-				ABE1AFD121A6F0350087FF5A /* GameSceneInstructions.sks */,
-				ABE1AFD521A701460087FF5A /* GameSceneInstructions.swift */,
-				ABE1AFD321A6F1010087FF5A /* RepeatWordsSceneInstructions.sks */,
 				AB35F420213986A500FACE51 /* SoundTrack.swift */,
-				ABE6B88E21A70A160019DD98 /* RepeatWordsSceneInstructions.swift */,
-				ABDFF25421A463380059193F /* RepeatWordsScene.swift */,
-				ABD9FF3421A1AB1700A45FEA /* GameScene.swift */,
+				ABE6B89D21A748720019DD98 /* particle.sks */,
+				ABE6B89021A7149E0019DD98 /* RepeatWordsScene.sks */,
+				ABE6B89521A73D910019DD98 /* Assets.xcassets */,
 				ABD9FF3221A1AB0200A45FEA /* Extensions.swift */,
 				ABE1AFD921A704240087FF5A /* Controller */,
 				ABD9FF4021A1AB5500A45FEA /* CharacterSelection */,
@@ -229,8 +222,9 @@
 		ABE1AFD921A704240087FF5A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				ABE6B88C21A705E00019DD98 /* VCType.swift */,
-				ABE1AFD721A7035B0087FF5A /* InstructionsViewControler.swift */,
+				ABD9FF3421A1AB1700A45FEA /* GameScene.swift */,
+				ABDFF25421A463380059193F /* RepeatWordsScene.swift */,
+				ABE6B88E21A70A160019DD98 /* InstructionsViewModel.swift */,
 				ABE1CABF21750EED0057BA53 /* GameViewController.swift */,
 				ABD9FF3B21A1AB4C00A45FEA /* SelectionViewController.swift */,
 			);
@@ -378,15 +372,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB35F3E52139836500FACE51 /* art.scnassets in Resources */,
+				ABE6B89721A73D910019DD98 /* Assets.xcassets in Resources */,
 				AB35F41D213984B800FACE51 /* GameScene.sks in Resources */,
 				AB0984442155976A005C420F /* esfera.scn in Resources */,
 				AB35F3EF2139836800FACE51 /* LaunchScreen.storyboard in Resources */,
 				AB35F3EC2139836800FACE51 /* Assets.xcassets in Resources */,
-				ABE1AFD421A6F1010087FF5A /* RepeatWordsSceneInstructions.sks in Resources */,
 				ABFBD0D221A32B05001C5E05 /* Podfile in Resources */,
+				ABE6B89E21A748720019DD98 /* particle.sks in Resources */,
+				ABE6B89121A7149E0019DD98 /* RepeatWordsScene.sks in Resources */,
 				AB35F3EA2139836500FACE51 /* Main.storyboard in Resources */,
 				ABDFF25D21A5AA340059193F /* PeachyKeenJF.ttf in Resources */,
-				ABE1AFD221A6F0350087FF5A /* GameSceneInstructions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,9 +453,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABE1AFD621A701460087FF5A /* GameSceneInstructions.swift in Sources */,
 				ABE1CAC021750EED0057BA53 /* GameViewController.swift in Sources */,
-				ABE6B88F21A70A160019DD98 /* RepeatWordsSceneInstructions.swift in Sources */,
+				ABE6B88F21A70A160019DD98 /* InstructionsViewModel.swift in Sources */,
 				AB35F421213986A500FACE51 /* SoundTrack.swift in Sources */,
 				ABDFF25621A463390059193F /* RepeatWordsScene.swift in Sources */,
 				AB35F4192139843B00FACE51 /* DAO.swift in Sources */,
@@ -468,9 +462,7 @@
 				AB35F3E72139836500FACE51 /* ViewController.swift in Sources */,
 				AB35F4132139840600FACE51 /* Card.swift in Sources */,
 				AB35F4172139843100FACE51 /* Character.swift in Sources */,
-				ABE6B88D21A705E00019DD98 /* VCType.swift in Sources */,
 				ABD9FF3F21A1AB4C00A45FEA /* SelectionViewController.swift in Sources */,
-				ABE1AFD821A7035B0087FF5A /* InstructionsViewControler.swift in Sources */,
 				ABD9FF3321A1AB0300A45FEA /* Extensions.swift in Sources */,
 				ABD9FF3521A1AB1700A45FEA /* GameScene.swift in Sources */,
 				ABE9A0EF2191CB50008827EF /* CardSetViewModel.swift in Sources */,

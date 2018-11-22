@@ -11,9 +11,7 @@
     import SAConfettiView
     
     @objc(GameViewController)
-class GameViewController: UIViewController, GameSceneDelegate {
-        
-        private var confettiView: SAConfettiView!
+class GameViewController: UIViewController, GameSceneDelegate  {
 
         override func loadView() {
             self.view = SKView()
@@ -22,33 +20,22 @@ class GameViewController: UIViewController, GameSceneDelegate {
         override func viewDidLoad() {
             super.viewDidLoad()
             
-            if let view = self.view as! SKView? {
-                // Load the SKScene from 'GameScene.sks'
-                if let scene = GameScene(fileNamed: "GameScene") {
-                    // Set the scale mode to scale to fit the window
-                    scene.scaleMode = .resizeFill
+            //Start with GameScene Instructions!
+                if let view = self.view as! SKView? {
+                    // Load the SKScene from 'GameScene.sks'
+                    if let scene = GameScene(fileNamed: "GameScene") {
+                        // Set the scale mode to scale to fit the window
+                        scene.scaleMode = .resizeFill
+                        
+                        // Present the scene
+                        view.presentScene(scene)
+
+                    }
                     
-                    // Present the scene
-                    view.presentScene(scene)
-                    
-                    scene.gameSceneDelegate = self
-                    
-                    
-                    //Why is size 0 in the beginning?
-                    print("size : ", self.view.bounds)
-                    print("scene size: ", scene.size)
+                    view.ignoresSiblingOrder = false
+                    view.showsFPS = false
+                    view.showsNodeCount = true
                 }
-                
-                view.ignoresSiblingOrder = true
-                
-                view.showsFPS = false
-                view.showsNodeCount = true
-            }
-            
-            confettiView = SAConfettiView(frame: CGRect(x: 0, y: 0, width: 1000, height: 0))
-            confettiView.type = .Star
-            confettiView.intensity = 0.9
-            view.addSubview(confettiView)
         }
         
         func goToCharacterSelectionScreen() {
@@ -70,15 +57,7 @@ class GameViewController: UIViewController, GameSceneDelegate {
                 return .landscape
             }
         }
-        
-        func turnOnConfetti(){
-            print("turn on confetti")
-            confettiView.startConfetti()
-        }
-        
-        func turnOffConfetti() {
-            confettiView.stopConfetti()
-        }
+
         
         override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
