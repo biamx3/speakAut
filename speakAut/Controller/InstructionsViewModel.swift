@@ -48,7 +48,7 @@ class InstructionsViewModel: SKSpriteNode {
     func animate(){
         
         //TO DO: Play Sound
-        let wait = SKAction.wait(forDuration: 5)
+        let wait = SKAction.wait(forDuration: 3.5)
         let moveOut = SKAction.move(to: CGPoint(x: 0, y: self.size.height*2), duration: 0.6)
         let group = SKAction.sequence([wait, moveOut])
         group.timingMode = .easeInEaseOut

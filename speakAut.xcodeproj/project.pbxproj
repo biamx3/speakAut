@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5A5D546F645153E972CB26E0 /* Pods_speakAut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32AF562D70A252CFE9FDD5E /* Pods_speakAut.framework */; };
-		AB0984442155976A005C420F /* esfera.scn in Resources */ = {isa = PBXBuildFile; fileRef = AB0984432155976A005C420F /* esfera.scn */; };
 		AB098447215A8537005C420F /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB098446215A8537005C420F /* SpriteKit.framework */; };
 		AB35F3E32139836500FACE51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F3E22139836500FACE51 /* AppDelegate.swift */; };
 		AB35F3E52139836500FACE51 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = AB35F3E42139836500FACE51 /* art.scnassets */; };
@@ -41,6 +40,8 @@
 		ABE6B89E21A748720019DD98 /* particle.sks in Resources */ = {isa = PBXBuildFile; fileRef = ABE6B89D21A748720019DD98 /* particle.sks */; };
 		ABE6B8A121A75EA70019DD98 /* buttonParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = ABE6B89F21A75EA70019DD98 /* buttonParticle.sks */; };
 		ABE6B8A221A75EA70019DD98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABE6B8A021A75EA70019DD98 /* Assets.xcassets */; };
+		ABE6F60D21A857E30062E3F3 /* particleBurst.sks in Resources */ = {isa = PBXBuildFile; fileRef = ABE6F60C21A857E30062E3F3 /* particleBurst.sks */; };
+		ABE6F60F21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE6F60E21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift */; };
 		ABE9A0EF2191CB50008827EF /* CardSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */; };
 		ABFBD0D221A32B05001C5E05 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = ABFBD0D121A32B05001C5E05 /* Podfile */; };
 /* End PBXBuildFile section */
@@ -66,7 +67,6 @@
 		16802C6BB5E4767405BEB1EA /* Pods-speakAut.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-speakAut.release.xcconfig"; path = "Pods/Target Support Files/Pods-speakAut/Pods-speakAut.release.xcconfig"; sourceTree = "<group>"; };
 		5CF43FBDD93D8B1FE11F4CE4 /* Pods-speakAut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-speakAut.debug.xcconfig"; path = "Pods/Target Support Files/Pods-speakAut/Pods-speakAut.debug.xcconfig"; sourceTree = "<group>"; };
 		AB09844221552296005C420F /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
-		AB0984432155976A005C420F /* esfera.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = esfera.scn; sourceTree = "<group>"; };
 		AB098446215A8537005C420F /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		AB35F3DF2139836500FACE51 /* speakAut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = speakAut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB35F3E22139836500FACE51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +105,8 @@
 		ABE6B89D21A748720019DD98 /* particle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = particle.sks; sourceTree = "<group>"; };
 		ABE6B89F21A75EA70019DD98 /* buttonParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = buttonParticle.sks; sourceTree = "<group>"; };
 		ABE6B8A021A75EA70019DD98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ViewModel/Assets.xcassets; sourceTree = "<group>"; };
+		ABE6F60C21A857E30062E3F3 /* particleBurst.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = particleBurst.sks; sourceTree = "<group>"; };
+		ABE6F60E21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsToExport3DFiles.swift; sourceTree = "<group>"; };
 		ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetViewModel.swift; sourceTree = "<group>"; };
 		ABFBD0D121A32B05001C5E05 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E32AF562D70A252CFE9FDD5E /* Pods_speakAut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_speakAut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,8 +151,8 @@
 		AB35F3D62139836500FACE51 = {
 			isa = PBXGroup;
 			children = (
+				ABE6F60E21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift */,
 				ABFBD0D121A32B05001C5E05 /* Podfile */,
-				AB0984432155976A005C420F /* esfera.scn */,
 				AB35F3E12139836500FACE51 /* speakAut */,
 				AB35F3F82139836900FACE51 /* speakAutTests */,
 				AB35F4032139836900FACE51 /* speakAutUITests */,
@@ -184,6 +186,7 @@
 				AB35F3F02139836800FACE51 /* Info.plist */,
 				AB35F41C213984B800FACE51 /* GameScene.sks */,
 				ABDFF25C21A5AA2E0059193F /* PeachyKeenJF.ttf */,
+				ABE6F60C21A857E30062E3F3 /* particleBurst.sks */,
 				AB35F420213986A500FACE51 /* SoundTrack.swift */,
 				ABE6B89D21A748720019DD98 /* particle.sks */,
 				ABE6B89F21A75EA70019DD98 /* buttonParticle.sks */,
@@ -380,12 +383,12 @@
 				AB35F3E52139836500FACE51 /* art.scnassets in Resources */,
 				ABE6B89721A73D910019DD98 /* Assets.xcassets in Resources */,
 				AB35F41D213984B800FACE51 /* GameScene.sks in Resources */,
-				AB0984442155976A005C420F /* esfera.scn in Resources */,
 				AB35F3EF2139836800FACE51 /* LaunchScreen.storyboard in Resources */,
 				ABE6B8A121A75EA70019DD98 /* buttonParticle.sks in Resources */,
 				ABE6B8A221A75EA70019DD98 /* Assets.xcassets in Resources */,
 				AB35F3EC2139836800FACE51 /* Assets.xcassets in Resources */,
 				ABFBD0D221A32B05001C5E05 /* Podfile in Resources */,
+				ABE6F60D21A857E30062E3F3 /* particleBurst.sks in Resources */,
 				ABE6B89E21A748720019DD98 /* particle.sks in Resources */,
 				ABE6B89121A7149E0019DD98 /* RepeatWordsScene.sks in Resources */,
 				AB35F3EA2139836500FACE51 /* Main.storyboard in Resources */,
@@ -465,6 +468,7 @@
 				ABE6B88F21A70A160019DD98 /* InstructionsViewModel.swift in Sources */,
 				AB35F421213986A500FACE51 /* SoundTrack.swift in Sources */,
 				ABDFF25621A463390059193F /* RepeatWordsScene.swift in Sources */,
+				ABE6F60F21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift in Sources */,
 				AB35F4192139843B00FACE51 /* DAO.swift in Sources */,
 				ABDDD3472191B96D00641318 /* GapViewModel.swift in Sources */,
 				AB35F3E72139836500FACE51 /* ViewController.swift in Sources */,
