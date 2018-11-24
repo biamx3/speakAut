@@ -83,6 +83,7 @@ class ViewController: UIViewController {
         
         addHair(named: "art.scnassets/hair_luciana.dae")
         addEars(named: "art.scnassets/ears.dae")
+        addGlasses(named: "art.scnassets/glasses.dae")
        // defineTexture()
     }
     
@@ -107,6 +108,19 @@ class ViewController: UIViewController {
                 if let headRef = character.childNode(withName: "mixamorig_Head", recursively: true) {
                     print("Adicionando em ", headRef.name ?? "")
                     headRef.addChildNode(ears)
+                }
+            }
+        }
+    }
+    
+    func addGlasses(named glassesSceneName: String) {
+        
+        if let scene = SCNScene(named: glassesSceneName) {
+            
+            if let glasses = scene.rootNode.childNode(withName: "glasses", recursively: true) {
+                if let headRef = character.childNode(withName: "mixamorig_Head", recursively: true) {
+                    print("Adicionando em ", headRef.name ?? "")
+                    headRef.addChildNode(glasses)
                 }
             }
         }
