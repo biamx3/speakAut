@@ -81,7 +81,7 @@ class ViewController: UIViewController {
 //        scnView.addGestureRecognizer(tapGesture)
         
         
-        addHair(named: "art.scnassets/hair_henrique.dae")
+        addHair(named: "art.scnassets/hair_luciana.dae")
         addEars(named: "art.scnassets/ears.dae")
        // defineTexture()
     }
