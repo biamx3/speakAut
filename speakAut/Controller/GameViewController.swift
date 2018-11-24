@@ -8,7 +8,6 @@
 
     import UIKit
     import SpriteKit
-    import SAConfettiView
     
     @objc(GameViewController)
 class GameViewController: UIViewController, GameSceneDelegate  {

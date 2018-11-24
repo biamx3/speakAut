@@ -140,7 +140,7 @@ class CardSetViewModel: SKSpriteNode {
         
         let wait = SKAction.wait(forDuration: 6.0)
         
-        for i in 1...textures.count {
+        for i in 1...3 {
             if let emitter = SKEmitterNode(fileNamed: choosedParticle.name) {
                 emitter.particleTexture = SKTexture(imageNamed: "particle\(i)")
                 emitter.position = CGPoint(x: 0, y: choosedParticle.positionY)

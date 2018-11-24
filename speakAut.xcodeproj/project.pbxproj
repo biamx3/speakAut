@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A5D546F645153E972CB26E0 /* Pods_speakAut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32AF562D70A252CFE9FDD5E /* Pods_speakAut.framework */; };
-		AB098447215A8537005C420F /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB098446215A8537005C420F /* SpriteKit.framework */; };
 		AB35F3E32139836500FACE51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F3E22139836500FACE51 /* AppDelegate.swift */; };
 		AB35F3E52139836500FACE51 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = AB35F3E42139836500FACE51 /* art.scnassets */; };
 		AB35F3E72139836500FACE51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F3E62139836500FACE51 /* ViewController.swift */; };
@@ -43,7 +41,6 @@
 		ABE6F60D21A857E30062E3F3 /* particleBurst.sks in Resources */ = {isa = PBXBuildFile; fileRef = ABE6F60C21A857E30062E3F3 /* particleBurst.sks */; };
 		ABE6F60F21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE6F60E21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift */; };
 		ABE9A0EF2191CB50008827EF /* CardSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */; };
-		ABFBD0D221A32B05001C5E05 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = ABFBD0D121A32B05001C5E05 /* Podfile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,11 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		16802C6BB5E4767405BEB1EA /* Pods-speakAut.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-speakAut.release.xcconfig"; path = "Pods/Target Support Files/Pods-speakAut/Pods-speakAut.release.xcconfig"; sourceTree = "<group>"; };
-		5CF43FBDD93D8B1FE11F4CE4 /* Pods-speakAut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-speakAut.debug.xcconfig"; path = "Pods/Target Support Files/Pods-speakAut/Pods-speakAut.debug.xcconfig"; sourceTree = "<group>"; };
 		AB09844221552296005C420F /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
-		AB098446215A8537005C420F /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
-		AB35F3DF2139836500FACE51 /* speakAut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = speakAut.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB35F3DF2139836500FACE51 /* speakAut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = speakAut.app; path = "/Users/beatriz3m/Documents/Nova Vida/PUC/TCC/speakAut/build/Debug-iphoneos/speakAut.app"; sourceTree = "<absolute>"; };
 		AB35F3E22139836500FACE51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB35F3E42139836500FACE51 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		AB35F3E62139836500FACE51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,10 +70,10 @@
 		AB35F3EB2139836800FACE51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB35F3EE2139836800FACE51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB35F3F02139836800FACE51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB35F3F52139836900FACE51 /* speakAutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = speakAutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB35F3F52139836900FACE51 /* speakAutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = speakAutTests.xctest; path = "/Users/beatriz3m/Documents/Nova Vida/PUC/TCC/speakAut/build/Debug-iphoneos/speakAutTests.xctest"; sourceTree = "<absolute>"; };
 		AB35F3F92139836900FACE51 /* speakAutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = speakAutTests.swift; sourceTree = "<group>"; };
 		AB35F3FB2139836900FACE51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB35F4002139836900FACE51 /* speakAutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = speakAutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB35F4002139836900FACE51 /* speakAutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = speakAutUITests.xctest; path = "/Users/beatriz3m/Documents/Nova Vida/PUC/TCC/speakAut/build/Debug-iphoneos/speakAutUITests.xctest"; sourceTree = "<absolute>"; };
 		AB35F4042139836900FACE51 /* speakAutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = speakAutUITests.swift; sourceTree = "<group>"; };
 		AB35F4062139836900FACE51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB35F4122139840600FACE51 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -108,8 +102,6 @@
 		ABE6F60C21A857E30062E3F3 /* particleBurst.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = particleBurst.sks; sourceTree = "<group>"; };
 		ABE6F60E21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsToExport3DFiles.swift; sourceTree = "<group>"; };
 		ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetViewModel.swift; sourceTree = "<group>"; };
-		ABFBD0D121A32B05001C5E05 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		E32AF562D70A252CFE9FDD5E /* Pods_speakAut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_speakAut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,8 +109,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB098447215A8537005C420F /* SpriteKit.framework in Frameworks */,
-				5A5D546F645153E972CB26E0 /* Pods_speakAut.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,37 +129,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AB098445215A8537005C420F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				AB098446215A8537005C420F /* SpriteKit.framework */,
-				E32AF562D70A252CFE9FDD5E /* Pods_speakAut.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		AB35F3D62139836500FACE51 = {
 			isa = PBXGroup;
 			children = (
 				ABE6F60E21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift */,
-				ABFBD0D121A32B05001C5E05 /* Podfile */,
 				AB35F3E12139836500FACE51 /* speakAut */,
 				AB35F3F82139836900FACE51 /* speakAutTests */,
 				AB35F4032139836900FACE51 /* speakAutUITests */,
-				AB35F3E02139836500FACE51 /* Products */,
-				AB098445215A8537005C420F /* Frameworks */,
-				BEA2A58D9AA5785756FEBFE6 /* Pods */,
 			);
-			sourceTree = "<group>";
-		};
-		AB35F3E02139836500FACE51 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AB35F3DF2139836500FACE51 /* speakAut.app */,
-				AB35F3F52139836900FACE51 /* speakAutTests.xctest */,
-				AB35F4002139836900FACE51 /* speakAutUITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		AB35F3E12139836500FACE51 /* speakAut */ = {
@@ -262,15 +229,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		BEA2A58D9AA5785756FEBFE6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5CF43FBDD93D8B1FE11F4CE4 /* Pods-speakAut.debug.xcconfig */,
-				16802C6BB5E4767405BEB1EA /* Pods-speakAut.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -278,11 +236,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB35F4092139836900FACE51 /* Build configuration list for PBXNativeTarget "speakAut" */;
 			buildPhases = (
-				53B51ED176B53D6C8DECE2E3 /* [CP] Check Pods Manifest.lock */,
 				AB35F3DB2139836500FACE51 /* Sources */,
 				AB35F3DC2139836500FACE51 /* Frameworks */,
 				AB35F3DD2139836500FACE51 /* Resources */,
-				BA7A1FEC832DEFBAD375B29E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -364,7 +320,7 @@
 				Base,
 			);
 			mainGroup = AB35F3D62139836500FACE51;
-			productRefGroup = AB35F3E02139836500FACE51 /* Products */;
+			productRefGroup = AB35F3D62139836500FACE51;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -387,7 +343,6 @@
 				ABE6B8A121A75EA70019DD98 /* buttonParticle.sks in Resources */,
 				ABE6B8A221A75EA70019DD98 /* Assets.xcassets in Resources */,
 				AB35F3EC2139836800FACE51 /* Assets.xcassets in Resources */,
-				ABFBD0D221A32B05001C5E05 /* Podfile in Resources */,
 				ABE6F60D21A857E30062E3F3 /* particleBurst.sks in Resources */,
 				ABE6B89E21A748720019DD98 /* particle.sks in Resources */,
 				ABE6B89121A7149E0019DD98 /* RepeatWordsScene.sks in Resources */,
@@ -411,53 +366,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		53B51ED176B53D6C8DECE2E3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-speakAut-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BA7A1FEC832DEFBAD375B29E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-speakAut/Pods-speakAut-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SAConfettiView/SAConfettiView.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAConfettiView.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-speakAut/Pods-speakAut-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AB35F3DB2139836500FACE51 /* Sources */ = {
@@ -654,7 +562,6 @@
 		};
 		AB35F40A2139836900FACE51 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5CF43FBDD93D8B1FE11F4CE4 /* Pods-speakAut.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -674,7 +581,6 @@
 		};
 		AB35F40B2139836900FACE51 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 16802C6BB5E4767405BEB1EA /* Pods-speakAut.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
