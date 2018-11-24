@@ -32,16 +32,17 @@ import UIKit
 
 class Sentence {
     
+    var animationSceneName: String
     var index : Int = 0
     var animation : String = ""
     var cardArray : [Card] = []
     var sentenceNarration: String = ""
 
     
-    init(index: Int, cardArray: [Card], animation: String, sentenceNarration: String) {
+    init(animationSceneName: String, index: Int, cardArray: [Card], sentenceNarration: String) {
+        self.animationSceneName = animationSceneName
         self.index = index
         self.cardArray = cardArray
-        self.animation = animation
         self.sentenceNarration = sentenceNarration
 
     }

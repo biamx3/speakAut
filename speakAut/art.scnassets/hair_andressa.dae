@@ -4,14 +4,14 @@
   <contributor>
    <authoring_tool>SceneKit Collada Exporter v1.0</authoring_tool>
   </contributor>
-  <created>2018-11-24T16:24:34Z</created>
-  <modified>2018-11-24T16:24:34Z</modified>
+  <created>2018-11-24T21:31:03Z</created>
+  <modified>2018-11-24T21:31:03Z</modified>
   <unit meter="1.000000"/>
   <up_axis>Y_UP</up_axis>
  </asset>
  <library_images>
   <image id="image1">
-   <init_from>AndressaHairTexture.png</init_from>
+   <init_from>hairTexture_andressa.png</init_from>
   </image>
  </library_images>
  <library_materials>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 /**
  Model class for Character.
@@ -24,13 +25,19 @@ import UIKit
  */
 
 class Character {
+    var name: String = ""
     var article: String = ""
     var subjectName: String = ""
     var sentenceArray: [Sentence] = []
+    var hasEars: Bool = true
+    var hasGlasses: Bool = false
     
-    init(article: String, subjectName: String, sentenceArray: [Sentence]) {
+    init(name: String, hasEars: Bool, hasGlasses: Bool, article: String, subjectName: String, sentenceArray: [Sentence]) {
+        self.name = name
+        self.hasEars = hasEars
+        self.hasGlasses = hasGlasses
         self.subjectName = subjectName
         self.article = article + " "
-        self.sentenceArray = [Sentence(index: 0, cardArray: [], animation: "", sentenceNarration: "")]
+        self.sentenceArray = [Sentence(animationSceneName: "", index: 0, cardArray: [], sentenceNarration: "")]
     }
 }

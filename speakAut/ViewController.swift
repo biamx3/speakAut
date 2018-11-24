@@ -29,6 +29,10 @@ class ViewController: UIViewController {
         
         sceneView = scene
         character = scene.rootNode
+        
+//        let newCharacter = CharacterViewModel()
+//        newCharacter. = SCNVector3(10, 0, 0)
+//        scene.rootNode.addChildNode(newCharacter)
 
         
         // create and add a camera to the scene
@@ -80,8 +84,7 @@ class ViewController: UIViewController {
 //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
 //        scnView.addGestureRecognizer(tapGesture)
         
-        
-        addHair(named: "art.scnassets/hair_luciana.dae")
+        addHair(named: "art.scnassets/hair_Luciana.dae")
         addEars(named: "art.scnassets/ears.dae")
         addGlasses(named: "art.scnassets/glasses.dae")
        // defineTexture()

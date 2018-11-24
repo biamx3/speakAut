@@ -22,6 +22,7 @@
 		AB35F41D213984B800FACE51 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = AB35F41C213984B800FACE51 /* GameScene.sks */; };
 		AB35F421213986A500FACE51 /* SoundTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F420213986A500FACE51 /* SoundTrack.swift */; };
 		AB4251FD21A9B0D100399376 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4251FC21A9B0D100399376 /* ViewController.swift */; };
+		AB4251FF21A9BB0600399376 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4251FE21A9BB0600399376 /* CharacterViewModel.swift */; };
 		ABD9FF3321A1AB0300A45FEA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD9FF3221A1AB0200A45FEA /* Extensions.swift */; };
 		ABD9FF3521A1AB1700A45FEA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD9FF3421A1AB1700A45FEA /* GameScene.swift */; };
 		ABD9FF3C21A1AB4C00A45FEA /* CarousselCharSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD9FF3821A1AB4C00A45FEA /* CarousselCharSelection.swift */; };
@@ -82,6 +83,7 @@
 		AB4251FA21A9AFED00399376 /* speakAutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = speakAutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4251FB21A9AFED00399376 /* speakAutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = speakAutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4251FC21A9B0D100399376 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AB4251FE21A9BB0600399376 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
 		ABD9FF3221A1AB0200A45FEA /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		ABD9FF3421A1AB1700A45FEA /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		ABD9FF3821A1AB4C00A45FEA /* CarousselCharSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarousselCharSelection.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				AB35F4122139840600FACE51 /* Card.swift */,
 				AB35F4142139841600FACE51 /* Sentence.swift */,
 				AB35F4162139843100FACE51 /* Character.swift */,
+				AB4251FE21A9BB0600399376 /* CharacterViewModel.swift */,
 				AB35F4182139843B00FACE51 /* DAO.swift */,
 			);
 			path = Model;
@@ -372,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABE1CAC021750EED0057BA53 /* GameViewController.swift in Sources */,
+				AB4251FF21A9BB0600399376 /* CharacterViewModel.swift in Sources */,
 				ABE6B88F21A70A160019DD98 /* InstructionsViewModel.swift in Sources */,
 				AB35F421213986A500FACE51 /* SoundTrack.swift in Sources */,
 				ABDFF25621A463390059193F /* RepeatWordsScene.swift in Sources */,

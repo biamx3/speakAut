@@ -23,33 +23,37 @@ import UIKit
 //            return sentence
 //        }
         
+        
         func getFinishedCards(characterIndex: Int, sentenceIndex: Int) -> Sentence {
             let sentence = characterArray[characterIndex].sentenceArray[sentenceIndex]
             return sentence
         }
         
-        func createCharacterArray() {
-            
-            let character1 = Character(article: "a", subjectName: "menina", sentenceArray: [])
-            
-            //dançou sozinha
-            character1.sentenceArray.append(Sentence(index: 0, cardArray: [], animation: "hello", sentenceNarration: "hello"))
-            character1.sentenceArray[0].cardArray.append(Card(index: 0, word: "a menina", imageName: "menina", wordNarration: "lala"))
-            character1.sentenceArray[0].cardArray.append(Card(index: 1, word: "dançou", imageName: "dancou", wordNarration: "dancou"))
-            //character1.sentenceArray[0].cardArray.append(Card(index: 2, word: "sozinha", imageName: "sozinha", wordNarration: "sozinha"))
-            
-            characterArray.append(character1)
-        }
-        
         func createCharacter() -> Character {
-            let character1 = Character(article: "a", subjectName: "menina", sentenceArray: [])
             
-            //dançou sozinha
-            character1.sentenceArray.append(Sentence(index: 0, cardArray: [], animation: "hello", sentenceNarration: "hello"))
-            character1.sentenceArray[0].cardArray.append(Card(index: 0, word: "a menina", imageName: "menina", wordNarration: "lala"))
-            character1.sentenceArray[0].cardArray.append(Card(index: 1, word: "dançou", imageName: "dancou", wordNarration: "dancou"))
             
-            return character1
+            let luciana = Character(name: "Luciana", hasEars: true, hasGlasses: true, article: "a", subjectName:"menina", sentenceArray: [])
+            
+            let sentence = Sentence(animationSceneName: "idle_luciana", index: 0, cardArray: [], sentenceNarration: "")
+            let sentence2 = Sentence(animationSceneName: "idle_luciana", index: 1, cardArray: [], sentenceNarration: "")
+            
+            luciana.sentenceArray.append(contentsOf: [sentence, sentence2])
+            
+            self.characterArray.append(luciana)
+            
+            
+//            let character1 = Character(name: "Luciana", hasEars: true, hasGlasses: false, article: "a", subjectName: "menina", sentenceArray: [])
+//
+//            //dançou sozinha
+//            character1.sentenceArray.append(Sentence(sceneName: "idle_luciana", index: 0, cardArray: [], animation: "hello", sentenceNarration: "hello"))
+//            character1.sentenceArray[0].cardArray.append(Card(index: 0, word: "a menina", imageName: "menina", wordNarration: "lala"))
+//            character1.sentenceArray[0].cardArray.append(Card(index: 1, word: "dançou", imageName: "dancou", wordNarration: "dancou"))
+//
+//            character1.sentenceArray.append(Sentence(sceneName: "idle_luciana", index: 1, cardArray: [], animation: "hello", sentenceNarration: "hello"))
+//            character1.sentenceArray[0].cardArray.append(Card(index: 0, word: "a menina", imageName: "menina", wordNarration: "lala"))
+//            character1.sentenceArray[0].cardArray.append(Card(index: 1, word: "dançou", imageName: "dancou", wordNarration: "dancou"))
+            
+            return luciana
 
         }
 }

@@ -191,6 +191,12 @@ class CarousselCharSelection: SCNScene {
     }
     
     func createCubes() {
+        let dao = DAO()
+        let character = dao.createCharacter()
+        let characterViewModel = CharacterViewModel(characterModel: character)
+        print("character is ", character.name)
+        let characterNode = characterViewModel.sceneArray[0].rootNode
+        
         //Create all cubes; add them to "totalCharacters" array
         let cube1 = SCNBox(width: 2.68, height: 3.5, length: 2, chamferRadius: 0)
         let cubeMaterial1 = SCNMaterial()
@@ -251,6 +257,6 @@ class CarousselCharSelection: SCNScene {
         cubeNode5.geometry?.firstMaterial?.diffuse.contents = UIColor.purple
         cubeNode6.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
         
-        self.totalCharacters.append(contentsOf: [cubeNode1,cubeNode2,cubeNode3, cubeNode4, cubeNode5, cubeNode6])
+        self.totalCharacters.append(contentsOf: [characterNode, cubeNode1,cubeNode2,cubeNode3, cubeNode4, cubeNode5, cubeNode6])
     }
 }
