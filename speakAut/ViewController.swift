@@ -18,19 +18,18 @@ class ViewController: UIViewController {
     var idle:Bool = true
     var character:SCNNode!
     var headMesh:SCNNode!
+    var bodyMesh: SCNNode!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // create a new scene
-        let scene = SCNScene(named: "art.scnassets/character.dae")!
+        let scene = SCNScene(named: "art.scnassets/idle_luciana.dae")!
        // let scene = SCNScene()
         
         sceneView = scene
         character = scene.rootNode
-        //headMesh = character.childNode(withName: "headMesh", recursively: true)
-       // headMesh?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "texture")
-        //let material = result.node.geometry!.firstMaterial!
+
         
         // create and add a camera to the scene
         let cameraNode = SCNNode()
@@ -39,20 +38,20 @@ class ViewController: UIViewController {
         
         // place the camera
         //default:  cameraNode.position = SCNVector3(x: 0, y: 5, z: 15)
-        cameraNode.position = SCNVector3(x: 0, y: 5, z: 30)
+        cameraNode.position = SCNVector3(x: 0, y: 1, z: 3)
         
         // create and add a light to the scene
-        let lightNode = SCNNode()
-        lightNode.light = SCNLight()
-        lightNode.light!.type = .omni
-        lightNode.position = SCNVector3(x: 0, y: 10, z: 5)
-        scene.rootNode.addChildNode(lightNode)
+//        let lightNode = SCNNode()
+//        lightNode.light = SCNLight()
+//        lightNode.light!.type = .omni
+//        lightNode.position = SCNVector3(x: 0, y: 20, z: 30)
+//        scene.rootNode.addChildNode(lightNode)
         
         // create and add an ambient light to the scene
         let ambientLightNode = SCNNode()
         ambientLightNode.light = SCNLight()
         ambientLightNode.light!.type = .ambient
-        ambientLightNode.light!.color = UIColor.darkGray
+        ambientLightNode.light!.color = UIColor.white
         scene.rootNode.addChildNode(ambientLightNode)
         
        // retrieve the SCNView
@@ -78,24 +77,14 @@ class ViewController: UIViewController {
         printAllNodes(tab: "", node: character)
 
         // add a tap gesture recognizer
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        scnView.addGestureRecognizer(tapGesture)
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+//        scnView.addGestureRecognizer(tapGesture)
         
         
-        addHair(named: "art.scnassets/hair_z_head_zeroed3.dae")
+        addHair(named: "art.scnassets/hair_andressa.dae")
         addEars(named: "art.scnassets/ears.dae")
+       // defineTexture()
     }
-    
-    
-    //How to export a hair mesh from Maya to Xcode:
-    /*
-     First position hair on top of a rigged T-Stance character. Then, edit pivot. Turn on snap to point tool and snap pivot to the mixamorig_Head bone. Rotate y axis to point at mixamorig_HeadTop_End. Delete rigged T-Stance character, leaving only hair. Turn off snap to point tool and turn on snap to grid. Move hair until pivot is on 0,0,0. Delete history and freeze transformations. Export as DAE with Axis conversion to Z. Import to Xcode. Change Local Euler X rotation coordinates from 90 to 0.
-    */
-    
-    //Hair naming convention:
-    /*
-     The .dae file should always be started with "hair_", followed by length ("cropped", "short", "medium", "long") and then a quirky adjective or name (for example, "boyish", "pigtail", "mohawk"). The name of the mesh should always be "hair".
-     */
     
     func addHair(named hairSceneName: String) {
         
@@ -106,7 +95,6 @@ class ViewController: UIViewController {
                     print("Adicionando em ", headRef.name ?? "")
                     headRef.addChildNode(hair)
                 }
-
             }
         }
     }
@@ -120,9 +108,19 @@ class ViewController: UIViewController {
                     print("Adicionando em ", headRef.name ?? "")
                     headRef.addChildNode(ears)
                 }
-                
             }
         }
+    }
+    
+    
+    func defineTexture(){
+        headMesh = character.childNode(withName: "head", recursively: true)
+        headMesh?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "art.scnassets/FranciscoFaceTexture")
+        let materialHead = headMesh.geometry!.firstMaterial!
+        
+        bodyMesh = character.childNode(withName: "body", recursively: true)
+        bodyMesh?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "art.scnassets/FranciscoBodyTexture")
+        let materialBody = bodyMesh.geometry!.firstMaterial!
     }
     
     
@@ -135,47 +133,47 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc
-    func handleTap(_ gestureRecognize: UIGestureRecognizer) {
-        // retrieve the SCNView
-        
-        let scnView = self.view as! SCNView
-        
-
-        // check what nodes are tapped
-        let p = gestureRecognize.location(in: scnView)
-        let hitResults = scnView.hitTest(p, options: [:])
-        // check that we clicked on at least one object
-        if hitResults.count > 0 {
-            // retrieved the first clicked object
-            let result = hitResults[0]
-
-            // get its material
-            let material = result.node.geometry!.firstMaterial!
-
-            // highlight it
-            SCNTransaction.begin()
-            material.diffuse.contents = SKTexture(imageNamed: "BodyTexture.png")
-            SCNTransaction.animationDuration = 0.5
-            
-
-
-            // on completion - unhighlight
-            SCNTransaction.completionBlock = {
-                SCNTransaction.begin()
-                SCNTransaction.animationDuration = 0.5
-
-
-                material.emission.contents = UIColor.black
-
-                SCNTransaction.commit()
-            }
-
-            material.emission.contents = UIColor.red
-
-            SCNTransaction.commit()
-        }
-    }
+//    @objc
+//    func handleTap(_ gestureRecognize: UIGestureRecognizer) {
+//        // retrieve the SCNView
+//
+//        let scnView = self.view as! SCNView
+//
+//
+//        // check what nodes are tapped
+//        let p = gestureRecognize.location(in: scnView)
+//        let hitResults = scnView.hitTest(p, options: [:])
+//        // check that we clicked on at least one object
+//        if hitResults.count > 0 {
+//            // retrieved the first clicked object
+//            let result = hitResults[0]
+//
+//            // get its material
+//            let material = result.node.geometry!.firstMaterial!
+//
+//            // highlight it
+//            SCNTransaction.begin()
+//            material.diffuse.contents = SKTexture(imageNamed: "BodyTexture.png")
+//            SCNTransaction.animationDuration = 0.5
+//
+//
+//
+//            // on completion - unhighlight
+//            SCNTransaction.completionBlock = {
+//                SCNTransaction.begin()
+//                SCNTransaction.animationDuration = 0.5
+//
+//
+//                material.emission.contents = UIColor.black
+//
+//                SCNTransaction.commit()
+//            }
+//
+//            material.emission.contents = UIColor.red
+//
+//            SCNTransaction.commit()
+//        }
+//    }
     
     func loadAnimations () {
         // Load the character in the idle animation
@@ -194,16 +192,12 @@ class ViewController: UIViewController {
         node.position = SCNVector3(0, -1, -2)
         node.scale = SCNVector3(0.2, 0.2, 0.2)
         
-        
         // Add the node to the scene
         
         sceneView.rootNode.addChildNode(node)
         
-      //  addHair(named: "art.scnassets/hair3.dae")
-        
         // Load all the DAE animations
-        loadAnimation(withKey: "dancing", sceneName: "art.scnassets/character", animationIdentifier: "character-1")
-        
+        loadAnimation(withKey: "dancing", sceneName: "art.scnassets/idle_luciana", animationIdentifier: "idle_luciana-1")
     }
     
     func loadAnimation(withKey: String, sceneName:String, animationIdentifier:String) {

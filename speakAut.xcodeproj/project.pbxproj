@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		AB35F3E32139836500FACE51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F3E22139836500FACE51 /* AppDelegate.swift */; };
 		AB35F3E52139836500FACE51 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = AB35F3E42139836500FACE51 /* art.scnassets */; };
-		AB35F3E72139836500FACE51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F3E62139836500FACE51 /* ViewController.swift */; };
 		AB35F3EA2139836500FACE51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB35F3E82139836500FACE51 /* Main.storyboard */; };
 		AB35F3EC2139836800FACE51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB35F3EB2139836800FACE51 /* Assets.xcassets */; };
 		AB35F3EF2139836800FACE51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB35F3ED2139836800FACE51 /* LaunchScreen.storyboard */; };
@@ -22,6 +21,7 @@
 		AB35F41B2139848100FACE51 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F41A2139848100FACE51 /* CardViewModel.swift */; };
 		AB35F41D213984B800FACE51 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = AB35F41C213984B800FACE51 /* GameScene.sks */; };
 		AB35F421213986A500FACE51 /* SoundTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F420213986A500FACE51 /* SoundTrack.swift */; };
+		AB4251FD21A9B0D100399376 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4251FC21A9B0D100399376 /* ViewController.swift */; };
 		ABD9FF3321A1AB0300A45FEA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD9FF3221A1AB0200A45FEA /* Extensions.swift */; };
 		ABD9FF3521A1AB1700A45FEA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD9FF3421A1AB1700A45FEA /* GameScene.swift */; };
 		ABD9FF3C21A1AB4C00A45FEA /* CarousselCharSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD9FF3821A1AB4C00A45FEA /* CarousselCharSelection.swift */; };
@@ -37,7 +37,6 @@
 		ABE6B89721A73D910019DD98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABE6B89521A73D910019DD98 /* Assets.xcassets */; };
 		ABE6B89E21A748720019DD98 /* particle.sks in Resources */ = {isa = PBXBuildFile; fileRef = ABE6B89D21A748720019DD98 /* particle.sks */; };
 		ABE6B8A121A75EA70019DD98 /* buttonParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = ABE6B89F21A75EA70019DD98 /* buttonParticle.sks */; };
-		ABE6B8A221A75EA70019DD98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABE6B8A021A75EA70019DD98 /* Assets.xcassets */; };
 		ABE6F60D21A857E30062E3F3 /* particleBurst.sks in Resources */ = {isa = PBXBuildFile; fileRef = ABE6F60C21A857E30062E3F3 /* particleBurst.sks */; };
 		ABE6F60F21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE6F60E21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift */; };
 		ABE9A0EF2191CB50008827EF /* CardSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */; };
@@ -62,18 +61,14 @@
 
 /* Begin PBXFileReference section */
 		AB09844221552296005C420F /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
-		AB35F3DF2139836500FACE51 /* speakAut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = speakAut.app; path = "/Users/beatriz3m/Documents/Nova Vida/PUC/TCC/speakAut/build/Debug-iphoneos/speakAut.app"; sourceTree = "<absolute>"; };
 		AB35F3E22139836500FACE51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB35F3E42139836500FACE51 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		AB35F3E62139836500FACE51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AB35F3E92139836500FACE51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB35F3EB2139836800FACE51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB35F3EE2139836800FACE51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB35F3F02139836800FACE51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB35F3F52139836900FACE51 /* speakAutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = speakAutTests.xctest; path = "/Users/beatriz3m/Documents/Nova Vida/PUC/TCC/speakAut/build/Debug-iphoneos/speakAutTests.xctest"; sourceTree = "<absolute>"; };
 		AB35F3F92139836900FACE51 /* speakAutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = speakAutTests.swift; sourceTree = "<group>"; };
 		AB35F3FB2139836900FACE51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB35F4002139836900FACE51 /* speakAutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = speakAutUITests.xctest; path = "/Users/beatriz3m/Documents/Nova Vida/PUC/TCC/speakAut/build/Debug-iphoneos/speakAutUITests.xctest"; sourceTree = "<absolute>"; };
 		AB35F4042139836900FACE51 /* speakAutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = speakAutUITests.swift; sourceTree = "<group>"; };
 		AB35F4062139836900FACE51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB35F4122139840600FACE51 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -83,6 +78,10 @@
 		AB35F41A2139848100FACE51 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		AB35F41C213984B800FACE51 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		AB35F420213986A500FACE51 /* SoundTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundTrack.swift; sourceTree = "<group>"; };
+		AB4251F921A9AFED00399376 /* speakAut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = speakAut.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB4251FA21A9AFED00399376 /* speakAutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = speakAutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB4251FB21A9AFED00399376 /* speakAutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = speakAutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB4251FC21A9B0D100399376 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ABD9FF3221A1AB0200A45FEA /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		ABD9FF3421A1AB1700A45FEA /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		ABD9FF3821A1AB4C00A45FEA /* CarousselCharSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarousselCharSelection.swift; sourceTree = "<group>"; };
@@ -98,7 +97,6 @@
 		ABE6B89521A73D910019DD98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Controller/Assets.xcassets; sourceTree = "<group>"; };
 		ABE6B89D21A748720019DD98 /* particle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = particle.sks; sourceTree = "<group>"; };
 		ABE6B89F21A75EA70019DD98 /* buttonParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = buttonParticle.sks; sourceTree = "<group>"; };
-		ABE6B8A021A75EA70019DD98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ViewModel/Assets.xcassets; sourceTree = "<group>"; };
 		ABE6F60C21A857E30062E3F3 /* particleBurst.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = particleBurst.sks; sourceTree = "<group>"; };
 		ABE6F60E21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsToExport3DFiles.swift; sourceTree = "<group>"; };
 		ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetViewModel.swift; sourceTree = "<group>"; };
@@ -136,6 +134,9 @@
 				AB35F3E12139836500FACE51 /* speakAut */,
 				AB35F3F82139836900FACE51 /* speakAutTests */,
 				AB35F4032139836900FACE51 /* speakAutUITests */,
+				AB4251F921A9AFED00399376 /* speakAut.app */,
+				AB4251FA21A9AFED00399376 /* speakAutTests.xctest */,
+				AB4251FB21A9AFED00399376 /* speakAutUITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,9 +146,9 @@
 				BBDC8142219B792B00B8CB1C /* Model */,
 				AB35F3E22139836500FACE51 /* AppDelegate.swift */,
 				AB35F3E42139836500FACE51 /* art.scnassets */,
-				AB35F3E62139836500FACE51 /* ViewController.swift */,
 				AB35F3E82139836500FACE51 /* Main.storyboard */,
 				AB35F3EB2139836800FACE51 /* Assets.xcassets */,
+				AB4251FC21A9B0D100399376 /* ViewController.swift */,
 				AB09844221552296005C420F /* texture.png */,
 				AB35F3ED2139836800FACE51 /* LaunchScreen.storyboard */,
 				AB35F3F02139836800FACE51 /* Info.plist */,
@@ -157,7 +158,6 @@
 				AB35F420213986A500FACE51 /* SoundTrack.swift */,
 				ABE6B89D21A748720019DD98 /* particle.sks */,
 				ABE6B89F21A75EA70019DD98 /* buttonParticle.sks */,
-				ABE6B8A021A75EA70019DD98 /* Assets.xcassets */,
 				ABE6B89021A7149E0019DD98 /* RepeatWordsScene.sks */,
 				ABE6B89521A73D910019DD98 /* Assets.xcassets */,
 				ABD9FF3221A1AB0200A45FEA /* Extensions.swift */,
@@ -246,7 +246,7 @@
 			);
 			name = speakAut;
 			productName = speakAut;
-			productReference = AB35F3DF2139836500FACE51 /* speakAut.app */;
+			productReference = AB4251F921A9AFED00399376 /* speakAut.app */;
 			productType = "com.apple.product-type.application";
 		};
 		AB35F3F42139836900FACE51 /* speakAutTests */ = {
@@ -264,7 +264,7 @@
 			);
 			name = speakAutTests;
 			productName = speakAutTests;
-			productReference = AB35F3F52139836900FACE51 /* speakAutTests.xctest */;
+			productReference = AB4251FA21A9AFED00399376 /* speakAutTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		AB35F3FF2139836900FACE51 /* speakAutUITests */ = {
@@ -282,7 +282,7 @@
 			);
 			name = speakAutUITests;
 			productName = speakAutUITests;
-			productReference = AB35F4002139836900FACE51 /* speakAutUITests.xctest */;
+			productReference = AB4251FB21A9AFED00399376 /* speakAutUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -341,7 +341,6 @@
 				AB35F41D213984B800FACE51 /* GameScene.sks in Resources */,
 				AB35F3EF2139836800FACE51 /* LaunchScreen.storyboard in Resources */,
 				ABE6B8A121A75EA70019DD98 /* buttonParticle.sks in Resources */,
-				ABE6B8A221A75EA70019DD98 /* Assets.xcassets in Resources */,
 				AB35F3EC2139836800FACE51 /* Assets.xcassets in Resources */,
 				ABE6F60D21A857E30062E3F3 /* particleBurst.sks in Resources */,
 				ABE6B89E21A748720019DD98 /* particle.sks in Resources */,
@@ -379,10 +378,10 @@
 				ABE6F60F21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift in Sources */,
 				AB35F4192139843B00FACE51 /* DAO.swift in Sources */,
 				ABDDD3472191B96D00641318 /* GapViewModel.swift in Sources */,
-				AB35F3E72139836500FACE51 /* ViewController.swift in Sources */,
 				AB35F4132139840600FACE51 /* Card.swift in Sources */,
 				AB35F4172139843100FACE51 /* Character.swift in Sources */,
 				ABD9FF3F21A1AB4C00A45FEA /* SelectionViewController.swift in Sources */,
+				AB4251FD21A9B0D100399376 /* ViewController.swift in Sources */,
 				ABD9FF3321A1AB0300A45FEA /* Extensions.swift in Sources */,
 				ABD9FF3521A1AB1700A45FEA /* GameScene.swift in Sources */,
 				ABE9A0EF2191CB50008827EF /* CardSetViewModel.swift in Sources */,
