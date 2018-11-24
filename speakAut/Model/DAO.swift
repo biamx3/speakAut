@@ -32,7 +32,7 @@ import UIKit
         func createCharacter() -> Character {
             
             
-            let luciana = Character(name: "Luciana", hasEars: true, hasGlasses: true, article: "a", subjectName:"menina", sentenceArray: [])
+            let luciana = Character(name: "luciana", hasEars: true, hasGlasses: true, article: "a", subjectName:"menina", sentenceArray: [])
             
             let sentence = Sentence(animationSceneName: "idle_luciana", index: 0, cardArray: [], sentenceNarration: "")
             let sentence2 = Sentence(animationSceneName: "idle_luciana", index: 1, cardArray: [], sentenceNarration: "")

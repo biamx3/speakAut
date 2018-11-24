@@ -29,17 +29,17 @@ class CharacterViewModel: SCNNode {
                 self.sceneArray.append(scene)
             }
         }
-
-        self.defineTexture()
         self.addHair()
 
-        if characterModel.hasEars {
+//        if characterModel.hasEars {
             self.addEars()
-        }
+//        }
 
         if characterModel.hasGlasses {
             self.addGlasses()
         }
+        
+        self.defineTexture()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -53,6 +53,10 @@ class CharacterViewModel: SCNNode {
             headMesh?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "art.scnassets/headTexture_\(characterName)")
             let bodyMesh = self.sceneArray[i].rootNode.childNode(withName: "body", recursively: true)
             bodyMesh?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "art.scnassets/bodyTexture_\(characterName)")
+            let earMeshRight = self.sceneArray[i].rootNode.childNode(withName: "ears_r", recursively: true)
+            earMeshRight?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "art.scnassets/earTexture_\(characterName)")
+            let earMeshLeft = self.sceneArray[i].rootNode.childNode(withName: "ears_l", recursively: true)
+            earMeshLeft?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "art.scnassets/earTexture_\(characterName)")
         }
     }
     
@@ -70,9 +74,9 @@ class CharacterViewModel: SCNNode {
     }
 
     func addEars() {
-        if let scene = SCNScene(named: "art.scnassets/ears.dae") {
-            if let ears = scene.rootNode.childNode(withName: "ears", recursively: true) {
-                for i in 0 ... self.sceneArray.count - 1 {
+        for i in 0 ... self.sceneArray.count - 1 {
+            if let scene = SCNScene(named: "art.scnassets/ears.dae") {
+                if let ears = scene.rootNode.childNode(withName: "ears", recursively: true) {
                     if let headRef = sceneArray[i].rootNode.childNode(withName: "mixamorig_Head", recursively: true) {
                         headRef.addChildNode(ears)
                     }
