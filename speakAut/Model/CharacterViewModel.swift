@@ -30,7 +30,7 @@ class CharacterViewModel: SCNNode {
             let scene = SCNScene(named: characterModel.sentenceArray[i].animationSceneName, inDirectory: "art.scnassets", options: nil )
             self.sceneArray.append(scene!)
         }
-
+        
         self.addHair()
 
         if characterModel.hasEars {
@@ -42,6 +42,7 @@ class CharacterViewModel: SCNNode {
         }
         
         self.defineTexture()
+        self.setScale()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -95,6 +96,16 @@ class CharacterViewModel: SCNNode {
                         print("Adicionando em ", headRef.name ?? "")
                         headRef.addChildNode(glasses)
                     }
+                }
+            }
+        }
+    }
+    
+    func setScale() {
+        for i in 0 ... self.sceneArray.count - 1 {
+            if let scene = SCNScene(named: self.characterModel.sentenceArray[i].animationSceneName, inDirectory: "art.scnassets", options: nil ) {
+                if let characterNode = scene.rootNode.childNode(withName: "character", recursively: true) {
+                    characterNode.scale = SCNVector3(characterNode.scale.x*2, characterNode.scale.y*2, characterNode.scale.z*2)
                 }
             }
         }

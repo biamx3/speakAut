@@ -70,9 +70,6 @@ class CarousselCharSelection: SCNScene {
         leftCharacter.position = positionLeft
         self.centralCharacter.position = positionCenter
         rightCharacter.position = positionRight
-        
-        leftCharacter.opacity = 0.7
-        rightCharacter.opacity = 0.7
 
         
         self.rootNode.addChildNode(leftCharacter)
@@ -87,7 +84,7 @@ class CarousselCharSelection: SCNScene {
         let moveToRight = SCNAction.move(to: positionRight, duration: 0.2)
         let moveToFarRight = SCNAction.move(to: positionFarRight, duration: 0.2)
         
-        let lowerOpacity = SCNAction.fadeOpacity(to: 0.7, duration: 0.2)
+        let lowerOpacity = SCNAction.fadeOpacity(to: 1.0, duration: 0.2)
         let heightenOpacity = SCNAction.fadeOpacity(to: 1.0, duration: 0.2)
         let fadeOut = SCNAction.fadeOut(duration: 0.2)
         
@@ -127,7 +124,7 @@ class CarousselCharSelection: SCNScene {
         let moveToCenter = SCNAction.move(to: positionCenter, duration: 0.2)
         let moveToRight = SCNAction.move(to: positionRight, duration: 0.2)
         
-        let lowerOpacity = SCNAction.fadeOpacity(to: 0.7, duration: 0.2)
+        let lowerOpacity = SCNAction.fadeOpacity(to: 1.0, duration: 0.2)
         let heightenOpacity = SCNAction.fadeOpacity(to: 1.0, duration: 0.2)
         let fadeOut = SCNAction.fadeOut(duration: 0.2)
         
@@ -197,6 +194,7 @@ class CarousselCharSelection: SCNScene {
         for i in 0...characterArray.count - 1 {
             let characterViewModel = CharacterViewModel(characterModel: characterArray[i])
             let characterNode = characterViewModel.sceneArray[0].rootNode
+            characterNode.scale = SCNVector3(characterNode.scale.x*2, characterNode.scale.y*2, characterNode.scale.z*2)
             self.totalCharacters.append(characterNode)
         }
     }
