@@ -29,8 +29,8 @@ class CarousselCharSelection: SCNScene {
     
     override init() {
         super.init()
+        createCharacters()
         setPositionValues()
-        createCubes()
         addCamera()
         addLights()
         addFirstVisibleCharacters()
@@ -38,9 +38,9 @@ class CarousselCharSelection: SCNScene {
     
     func setPositionValues(){
         self.positionFarLeft = SCNVector3(-8.0, -0.5, -6.0)
-        self.positionLeft = SCNVector3(-4, 2.0, -4.0)
-        self.positionCenter = SCNVector3(0.0, 2.0, 0.0)
-        self.positionRight = SCNVector3(4, 2.0, -4.0)
+        self.positionLeft = SCNVector3(-4, 0.5, -4.0)
+        self.positionCenter = SCNVector3(0.0, 0.5, 0.0)
+        self.positionRight = SCNVector3(4, 0.5, -4.0)
         self.positionFarRight = SCNVector3(8.0, -0.5, -6.0)
     }
     
@@ -190,73 +190,14 @@ class CarousselCharSelection: SCNScene {
         super.init(coder: aDecoder)
     }
     
-    func createCubes() {
+    func createCharacters() {
         let dao = DAO()
-        let character = dao.createCharacter()
-        let characterViewModel = CharacterViewModel(characterModel: character)
-        print("character is ", character.name)
-        let characterNode = characterViewModel.sceneArray[0].rootNode
+        let characterArray = dao.createCharacters()
         
-        //Create all cubes; add them to "totalCharacters" array
-        let cube1 = SCNBox(width: 2.68, height: 3.5, length: 2, chamferRadius: 0)
-        let cubeMaterial1 = SCNMaterial()
-        cubeMaterial1.diffuse.contents = UIColor.white
-        cube1.materials = [cubeMaterial1]
-        
-        let cube2 = SCNBox(width: 2.68, height: 3.5, length: 2, chamferRadius: 0)
-        let cubeMaterial2 = SCNMaterial()
-        cubeMaterial2.diffuse.contents = UIColor.yellow
-        cube2.materials = [cubeMaterial2]
-        
-        let cube3 = SCNBox(width: 2.68, height: 3.5, length: 2, chamferRadius: 0)
-        let cubeMaterial3 = SCNMaterial()
-        cubeMaterial3.diffuse.contents = UIColor.orange
-        cube3.materials = [cubeMaterial3]
-        
-        let cube4 = SCNBox(width: 2.68, height: 3.5, length: 2, chamferRadius: 0)
-        let cubeMaterial4 = SCNMaterial()
-        cubeMaterial4.diffuse.contents = UIColor.red
-        cube4.materials = [cubeMaterial4]
-        
-        let cube5 = SCNBox(width: 2.68, height: 3.5, length: 2, chamferRadius: 0)
-        let cubeMaterial5 = SCNMaterial()
-        cubeMaterial5.diffuse.contents = UIColor.purple
-        cube5.materials = [cubeMaterial5]
-        
-        let cube6 = SCNBox(width: 2.68, height: 3.5, length: 2, chamferRadius: 0)
-        let cubeMaterial6 = SCNMaterial()
-        cubeMaterial6.diffuse.contents = UIColor.blue
-        cube6.materials = [cubeMaterial6]
-        
-        var cubeNode1 = SCNNode()
-        var cubeNode2 = SCNNode()
-        var cubeNode3 = SCNNode()
-        var cubeNode4 = SCNNode()
-        var cubeNode5 = SCNNode()
-        var cubeNode6 = SCNNode()
-        
-        cubeNode1 = SCNNode(geometry: cube1)
-        cubeNode2 = SCNNode(geometry: cube2)
-        cubeNode3 = SCNNode(geometry: cube3)
-        cubeNode4 = SCNNode(geometry: cube4)
-        cubeNode5 = SCNNode(geometry: cube5)
-        cubeNode6 = SCNNode(geometry: cube6)
-        
-        cubeNode1.name = "cubeNode1"
-        cubeNode2.name = "cubeNode2"
-        cubeNode3.name = "cubeNode3"
-        cubeNode4.name = "cubeNode4"
-        cubeNode5.name = "cubeNode5"
-        cubeNode6.name = "cubeNode6"
-
-        
-        cubeNode1.geometry?.firstMaterial?.diffuse.contents = UIColor.white
-        cubeNode2.geometry?.firstMaterial?.diffuse.contents = UIColor.yellow
-        cubeNode3.geometry?.firstMaterial?.diffuse.contents = UIColor.orange
-        cubeNode4.geometry?.firstMaterial?.diffuse.contents = UIColor.red
-        cubeNode5.geometry?.firstMaterial?.diffuse.contents = UIColor.purple
-        cubeNode6.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
-        
-        self.totalCharacters.append(contentsOf: [characterNode, cubeNode1,cubeNode2,cubeNode3, cubeNode4, cubeNode5, cubeNode6])
+        for i in 0...characterArray.count - 1 {
+            let characterViewModel = CharacterViewModel(characterModel: characterArray[i])
+            let characterNode = characterViewModel.sceneArray[0].rootNode
+            self.totalCharacters.append(characterNode)
+        }
     }
 }

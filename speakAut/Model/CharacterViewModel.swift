@@ -24,16 +24,18 @@ class CharacterViewModel: SCNNode {
         super.init()
         self.characterModel = characterModel
         
+        self.sceneArray = []
+        
         for i in 0...self.characterModel.sentenceArray.count - 1 {
-            if let scene = SCNScene(named: "art.scnassets/\(characterModel.sentenceArray[i].animationSceneName).dae") {
-                self.sceneArray.append(scene)
-            }
+            let scene = SCNScene(named: characterModel.sentenceArray[i].animationSceneName, inDirectory: "art.scnassets", options: nil )
+            self.sceneArray.append(scene!)
         }
+
         self.addHair()
 
-//        if characterModel.hasEars {
+        if characterModel.hasEars {
             self.addEars()
-//        }
+        }
 
         if characterModel.hasGlasses {
             self.addGlasses()

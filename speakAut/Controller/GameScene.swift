@@ -33,8 +33,8 @@ class GameScene: SKScene {
     
     func addCardsAndGaps(){
         let dao = DAO()
-        let character = dao.createCharacter()
-        let sentence = character.sentenceArray[0]
+        let character = dao.createCharacters()
+        let sentence = character[0].sentenceArray[0]
         self.cardSet = sentence.cardArray
         let cardSetViewModel = CardSetViewModel(cardSet: cardSet, type: .GameScene)
         self.addChild(cardSetViewModel)
