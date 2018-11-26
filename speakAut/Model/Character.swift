@@ -31,6 +31,7 @@ class Character {
     var sentenceArray: [Sentence] = []
     var hasEars: Bool = true
     var hasGlasses: Bool = false
+    var firstCard: Card!
     
     init(name: String, hasEars: Bool, hasGlasses: Bool, article: String, subjectName: String, sentenceArray: [Sentence]) {
         self.name = name
@@ -38,6 +39,14 @@ class Character {
         self.hasGlasses = hasGlasses
         self.subjectName = subjectName
         self.article = article + " "
+        let firstWord = self.article + self.subjectName
+        firstCard = Card(index: 0, word: firstWord, imageName: "\(name)Profile", wordNarration: name)
         self.sentenceArray = [Sentence(animationSceneName: "", index: 0, cardArray: [], sentenceNarration: "")]
+    }
+    
+    func addProfileCard(){
+        for sentence in self.sentenceArray{
+            sentence.cardArray.insert(firstCard, at: 0)
+        }
     }
 }

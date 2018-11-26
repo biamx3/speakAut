@@ -11,24 +11,25 @@
     
     @objc(GameViewController)
 class GameViewController: UIViewController, GameSceneDelegate  {
-
+   
+        var chosenCharacter: Character!
+        
         override func loadView() {
             self.view = SKView()
         }
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            
             //Start with GameScene Instructions!
                 if let view = self.view as! SKView? {
                     // Load the SKScene from 'GameScene.sks'
                     if let scene = GameScene(fileNamed: "GameScene") {
                         // Set the scale mode to scale to fit the window
                         scene.scaleMode = .resizeFill
+                        scene.chosenCharacter = self.chosenCharacter
                         
                         // Present the scene
                         view.presentScene(scene)
-
                     }
                     
                     view.ignoresSiblingOrder = false
@@ -38,6 +39,7 @@ class GameViewController: UIViewController, GameSceneDelegate  {
         }
         
         func goToCharacterSelectionScreen() {
+            print("go")
             let selectionViewController = SelectionViewController()
             present(selectionViewController, animated: true, completion: nil)
             if self.isBeingPresented {

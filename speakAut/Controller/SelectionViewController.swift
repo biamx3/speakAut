@@ -15,6 +15,7 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
     var sceneView: SCNView!
     var spriteScene: UICharSelection!
     private var scene = CarousselCharSelection()
+    var chosenCharacter: Character!
     
     
     override func viewDidLoad() {
@@ -46,7 +47,16 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
     
     func selectCharacter() {
         print("character was selected")
+        
+        for character in DAO.sharedInstance.characterArray {
+            if character.name == self.scene.centralCharacter.name {
+                self.chosenCharacter = character
+                print("sucess")
+            }
+        }
+        
         let gameViewController = GameViewController()
+        gameViewController.chosenCharacter = self.chosenCharacter
         let transition = CATransition()
         transition.duration = 0.5
         transition.type = CATransitionType.push

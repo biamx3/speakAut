@@ -10,7 +10,7 @@ import UIKit
 import SpriteKit
 
 class RepeatWordsScene: SKScene {
-    
+   
     var cardSet = [Card]()
     
     override func didMove(to view: SKView) {

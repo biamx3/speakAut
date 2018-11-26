@@ -33,10 +33,10 @@ class UICharSelection: SKScene {
         instructionsLabel.zPosition = 15
         instructionsLabel.position = CGPoint(x: sceneSize.width/2, y: sceneSize.height - 100)
         
-        for family in UIFont.familyNames.sorted() {
-            let names = UIFont.fontNames(forFamilyName: family)
-            print("Family: \(family) Font names: \(names)")
-        }
+//        for family in UIFont.familyNames.sorted() {
+//            let names = UIFont.fontNames(forFamilyName: family)
+//            print("Family: \(family) Font names: \(names)")
+//        }
         
         self.addChild(instructionsLabel)
     }
@@ -107,19 +107,19 @@ class UICharSelection: SKScene {
         
         switch touchedNode.name {
         case "charNext":
-            print("next character")
+            //Next character
             self.uiCharSelectionDelegate?.nextCharacter()
             
         case "charBack":
-            print("last character")
+            //Last character
             self.uiCharSelectionDelegate?.previousCharacter()
             
         case "charChoose":
-            print("chose character")
+            //Chose character
             self.uiCharSelectionDelegate?.selectCharacter()
             
         case "chooseLabel":
-            print("chose character")
+            //Chose character
             self.uiCharSelectionDelegate?.selectCharacter()
             
         default:

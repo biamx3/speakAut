@@ -13,6 +13,7 @@ class GameScene: SKScene {
     weak var gameSceneDelegate: GameSceneDelegate?
     var cardSet: [Card]!
     var cardType: CardType!
+    var chosenCharacter: Character!
     
     override func didMove(to view: SKView) {
         
@@ -31,11 +32,22 @@ class GameScene: SKScene {
         self.addChild(instructionsViewModel)
     }
     
+    func getRandomSentence() -> [Card] {
+        let sentenceArray = self.chosenCharacter.sentenceArray
+        let sentence = sentenceArray.randomElement()
+        
+//        if let sentence = sentenceArray.randomElement() {
+//            if sentence.index != sentenceArray[0].index {
+//                return sentence.cardArray
+//            } else {
+//                self.getRandomSentence()
+//            }
+//        }
+        return (sentence?.cardArray)!
+    }
+    
     func addCardsAndGaps(){
-        let dao = DAO()
-        let character = dao.createCharacters()
-        let sentence = character[0].sentenceArray[0]
-        self.cardSet = sentence.cardArray
+        self.cardSet = self.getRandomSentence()
         let cardSetViewModel = CardSetViewModel(cardSet: cardSet, type: .GameScene)
         self.addChild(cardSetViewModel)
     }
