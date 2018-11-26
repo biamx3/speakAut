@@ -34,16 +34,10 @@ class GameScene: SKScene {
     }
     
     func getRandomSentence() -> [Card] {
-        let sentenceArray = self.chosenCharacter.sentenceArray
+        var sentenceArray = self.chosenCharacter.sentenceArray
+        //First sentence is always the idle animation
+        sentenceArray.remove(at: 0)
         let sentence = sentenceArray.randomElement()
-        
-//        if let sentence = sentenceArray.randomElement() {
-//            if sentence.index != sentenceArray[0].index {
-//                return sentence.cardArray
-//            } else {
-//                self.getRandomSentence()
-//            }
-//        }
         return (sentence?.cardArray)!
     }
     
