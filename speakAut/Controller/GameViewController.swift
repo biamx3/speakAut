@@ -26,6 +26,7 @@ class GameViewController: UIViewController, GameSceneDelegate  {
                     if let scene = GameScene(fileNamed: "GameScene") {
                         // Set the scale mode to scale to fit the window
                         scene.scaleMode = .resizeFill
+                        scene.gameSceneDelegate = self
                         scene.chosenCharacter = self.chosenCharacter
                         
                         // Present the scene
@@ -39,7 +40,6 @@ class GameViewController: UIViewController, GameSceneDelegate  {
         }
         
         func goToCharacterSelectionScreen() {
-            print("go")
             let selectionViewController = SelectionViewController()
             present(selectionViewController, animated: true, completion: nil)
             if self.isBeingPresented {

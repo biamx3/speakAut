@@ -11,6 +11,7 @@ import SpriteKit
 class GameScene: SKScene {
 
     weak var gameSceneDelegate: GameSceneDelegate?
+    
     var cardSet: [Card]!
     var cardType: CardType!
     var chosenCharacter: Character!
