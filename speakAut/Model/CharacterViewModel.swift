@@ -27,19 +27,22 @@ class CharacterViewModel: SCNNode {
         self.sceneArray = []
         
         for i in 0...self.characterModel.sentenceArray.count - 1 {
-            let scene = SCNScene(named: characterModel.sentenceArray[i].animationSceneName, inDirectory: "art.scnassets", options: nil )
-            self.sceneArray.append(scene!)
+            if let scene = SCNScene(named: characterModel.sentenceArray[i].animationSceneName, inDirectory: "art.scnassets", options: nil ) {
+                self.sceneArray.append(scene)
+            }
         }
         
         self.addHair()
 
-        if characterModel.hasEars {
+        if self.characterModel.hasEars  {
             self.addEars()
         }
-
-        if characterModel.hasGlasses {
+        
+        if self.characterModel.hasGlasses {
             self.addGlasses()
         }
+
+
         
         self.defineTexture()
         self.setScale()
@@ -89,9 +92,9 @@ class CharacterViewModel: SCNNode {
     }
     
     func addGlasses() {
-        if let scene = SCNScene(named: "art.scnassets/glasses.dae") {
-            if let glasses = scene.rootNode.childNode(withName: "glasses", recursively: true) {
-                for i in 0 ... self.sceneArray.count - 1 {
+        for i in 0 ... self.sceneArray.count - 1 {
+            if let scene = SCNScene(named: "art.scnassets/glasses.dae") {
+                if let glasses = scene.rootNode.childNode(withName: "glassesMesh", recursively: true) {
                     if let headRef = sceneArray[i].rootNode.childNode(withName: "mixamorig_Head", recursively: true) {
                         print("Adicionando em ", headRef.name ?? "")
                         headRef.addChildNode(glasses)
