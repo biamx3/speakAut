@@ -17,7 +17,7 @@ class GameScene: SKScene {
     var chosenCharacter: Character!
     
     override func didMove(to view: SKView) {
-        
+        self.cardType = .GameScene
         self.scaleMode = .resizeFill
         self.cardType = .GameScene
         addCardsAndGaps()
@@ -53,7 +53,6 @@ class GameScene: SKScene {
         for child in node.children {
             print(aTab, child.name ?? "--- sem nome ---")
             printAllNodes(tab: aTab, node: child)
-
         }
     }
     
@@ -124,6 +123,7 @@ class GameScene: SKScene {
         if let nextScene = RepeatWordsScene(fileNamed: "RepeatWordsScene") {
             nextScene.cardSet = self.cardSet
             nextScene.scaleMode = .aspectFill
+            nextScene.gameScene = self
             self.scene?.view?.presentScene(nextScene, transition: transition)
         }
     }
@@ -132,4 +132,5 @@ class GameScene: SKScene {
 
 protocol GameSceneDelegate: class {
     func goToCharacterSelectionScreen()
+    func goToSuccessAnimationScreen()
 }

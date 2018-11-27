@@ -14,6 +14,8 @@ class CharacterViewModel: SCNNode {
     
     var characterModel: Character!
     var sceneArray: [SCNScene] = []
+    var nodeArray: [SCNNode] = []
+    var idlePlayer = SCNAnimationPlayer()
 
     
     override init() {
@@ -25,9 +27,12 @@ class CharacterViewModel: SCNNode {
         self.characterModel = characterModel
         
         self.sceneArray = []
+        self.nodeArray = []
         
         for i in 0...self.characterModel.sentenceArray.count - 1 {
             if let scene = SCNScene(named: characterModel.sentenceArray[i].animationSceneName, inDirectory: "art.scnassets", options: nil ) {
+                let characterNode = scene.rootNode
+                self.nodeArray.append(characterNode)
                 self.sceneArray.append(scene)
             }
         }

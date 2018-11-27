@@ -12,6 +12,7 @@ import SpriteKit
 class RepeatWordsScene: SKScene {
    
     var cardSet = [Card]()
+    var gameScene: GameScene!
     
     override func didMove(to view: SKView) {
 
@@ -57,5 +58,10 @@ class RepeatWordsScene: SKScene {
         touchArea.addChild(backButton)
         touchArea.zPosition = 4
         self.addChild(touchArea)
+    }
+    
+    func goToSuccessAnimationScreen(){
+        self.gameScene.gameSceneDelegate?.goToSuccessAnimationScreen()
+        print("go")
     }
 }

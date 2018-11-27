@@ -8,11 +8,13 @@
 
     import UIKit
     import SpriteKit
+    import SceneKit
     
     @objc(GameViewController)
-class GameViewController: UIViewController, GameSceneDelegate  {
+class GameViewController: UIViewController, GameSceneDelegate {
    
         var chosenCharacter: Character!
+        var cardType: CardType! = .GameScene
         
         override func loadView() {
             self.view = SKView()
@@ -45,6 +47,16 @@ class GameViewController: UIViewController, GameSceneDelegate  {
             if self.isBeingPresented {
                 self.dismiss(animated: false, completion: {})
             }
+        }
+        
+        func goToSuccessAnimationScreen(){
+            let successAnimationViewController = SuccessAnimationViewController()
+            successAnimationViewController.isModalInPopover = true
+            present(successAnimationViewController, animated: true, completion: nil)
+            if self.isBeingPresented {
+                self.dismiss(animated: false, completion: {})
+            }
+            
         }
         
         override var shouldAutorotate: Bool {

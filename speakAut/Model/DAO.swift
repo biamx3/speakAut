@@ -16,7 +16,10 @@ import UIKit
             return _DAO
         }
         
+        //To make it easier to pick a character throughout the app
         var characterArray: [Character] = []
+        var chosenCharacter: CharacterViewModel!
+        var availableSentences: [Sentence]!
         
         
         func createCharacters() -> [Character] {
@@ -92,7 +95,7 @@ import UIKit
             let andressa = Character(name: "andressa", hasEars: false, hasGlasses: false, article: "a", subjectName:"menina", sentenceArray: [])
             
             //Idle
-            let andressaSentence0 = Sentence(animationSceneName: "idle_luciana", index: 0, cardArray: [], sentenceNarration: aMeninaAcenou)
+            let andressaSentence0 = Sentence(animationSceneName: "idle_andressa", index: 0, cardArray: [], sentenceNarration: aMeninaAcenou)
             let andressaS0Card2 = Card(index: 1, word: "acenou", imageName: "andressa_acenou", wordNarration: "acenou")
             andressaSentence0.cardArray.append(andressaS0Card2)
             
@@ -135,7 +138,7 @@ import UIKit
             let henrique = Character(name: "henrique", hasEars: true, hasGlasses: false, article: "o", subjectName:"menino", sentenceArray: [])
             
             //Idle
-            let henriqueSentence0 = Sentence(animationSceneName: "idle_luciana", index: 0, cardArray: [], sentenceNarration: aMeninaAcenou)
+            let henriqueSentence0 = Sentence(animationSceneName: "idle_henrique", index: 0, cardArray: [], sentenceNarration: aMeninaAcenou)
             let henriqueS0Card2 = Card(index: 1, word: "acenou", imageName: "henrique_acenou", wordNarration: "acenou")
             henriqueSentence0.cardArray.append(henriqueS0Card2)
             
@@ -177,7 +180,7 @@ import UIKit
             let francisco = Character(name: "francisco", hasEars: true, hasGlasses: true, article: "o", subjectName:"menino", sentenceArray: [])
             
             //Idle
-            let franciscoSentence0 = Sentence(animationSceneName: "idle_luciana", index: 0, cardArray: [], sentenceNarration: oMeninoAcenou)
+            let franciscoSentence0 = Sentence(animationSceneName: "idle_francisco", index: 0, cardArray: [], sentenceNarration: oMeninoAcenou)
             let franciscoSS0Card2 = Card(index: 1, word: "acenou", imageName: "francisco_acenou", wordNarration: "acenou")
             franciscoSentence0.cardArray.append(franciscoSS0Card2)
             
@@ -215,6 +218,7 @@ import UIKit
             //First card is always profile card
             for character in characterArray {
                 character.addProfileCard()
+                character.addIdleAnimation()
             }
             
             return characterArray

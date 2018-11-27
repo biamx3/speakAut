@@ -127,6 +127,11 @@ class CardSetViewModel: SKSpriteNode {
         self.addParticles()
         successLabel.run(self.labelAnimation(), completion: {
             successLabel.removeFromParent()
+            if self.cardType == .RepeatWordsScene {
+                let parent = self.parent as! RepeatWordsScene!
+                parent!.goToSuccessAnimationScreen()
+            }
+            
             //Turn off confetti
             if self.cardType == .GameScene {
             self.goToRepeatWordsScene()
@@ -336,7 +341,6 @@ class CardSetViewModel: SKSpriteNode {
                 if self.bigCards == self.cards {
                     addParticles()
                     cardsAreRight(cardNodes: cardViews)
-                    print("you tapped in the correct order")
                 } else {
                     for card in self.cards {
                         card.repeatedCardsWrong()

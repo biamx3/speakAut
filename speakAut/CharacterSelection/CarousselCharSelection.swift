@@ -14,12 +14,12 @@ class CarousselCharSelection: SCNScene {
     private var cameraNode: SCNNode!
     private var lightNode: SCNNode!
     
-    private var leftCharacter: SCNNode!
+    var leftCharacter: SCNNode!
     var centralCharacter: SCNNode!
-    private var rightCharacter: SCNNode!
+    var rightCharacter: SCNNode!
     
     private var visibleCharacters: [SCNNode]!
-    private var totalCharacters = [SCNNode]()
+    var totalCharacters = [SCNNode]()
 
     private var positionFarLeft: SCNVector3!
     private var positionLeft: SCNVector3!
@@ -27,14 +27,24 @@ class CarousselCharSelection: SCNScene {
     private var positionRight: SCNVector3!
     private var positionFarRight: SCNVector3!
     
+    var animationPlayer: SCNAnimationPlayer!
+    
     override init() {
         super.init()
         createCharacters()
         setPositionValues()
         addCamera()
-        addLights()
+        //addLights()
         addFirstVisibleCharacters()
+        for character in totalCharacters {
+            character.removeAllActions()
+            print("removed")
+        }
+        
     }
+    
+    
+
     
     func setPositionValues(){
         self.positionFarLeft = SCNVector3(-8.0, -0.5, -6.0)

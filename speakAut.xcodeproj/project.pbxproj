@@ -23,6 +23,7 @@
 		AB35F421213986A500FACE51 /* SoundTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F420213986A500FACE51 /* SoundTrack.swift */; };
 		AB4251FD21A9B0D100399376 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4251FC21A9B0D100399376 /* ViewController.swift */; };
 		AB4251FF21A9BB0600399376 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4251FE21A9BB0600399376 /* CharacterViewModel.swift */; };
+		AB56E0BB21AD477000B4555B /* SuccessAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB56E0BA21AD477000B4555B /* SuccessAnimationViewController.swift */; };
 		ABD9FF3321A1AB0300A45FEA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD9FF3221A1AB0200A45FEA /* Extensions.swift */; };
 		ABD9FF3521A1AB1700A45FEA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD9FF3421A1AB1700A45FEA /* GameScene.swift */; };
 		ABD9FF3C21A1AB4C00A45FEA /* CarousselCharSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD9FF3821A1AB4C00A45FEA /* CarousselCharSelection.swift */; };
@@ -84,6 +85,7 @@
 		AB4251FB21A9AFED00399376 /* speakAutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = speakAutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4251FC21A9B0D100399376 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AB4251FE21A9BB0600399376 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
+		AB56E0BA21AD477000B4555B /* SuccessAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessAnimationViewController.swift; sourceTree = "<group>"; };
 		ABD9FF3221A1AB0200A45FEA /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		ABD9FF3421A1AB1700A45FEA /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		ABD9FF3821A1AB4C00A45FEA /* CarousselCharSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarousselCharSelection.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				AB4251FC21A9B0D100399376 /* ViewController.swift */,
 				AB09844221552296005C420F /* texture.png */,
 				AB35F3ED2139836800FACE51 /* LaunchScreen.storyboard */,
+				AB56E0BA21AD477000B4555B /* SuccessAnimationViewController.swift */,
 				AB35F3F02139836800FACE51 /* Info.plist */,
 				AB35F41C213984B800FACE51 /* GameScene.sks */,
 				ABDFF25C21A5AA2E0059193F /* PeachyKeenJF.ttf */,
@@ -383,6 +386,7 @@
 				AB35F4192139843B00FACE51 /* DAO.swift in Sources */,
 				ABDDD3472191B96D00641318 /* GapViewModel.swift in Sources */,
 				AB35F4132139840600FACE51 /* Card.swift in Sources */,
+				AB56E0BB21AD477000B4555B /* SuccessAnimationViewController.swift in Sources */,
 				AB35F4172139843100FACE51 /* Character.swift in Sources */,
 				ABD9FF3F21A1AB4C00A45FEA /* SelectionViewController.swift in Sources */,
 				AB4251FD21A9B0D100399376 /* ViewController.swift in Sources */,

@@ -16,6 +16,9 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
     var spriteScene: UICharSelection!
     private var scene = CarousselCharSelection()
     var chosenCharacter: Character!
+    var animations = [String: CAAnimation]()
+    var idle:Bool = true
+    var character: SCNNode!
     
     
     override func viewDidLoad() {
@@ -43,6 +46,7 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
     
     func nextCharacter() {
         self.scene.nextPosition()
+        stopAnimation(key: "dancing")
     }
     
     func selectCharacter() {
@@ -85,6 +89,57 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func loadAnimations () {
+        // Load the character in the idle animation
+        
+        // This node will be parent of all the animation models
+        let node = SCNNode()
+
+        // Add all the child nodes to the parent node
+        for child in self.scene.totalCharacters {
+            node.addChildNode(child)
+        }
+        
+        // Set up some properties
+        node.position = SCNVector3(0, -1, -2)
+        node.scale = SCNVector3(0.2, 0.2, 0.2)
+        
+        // Add the node to the scene
+        
+        self.scene.rootNode.addChildNode(node)
+        
+        // Load all the DAE animations
+      //  loadAnimation(withKey: "dancing", sceneName: "art.scnassets/idle_luciana", animationIdentifier: "idle_luciana-1")
+    }
+    
+    func loadAnimation(withKey: String, sceneName:String, animationIdentifier:String) {
+        let sceneURL = Bundle.main.url(forResource: sceneName, withExtension: "dae")
+        let sceneSource = SCNSceneSource(url: sceneURL!, options: nil)
+        
+        if let animationObject = sceneSource?.entryWithIdentifier(animationIdentifier, withClass: CAAnimation.self) {
+            // The animation will only play once
+            animationObject.repeatCount = 1
+            // To create smooth transitions between animations
+            animationObject.fadeInDuration = CGFloat(1)
+            animationObject.fadeOutDuration = CGFloat(0.5)
+            
+            // Store the animation for later use
+            animations[withKey] = animationObject
+        }
+    }
+    
+    
+    func playAnimation(key: String) {
+        // Add the animation to start playing it right away
+        self.scene.rootNode.addAnimation(animations[key]!, forKey: key)
+    }
+    
+    func stopAnimation(key: String) {
+        // Stop the animation with a smooth transition
+//        self.scene.leftCharacter.removeAllAnimations()
+//        self.scene.rootNode.removeAnimation(forKey: key, blendOutDuration: CGFloat(0.5))
     }
 
 }
