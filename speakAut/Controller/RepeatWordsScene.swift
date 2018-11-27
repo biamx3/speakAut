@@ -10,12 +10,10 @@ import UIKit
 import SpriteKit
 
 class RepeatWordsScene: SKScene {
-   
-    var cardSet = [Card]()
-    var gameScene: GameScene!
+
+     weak var repeatViewControllerDelegate: RepeatViewControllerDelegate?
     
     override func didMove(to view: SKView) {
-
         self.scaleMode = .resizeFill
         self.isUserInteractionEnabled = true
         addCards()
@@ -23,7 +21,8 @@ class RepeatWordsScene: SKScene {
     }
     
     func addCards(){
-        let cardSetViewModel = CardSetViewModel(cardSet: self.cardSet, type: .RepeatWordsScene)
+        let cardArray = DAO.sharedInstance.chosenSentence.cardArray
+        let cardSetViewModel = CardSetViewModel(cardSet: cardArray, type: .RepeatWordsScene)
         cardSetViewModel.position = CGPoint(x: 0, y: 0)
         cardSetViewModel.zPosition = 3
         self.addChild(cardSetViewModel)
@@ -59,6 +58,11 @@ class RepeatWordsScene: SKScene {
     }
     
     func goToSuccessAnimationScreen(){
-        self.gameScene.gameSceneDelegate?.goToSuccessAnimationScreen()
+        self.repeatViewControllerDelegate?.goToSuccessAnimationScreen()
     }
 }
+
+protocol RepeatViewControllerDelegate: class {
+    func goToSuccessAnimationScreen()
+}
+

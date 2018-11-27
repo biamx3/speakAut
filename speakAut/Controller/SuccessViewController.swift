@@ -46,28 +46,17 @@ class SuccessAnimationViewController: UIViewController, SCNSceneRendererDelegate
     
     func getScene() -> SCNScene {
         self.chosenCharacter = DAO.sharedInstance.chosenCharacter
-        
         let characterViewModel = CharacterViewModel(characterModel: chosenCharacter.characterModel)
-        
         let animationSceneIndex = DAO.sharedInstance.chosenSentence.index
-        
         let characterNode = characterViewModel.sceneArray[animationSceneIndex].rootNode
-        
         let animationScene = SCNScene(named: "SuccessAnimationScene.scn", inDirectory: "art.scnassets", options: nil)
-        
         animationScene?.rootNode.addChildNode(characterNode)
-        
         return animationScene ?? SCNScene(named: "idle_luciana" , inDirectory: "art.scnassets", options: nil)!
     }
     
     
     func goBackToGameScene() {
-        let gameViewController = GameViewController()
-        
-        present(gameViewController, animated: true, completion: nil)
-        if self.isBeingPresented {
-            self.dismiss(animated: false, completion: {})
-        }
+        performSegue(withIdentifier: "successToGame", sender: nil)
     }
     
     override var shouldAutorotate: Bool {

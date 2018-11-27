@@ -134,7 +134,9 @@ class CardSetViewModel: SKSpriteNode {
             
             //Turn off confetti
             if self.cardType == .GameScene {
-            self.goToRepeatWordsScene()
+            //self.goToRepeatWordsScene()
+            let parent = self.parent as! GameScene
+            parent.gameSceneDelegate?.goToRepeatWordsScene()
             }
         })
     }
@@ -305,13 +307,6 @@ class CardSetViewModel: SKSpriteNode {
         }
     }
 
-    
-    func goToRepeatWordsScene(){
-        let parent = self.parent as! GameScene
-        parent.goToRepeatWordsScene()
-    }
-    
-
     //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         //Filter all nodes in scene to identify gaps and cards
@@ -339,7 +334,6 @@ class CardSetViewModel: SKSpriteNode {
         if self.cardType == .RepeatWordsScene {
             if self.bigCards.count == self.cards.count {
                 if self.bigCards == self.cards {
-                    addParticles()
                     cardsAreRight(cardNodes: cardViews)
                 } else {
                     for card in self.cards {

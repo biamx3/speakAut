@@ -121,20 +121,10 @@ class GameScene: SKScene {
             self.gameSceneDelegate?.goToCharacterSelectionScreen()
         }
     }
-    
-    func goToRepeatWordsScene(){
-        let transition = SKTransition.reveal(with: .left, duration: 0.8)
-        if let nextScene = RepeatWordsScene(fileNamed: "RepeatWordsScene") {
-            nextScene.cardSet = self.cardSet
-            nextScene.scaleMode = .aspectFill
-            nextScene.gameScene = self
-            self.scene?.view?.presentScene(nextScene, transition: transition)
-        }
-    }
 }
 
 
 protocol GameSceneDelegate: class {
+    func goToRepeatWordsScene()
     func goToCharacterSelectionScreen()
-    func goToSuccessAnimationScreen()
 }

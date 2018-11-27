@@ -42,6 +42,7 @@
 		ABE9A0EF2191CB50008827EF /* CardSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */; };
 		ABE9DD8421ADF09100B7C05B /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9DD8321ADF09100B7C05B /* SuccessViewController.swift */; };
 		ABE9DD8621ADF0CE00B7C05B /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9DD8521ADF0CE00B7C05B /* CharacterViewModel.swift */; };
+		ABE9DD8821ADF7DF00B7C05B /* RepeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9DD8721ADF7DF00B7C05B /* RepeatViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetViewModel.swift; sourceTree = "<group>"; };
 		ABE9DD8321ADF09100B7C05B /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		ABE9DD8521ADF0CE00B7C05B /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
+		ABE9DD8721ADF7DF00B7C05B /* RepeatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				ABD9FF3421A1AB1700A45FEA /* GameScene.swift */,
+				ABE9DD8721ADF7DF00B7C05B /* RepeatViewController.swift */,
 				ABDFF25421A463380059193F /* RepeatWordsScene.swift */,
 				ABE6B88E21A70A160019DD98 /* InstructionsViewModel.swift */,
 				ABE9DD8321ADF09100B7C05B /* SuccessViewController.swift */,
@@ -383,6 +386,7 @@
 				AB35F421213986A500FACE51 /* SoundTrack.swift in Sources */,
 				ABDFF25621A463390059193F /* RepeatWordsScene.swift in Sources */,
 				ABE6F60F21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift in Sources */,
+				ABE9DD8821ADF7DF00B7C05B /* RepeatViewController.swift in Sources */,
 				ABE9DD8621ADF0CE00B7C05B /* CharacterViewModel.swift in Sources */,
 				AB35F4192139843B00FACE51 /* DAO.swift in Sources */,
 				ABDDD3472191B96D00641318 /* GapViewModel.swift in Sources */,

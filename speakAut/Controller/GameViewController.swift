@@ -13,57 +13,44 @@
     @objc(GameViewController)
 class GameViewController: UIViewController, GameSceneDelegate {
    
+        
+        var skView: SKView!
+        
         var chosenCharacter: Character!
         var cardType: CardType! = .GameScene
         
-        override func loadView() {
-            self.view = SKView()
-        }
         
         override func viewDidLoad() {
             super.viewDidLoad()
             //Start with GameScene Instructions!
-                if let view = self.view as! SKView? {
                     // Load the SKScene from 'GameScene.sks'
                     if let scene = GameScene(fileNamed: "GameScene") {
                         // Set the scale mode to scale to fit the window
                         scene.scaleMode = .resizeFill
                         scene.gameSceneDelegate = self
                         scene.chosenCharacter = self.chosenCharacter
+                        self.skView = SKView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
                         
                         // Present the scene
-                        view.presentScene(scene)
+                        skView!.presentScene(scene)
+
                     }
                     
-                    view.ignoresSiblingOrder = false
-                    view.showsFPS = false
-                    view.showsNodeCount = false
-                }
+                    skView!.ignoresSiblingOrder = false
+                    skView!.showsFPS = false
+                    skView!.showsNodeCount = false
+                    
+                    self.view.addSubview(skView!)
         }
         
         
         
         func goToCharacterSelectionScreen() {
-            let selectionViewController = SelectionViewController()
-            present(selectionViewController, animated: true, completion: {
-                            if self.isBeingPresented {
-                                self.presentedViewController?.dismiss(animated: true, completion: nil)
-                                //self.dismiss(animated: false, completion: {})
-                            }
-            })
-//            if self.isBeingPresented {
-//                self.dismiss(animated: false, completion: {})
-//            }
+                self.performSegue(withIdentifier: "gameToSelection", sender: nil)
         }
         
-        func goToSuccessAnimationScreen(){
-            let successAnimationViewController = SuccessAnimationViewController()
-            successAnimationViewController.isModalInPopover = true
-            present(successAnimationViewController, animated: true, completion: nil)
-            if self.isBeingPresented {
-                self.dismiss(animated: false, completion: {})
-            }
-            
+        func goToRepeatWordsScene() {
+            self.performSegue(withIdentifier: "gameToRepeat", sender: nil)
         }
         
         override var shouldAutorotate: Bool {
