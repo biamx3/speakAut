@@ -14,8 +14,8 @@ class SuccessAnimationViewController: UIViewController, SCNSceneRendererDelegate
     
     var sceneView: SCNView!
     var spriteScene: UICharSelection!
-    private var scene = SCNScene(named: "idle_luciana", inDirectory: "art.scnassets", options: nil)
-    var chosenCharacter: Character!
+    private var scene: SCNScene!
+    var chosenCharacter: CharacterViewModel!
     var animations = [String: CAAnimation]()
     var idle:Bool = true
     var character: SCNNode!
@@ -23,11 +23,20 @@ class SuccessAnimationViewController: UIViewController, SCNSceneRendererDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.scene = getScene()
         // Do any additional setup after loading the view, typically from a nib.
         self.sceneView = SCNView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         self.sceneView.scene = self.scene
         self.sceneView.delegate = self
         self.view.addSubview(self.sceneView)
+    }
+    
+    
+    func getScene() -> SCNScene {
+        self.chosenCharacter = DAO.sharedInstance.chosenCharacter
+        let animationSceneName = DAO.sharedInstance.chosenSentence.animationSceneName
+        let animationScene = SCNScene(named: animationSceneName , inDirectory: "art.scnassets", options: nil)
+        return animationScene ?? SCNScene(named: "idle_luciana" , inDirectory: "art.scnassets", options: nil)!
     }
     
     override var shouldAutorotate: Bool {

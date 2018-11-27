@@ -34,10 +34,11 @@ class GameScene: SKScene {
     }
     
     func getRandomSentence() -> [Card] {
-        var sentenceArray = self.chosenCharacter.sentenceArray
+        var sentenceArray = DAO.sharedInstance.chosenCharacter.characterModel.sentenceArray
         //First sentence is always the idle animation
         sentenceArray.remove(at: 0)
         let sentence = sentenceArray.randomElement()
+        DAO.sharedInstance.chosenSentence = sentence
         return (sentence?.cardArray)!
     }
     

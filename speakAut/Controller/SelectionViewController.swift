@@ -55,6 +55,7 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
         for character in DAO.sharedInstance.characterArray {
             if character.name == self.scene.centralCharacter.name {
                 self.chosenCharacter = character
+                DAO.sharedInstance.chosenCharacter = CharacterViewModel(characterModel: chosenCharacter)
                 print("sucess")
             }
         }

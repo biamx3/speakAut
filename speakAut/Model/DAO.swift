@@ -19,13 +19,14 @@ import UIKit
         //To make it easier to pick a character throughout the app
         var characterArray: [Character] = []
         var chosenCharacter: CharacterViewModel!
+        var chosenSentence: Sentence!
         var availableSentences: [Sentence]!
         
         
         func createCharacters() -> [Character] {
             
             let yawnAnimation = "yawn"
-            let danceAnimation = "dance"
+            let danceAnimation = "danceSalsa"
             let waveAnimation = "wave"
             let listenToMusicAnimation = "listenToMusic"
             let clapAnimation = "clap"
@@ -84,7 +85,7 @@ import UIKit
             let lucianaS5Card2 = Card(index: 1, word: "dançou", imageName: "luciana_dancou", wordNarration: "dancou")
             lucianaSentence5.cardArray.append(lucianaS5Card2)
             
-            luciana.sentenceArray.append(contentsOf: [lucianaSentence0, lucianaSentence1, lucianaSentence2, lucianaSentence3, lucianaSentence4])
+            luciana.sentenceArray.append(contentsOf: [lucianaSentence0/*, lucianaSentence1, lucianaSentence2, lucianaSentence3, lucianaSentence4*/, lucianaSentence5])
             
             self.characterArray.append(luciana)
             
