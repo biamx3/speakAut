@@ -10,7 +10,7 @@ import QuartzCore
 import SceneKit
 import SpriteKit
 
-class SuccessAnimationViewController: UIViewController, SCNSceneRendererDelegate {
+class SuccessAnimationViewController: UIViewController, SCNSceneRendererDelegate, UIViewControllerTransitioningDelegate {
     
     var sceneView: SCNView!
     var spriteScene: UICharSelection!
@@ -32,18 +32,18 @@ class SuccessAnimationViewController: UIViewController, SCNSceneRendererDelegate
         self.sceneView.delegate = self
         self.view.addSubview(self.sceneView)
         
-        // create and add a camera to the scene
-        let cameraNode = SCNNode()
-        cameraNode.camera = SCNCamera()
-        cameraNode.position = SCNVector3(x: 0, y: 2, z: 3)
-        scene.rootNode.addChildNode(cameraNode)
-        
+        let camera = self.sceneView.scene?.rootNode.childNode(withName: "camera", recursively: true)
+        camera?.position = SCNVector3(-5, 1, 8)
+        let moveCamera = SCNAction.move(to: SCNVector3(1, 0.5, 5), duration: 6.0)
+        moveCamera.timingMode = .easeOut
+        let wait = SCNAction.wait(duration: 3.0)
+        let sequence = SCNAction.sequence([moveCamera, wait])
+        camera?.runAction(sequence, completionHandler: {
+            print("nextScreen")
+            self.goBackToGameScene()
+            })
+
     }
-    
-//    let characterViewModel = CharacterViewModel(characterModel: characterArray[i])
-//    let characterNode = characterViewModel.sceneArray[0].rootNode
-//    characterNode.name = characterViewModel.characterModel.name
-//    characterNode.scale = SCNVector3(characterNode.scale.x*2, characterNode.scale.y*2, characterNode.scale.z*2)
     
     
     
@@ -51,30 +51,11 @@ class SuccessAnimationViewController: UIViewController, SCNSceneRendererDelegate
         self.chosenCharacter = DAO.sharedInstance.chosenCharacter
         
         let characterViewModel = CharacterViewModel(characterModel: chosenCharacter.characterModel)
-//
-//        for i in 0...chosenCharacterSentenceArray.count - 1 {
-//            if chosenCharacterSentenceArray[i].index == chosenSentence?.index {
-//                index = i
-//            }
-//        }
-//
-//
+
         let animationSceneIndex = DAO.sharedInstance.chosenSentence.index
         print("animation scene index", animationSceneIndex)
         
         let characterNode = characterViewModel.sceneArray[animationSceneIndex].rootNode
- 
-        
-//        for i in 0 ... self.chosenCharacter.characterModel.sentenceArray.count - 1 {
-//            if self.chosenCharacter.characterModel.sentenceArray[i].animationSceneName == animationSceneName {
-//
-//            //characterNode = self.chosenCharacter.characterModel.sentenceArray[i].rootNode
-//            }
-        
-            //let characterNode = characterViewModel.sceneArray[0].rootNode
-            //if scene.rootNode.
-  //      }
-//        let animationScene = SCNScene(named: animationSceneName , inDirectory: "art.scnassets", options: nil)
     
         let animationScene = SCNScene(named: "SuccessAnimationScene.scn", inDirectory: "art.scnassets", options: nil)
         
@@ -84,6 +65,14 @@ class SuccessAnimationViewController: UIViewController, SCNSceneRendererDelegate
     }
     
 
+    func goBackToGameScene() {
+        let gameViewController = GameViewController()
+        
+        present(gameViewController, animated: true, completion: nil)
+        if self.isBeingPresented {
+            self.dismiss(animated: false, completion: {})
+        }
+    }
     
     override var shouldAutorotate: Bool {
         return true
@@ -98,9 +87,12 @@ class SuccessAnimationViewController: UIViewController, SCNSceneRendererDelegate
             return .all
         }
     }
+ 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
+    
+  
     
 }

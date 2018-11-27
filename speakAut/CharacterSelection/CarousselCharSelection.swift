@@ -200,7 +200,8 @@ class CarousselCharSelection: SCNScene {
     func createCharacters() {
         let characterArray = DAO.sharedInstance.createCharacters()
         
-        for i in 0...characterArray.count - 1 {
+        
+        for i in 0...3 {
             let characterViewModel = CharacterViewModel(characterModel: characterArray[i])
             let characterNode = characterViewModel.sceneArray[0].rootNode
             characterNode.name = characterViewModel.characterModel.name

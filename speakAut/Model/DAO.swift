@@ -32,7 +32,7 @@ import SceneKit
             let francisco = Character(name: "francisco", hasEars: true, hasGlasses: true, article: "o", subjectName:"menino", sentenceArray: [])
             let luciana = Character(name: "luciana", hasEars: true, hasGlasses: false, article: "a", subjectName:"menina", sentenceArray: [])
             
-            self.characterArray.append(contentsOf: [andressa, henrique, francisco, luciana])
+            self.characterArray.append(contentsOf: [andressa, francisco, luciana, henrique])
             
             self.waveAnimation()
             self.listenToMusicAnimation()
@@ -99,7 +99,7 @@ import SceneKit
         func danceSalsa(){
             for character in characterArray {
                 let sentence = Sentence(animationSceneName: "danceSalsa", index: 5, cardArray: [], sentenceNarration: "\(character.subjectName)_dancou")
-                let card1 = Card(index: 1, word: "dançou", imageName: "\(character.name)_dançou", wordNarration: "dancou")
+                let card1 = Card(index: 1, word: "dançou", imageName: "\(character.name)_dancou", wordNarration: "dancou")
                 sentence.cardArray.append(card1)
                 character.sentenceArray.append(sentence)
             }

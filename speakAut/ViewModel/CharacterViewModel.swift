@@ -46,9 +46,7 @@ class CharacterViewModel: SCNNode {
         if self.characterModel.hasGlasses {
             self.addGlasses()
         }
-
-
-        
+     
         self.defineTexture()
         self.setScale()
     }

@@ -21,6 +21,9 @@ class UICharSelection: SKScene {
         setUpCarousselButtons()
         setUpInstructionsLabel()
         setUpChooseButton()
+        
+   
+        
     }
     
     func setUpInstructionsLabel() {

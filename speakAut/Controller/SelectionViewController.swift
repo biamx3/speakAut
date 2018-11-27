@@ -25,6 +25,8 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.navigationController?.delegate = self as! UINavigationControllerDelegate
+        
         self.sceneView = SCNView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         self.sceneView.scene = scene
         self.sceneView.delegate = self
@@ -37,7 +39,7 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
         self.view.addSubview(self.sceneView)
         
         printAllNodes(tab: "", node: self.spriteScene)
-        
+
     }
     
     func previousCharacter() {
@@ -142,5 +144,22 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
 //        self.scene.leftCharacter.removeAllAnimations()
 //        self.scene.rootNode.removeAnimation(forKey: key, blendOutDuration: CGFloat(0.5))
     }
+    
 
+extension SelectionViewController: UINavigationControllerDelegate {
+    
+    func navigationController(_ navigationController: UINavigationController,
+                              animationControllerFor operation: UINavigationController.Operation,
+                              from fromVC: UIViewController,
+                              to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        switch operation {
+        case .push:
+            return SystemPushAnimator(type: .navigation)
+        case .pop:
+            return SystemPopAnimator(type: .navigation)
+        default:
+            return nil
+        }
+    }
 }
+
