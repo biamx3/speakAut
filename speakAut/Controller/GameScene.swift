@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import SceneKit
 
 class GameScene: SKScene {
 
@@ -39,6 +40,7 @@ class GameScene: SKScene {
         sentenceArray.remove(at: 0)
         let sentence = sentenceArray.randomElement()
         DAO.sharedInstance.chosenSentence = sentence
+        DAO.sharedInstance.animationNode = SCNScene(named: sentence?.animationSceneName ?? "idle_luciana", inDirectory: "art.scnassets", options: nil)?.rootNode
         return (sentence?.cardArray)!
     }
     

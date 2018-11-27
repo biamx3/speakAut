@@ -61,13 +61,28 @@ class CharacterViewModel: SCNNode {
         for i in 0 ... self.sceneArray.count - 1 {
             let characterName = self.characterModel.name
             let headMesh = self.sceneArray[i].rootNode.childNode(withName: "head", recursively: true)
+            
+            //Add texture to head
+            headMesh?.geometry!.firstMaterial!.multiply.contents = SKTexture(imageNamed: "art.scnassets/headTexture_\(characterName)")
+            headMesh?.geometry!.firstMaterial!.multiply.intensity = 0.7
             headMesh?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "art.scnassets/headTexture_\(characterName)")
+            
+            //Add texture to body
             let bodyMesh = self.sceneArray[i].rootNode.childNode(withName: "body", recursively: true)
             bodyMesh?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "art.scnassets/bodyTexture_\(characterName)")
+            bodyMesh?.geometry!.firstMaterial!.multiply.contents = SKTexture(imageNamed: "art.scnassets/bodyTexture_\(characterName)")
+            bodyMesh?.geometry!.firstMaterial!.multiply.intensity = 0.7
+            
+            //Add texture to ears
             let earMeshRight = self.sceneArray[i].rootNode.childNode(withName: "ears_r", recursively: true)
             earMeshRight?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "art.scnassets/earTexture_\(characterName)")
             let earMeshLeft = self.sceneArray[i].rootNode.childNode(withName: "ears_l", recursively: true)
             earMeshLeft?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "art.scnassets/earTexture_\(characterName)")
+            earMeshRight?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "art.scnassets/earTexture_\(characterName)")
+            earMeshRight?.geometry!.firstMaterial!.multiply.contents = SKTexture(imageNamed: "art.scnassets/earTexture_\(characterName)")
+            earMeshRight?.geometry!.firstMaterial!.multiply.intensity = 0.7
+            earMeshLeft?.geometry!.firstMaterial!.multiply.contents = SKTexture(imageNamed: "art.scnassets/earTexture_\(characterName)")
+            earMeshLeft?.geometry!.firstMaterial!.multiply.intensity = 0.7
         }
     }
     

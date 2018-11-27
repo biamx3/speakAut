@@ -41,12 +41,19 @@ class GameViewController: UIViewController, GameSceneDelegate {
                 }
         }
         
+        
+        
         func goToCharacterSelectionScreen() {
             let selectionViewController = SelectionViewController()
-            present(selectionViewController, animated: true, completion: nil)
-            if self.isBeingPresented {
-                self.dismiss(animated: false, completion: {})
-            }
+            present(selectionViewController, animated: true, completion: {
+                            if self.isBeingPresented {
+                                self.presentedViewController?.dismiss(animated: true, completion: nil)
+                                //self.dismiss(animated: false, completion: {})
+                            }
+            })
+//            if self.isBeingPresented {
+//                self.dismiss(animated: false, completion: {})
+//            }
         }
         
         func goToSuccessAnimationScreen(){
