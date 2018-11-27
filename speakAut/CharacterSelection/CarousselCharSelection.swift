@@ -36,11 +36,6 @@ class CarousselCharSelection: SCNScene {
         addCamera()
         //addLights()
         addFirstVisibleCharacters()
-        for character in totalCharacters {
-            character.removeAllActions()
-            print("removed")
-        }
-        
     }
     
     

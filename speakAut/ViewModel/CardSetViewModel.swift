@@ -346,7 +346,6 @@ class CardSetViewModel: SKSpriteNode {
                         card.repeatedCardsWrong()
                         self.bigCards = []
                     }
-                    print("you tapped in the incorrect order")
                 }
             }
         }

@@ -5,7 +5,6 @@
 //  Created by Beatriz Melo Mousinho Magalhães on 24/11/18.
 //  Copyright © 2018 Beatriz Melo Mousinho Magalhães. All rights reserved.
 //
-
 import UIKit
 import SceneKit
 import SpriteKit
@@ -16,7 +15,7 @@ class CharacterViewModel: SCNNode {
     var sceneArray: [SCNScene] = []
     var nodeArray: [SCNNode] = []
     var idlePlayer = SCNAnimationPlayer()
-
+    
     
     override init() {
         super.init()
@@ -38,7 +37,7 @@ class CharacterViewModel: SCNNode {
         }
         
         self.addHair()
-
+        
         if self.characterModel.hasEars  {
             self.addEars()
         }
@@ -46,7 +45,7 @@ class CharacterViewModel: SCNNode {
         if self.characterModel.hasGlasses {
             self.addGlasses()
         }
-     
+        
         self.defineTexture()
         self.setScale()
     }
@@ -96,7 +95,7 @@ class CharacterViewModel: SCNNode {
             }
         }
     }
-
+    
     func addEars() {
         for i in 0 ... self.sceneArray.count - 1 {
             if let scene = SCNScene(named: "art.scnassets/ears.dae") {
@@ -114,7 +113,6 @@ class CharacterViewModel: SCNNode {
             if let scene = SCNScene(named: "art.scnassets/glasses.dae") {
                 if let glasses = scene.rootNode.childNode(withName: "glassesMesh", recursively: true) {
                     if let headRef = sceneArray[i].rootNode.childNode(withName: "mixamorig_Head", recursively: true) {
-                        print("Adicionando em ", headRef.name ?? "")
                         headRef.addChildNode(glasses)
                     }
                 }

@@ -19,7 +19,6 @@ class RepeatWordsScene: SKScene {
         self.scaleMode = .resizeFill
         self.isUserInteractionEnabled = true
         addCards()
-        printAllNodes(tab: "", node: self.scene!)
         addInstructions()
     }
     
@@ -52,7 +51,6 @@ class RepeatWordsScene: SKScene {
         touchArea.strokeColor = .clear
         touchArea.name = "backButton"
         touchArea.position = CGPoint(x: -sceneSize.width/5 , y: sceneSize.height/2.4)
-        print("touch area position: ", touchArea.position)
         let backButton = SKSpriteNode(texture: backButtonTexture, color: .clear, size: backButtonTexture.size())
         backButton.name = "backButton"
         touchArea.addChild(backButton)
@@ -62,6 +60,5 @@ class RepeatWordsScene: SKScene {
     
     func goToSuccessAnimationScreen(){
         self.gameScene.gameSceneDelegate?.goToSuccessAnimationScreen()
-        print("go")
     }
 }

@@ -188,16 +188,12 @@ class CardViewModel: SKSpriteNode {
             if self.size.width > CGSize.card.width {
                 if !parent.bigCards.contains(self) {
                     parent.bigCards.append(self)
-                    print("parent bigCards: ", parent.bigCards)
-                    print("added card to bigCardArray")
                     self.parent?.touchesEnded(touches, with: event)
                 }
             } else {
                 if parent.bigCards.contains(self) {
                     let index = parent.bigCards.index(of: self)
                     parent.bigCards.remove(at: index ?? 0)
-                    print("removed card from bigCardArray")
-                    print("parent bigCards: ", parent.bigCards)
                     self.parent?.touchesEnded(touches, with: event)
                 }
             }

@@ -78,7 +78,6 @@ class ViewController: UIViewController {
         
         animations.first?.value.usesSceneTimeBase = true
         
-        printAllNodes(tab: "", node: character)
 
         // add a tap gesture recognizer
 //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))

@@ -37,8 +37,6 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
         self.sceneView.overlaySKScene = self.spriteScene
         
         self.view.addSubview(self.sceneView)
-        
-        printAllNodes(tab: "", node: self.spriteScene)
 
     }
     
@@ -52,13 +50,10 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
     }
     
     func selectCharacter() {
-        print("character was selected")
-        
         for character in DAO.sharedInstance.characterArray {
             if character.name == self.scene.centralCharacter.name {
                 self.chosenCharacter = character
                 DAO.sharedInstance.chosenCharacter = CharacterViewModel(characterModel: chosenCharacter)
-                print("sucess")
             }
         }
         
@@ -144,22 +139,4 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
 //        self.scene.leftCharacter.removeAllAnimations()
 //        self.scene.rootNode.removeAnimation(forKey: key, blendOutDuration: CGFloat(0.5))
     }
-    
-
-extension SelectionViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController,
-                              animationControllerFor operation: UINavigationController.Operation,
-                              from fromVC: UIViewController,
-                              to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        switch operation {
-        case .push:
-            return SystemPushAnimator(type: .navigation)
-        case .pop:
-            return SystemPopAnimator(type: .navigation)
-        default:
-            return nil
-        }
-    }
 }
-
