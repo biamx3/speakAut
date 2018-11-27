@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SceneKit
 
     private let _DAO = DAO()
     
@@ -20,6 +21,7 @@ import UIKit
         var characterArray: [Character] = []
         var chosenCharacter: CharacterViewModel!
         var chosenSentence: Sentence!
+        var animationNode: SCNNode!
         var availableSentences: [Sentence]!
         
         
@@ -30,7 +32,7 @@ import UIKit
             let waveAnimation = "wave"
             let listenToMusicAnimation = "listenToMusic"
             let clapAnimation = "clap"
-            let singASongAnimation = "sangASong"
+            let singAnimation = "sing"
             
             let aMeninaBocejou = "aMeninaBocejou"
             let aMeninaDancou = "aMeninaDancou"
@@ -81,11 +83,17 @@ import UIKit
             lucianaSentence4.cardArray.append(contentsOf: [lucianaS4Card2, lucianaS4Card3])
             
             //A menina dançou
-            let lucianaSentence5 = Sentence(animationSceneName: danceAnimation, index: 0, cardArray: [], sentenceNarration: aMeninaDancou)
+            let lucianaSentence5 = Sentence(animationSceneName: danceAnimation, index: 5, cardArray: [], sentenceNarration: aMeninaDancou)
             let lucianaS5Card2 = Card(index: 1, word: "dançou", imageName: "luciana_dancou", wordNarration: "dancou")
             lucianaSentence5.cardArray.append(lucianaS5Card2)
             
-            luciana.sentenceArray.append(contentsOf: [lucianaSentence0/*, lucianaSentence1, lucianaSentence2, lucianaSentence3, lucianaSentence4*/, lucianaSentence5])
+            //A menina cantou uma música
+            let lucianaSentence6 = Sentence(animationSceneName: singAnimation, index: 6, cardArray: [], sentenceNarration: aMeninaCantouUmaMusica)
+            let lucianaS6Card2 = Card(index: 1, word: "cantou", imageName: "luciana_cantou", wordNarration: "dancou")
+            let lucianaS6Card3 = Card(index: 2, word: "uma música", imageName: "musica", wordNarration: "umaMusica")
+            lucianaSentence6.cardArray.append(contentsOf:[lucianaS6Card2, lucianaS6Card3])
+            
+            luciana.sentenceArray.append(contentsOf: [lucianaSentence0, lucianaSentence1, lucianaSentence2, lucianaSentence3, lucianaSentence4, lucianaSentence5, lucianaSentence6])
             
             self.characterArray.append(luciana)
             
@@ -128,7 +136,13 @@ import UIKit
             let andressaS5Card2 = Card(index: 1, word: "dançou", imageName: "andressa_dancou", wordNarration: "dancou")
             andressaSentence5.cardArray.append(andressaS5Card2)
             
-            andressa.sentenceArray.append(contentsOf: [andressaSentence0, andressaSentence1, andressaSentence2, andressaSentence3, andressaSentence4])
+            //A menina cantou uma música
+            let andressaSentence6 = Sentence(animationSceneName: singAnimation, index: 6, cardArray: [], sentenceNarration: aMeninaCantouUmaMusica)
+            let andressaS6Card2 = Card(index: 1, word: "cantou", imageName: "andressa_cantou", wordNarration: "dancou")
+            let andressaS6Card3 = Card(index: 2, word: "uma música", imageName: "musica", wordNarration: "umaMusica")
+            andressaSentence6.cardArray.append(contentsOf:[andressaS6Card2, andressaS6Card3])
+            
+            andressa.sentenceArray.append(contentsOf: [andressaSentence0, andressaSentence1, andressaSentence2, andressaSentence3, andressaSentence4, andressaSentence5, andressaSentence6])
             
             self.characterArray.append(andressa)
             
@@ -170,7 +184,13 @@ import UIKit
             let henriqueS5Card2 = Card(index: 1, word: "dançou", imageName: "henrique_dancou", wordNarration: "dancou")
             henriqueSentence5.cardArray.append(henriqueS5Card2)
             
-            henrique.sentenceArray.append(contentsOf: [henriqueSentence0, henriqueSentence1, henriqueSentence2, henriqueSentence3, henriqueSentence4])
+            //O menino cantou uma música
+            let henriqueSentence6 = Sentence(animationSceneName: singAnimation, index: 6, cardArray: [], sentenceNarration: oMeninoCantouUmaMusica)
+            let henriqueS6Card2 = Card(index: 1, word: "cantou", imageName: "henrique_cantou", wordNarration: "dancou")
+            let henriqueS6Card3 = Card(index: 2, word: "uma música", imageName: "musica", wordNarration: "umaMusica")
+            henriqueSentence6.cardArray.append(contentsOf:[henriqueS6Card2, henriqueS6Card3])
+            
+            henrique.sentenceArray.append(contentsOf: [henriqueSentence0, henriqueSentence1, henriqueSentence2, henriqueSentence3, henriqueSentence4, henriqueSentence5, henriqueSentence6])
             
             self.characterArray.append(henrique)
             
@@ -212,7 +232,13 @@ import UIKit
             let franciscoS5Card2 = Card(index: 1, word: "dançou", imageName: "francisco_dancou", wordNarration: "dancou")
             franciscoSentence5.cardArray.append(franciscoS5Card2)
             
-            francisco.sentenceArray.append(contentsOf: [franciscoSentence0, franciscoSentence1, franciscoSentence2, franciscoSentence3, franciscoSentence4])
+            //O menino cantou uma música
+            let franciscoSentence6 = Sentence(animationSceneName: singAnimation, index: 6, cardArray: [], sentenceNarration: oMeninoCantouUmaMusica)
+            let franciscoS6Card2 = Card(index: 1, word: "cantou", imageName: "francisco_cantou", wordNarration: "dancou")
+            let franciscoS6Card3 = Card(index: 2, word: "uma música", imageName: "musica", wordNarration: "umaMusica")
+            franciscoSentence6.cardArray.append(contentsOf:[franciscoS6Card2, franciscoS6Card3])
+            
+            francisco.sentenceArray.append(contentsOf: [franciscoSentence0, franciscoSentence1, franciscoSentence2, franciscoSentence3, franciscoSentence4, franciscoSentence5, franciscoSentence6])
             
             self.characterArray.append(francisco)
             
