@@ -62,10 +62,9 @@ class CardSetViewModel: SKSpriteNode {
         let totalSpace = (CGSize.card.width * cardQnt) + (cardMargin * (cardQnt - 1))
         let firstXposition = -((totalSpace / 2) - (CGSize.card.width / 2))
         
-        let shuffledCardSet = cardSet.shuffled()
         
         for i in 0..<cardSet.count {
-            let cardView = CardViewModel(cardModel: shuffledCardSet[i], type: .GameScene)
+            let cardView = CardViewModel(cardModel: cardSet[i], type: .GameScene)
             
             let cardXPosition = firstXposition + (cardConstantSpacing * i.cgFloat)
             cardView.position = CGPoint(x: cardXPosition, y: (sceneSize?.height ?? 0.0) + 180)
