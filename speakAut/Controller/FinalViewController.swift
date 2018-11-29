@@ -19,11 +19,7 @@ class FinalViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        print("viewControllers:", self.navigationController?.viewControllers)
-        super.viewDidLoad()
-        // place the camera
         self.scene = getScene()
-        // Do any additional setup after loading the view, typically from a nib.
         self.sceneView = SCNView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         self.sceneView.scene = self.scene
         self.view.addSubview(self.sceneView)

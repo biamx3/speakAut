@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB064AEE21B0469500B02173 /* CelebrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB064AED21B0469500B02173 /* CelebrationViewModel.swift */; };
+		AB064AF021B0655700B02173 /* TryAgainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB064AEF21B0655700B02173 /* TryAgainViewModel.swift */; };
 		AB35F3E32139836500FACE51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F3E22139836500FACE51 /* AppDelegate.swift */; };
 		AB35F3E52139836500FACE51 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = AB35F3E42139836500FACE51 /* art.scnassets */; };
 		AB35F3EA2139836500FACE51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB35F3E82139836500FACE51 /* Main.storyboard */; };
@@ -40,7 +42,7 @@
 		ABE6F60D21A857E30062E3F3 /* particleBurst.sks in Resources */ = {isa = PBXBuildFile; fileRef = ABE6F60C21A857E30062E3F3 /* particleBurst.sks */; };
 		ABE6F60F21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE6F60E21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift */; };
 		ABE9A0EF2191CB50008827EF /* CardSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */; };
-		ABE9DD8421ADF09100B7C05B /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9DD8321ADF09100B7C05B /* SuccessViewController.swift */; };
+		ABE9DD8421ADF09100B7C05B /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9DD8321ADF09100B7C05B /* FinalViewController.swift */; };
 		ABE9DD8621ADF0CE00B7C05B /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9DD8521ADF0CE00B7C05B /* CharacterViewModel.swift */; };
 		ABE9DD8821ADF7DF00B7C05B /* RepeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9DD8721ADF7DF00B7C05B /* RepeatViewController.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +65,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB064AED21B0469500B02173 /* CelebrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CelebrationViewModel.swift; path = speakAut/ViewModel/CelebrationViewModel.swift; sourceTree = SOURCE_ROOT; };
+		AB064AEF21B0655700B02173 /* TryAgainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryAgainViewModel.swift; sourceTree = "<group>"; };
 		AB09844221552296005C420F /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
 		AB35F3E22139836500FACE51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB35F3E42139836500FACE51 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -103,7 +107,7 @@
 		ABE6F60C21A857E30062E3F3 /* particleBurst.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = particleBurst.sks; sourceTree = "<group>"; };
 		ABE6F60E21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsToExport3DFiles.swift; sourceTree = "<group>"; };
 		ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetViewModel.swift; sourceTree = "<group>"; };
-		ABE9DD8321ADF09100B7C05B /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
+		ABE9DD8321ADF09100B7C05B /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
 		ABE9DD8521ADF0CE00B7C05B /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
 		ABE9DD8721ADF7DF00B7C05B /* RepeatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -207,8 +211,7 @@
 				ABD9FF3421A1AB1700A45FEA /* GameScene.swift */,
 				ABE9DD8721ADF7DF00B7C05B /* RepeatViewController.swift */,
 				ABDFF25421A463380059193F /* RepeatWordsScene.swift */,
-				ABE6B88E21A70A160019DD98 /* InstructionsViewModel.swift */,
-				ABE9DD8321ADF09100B7C05B /* SuccessViewController.swift */,
+				ABE9DD8321ADF09100B7C05B /* FinalViewController.swift */,
 				ABE1CABF21750EED0057BA53 /* GameViewController.swift */,
 				ABD9FF3B21A1AB4C00A45FEA /* SelectionViewController.swift */,
 			);
@@ -218,6 +221,9 @@
 		BBDC8141219B78FA00B8CB1C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				ABE6B88E21A70A160019DD98 /* InstructionsViewModel.swift */,
+				AB064AEF21B0655700B02173 /* TryAgainViewModel.swift */,
+				AB064AED21B0469500B02173 /* CelebrationViewModel.swift */,
 				ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */,
 				AB35F41A2139848100FACE51 /* CardViewModel.swift */,
 				ABE9DD8521ADF0CE00B7C05B /* CharacterViewModel.swift */,
@@ -381,10 +387,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABE1CAC021750EED0057BA53 /* GameViewController.swift in Sources */,
-				ABE9DD8421ADF09100B7C05B /* SuccessViewController.swift in Sources */,
+				ABE9DD8421ADF09100B7C05B /* FinalViewController.swift in Sources */,
 				ABE6B88F21A70A160019DD98 /* InstructionsViewModel.swift in Sources */,
 				AB35F421213986A500FACE51 /* SoundTrack.swift in Sources */,
 				ABDFF25621A463390059193F /* RepeatWordsScene.swift in Sources */,
+				AB064AF021B0655700B02173 /* TryAgainViewModel.swift in Sources */,
 				ABE6F60F21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift in Sources */,
 				ABE9DD8821ADF7DF00B7C05B /* RepeatViewController.swift in Sources */,
 				ABE9DD8621ADF0CE00B7C05B /* CharacterViewModel.swift in Sources */,
@@ -397,6 +404,7 @@
 				ABD9FF3321A1AB0300A45FEA /* Extensions.swift in Sources */,
 				ABD9FF3521A1AB1700A45FEA /* GameScene.swift in Sources */,
 				ABE9A0EF2191CB50008827EF /* CardSetViewModel.swift in Sources */,
+				AB064AEE21B0469500B02173 /* CelebrationViewModel.swift in Sources */,
 				AB35F4152139841600FACE51 /* Sentence.swift in Sources */,
 				ABD9FF3D21A1AB4C00A45FEA /* UICharSelection.swift in Sources */,
 				AB35F3E32139836500FACE51 /* AppDelegate.swift in Sources */,

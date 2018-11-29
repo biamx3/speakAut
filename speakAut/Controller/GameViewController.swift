@@ -17,9 +17,7 @@ class GameViewController: UIViewController, GameSceneDelegate {
         
         
         override func viewWillAppear(_ animated: Bool) {
-            
             self.navigationController?.popToViewController(self, animated: true)
-            print("viewControllers:", self.navigationController?.viewControllers)
             //Start with GameScene Instructions!
             // Load the SKScene from 'GameScene.sks'
             if let scene = GameScene(fileNamed: "GameScene") {

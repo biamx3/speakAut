@@ -132,11 +132,9 @@ class ViewController: UIViewController {
     func defineTexture(){
         headMesh = character.childNode(withName: "head", recursively: true)
         headMesh?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "art.scnassets/FranciscoFaceTexture")
-        let materialHead = headMesh.geometry!.firstMaterial!
         
         bodyMesh = character.childNode(withName: "body", recursively: true)
         bodyMesh?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "art.scnassets/FranciscoBodyTexture")
-        let materialBody = bodyMesh.geometry!.firstMaterial!
     }
     
     

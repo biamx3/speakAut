@@ -12,18 +12,18 @@ import SpriteKit
 
 class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICharSelectionDelegate {
 
-    private weak var sceneView: SCNView?
+    private var sceneView: SCNView?
     private var spriteScene: UICharSelection!
     private var scene = CarousselCharSelection()
     weak var chosenCharacter: Character!
     
     override func viewWillAppear(_ animated: Bool) {
         self.sceneView = SCNView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
-        self.sceneView?.scene = scene
-        self.sceneView?.delegate = self
+        self.sceneView! .scene = scene
+        self.sceneView!.delegate = self
         self.spriteScene = UICharSelection(size: self.view.bounds.size)
         spriteScene.uiCharSelectionDelegate = self
-        self.sceneView?.overlaySKScene = self.spriteScene
+        self.sceneView!.overlaySKScene = self.spriteScene
         
         self.view.addSubview(self.sceneView!)
     }
@@ -43,13 +43,8 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
                 DAO.sharedInstance.chosenCharacter = CharacterViewModel(characterModel: chosenCharacter)
             }
         }
-        
-        
-        print("button")
         let gameViewController = GameViewController()
-       // self.navigationController?.present(gameViewController, animated: true, completion: nil)
         self.navigationController?.pushViewController(gameViewController, animated: true)
-         //self.performSegue(withIdentifier: "selectionToGame", sender: nil)
     }
     
     func goToMenuScreen() {
@@ -64,7 +59,7 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
             
         }
     }
-    
+
     
     override func viewDidDisappear(_ animated: Bool) {
         self.sceneView = nil

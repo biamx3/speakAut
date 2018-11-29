@@ -12,6 +12,8 @@ import SpriteKit
 class RepeatWordsScene: SKScene {
 
      weak var repeatViewControllerDelegate: RepeatViewControllerDelegate?
+     var cardSetViewModel: CardSetViewModel!
+     var bigCards: [CardViewModel]!
     
     override func didMove(to view: SKView) {
         self.scaleMode = .resizeFill
@@ -22,7 +24,7 @@ class RepeatWordsScene: SKScene {
     
     func addCards(){
         let cardArray = DAO.sharedInstance.chosenSentence.cardArray
-        let cardSetViewModel = CardSetViewModel(cardSet: cardArray, type: .RepeatWordsScene)
+        self.cardSetViewModel = CardSetViewModel(cardSet: cardArray, type: .RepeatWordsScene)
         cardSetViewModel.position = CGPoint(x: 0, y: 0)
         cardSetViewModel.zPosition = 3
         self.addChild(cardSetViewModel)
@@ -57,8 +59,39 @@ class RepeatWordsScene: SKScene {
         self.addChild(touchArea)
     }
     
+    func identifyCardsInScreen() -> [CardViewModel]! {
+        let brothers = self.allDescendants()
+        let cardsInScreen = brothers.filter {($0.name?.starts(with: "card") ?? false)}
+        let cardViews = cardsInScreen as! [CardViewModel]
+        return cardViews
+    }
+    
+    func identifyGapsInScreen() -> [SKNode]! {
+        let brothers = self.allDescendants()
+        let gapsInScreen = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
+        let gapViews = gapsInScreen as! [GapViewModel]
+        return gapViews
+    }
+    
     func goToSuccessAnimationScreen(){
         self.repeatViewControllerDelegate?.goToSuccessAnimationScreen()
+    }
+    
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if self.cardSetViewModel.bigCards.count == self.cardSetViewModel.cards.count {
+            if self.cardSetViewModel.bigCards == self.cardSetViewModel.cards {
+                let celebrationViewModel = CelebrationViewModel(cardViewModel: self.cardSetViewModel.cards, cardType: .RepeatWordsScene)
+                self.addChild(celebrationViewModel)
+                
+            } else {
+                for card in self.cardSetViewModel.cards {
+                    let tryAgainViewModel = TryAgainViewModel(cardViewModel: self.cardSetViewModel.cards, cardType: .RepeatWordsScene)
+                    self.addChild(tryAgainViewModel)
+                    self.cardSetViewModel.bigCards = []
+                }
+            }
+        }
     }
 }
 

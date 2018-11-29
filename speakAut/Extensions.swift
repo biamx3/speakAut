@@ -10,10 +10,20 @@ import Foundation
 import SpriteKit
 import SceneKit
 
-extension Array where Element == SKNode {
+extension Array where Element == CardViewModel {
     func near(_ otherNodes:[SKNode?])-> Bool {
         for element in self {
             guard let _ = element.near(otherNodes) else { return false }
+        }
+        return true
+    }
+}
+
+
+extension Array where Element == GapViewModel {
+    func isNear(_ toCards:[CardViewModel])-> Bool {
+        for element in self {
+            guard let _ = element.near(toCards) else { return false }
         }
         return true
     }

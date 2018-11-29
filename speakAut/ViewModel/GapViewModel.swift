@@ -11,6 +11,8 @@ import SpriteKit
 
 class GapViewModel: SKSpriteNode {
 
+    var index = 0
+    
     convenience init() {
         let texture = SKTexture(imageNamed: "gap")
         self.init(texture: texture, color: .clear, size: CGSize.card)

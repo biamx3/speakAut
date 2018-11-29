@@ -104,26 +104,17 @@ class CardViewModel: SKSpriteNode {
                 index.card.zPosition = self.card.zPosition - 1
             }
         }
-        
+            
         else if parent.cardType == .RepeatWordsScene {
             if self.size == CGSize.card {
                 let scaleUp = SKAction.scale(to: 1.15, duration: 0.2)
                 scaleUp.timingMode = .easeOut
                 self.run(scaleUp)
-//                if !bigCards.contains(self) {
-//                    bigCards.append(self)
-//                    print("big cards ", bigCards)
-                } else {
+            } else {
                 let scaleToNormal = SKAction.scale(to: 1.0, duration: 0.2)
                 scaleToNormal.timingMode = .easeOut
                 self.run(scaleToNormal)
-//                if !bigCards.contains(self) {
-//                    let index = bigCards.index(of: self)
-//                    bigCards.remove(at: index ?? 0)
-//                    print("big cards ", bigCards)
-//                }
-           // }
-        }
+            }
         }
     }
     
@@ -141,16 +132,6 @@ class CardViewModel: SKSpriteNode {
                 self.position = newPosition
             }
         }
-    }
-    
-    func repeatCardsRight(){
-        print("cards are right")
-    }
-    
-    func repeatedCardsWrong(){
-        let scaleDown = SKAction.scale(to: 1.0, duration: 0.2)
-        scaleDown.timingMode = .easeOut
-        self.run(scaleDown)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

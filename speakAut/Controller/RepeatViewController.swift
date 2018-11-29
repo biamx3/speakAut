@@ -17,7 +17,6 @@ class RepeatViewController: UIViewController, RepeatViewControllerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.popToViewController(self, animated: true)
-        print("viewControllers:", self.navigationController?.viewControllers)
         super.viewDidLoad()
         //Start with GameScene Instructions!
         // Load the SKScene from 'GameScene.sks'
