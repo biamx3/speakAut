@@ -27,6 +27,16 @@ class GameScene: SKScene {
         addInstructions()
     }
     
+//    override func sceneDidLoad() {
+//        self.cardType = .GameScene
+//        self.scaleMode = .resizeFill
+//        self.cardType = .GameScene
+//        addCardsAndGaps()
+//        addBackButton()
+//        self.isUserInteractionEnabled = true
+//      //  addInstructions()
+//    }
+    
     func addInstructions(){
         let instructionsViewModel = InstructionsViewModel(cardType: .GameScene)
         instructionsViewModel.zPosition = 15
@@ -68,30 +78,28 @@ class GameScene: SKScene {
         //Filter all nodes in scene to identify gaps and cards
         let brothers = self.allDescendants()
         let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
-        if let cardArray = cards as? [CardViewModel] {
-            if cardArray.count > 0 {
-                //Compare each card's position with the last card in the array
-                for i in 0...cardArray.count - 1{
-                    let card = cardArray[i]
-                    let index = i
-                    let lastItem = cardArray.last
-                    let lastIndex = cardArray.index(of: lastItem ?? card)
-                    let nextCard = cardArray[lastIndex ?? 0]
-                    
-                    //Animate cards moving out of gap
-                    let removeCardFromGap = SKAction.move(by: CGVector(dx: 0, dy: 180), duration: 0.2)
-                    let randomRotation = self.randomRotation()
-                    let removeCardFromGapGroup = SKAction.group([removeCardFromGap, randomRotation])
-                    removeCardFromGapGroup.timingMode = .easeOut
-                    
-                    //If two cards have the same position, remove the card with the lowest zPosition from the gap
-                    if index != lastIndex && card.position == nextCard.position   {
-                        if card.zPosition < nextCard.zPosition {
-                            card.run(removeCardFromGapGroup)
-                        } else {
-                            nextCard.run(removeCardFromGapGroup)
-                        }
-                    }
+        let cardArray = cards as! [CardViewModel]
+        
+        //Compare each card's position with the last card in the array
+        for i in 0...cardArray.count - 1{
+            let card = cardArray[i]
+            let index = i
+            let lastItem = cardArray.last
+            let lastIndex = cardArray.index(of: lastItem ?? card)
+            let nextCard = cardArray[lastIndex ?? 0]
+            
+            //Animate cards moving out of gap
+            let removeCardFromGap = SKAction.move(by: CGVector(dx: 0, dy: 180), duration: 0.2)
+            let randomRotation = self.randomRotation()
+            let removeCardFromGapGroup = SKAction.group([removeCardFromGap, randomRotation])
+            removeCardFromGapGroup.timingMode = .easeOut
+            
+            //If two cards have the same position, remove the card with the lowest zPosition from the gap
+            if index != lastIndex && card.position == nextCard.position   {
+                if card.zPosition < nextCard.zPosition {
+                    card.run(removeCardFromGapGroup)
+                } else {
+                    nextCard.run(removeCardFromGapGroup)
                 }
             }
         }

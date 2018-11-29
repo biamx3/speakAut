@@ -17,7 +17,7 @@ class RepeatWordsScene: SKScene {
         self.scaleMode = .resizeFill
         self.isUserInteractionEnabled = true
         addCards()
-        addInstructions()
+       // addInstructions()
     }
     
     func addCards(){

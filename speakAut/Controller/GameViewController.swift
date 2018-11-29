@@ -13,46 +13,48 @@
     @objc(GameViewController)
 class GameViewController: UIViewController, GameSceneDelegate {
    
-        
         var skView: SKView!
         
-        var chosenCharacter: Character!
-        var cardType: CardType! = .GameScene
         
-        
-        override func viewDidLoad() {
-            super.viewDidLoad()
+        override func viewWillAppear(_ animated: Bool) {
+            
+            self.navigationController?.popToViewController(self, animated: true)
+            print("viewControllers:", self.navigationController?.viewControllers)
             //Start with GameScene Instructions!
-                    // Load the SKScene from 'GameScene.sks'
-                    if let scene = GameScene(fileNamed: "GameScene") {
-                        // Set the scale mode to scale to fit the window
-                        scene.scaleMode = .resizeFill
-                        scene.gameSceneDelegate = self
-                        scene.chosenCharacter = self.chosenCharacter
-                        self.skView = SKView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
-                        
-                        // Present the scene
-                        skView!.presentScene(scene)
-
-                    }
-                    
-                    skView!.ignoresSiblingOrder = false
-                    skView!.showsFPS = false
-                    skView!.showsNodeCount = false
-                    
-                    self.view.addSubview(skView!)
+            // Load the SKScene from 'GameScene.sks'
+            if let scene = GameScene(fileNamed: "GameScene") {
+                // Set the scale mode to scale to fit the window
+                scene.scaleMode = .resizeFill
+                scene.gameSceneDelegate = self
+                scene.chosenCharacter = DAO.sharedInstance.chosenCharacter.characterModel
+                self.skView = SKView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+                // Present the scene
+                skView!.presentScene(scene)
+                
+            }
+            
+            skView!.ignoresSiblingOrder = false
+            skView!.showsFPS = false
+            skView!.showsNodeCount = false
+            
+            self.view.addSubview(skView!)
         }
         
-        
-        
+    
         func goToCharacterSelectionScreen() {
-                self.performSegue(withIdentifier: "gameToSelection", sender: nil)
+            DispatchQueue.main.async {
+                self.navigationController?.popToRootViewController(animated: true)           
+            }
+
         }
         
         func goToRepeatWordsScene() {
-            self.performSegue(withIdentifier: "gameToRepeat", sender: nil)
+            let repeatViewController = RepeatViewController()
+            DispatchQueue.main.async {
+                self.navigationController?.pushViewController(repeatViewController, animated: true)
+            }
         }
-        
+
         override var shouldAutorotate: Bool {
             return true
         }
@@ -64,6 +66,10 @@ class GameViewController: UIViewController, GameSceneDelegate {
                 return .landscape
             }
         }
+        
+        override func viewWillDisappear(_ animated: Bool) {
+            self.skView = nil
+        }
 
         
         override func didReceiveMemoryWarning() {
@@ -74,6 +80,7 @@ class GameViewController: UIViewController, GameSceneDelegate {
         override var prefersStatusBarHidden: Bool {
             return true
         }
+    
     }
 
 

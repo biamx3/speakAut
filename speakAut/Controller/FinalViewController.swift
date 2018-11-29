@@ -1,5 +1,5 @@
 //
-//  SuccessAnimationViewController.swift
+//  FinalViewController.swift
 //  speakAut
 //
 //  Created by Beatriz Melo Mousinho Magalhães on 27/11/18.
@@ -9,40 +9,41 @@ import QuartzCore
 import SceneKit
 import SpriteKit
 
-class SuccessAnimationViewController: UIViewController, SCNSceneRendererDelegate, UIViewControllerTransitioningDelegate {
+class FinalViewController: UIViewController {
     
     var sceneView: SCNView!
     var spriteScene: UICharSelection!
     private var scene: SCNScene!
     var chosenCharacter: CharacterViewModel!
-    var animations = [String: CAAnimation]()
-    var idle:Bool = true
-    var character: SCNNode!
     
     
-    override func viewDidLoad() {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewControllers:", self.navigationController?.viewControllers)
         super.viewDidLoad()
         // place the camera
         self.scene = getScene()
         // Do any additional setup after loading the view, typically from a nib.
         self.sceneView = SCNView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         self.sceneView.scene = self.scene
-        self.sceneView.delegate = self
         self.view.addSubview(self.sceneView)
-        
+        animateCamera()
+    }
+    
+    func animateCamera(){
         let camera = self.sceneView.scene?.rootNode.childNode(withName: "camera", recursively: true)
         camera?.position = SCNVector3(-5, 1, 8)
         let moveCamera = SCNAction.move(to: SCNVector3(1, 0.5, 5), duration: 6.0)
-        moveCamera.timingMode = .easeOut
         let wait = SCNAction.wait(duration: 3.0)
+        moveCamera.timingMode = .easeOut
         let sequence = SCNAction.sequence([moveCamera, wait])
         camera?.runAction(sequence, completionHandler: {
-            self.goBackToGameScene()
-        })
-        
+            DispatchQueue.main.async {
+                self.navigationController?.popToViewController(ofClass: GameViewController.self)
+            }
+            })
+        camera?.runAction(moveCamera)
     }
-    
-    
     
     func getScene() -> SCNScene {
         self.chosenCharacter = DAO.sharedInstance.chosenCharacter
@@ -52,11 +53,6 @@ class SuccessAnimationViewController: UIViewController, SCNSceneRendererDelegate
         let animationScene = SCNScene(named: "SuccessAnimationScene.scn", inDirectory: "art.scnassets", options: nil)
         animationScene?.rootNode.addChildNode(characterNode)
         return animationScene ?? SCNScene(named: "idle_luciana" , inDirectory: "art.scnassets", options: nil)!
-    }
-    
-    
-    func goBackToGameScene() {
-        performSegue(withIdentifier: "successToGame", sender: nil)
     }
     
     override var shouldAutorotate: Bool {
@@ -73,11 +69,34 @@ class SuccessAnimationViewController: UIViewController, SCNSceneRendererDelegate
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.sceneView = nil
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        self.sceneView = nil
+    }
     
+}
+
+extension UINavigationController {
+    
+    func popToViewController(ofClass: AnyClass, animated: Bool = true) {
+        if let vc = viewControllers.filter({$0.isKind(of: ofClass)}).last {
+            popToViewController(vc, animated: animated)
+        }
+    }
+    
+    func popViewControllers(viewsToPop: Int, animated: Bool = true) {
+        if viewControllers.count > viewsToPop {
+            let vc = viewControllers[viewControllers.count - viewsToPop - 1]
+            popToViewController(vc, animated: animated)
+        }
+    }
     
 }

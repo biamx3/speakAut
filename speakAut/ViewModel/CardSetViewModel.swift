@@ -19,6 +19,7 @@ class CardSetViewModel: SKSpriteNode {
     private var gaps: [GapViewModel] = []
     private var invisibleNode: SKSpriteNode!
     var cardType: CardType!
+    var cardPositions : [CGPoint] = []
     
     //RepeatWordsScene
     var bigCards: [CardViewModel] = []
@@ -48,8 +49,45 @@ class CardSetViewModel: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func shuffleCards2(){
+        for i in 0...self.cards.count - 1 {
+            if self.cards.count > 0 {
+                let position = self.cards.randomElement()?.position
+                let moveAction = SKAction.moveTo(x: position?.x ?? cards[i].position.x, duration: 0.2)
+                if cards[i].position != position {
+                    cards[i].run(moveAction)
+                }
+            }
+        }
+    }
+    
+    
     func shuffleCards(){
-        
+        if self.cards.count > 0 {
+            //Compare each card's position with the last card in the array
+            for i in 0...self.cards.count - 1{
+                let card = self.cards[i]
+                let index = i
+                let lastItem = self.cards.last
+                let lastIndex = self.cards.index(of: lastItem ?? card)
+                let nextCard = self.cards[lastIndex ?? 0]
+                
+                //Animate cards moving out of gap
+                let removeCardFromGap = SKAction.move(by: CGVector(dx: 0, dy: 180), duration: 0.2)
+                let randomRotation = self.randomRotation()
+                let removeCardFromGapGroup = SKAction.group([removeCardFromGap, randomRotation])
+                removeCardFromGapGroup.timingMode = .easeOut
+                
+                //If two cards have the same position, remove the card with the lowest zPosition from the gap
+                if index != lastIndex && card.position == nextCard.position   {
+                    if card.zPosition < nextCard.zPosition {
+                        card.run(removeCardFromGapGroup)
+                    } else {
+                        nextCard.run(removeCardFromGapGroup)
+                    }
+                }
+            }
+        }
     }
     
     func addCards(from cardSet: [Card]) {
@@ -70,11 +108,16 @@ class CardSetViewModel: SKSpriteNode {
             cardView.position = CGPoint(x: cardXPosition, y: (sceneSize?.height ?? 0.0) + 180)
             randomRotation(node: cardView)
             
-            
             self.addChild(cardView)
             cards.append(cardView)
-
         }
+        
+            shuffleCards()
+        
+        for i in 0..<cardSet.count {
+            print("card position", self.cards[i].position)
+        }
+        
     }
     
     func addCardsToRepeatWordsScene(from cardSet: [Card]) {
@@ -134,7 +177,7 @@ class CardSetViewModel: SKSpriteNode {
         successLabel.run(self.labelAnimation(), completion: {
             successLabel.removeFromParent()
             if self.cardType == .RepeatWordsScene {
-                let parent = self.parent as! RepeatWordsScene!
+                weak var parent = self.parent as! RepeatWordsScene!
                 parent!.goToSuccessAnimationScreen()
             }
             
@@ -191,7 +234,7 @@ class CardSetViewModel: SKSpriteNode {
     }
     
     func animateCards(cards: [CardViewModel]){
-        
+
         //Animate cards scaling
         let scaleUp1 = SKAction.scale(to: 1.2, duration: 0.1)
         scaleUp1.timingMode = .easeOut
@@ -320,31 +363,29 @@ class CardSetViewModel: SKSpriteNode {
         let cardsInScreen = brothers.filter {($0.name?.starts(with: "card") ?? false)}
         let gapsInScreen = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
         
-        let cardViews = cardsInScreen as! [CardViewModel]
-        
-        if self.cardType == .GameScene {
-            //Check if cards are in the correct order when all gaps are filled
-            if (cardViews as [SKNode]).near(gapsInScreen) {
-                
-                if cardViews.isOrderedInX {
-                    cardsAreRight(cardNodes: cardViews)
-
-                    
-                    
-                } else {
-                    cardsAreWrong(cardNodes: cardViews)
+        if let cardViews = cardsInScreen as? [CardViewModel] {
+            if self.cardType == .GameScene {
+                //Check if cards are in the correct order when all gaps are filled
+                if (cardViews as [SKNode]).near(gapsInScreen) {
+                    if cardViews.isOrderedInX {
+                        cardsAreRight(cardNodes: cardViews)
+                        print("cards are right")
+                        
+                    } else {
+                        cardsAreWrong(cardNodes: cardViews)
+                    }
                 }
             }
-        }
-        
-        if self.cardType == .RepeatWordsScene {
-            if self.bigCards.count == self.cards.count {
-                if self.bigCards == self.cards {
-                    cardsAreRight(cardNodes: cardViews)
-                } else {
-                    for card in self.cards {
-                        card.repeatedCardsWrong()
-                        self.bigCards = []
+                
+            else if self.cardType == .RepeatWordsScene {
+                if self.bigCards.count == self.cards.count {
+                    if self.bigCards == self.cards {
+                        cardsAreRight(cardNodes: cardViews)
+                    } else {
+                        for card in self.cards {
+                            card.repeatedCardsWrong()
+                            self.bigCards = []
+                        }
                     }
                 }
             }

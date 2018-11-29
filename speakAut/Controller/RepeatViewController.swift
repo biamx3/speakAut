@@ -15,26 +15,29 @@ class RepeatViewController: UIViewController, RepeatViewControllerDelegate {
     
     var skView: SKView!
     
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            //Start with GameScene Instructions!
-            // Load the SKScene from 'GameScene.sks'
-            if let scene = RepeatWordsScene(fileNamed: "RepeatWordsScene") {
-                // Set the scale mode to scale to fit the window
-                scene.scaleMode = .resizeFill
-                self.skView = SKView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
-                scene.repeatViewControllerDelegate = self
-                // Present the scene
-                skView!.presentScene(scene)
-    
-            }
-    
-            skView!.ignoresSiblingOrder = false
-            skView!.showsFPS = false
-            skView!.showsNodeCount = false
-    
-            self.view.addSubview(skView!)
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.popToViewController(self, animated: true)
+        print("viewControllers:", self.navigationController?.viewControllers)
+        super.viewDidLoad()
+        //Start with GameScene Instructions!
+        // Load the SKScene from 'GameScene.sks'
+        if let scene = RepeatWordsScene(fileNamed: "RepeatWordsScene") {
+            // Set the scale mode to scale to fit the window
+            scene.scaleMode = .resizeFill
+            self.skView = SKView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+            scene.repeatViewControllerDelegate = self
+            // Present the scene
+            skView!.presentScene(scene)
+            
         }
+        
+        skView!.ignoresSiblingOrder = false
+        skView!.showsFPS = false
+        skView!.showsNodeCount = false
+        
+        self.view.addSubview(skView!)
+    }
+
     
     override var shouldAutorotate: Bool {
         return true
@@ -59,7 +62,14 @@ class RepeatViewController: UIViewController, RepeatViewControllerDelegate {
     }
     
     func goToSuccessAnimationScreen() {
-        self.performSegue(withIdentifier: "repeatToSuccess", sender: nil)
+        DispatchQueue.main.async {
+            let successViewController = FinalViewController()
+            self.navigationController?.pushViewController(successViewController, animated: true)
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.skView = nil
     }
     
 }

@@ -105,7 +105,7 @@ class CardViewModel: SKSpriteNode {
             }
         }
         
-        if parent.cardType == .RepeatWordsScene {
+        else if parent.cardType == .RepeatWordsScene {
             if self.size == CGSize.card {
                 let scaleUp = SKAction.scale(to: 1.15, duration: 0.2)
                 scaleUp.timingMode = .easeOut
@@ -141,10 +141,6 @@ class CardViewModel: SKSpriteNode {
                 self.position = newPosition
             }
         }
-        
-        if parent.cardType == .RepeatWordsScene {
-        
-        }
     }
     
     func repeatCardsRight(){
@@ -159,11 +155,9 @@ class CardViewModel: SKSpriteNode {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let parent = self.parent as! CardSetViewModel
-        
         //Filter all nodes in scene to identify gaps and cards
         guard let brothers = self.parent?.allDescendants() else {return}
         let gaps = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
-        
         
         if  parent.cardType == .GameScene {
             //Animate back to correct scale

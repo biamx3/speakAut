@@ -11,7 +11,7 @@ import SpriteKit
 
 class CharacterViewModel: SCNNode {
     
-    var characterModel: Character!
+    weak var characterModel: Character!
     var sceneArray: [SCNScene] = []
     var nodeArray: [SCNNode] = []
     var idlePlayer = SCNAnimationPlayer()
