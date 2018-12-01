@@ -32,7 +32,7 @@ import SceneKit
             let francisco = Character(name: "francisco", hasEars: true, hasGlasses: true, article: "o", subjectName:"menino", sentenceArray: [])
             let luciana = Character(name: "luciana", hasEars: true, hasGlasses: false, article: "a", subjectName:"menina", sentenceArray: [])
             
-            self.characterArray.append(contentsOf: [andressa, francisco, luciana, henrique])
+            self.characterArray.append(contentsOf: [francisco, andressa, henrique, luciana])
             
             self.waveAnimation()
             self.listenToMusicAnimation()

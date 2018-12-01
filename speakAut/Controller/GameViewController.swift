@@ -41,7 +41,7 @@ class GameViewController: UIViewController, GameSceneDelegate {
     
         func goToCharacterSelectionScreen() {
             DispatchQueue.main.async {
-                self.navigationController?.popToRootViewController(animated: true)           
+                self.navigationController?.popToViewController(ofClass: SelectionViewController.self)
             }
 
         }

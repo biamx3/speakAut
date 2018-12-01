@@ -41,6 +41,9 @@
 		ABE6B8A121A75EA70019DD98 /* buttonParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = ABE6B89F21A75EA70019DD98 /* buttonParticle.sks */; };
 		ABE6F60D21A857E30062E3F3 /* particleBurst.sks in Resources */ = {isa = PBXBuildFile; fileRef = ABE6F60C21A857E30062E3F3 /* particleBurst.sks */; };
 		ABE6F60F21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE6F60E21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift */; };
+		ABE8548521B328C800611812 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE8548421B328C800611812 /* MenuViewController.swift */; };
+		ABE8548721B328FF00611812 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = ABE8548621B328FF00611812 /* MenuScene.sks */; };
+		ABE8548921B3291D00611812 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE8548821B3291D00611812 /* MenuScene.swift */; };
 		ABE9A0EF2191CB50008827EF /* CardSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */; };
 		ABE9DD8421ADF09100B7C05B /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9DD8321ADF09100B7C05B /* FinalViewController.swift */; };
 		ABE9DD8621ADF0CE00B7C05B /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9DD8521ADF0CE00B7C05B /* CharacterViewModel.swift */; };
@@ -109,6 +112,9 @@
 		ABE6B89F21A75EA70019DD98 /* buttonParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = buttonParticle.sks; sourceTree = "<group>"; };
 		ABE6F60C21A857E30062E3F3 /* particleBurst.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = particleBurst.sks; sourceTree = "<group>"; };
 		ABE6F60E21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsToExport3DFiles.swift; sourceTree = "<group>"; };
+		ABE8548421B328C800611812 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		ABE8548621B328FF00611812 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
+		ABE8548821B3291D00611812 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetViewModel.swift; sourceTree = "<group>"; };
 		ABE9DD8321ADF09100B7C05B /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
 		ABE9DD8521ADF0CE00B7C05B /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
@@ -173,6 +179,7 @@
 				ABE6F60C21A857E30062E3F3 /* particleBurst.sks */,
 				AB35F420213986A500FACE51 /* SoundTrack.swift */,
 				ABE6B89D21A748720019DD98 /* particle.sks */,
+				ABE8548621B328FF00611812 /* MenuScene.sks */,
 				ABE6B89F21A75EA70019DD98 /* buttonParticle.sks */,
 				ABE6B89021A7149E0019DD98 /* RepeatWordsScene.sks */,
 				ABE6B89521A73D910019DD98 /* Assets.xcassets */,
@@ -215,6 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				ABD9FF3421A1AB1700A45FEA /* GameScene.swift */,
+				ABE8548821B3291D00611812 /* MenuScene.swift */,
+				ABE8548421B328C800611812 /* MenuViewController.swift */,
 				ABE9DD8721ADF7DF00B7C05B /* RepeatViewController.swift */,
 				ABDFF25421A463380059193F /* RepeatWordsScene.swift */,
 				ABE9DD8321ADF09100B7C05B /* FinalViewController.swift */,
@@ -367,6 +376,7 @@
 				ABE6B8A121A75EA70019DD98 /* buttonParticle.sks in Resources */,
 				AB35F3EC2139836800FACE51 /* Assets.xcassets in Resources */,
 				ABE6F60D21A857E30062E3F3 /* particleBurst.sks in Resources */,
+				ABE8548721B328FF00611812 /* MenuScene.sks in Resources */,
 				ABE6B89E21A748720019DD98 /* particle.sks in Resources */,
 				ABE6B89121A7149E0019DD98 /* RepeatWordsScene.sks in Resources */,
 				AB35F3EA2139836500FACE51 /* Main.storyboard in Resources */,
@@ -404,6 +414,7 @@
 				ABE6F60F21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift in Sources */,
 				ABE9DD8821ADF7DF00B7C05B /* RepeatViewController.swift in Sources */,
 				ABE9DD8621ADF0CE00B7C05B /* CharacterViewModel.swift in Sources */,
+				ABE8548521B328C800611812 /* MenuViewController.swift in Sources */,
 				ABF128BD21B2D6B50049BCE0 /* TextureAnimationScene.swift in Sources */,
 				AB35F4192139843B00FACE51 /* DAO.swift in Sources */,
 				ABDDD3472191B96D00641318 /* GapViewModel.swift in Sources */,
@@ -421,6 +432,7 @@
 				ABD9FF3D21A1AB4C00A45FEA /* UICharSelection.swift in Sources */,
 				AB35F3E32139836500FACE51 /* AppDelegate.swift in Sources */,
 				ABD9FF3C21A1AB4C00A45FEA /* CarousselCharSelection.swift in Sources */,
+				ABE8548921B3291D00611812 /* MenuScene.swift in Sources */,
 				AB35F41B2139848100FACE51 /* CardViewModel.swift in Sources */,
 				ABDFF25921A47E740059193F /* CardType.swift in Sources */,
 			);

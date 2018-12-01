@@ -132,60 +132,6 @@ class GameScene: SKScene {
         }
     }
     
-    //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-    //GAMESCENE: WHEN CARDS ARE IN WRONG ORDER
-    
-//    func errorMessage() -> SKLabelNode {
-//        let sceneSize = self.frame.size
-//        let errorMessage = SKLabelNode(text: "Tente novamente")
-//        errorMessage.name = "instructionsLabel"
-//        errorMessage.fontSize = 32
-//        errorMessage.fontName = "PeachyKeenJF"
-//        errorMessage.fontColor = UIColor.greyishBrown
-//        errorMessage.zPosition = 15
-//        errorMessage.name = "error message"
-//        errorMessage.position = CGPoint(x: 0, y: sceneSize.height/6.7)
-//        errorMessage.alpha = 0
-//
-//        return errorMessage
-//    }
-//
-//    func cardsAreWrong(cardNodes: [CardViewModel]){
-//        let errorLabel = errorMessage()
-//        self.addChild(errorLabel)
-//
-//        //Turn off user interaction
-//        self.addChild(invisibleNode)
-//        self.isUserInteractionEnabled = false
-//
-//        //Animate error label appearance
-//        let fadeIn = SKAction.fadeAlpha(to: 3.0, duration: 0.8)
-//        let wait = SKAction.wait(forDuration: 2.0)
-//        let fadeOut = SKAction.fadeOut(withDuration: 0.5)
-//        let animation = SKAction.sequence([fadeIn, wait,fadeOut])
-//
-//        errorLabel.run(animation, completion: {
-//            errorLabel.removeFromParent()
-//            self.removeAllCardsFromGaps(cards: cardNodes)
-//        })
-//    }
-//
-//    func removeAllCardsFromGaps(cards: [CardViewModel]){
-//        //Animate cards moving out of gap
-//        let removeCardFromGap = SKAction.move(by: CGVector(dx: 0, dy: CGSize.card.height*1.1), duration: 0.2)
-//        let randomRotation = self.randomRotation()
-//        let removeCardFromGapGroup = SKAction.group([removeCardFromGap, randomRotation])
-//        removeCardFromGapGroup.timingMode = .easeOut
-//
-//        for card in cards {
-//            card.run(removeCardFromGapGroup, completion: {
-//                //Turn on user interaction
-//                self.invisibleNode.removeFromParent()
-//                self.isUserInteractionEnabled = true
-//            })
-//        }
-//    }
-    
     func identifyCardsInScreen() -> [CardViewModel]! {
         let brothers = self.allDescendants()
         let cardsInScreen = brothers.filter {($0.name?.starts(with: "card") ?? false)}
@@ -203,7 +149,6 @@ class GameScene: SKScene {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let cardViews = self.identifyCardsInScreen()
-        //let gapViews = self.identifyGapsInScreen()
         
         let brothers = self.allDescendants()
         let gapsInScreen = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
