@@ -89,6 +89,14 @@ extension SCNNode {
         }
         return all
     }
+    
+    func animateTextures(nodeName: String, animation: String) {
+        let scene = TextureAnimationScene(animation: animation)
+        let mesh = self.childNode(withName: name ?? "head", recursively: true)
+        //mesh?.geometry!.firstMaterial!.multiply.contents = scene
+        //mesh?.geometry!.firstMaterial!.multiply.intensity = 0.7
+        mesh?.geometry!.firstMaterial!.diffuse.contents = scene
+    }
 }
 
 //Is it ordered in the X axis?

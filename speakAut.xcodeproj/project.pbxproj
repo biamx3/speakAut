@@ -45,6 +45,8 @@
 		ABE9DD8421ADF09100B7C05B /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9DD8321ADF09100B7C05B /* FinalViewController.swift */; };
 		ABE9DD8621ADF0CE00B7C05B /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9DD8521ADF0CE00B7C05B /* CharacterViewModel.swift */; };
 		ABE9DD8821ADF7DF00B7C05B /* RepeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9DD8721ADF7DF00B7C05B /* RepeatViewController.swift */; };
+		ABF128BD21B2D6B50049BCE0 /* TextureAnimationScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF128BC21B2D6B50049BCE0 /* TextureAnimationScene.swift */; };
+		ABF128BF21B2DD400049BCE0 /* HeadTextures.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF128BE21B2DD400049BCE0 /* HeadTextures.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,8 @@
 		ABE9DD8321ADF09100B7C05B /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
 		ABE9DD8521ADF0CE00B7C05B /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
 		ABE9DD8721ADF7DF00B7C05B /* RepeatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatViewController.swift; sourceTree = "<group>"; };
+		ABF128BC21B2D6B50049BCE0 /* TextureAnimationScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureAnimationScene.swift; sourceTree = "<group>"; };
+		ABF128BE21B2DD400049BCE0 /* HeadTextures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadTextures.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +231,8 @@
 				ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */,
 				AB35F41A2139848100FACE51 /* CardViewModel.swift */,
 				ABE9DD8521ADF0CE00B7C05B /* CharacterViewModel.swift */,
+				ABF128BC21B2D6B50049BCE0 /* TextureAnimationScene.swift */,
+				ABF128BE21B2DD400049BCE0 /* HeadTextures.swift */,
 				ABDFF25821A47E740059193F /* CardType.swift */,
 				ABDDD3462191B96D00641318 /* GapViewModel.swift */,
 			);
@@ -395,10 +401,12 @@
 				ABE6F60F21A85B7A0062E3F3 /* InstructionsToExport3DFiles.swift in Sources */,
 				ABE9DD8821ADF7DF00B7C05B /* RepeatViewController.swift in Sources */,
 				ABE9DD8621ADF0CE00B7C05B /* CharacterViewModel.swift in Sources */,
+				ABF128BD21B2D6B50049BCE0 /* TextureAnimationScene.swift in Sources */,
 				AB35F4192139843B00FACE51 /* DAO.swift in Sources */,
 				ABDDD3472191B96D00641318 /* GapViewModel.swift in Sources */,
 				AB35F4132139840600FACE51 /* Card.swift in Sources */,
 				AB35F4172139843100FACE51 /* Character.swift in Sources */,
+				ABF128BF21B2DD400049BCE0 /* HeadTextures.swift in Sources */,
 				ABD9FF3F21A1AB4C00A45FEA /* SelectionViewController.swift in Sources */,
 				AB4251FD21A9B0D100399376 /* ViewController.swift in Sources */,
 				ABD9FF3321A1AB0300A45FEA /* Extensions.swift in Sources */,

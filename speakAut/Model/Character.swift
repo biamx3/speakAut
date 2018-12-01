@@ -41,7 +41,7 @@ class Character {
         self.article = article + " "
         let firstWord = self.article + self.subjectName
         firstCard = Card(index: 0, word: firstWord, imageName: "\(name)Profile", wordNarration: name)
-        self.sentenceArray = [Sentence(animationSceneName: "", index: 0, cardArray: [], sentenceNarration: "")]
+        self.sentenceArray = [Sentence(animationSceneName: "", headTexture: "", index: 0, cardArray: [], sentenceNarration: "")]
     }
     
     func addProfileCard(){

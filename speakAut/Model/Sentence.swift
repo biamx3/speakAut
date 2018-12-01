@@ -33,14 +33,16 @@ import UIKit
 class Sentence {
     
     var animationSceneName: String
+    var headTexture: String
     var index : Int = 0
     var animation : String = ""
     var cardArray : [Card] = []
     var sentenceNarration: String = ""
 
     
-    init(animationSceneName: String, index: Int, cardArray: [Card], sentenceNarration: String) {
+    init(animationSceneName: String, headTexture: String, index: Int, cardArray: [Card], sentenceNarration: String) {
         self.animationSceneName = animationSceneName
+        self.headTexture = headTexture
         self.index = index
         self.cardArray = cardArray
         self.sentenceNarration = sentenceNarration
