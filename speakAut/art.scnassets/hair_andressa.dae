@@ -4,14 +4,14 @@
   <contributor>
    <authoring_tool>SceneKit Collada Exporter v1.0</authoring_tool>
   </contributor>
-  <created>2018-11-24T21:31:03Z</created>
-  <modified>2018-11-24T21:31:03Z</modified>
+  <created>2018-12-01T19:04:07Z</created>
+  <modified>2018-12-01T19:04:07Z</modified>
   <unit meter="1.000000"/>
   <up_axis>Y_UP</up_axis>
  </asset>
  <library_images>
   <image id="image1">
-   <init_from>hairTexture_andressa.png</init_from>
+   <init_from>HairTextures/hair_andressa.png</init_from>
   </image>
  </library_images>
  <library_materials>
@@ -113,7 +113,7 @@
  <library_visual_scenes>
   <visual_scene id="scene10">
    <node id="hair" name="hair">
-    <matrix>1 0 0 0 0 1 0 5 0 0 1 1 0 0 0 1 </matrix>
+    <matrix>0.95 0 0 0 0 0.95 0 5 0 0 0.95 1 0 0 0 1 </matrix>
     <instance_geometry url="#hairMesh">
      <bind_material>
       <technique_common>

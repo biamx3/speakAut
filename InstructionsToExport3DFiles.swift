@@ -7,6 +7,8 @@
  The name of the head mesh must be "head". The name of the body mesh must be "body". Head, face and the rig must be grouped under the name "character". Then, export as .dae file with Axis conversion to Z, bake animations, and skin definition.
  
  Import to Xcode. Change group name. Save Xcode file. Then undo the name change. Save again. Open file in finder. Run the "ConvertToXcodeCollada" script. Delete the dae-e file.
+ 
+ In the .dae scene file, turn all diffuse and multiply materials to white.
  */
 
 //How to export a hair mesh from Maya to Xcode:
@@ -18,3 +20,4 @@
 /*
  The .dae file should always be started with "hair_", followed by length ("cropped", "short", "medium", "long") and then a quirky adjective or name (for example, "boyish", "pigtail", "mohawk"). The name of the mesh should always be "hair".
  */
+

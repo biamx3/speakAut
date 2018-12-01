@@ -46,6 +46,7 @@ class FinalViewController: UIViewController {
         let characterViewModel = CharacterViewModel(characterModel: chosenCharacter.characterModel)
         let animationSceneIndex = DAO.sharedInstance.chosenSentence.index
         let characterNode = characterViewModel.sceneArray[animationSceneIndex].rootNode
+        characterNode.animateTextures(nodeName: "head", animation: DAO.sharedInstance.chosenSentence.headTexture)
         let animationScene = SCNScene(named: "SuccessAnimationScene.scn", inDirectory: "art.scnassets", options: nil)
         animationScene?.rootNode.addChildNode(characterNode)
         return animationScene ?? SCNScene(named: "idle_luciana" , inDirectory: "art.scnassets", options: nil)!

@@ -18,7 +18,7 @@ class TextureAnimationScene: SKScene {
         backgroundNode.run(SKAction.rotate(toAngle: 3.14 , duration: 0))
         self.addChild(backgroundNode)
         
-        let textureArray = HeadTextures(animationName: animation).animationTextures
+        let textureArray = HeadTexture(animationName: animation).animationTextures
         let faceAnimation = SKAction.animate(with: textureArray, timePerFrame: 0.1)
         
         

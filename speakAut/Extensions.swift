@@ -92,9 +92,13 @@ extension SCNNode {
     
     func animateTextures(nodeName: String, animation: String) {
         let scene = TextureAnimationScene(animation: animation)
-        let mesh = self.childNode(withName: name ?? "head", recursively: true)
-        //mesh?.geometry!.firstMaterial!.multiply.contents = scene
-        //mesh?.geometry!.firstMaterial!.multiply.intensity = 0.7
+        let mesh = self.childNode(withName: nodeName , recursively: true)
+        mesh?.geometry!.firstMaterial!.diffuse.contents = scene
+    }
+    
+    func setStaticTextures(nodeName: String, characterName: String) {
+        let scene = StaticTexture(characterName: characterName, bodyPart: nodeName)
+        let mesh = self.childNode(withName: nodeName , recursively: true)
         mesh?.geometry!.firstMaterial!.diffuse.contents = scene
     }
 }
