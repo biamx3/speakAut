@@ -155,12 +155,15 @@ class GameScene: SKScene {
         let gapsInScreen = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
         let gapViews = gapsInScreen as! [GapViewModel]
         
-        if gapViews.isNear(cardViews!) {
-            if cardViews!.isOrderedInX {
+        if gapViews.isNear(self.cardSetViewModel.cards) {
+            if self.cardSetViewModel.cards.isOrderedInX {
                 SoundTrack.sharedInstance.playSound(withName: "correct")
-                print("correct order")
+                self.run(SKAction.wait(forDuration: 0.5), completion: {
+                  SoundTrack.sharedInstance.playWord(withName: DAO.sharedInstance.chosenSentence.sentenceNarration)
+                })
+
                 self.cardSetViewModel.removeGaps()
-                self.run(SKAction.wait(forDuration: 2.0), completion: {
+                self.run(SKAction.wait(forDuration: 2.2), completion: {
                     DispatchQueue.main.async {
                     let celebrationViewModel = CelebrationViewModel(cardViewModel: cardViews!, cardType: .GameScene)
                      self.addChild(celebrationViewModel)

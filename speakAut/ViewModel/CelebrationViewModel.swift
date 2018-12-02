@@ -36,7 +36,7 @@ class CelebrationViewModel: SKSpriteNode {
     
     func cardsAreRight(cardNodes: [CardViewModel]) {
         SoundTrack.sharedInstance.playSound(withName: "celebration")
-        self.run(SKAction.wait(forDuration: 0.3), completion: {
+        self.run(SKAction.wait(forDuration: 0.5), completion: {
         SoundTrack.sharedInstance.playInstructions(withName: "voce acertou")
         })
         //Turn off user interaction

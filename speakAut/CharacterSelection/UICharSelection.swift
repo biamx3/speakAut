@@ -135,7 +135,7 @@ class UICharSelection: SKScene {
             
         case "touch":
             //Chose character
-            self.run(SKAction.wait(forDuration: 0.3), completion: {
+            self.run(SKAction.wait(forDuration: 0.2), completion: {
                 DispatchQueue.main.async {
                    self.uiCharSelectionDelegate?.selectCharacter()
                 }

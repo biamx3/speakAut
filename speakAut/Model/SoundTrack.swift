@@ -18,12 +18,17 @@ open class SoundTrack{
     }
  
 var player: AVAudioPlayer?
+var wordPlayer: AVAudioPlayer?
 var onoPlayer: AVAudioPlayer?
 var instructionsPlayer: AVAudioPlayer?
 var musicPlayer: AVAudioPlayer?
 
-    func stopStound(){
+    func stopSound(){
         self.player?.stop()
+    }
+    
+    func stopOno(){
+        self.onoPlayer?.stop()
     }
     
     func playSound(withName: String) {
@@ -34,6 +39,20 @@ var musicPlayer: AVAudioPlayer?
             
             player.prepareToPlay()
             player.play()
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+    }
+    
+    func playWord(withName: String) {
+        let url = Bundle.main.url(forResource: withName, withExtension: "wav")!
+        do {
+            wordPlayer = try AVAudioPlayer(contentsOf: url)
+            guard let wordPlayer = wordPlayer else { return }
+            
+            wordPlayer.prepareToPlay()
+            wordPlayer.play()
         } catch let error {
             print(error.localizedDescription)
         }

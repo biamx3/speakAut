@@ -30,7 +30,7 @@ class FinalViewController: UIViewController {
         let camera = self.sceneView.scene?.rootNode.childNode(withName: "camera", recursively: true)
         camera?.position = SCNVector3(-5, 1, 8)
         let moveCamera = SCNAction.move(to: SCNVector3(1, 0.5, 5), duration: 6.0)
-        let wait = SCNAction.wait(duration: 10.0)
+        let wait = SCNAction.wait(duration: 8.0)
         moveCamera.timingMode = .easeOut
         let sequence = SCNAction.sequence([moveCamera, wait])
         camera?.runAction(sequence, completionHandler: {

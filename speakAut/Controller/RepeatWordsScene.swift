@@ -13,13 +13,14 @@ class RepeatWordsScene: SKScene {
 
      weak var repeatViewControllerDelegate: RepeatViewControllerDelegate?
      var cardSetViewModel: CardSetViewModel!
-     var bigCards: [CardViewModel]!
+     private var invisibleNode: SKSpriteNode!
     
     override func didMove(to view: SKView) {
         self.scaleMode = .resizeFill
         self.isUserInteractionEnabled = true
         addCards()
         addInstructions()
+        setUpInvisibleNode()
     }
     
     func addCards(){
@@ -37,6 +38,14 @@ class RepeatWordsScene: SKScene {
             print(aTab, child.name ?? "--- sem nome ---")
             printAllNodes(tab: aTab, node: child)
         }
+    }
+    
+    func setUpInvisibleNode() {
+        let sceneSize = self.frame.size
+        invisibleNode = SKSpriteNode(color: .clear, size: sceneSize)
+        invisibleNode.isUserInteractionEnabled = false
+        invisibleNode.zPosition = -1
+        self.addChild(invisibleNode)
     }
     
     func addInstructions(){
@@ -66,34 +75,37 @@ class RepeatWordsScene: SKScene {
         return cardViews
     }
     
-    func identifyGapsInScreen() -> [SKNode]! {
-        let brothers = self.allDescendants()
-        let gapsInScreen = brothers.filter {($0.name?.starts(with: "gap") ?? false)}
-        let gapViews = gapsInScreen as! [GapViewModel]
-        return gapViews
-    }
-    
     func goToSuccessAnimationScreen(){
         self.repeatViewControllerDelegate?.goToSuccessAnimationScreen()
     }
     
-    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if self.cardSetViewModel.bigCards.count == self.cardSetViewModel.cards.count {
-            if self.cardSetViewModel.bigCards == self.cardSetViewModel.cards {
-                let celebrationViewModel = CelebrationViewModel(cardViewModel: self.cardSetViewModel.cards, cardType: .RepeatWordsScene)
-                self.addChild(celebrationViewModel)
+        let cardViews = self.identifyCardsInScreen()
+        if self.cardSetViewModel.bigCards.count == cardViews!.count {
+            if self.cardSetViewModel.bigCards == cardViews {
+                self.invisibleNode.zPosition = 20
+                self.run(SKAction.wait(forDuration: 1.0), completion: {
+                    DispatchQueue.main.async {
+                        let celebrationViewModel = CelebrationViewModel(cardViewModel: cardViews!, cardType: .RepeatWordsScene)
+                        self.addChild(celebrationViewModel)
+                    }
+                })
                 
             } else {
-                for _ in self.cardSetViewModel.cards {
-                    let tryAgainViewModel = TryAgainViewModel(cardViewModel: self.cardSetViewModel.cards, cardType: .RepeatWordsScene)
-                    self.addChild(tryAgainViewModel)
-                    self.cardSetViewModel.bigCards = []
-                }
+                self.run(SKAction.wait(forDuration: 1.0), completion: {
+                    DispatchQueue.main.async {
+                        let tryAgainViewModel = TryAgainViewModel(cardViewModel: cardViews!, cardType: .RepeatWordsScene)
+                        self.addChild(tryAgainViewModel)
+                        self.cardSetViewModel.bigCards = []
+                    }
+                })
+                
             }
         }
     }
 }
+
+
 
 protocol RepeatViewControllerDelegate: class {
     func goToSuccessAnimationScreen()

@@ -49,6 +49,7 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
                 DAO.sharedInstance.chosenCharacter = CharacterViewModel(characterModel: chosenCharacter)
             }
         }
+        SoundTrack.sharedInstance.stopOno()
         let gameViewController = GameViewController()
         self.navigationController?.pushViewController(gameViewController, animated: true)
     }
@@ -71,6 +72,9 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
         }
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        SoundTrack.sharedInstance.stopOno()
+    }
     
     override func viewDidDisappear(_ animated: Bool) {
         self.sceneView = nil

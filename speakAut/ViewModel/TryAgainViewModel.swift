@@ -61,7 +61,7 @@ class TryAgainViewModel: SKSpriteNode {
         
         //Animate error label appearance
         let fadeIn = SKAction.fadeAlpha(to: 3.0, duration: 0.8)
-        let wait = SKAction.wait(forDuration: 2.0)
+        let wait = SKAction.wait(forDuration: 0.3)
         let fadeOut = SKAction.fadeOut(withDuration: 0.5)
         let animation = SKAction.sequence([fadeIn, wait,fadeOut])
         

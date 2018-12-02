@@ -43,8 +43,28 @@
 		AB361DA821B4645B003F84CF /* dancou.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D9C21B4645B003F84CF /* dancou.wav */; };
 		AB361DA921B4645B003F84CF /* idle_andressa.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D9D21B4645B003F84CF /* idle_andressa.wav */; };
 		AB361DAA21B4645B003F84CF /* repita.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D9E21B4645B003F84CF /* repita.wav */; };
-		AB361DAB21B4645B003F84CF /* aMenina.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D9F21B4645B003F84CF /* aMenina.wav */; };
+		AB361DAB21B4645B003F84CF /* menina.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D9F21B4645B003F84CF /* menina.wav */; };
 		AB361DB021B47E1D003F84CF /* idle_luciana.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DAF21B47E1D003F84CF /* idle_luciana.wav */; };
+		AB361DB821B48A70003F84CF /* menino_acenou.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DB721B48A70003F84CF /* menino_acenou.wav */; };
+		AB361DBA21B48A77003F84CF /* menino_bocejou.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DB921B48A77003F84CF /* menino_bocejou.wav */; };
+		AB361DBC21B48A7D003F84CF /* menino_escutouMusica.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DBB21B48A7D003F84CF /* menino_escutouMusica.wav */; };
+		AB361DBE21B48A8A003F84CF /* menino_cantouUmaMusica.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DBD21B48A8A003F84CF /* menino_cantouUmaMusica.wav */; };
+		AB361DC021B48A99003F84CF /* menina_bateuPalmas.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DBF21B48A99003F84CF /* menina_bateuPalmas.wav */; };
+		AB361DC221B48A9F003F84CF /* menina_escutouMusica.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DC121B48A9F003F84CF /* menina_escutouMusica.wav */; };
+		AB361DC621B48AB5003F84CF /* bocejou.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DC521B48AB4003F84CF /* bocejou.wav */; };
+		AB361DC821B48ABB003F84CF /* escutou.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DC721B48ABB003F84CF /* escutou.wav */; };
+		AB361DCA21B48AC6003F84CF /* menina_acenou.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DC921B48AC6003F84CF /* menina_acenou.wav */; };
+		AB361DCC21B48AEE003F84CF /* menina_cantouUmaMusica.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DCB21B48AED003F84CF /* menina_cantouUmaMusica.wav */; };
+		AB361DCE21B48AFE003F84CF /* menina_bocejou.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DCD21B48AFE003F84CF /* menina_bocejou.wav */; };
+		AB361DD021B48B04003F84CF /* acenou.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DCF21B48B04003F84CF /* acenou.wav */; };
+		AB361DD221B48B0D003F84CF /* cantou.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DD121B48B0D003F84CF /* cantou.wav */; };
+		AB361DD421B48B43003F84CF /* umaMusica.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DD321B48B43003F84CF /* umaMusica.wav */; };
+		AB361DD621B48B50003F84CF /* menino.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DD521B48B50003F84CF /* menino.wav */; };
+		AB361DD821B48BE4003F84CF /* musica.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DD721B48BE4003F84CF /* musica.wav */; };
+		AB361DDA21B48BF5003F84CF /* menino_bateuPalmas.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DD921B48BF5003F84CF /* menino_bateuPalmas.wav */; };
+		AB361DDC21B48C01003F84CF /* bateuPalmas.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DDB21B48C01003F84CF /* bateuPalmas.wav */; };
+		AB361DDF21B48CFD003F84CF /* menino_dancou.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DDD21B48CFD003F84CF /* menino_dancou.wav */; };
+		AB361DE021B48CFD003F84CF /* menina_dancou.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DDE21B48CFD003F84CF /* menina_dancou.wav */; };
 		AB4251FD21A9B0D100399376 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4251FC21A9B0D100399376 /* ViewController.swift */; };
 		ABD9FF3321A1AB0300A45FEA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD9FF3221A1AB0200A45FEA /* Extensions.swift */; };
 		ABD9FF3521A1AB1700A45FEA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD9FF3421A1AB1700A45FEA /* GameScene.swift */; };
@@ -132,8 +152,28 @@
 		AB361D9C21B4645B003F84CF /* dancou.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dancou.wav; sourceTree = "<group>"; };
 		AB361D9D21B4645B003F84CF /* idle_andressa.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = idle_andressa.wav; sourceTree = "<group>"; };
 		AB361D9E21B4645B003F84CF /* repita.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = repita.wav; sourceTree = "<group>"; };
-		AB361D9F21B4645B003F84CF /* aMenina.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = aMenina.wav; sourceTree = "<group>"; };
+		AB361D9F21B4645B003F84CF /* menina.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menina.wav; sourceTree = "<group>"; };
 		AB361DAF21B47E1D003F84CF /* idle_luciana.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = idle_luciana.wav; sourceTree = "<group>"; };
+		AB361DB721B48A70003F84CF /* menino_acenou.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menino_acenou.wav; sourceTree = "<group>"; };
+		AB361DB921B48A77003F84CF /* menino_bocejou.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menino_bocejou.wav; sourceTree = "<group>"; };
+		AB361DBB21B48A7D003F84CF /* menino_escutouMusica.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menino_escutouMusica.wav; sourceTree = "<group>"; };
+		AB361DBD21B48A8A003F84CF /* menino_cantouUmaMusica.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menino_cantouUmaMusica.wav; sourceTree = "<group>"; };
+		AB361DBF21B48A99003F84CF /* menina_bateuPalmas.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menina_bateuPalmas.wav; sourceTree = "<group>"; };
+		AB361DC121B48A9F003F84CF /* menina_escutouMusica.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menina_escutouMusica.wav; sourceTree = "<group>"; };
+		AB361DC521B48AB4003F84CF /* bocejou.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bocejou.wav; sourceTree = "<group>"; };
+		AB361DC721B48ABB003F84CF /* escutou.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = escutou.wav; sourceTree = "<group>"; };
+		AB361DC921B48AC6003F84CF /* menina_acenou.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menina_acenou.wav; sourceTree = "<group>"; };
+		AB361DCB21B48AED003F84CF /* menina_cantouUmaMusica.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menina_cantouUmaMusica.wav; sourceTree = "<group>"; };
+		AB361DCD21B48AFE003F84CF /* menina_bocejou.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menina_bocejou.wav; sourceTree = "<group>"; };
+		AB361DCF21B48B04003F84CF /* acenou.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = acenou.wav; sourceTree = "<group>"; };
+		AB361DD121B48B0D003F84CF /* cantou.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cantou.wav; sourceTree = "<group>"; };
+		AB361DD321B48B43003F84CF /* umaMusica.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = umaMusica.wav; sourceTree = "<group>"; };
+		AB361DD521B48B50003F84CF /* menino.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menino.wav; sourceTree = "<group>"; };
+		AB361DD721B48BE4003F84CF /* musica.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = musica.wav; sourceTree = "<group>"; };
+		AB361DD921B48BF5003F84CF /* menino_bateuPalmas.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menino_bateuPalmas.wav; sourceTree = "<group>"; };
+		AB361DDB21B48C01003F84CF /* bateuPalmas.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bateuPalmas.wav; sourceTree = "<group>"; };
+		AB361DDD21B48CFD003F84CF /* menino_dancou.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menino_dancou.wav; sourceTree = "<group>"; };
+		AB361DDE21B48CFD003F84CF /* menina_dancou.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menina_dancou.wav; sourceTree = "<group>"; };
 		AB4251F921A9AFED00399376 /* speakAut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = speakAut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4251FA21A9AFED00399376 /* speakAutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = speakAutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4251FB21A9AFED00399376 /* speakAutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = speakAutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,7 +260,6 @@
 				AB361D9321B4644F003F84CF /* Voice */,
 				ABE6B89D21A748720019DD98 /* particle.sks */,
 				ABE6B89F21A75EA70019DD98 /* buttonParticle.sks */,
-				AB35F420213986A500FACE51 /* SoundTrack.swift */,
 				AB35F3F02139836800FACE51 /* Info.plist */,
 				AB45EA0721B42D3800222533 /* SKSFiles */,
 				ABDFF25C21A5AA2E0059193F /* PeachyKeenJF.ttf */,
@@ -282,7 +321,14 @@
 		AB361DAC21B46679003F84CF /* Sentences */ = {
 			isa = PBXGroup;
 			children = (
-				AB361DAE21B47917003F84CF /* A menina dancou */,
+				AB361D9F21B4645B003F84CF /* menina.wav */,
+				AB361DD521B48B50003F84CF /* menino.wav */,
+				AB361DB621B48A59003F84CF /* bocejou */,
+				AB361DB521B48A55003F84CF /* acenou */,
+				AB361DB421B48A4E003F84CF /* cantou uma musica */,
+				AB361DB321B48A46003F84CF /* escutou musica */,
+				AB361DB221B48A2F003F84CF /* bateu palmas */,
+				AB361DAE21B47917003F84CF /* dancou */,
 			);
 			path = Sentences;
 			sourceTree = "<group>";
@@ -299,13 +345,14 @@
 			path = Instructions;
 			sourceTree = "<group>";
 		};
-		AB361DAE21B47917003F84CF /* A menina dancou */ = {
+		AB361DAE21B47917003F84CF /* dancou */ = {
 			isa = PBXGroup;
 			children = (
-				AB361D9F21B4645B003F84CF /* aMenina.wav */,
+				AB361DDE21B48CFD003F84CF /* menina_dancou.wav */,
+				AB361DDD21B48CFD003F84CF /* menino_dancou.wav */,
 				AB361D9C21B4645B003F84CF /* dancou.wav */,
 			);
-			path = "A menina dancou";
+			path = dancou;
 			sourceTree = "<group>";
 		};
 		AB361DB121B47F7A003F84CF /* Idle */ = {
@@ -317,6 +364,58 @@
 				AB361D9721B4645A003F84CF /* idle_henrique.wav */,
 			);
 			path = Idle;
+			sourceTree = "<group>";
+		};
+		AB361DB221B48A2F003F84CF /* bateu palmas */ = {
+			isa = PBXGroup;
+			children = (
+				AB361DDB21B48C01003F84CF /* bateuPalmas.wav */,
+				AB361DBF21B48A99003F84CF /* menina_bateuPalmas.wav */,
+				AB361DD921B48BF5003F84CF /* menino_bateuPalmas.wav */,
+			);
+			path = "bateu palmas";
+			sourceTree = "<group>";
+		};
+		AB361DB321B48A46003F84CF /* escutou musica */ = {
+			isa = PBXGroup;
+			children = (
+				AB361DC721B48ABB003F84CF /* escutou.wav */,
+				AB361DD721B48BE4003F84CF /* musica.wav */,
+				AB361DBB21B48A7D003F84CF /* menino_escutouMusica.wav */,
+				AB361DC121B48A9F003F84CF /* menina_escutouMusica.wav */,
+			);
+			path = "escutou musica";
+			sourceTree = "<group>";
+		};
+		AB361DB421B48A4E003F84CF /* cantou uma musica */ = {
+			isa = PBXGroup;
+			children = (
+				AB361DD321B48B43003F84CF /* umaMusica.wav */,
+				AB361DD121B48B0D003F84CF /* cantou.wav */,
+				AB361DBD21B48A8A003F84CF /* menino_cantouUmaMusica.wav */,
+				AB361DCB21B48AED003F84CF /* menina_cantouUmaMusica.wav */,
+			);
+			path = "cantou uma musica";
+			sourceTree = "<group>";
+		};
+		AB361DB521B48A55003F84CF /* acenou */ = {
+			isa = PBXGroup;
+			children = (
+				AB361DCF21B48B04003F84CF /* acenou.wav */,
+				AB361DC921B48AC6003F84CF /* menina_acenou.wav */,
+				AB361DB721B48A70003F84CF /* menino_acenou.wav */,
+			);
+			path = acenou;
+			sourceTree = "<group>";
+		};
+		AB361DB621B48A59003F84CF /* bocejou */ = {
+			isa = PBXGroup;
+			children = (
+				AB361DC521B48AB4003F84CF /* bocejou.wav */,
+				AB361DCD21B48AFE003F84CF /* menina_bocejou.wav */,
+				AB361DB921B48A77003F84CF /* menino_bocejou.wav */,
+			);
+			path = bocejou;
 			sourceTree = "<group>";
 		};
 		AB45EA0721B42D3800222533 /* SKSFiles */ = {
@@ -377,6 +476,7 @@
 				AB35F4162139843100FACE51 /* Character.swift */,
 				AB35F4182139843B00FACE51 /* DAO.swift */,
 				ABF128C021B3001F0049BCE0 /* StaticTexture.swift */,
+				AB35F420213986A500FACE51 /* SoundTrack.swift */,
 				ABF128BE21B2DD400049BCE0 /* HeadTexture.swift */,
 			);
 			path = Model;
@@ -489,40 +589,60 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB361DBE21B48A8A003F84CF /* menino_cantouUmaMusica.wav in Resources */,
 				AB361DA021B4645B003F84CF /* tente novamente.wav in Resources */,
 				AB361DA621B4645B003F84CF /* escolhaOSeuPersonagem.wav in Resources */,
 				AB35F3E52139836500FACE51 /* art.scnassets in Resources */,
 				AB361D8821B45FCE003F84CF /* wrong.wav in Resources */,
+				AB361DBC21B48A7D003F84CF /* menino_escutouMusica.wav in Resources */,
 				AB361DA521B4645B003F84CF /* coloqueAsCartas.wav in Resources */,
+				AB361DB821B48A70003F84CF /* menino_acenou.wav in Resources */,
+				AB361DCE21B48AFE003F84CF /* menina_bocejou.wav in Resources */,
 				AB361DA921B4645B003F84CF /* idle_andressa.wav in Resources */,
 				ABE6B89721A73D910019DD98 /* Assets.xcassets in Resources */,
 				AB35F41D213984B800FACE51 /* GameScene.sks in Resources */,
 				AB35F3EF2139836800FACE51 /* LaunchScreen.storyboard in Resources */,
 				ABE6B8A121A75EA70019DD98 /* buttonParticle.sks in Resources */,
 				AB361D8E21B45FCE003F84CF /* celebration.wav in Resources */,
+				AB361DD621B48B50003F84CF /* menino.wav in Resources */,
 				AB361DAA21B4645B003F84CF /* repita.wav in Resources */,
 				AB361DA421B4645B003F84CF /* lucianaComemoracao0.wav in Resources */,
+				AB361DD821B48BE4003F84CF /* musica.wav in Resources */,
 				AB361DA321B4645B003F84CF /* idle_henrique.wav in Resources */,
 				AB35F3EC2139836800FACE51 /* Assets.xcassets in Resources */,
 				AB361D9221B463F9003F84CF /* cardSlide.wav in Resources */,
+				AB361DC021B48A99003F84CF /* menina_bateuPalmas.wav in Resources */,
 				ABE6F60D21A857E30062E3F3 /* particleBurst.sks in Resources */,
+				AB361DE021B48CFD003F84CF /* menina_dancou.wav in Resources */,
 				AB361D8A21B45FCE003F84CF /* cardInFocus.wav in Resources */,
 				ABE8548721B328FF00611812 /* MenuScene.sks in Resources */,
+				AB361DCA21B48AC6003F84CF /* menina_acenou.wav in Resources */,
 				AB361D8921B45FCE003F84CF /* correct.wav in Resources */,
 				AB361DA821B4645B003F84CF /* dancou.wav in Resources */,
 				AB361D8C21B45FCE003F84CF /* cardFitsInGap.wav in Resources */,
 				ABE6B89E21A748720019DD98 /* particle.sks in Resources */,
+				AB361DD021B48B04003F84CF /* acenou.wav in Resources */,
 				AB361D8721B45FCE003F84CF /* buttonSecondary.wav in Resources */,
 				ABE6B89121A7149E0019DD98 /* RepeatWordsScene.sks in Resources */,
+				AB361DDF21B48CFD003F84CF /* menino_dancou.wav in Resources */,
+				AB361DBA21B48A77003F84CF /* menino_bocejou.wav in Resources */,
+				AB361DDA21B48BF5003F84CF /* menino_bateuPalmas.wav in Resources */,
+				AB361DC621B48AB5003F84CF /* bocejou.wav in Resources */,
 				AB361D8D21B45FCE003F84CF /* screenSlide.wav in Resources */,
+				AB361DC221B48A9F003F84CF /* menina_escutouMusica.wav in Resources */,
+				AB361DCC21B48AEE003F84CF /* menina_cantouUmaMusica.wav in Resources */,
 				AB361DB021B47E1D003F84CF /* idle_luciana.wav in Resources */,
 				AB361DA221B4645B003F84CF /* idle_francisco.wav in Resources */,
+				AB361DD221B48B0D003F84CF /* cantou.wav in Resources */,
 				AB361DA721B4645B003F84CF /* lucianaComemoracao1.wav in Resources */,
 				AB361DA121B4645B003F84CF /* voce acertou.wav in Resources */,
 				AB35F3EA2139836500FACE51 /* Main.storyboard in Resources */,
-				AB361DAB21B4645B003F84CF /* aMenina.wav in Resources */,
+				AB361DDC21B48C01003F84CF /* bateuPalmas.wav in Resources */,
+				AB361DAB21B4645B003F84CF /* menina.wav in Resources */,
 				ABDFF25D21A5AA340059193F /* PeachyKeenJF.ttf in Resources */,
 				AB361D8B21B45FCE003F84CF /* buttonMain.wav in Resources */,
+				AB361DD421B48B43003F84CF /* umaMusica.wav in Resources */,
+				AB361DC821B48ABB003F84CF /* escutou.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

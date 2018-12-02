@@ -39,13 +39,13 @@ class InstructionsViewModel: SKSpriteNode {
         if cardType == .GameScene {
             SoundTrack.sharedInstance.playInstructions(withName: "coloqueAsCartas")
             instructionsLabel.text = "Coloque as cartas na ordem certa!"
-            self.wait = SKAction.wait(forDuration: 4.0)
+            self.wait = SKAction.wait(forDuration: 3.0)
         }
         
         if cardType == .RepeatWordsScene {
             SoundTrack.sharedInstance.playInstructions(withName: "repita")
             instructionsLabel.text = "Toque nas cartas e repita as palavras na ordem certa!"
-            self.wait = SKAction.wait(forDuration: 6.5)
+            self.wait = SKAction.wait(forDuration: 5.5)
         }
         
         self.addChild(instructionsLabel)
