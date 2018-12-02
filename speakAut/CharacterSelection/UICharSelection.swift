@@ -111,9 +111,15 @@ class UICharSelection: SKScene {
         
         if touchedNode.name == "touch" {
             self.invisibleNode.zPosition = 20
-            touchedNode.parent?.run(SKAction.animateButton)
             SoundTrack.sharedInstance.playSound(withName: "buttonMain")
             SoundTrack.sharedInstance.playSound(withName: "correct")
+            touchedNode.parent?.run(SKAction.animateButton)
+            self.run(SKAction.wait(forDuration: 0.2), completion: {
+                DispatchQueue.main.async {
+                    self.uiCharSelectionDelegate?.selectCharacter()
+                }
+            })
+
         }
     }
     
@@ -135,11 +141,7 @@ class UICharSelection: SKScene {
             
         case "touch":
             //Chose character
-            self.run(SKAction.wait(forDuration: 0.2), completion: {
-                DispatchQueue.main.async {
-                   self.uiCharSelectionDelegate?.selectCharacter()
-                }
-            })
+            print("touchedCharacter")
             
         default:
             break
