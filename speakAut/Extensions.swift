@@ -116,24 +116,6 @@ extension Array where Element == CardViewModel {
         }
         return true
     }
-
-    //A cada toque adicionar carta ao array; checar se o índice das cartas está na ordem certa. 
-    
-    
-    //For repeatWordsScene: is it ordered in X and Scaled correctly?
-    var isOrderedInXWithScale:Bool {
-        if self.count == 0 {return true}
-        let previous = self.first!
-        
-        for element in self {
-            if element != self.first {
-                if previous.position.x < element.position.x {
-                    if previous.size.width < element.size.width {return false}
-                }
-            }
-        }
-        return true
-    }
 }
 
 extension Array where Element == Int {

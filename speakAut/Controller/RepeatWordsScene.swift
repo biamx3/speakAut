@@ -85,7 +85,7 @@ class RepeatWordsScene: SKScene {
                 self.addChild(celebrationViewModel)
                 
             } else {
-                for card in self.cardSetViewModel.cards {
+                for _ in self.cardSetViewModel.cards {
                     let tryAgainViewModel = TryAgainViewModel(cardViewModel: self.cardSetViewModel.cards, cardType: .RepeatWordsScene)
                     self.addChild(tryAgainViewModel)
                     self.cardSetViewModel.bigCards = []

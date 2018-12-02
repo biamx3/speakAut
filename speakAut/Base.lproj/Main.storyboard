@@ -22,7 +22,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="xSt-UT-R9c"/>
                     <connections>
-                        <segue destination="BV1-FR-VrT" kind="show" id="Tax-VP-7XP"/>
+                        <segue destination="BV1-FR-VrT" kind="show" identifier="toSelection" id="Tax-VP-7XP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8GG-sl-xPB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -57,7 +57,7 @@
                     </sceneKitView>
                     <navigationItem key="navigationItem" id="sHV-hh-c7c"/>
                     <connections>
-                        <segue destination="C4l-TQ-NhG" kind="push" identifier="selectionToGame" id="r9H-UQ-R8z"/>
+                        <segue destination="C4l-TQ-NhG" kind="show" identifier="toGame" id="r9H-UQ-R8z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -76,7 +76,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="VBU-dE-whY"/>
                     <connections>
-                        <segue destination="AFv-d2-rok" kind="push" identifier="gameToRepeat" id="V7i-vx-g8G"/>
+                        <segue destination="AFv-d2-rok" kind="show" identifier="toRepeat" id="V7i-vx-g8G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r4W-Tr-KLJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -95,7 +95,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="WSB-bP-Lc0"/>
                     <connections>
-                        <segue destination="KIN-Di-6mX" kind="push" identifier="repeatToFinal" id="cf0-Zr-I3B"/>
+                        <segue destination="KIN-Di-6mX" kind="show" identifier="toFinal" id="cf0-Zr-I3B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ywq-wH-XFp" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -73,7 +73,6 @@
 /* Begin PBXFileReference section */
 		AB064AED21B0469500B02173 /* CelebrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CelebrationViewModel.swift; path = speakAut/ViewModel/CelebrationViewModel.swift; sourceTree = SOURCE_ROOT; };
 		AB064AEF21B0655700B02173 /* TryAgainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryAgainViewModel.swift; sourceTree = "<group>"; };
-		AB09844221552296005C420F /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
 		AB35F3E22139836500FACE51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB35F3E42139836500FACE51 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		AB35F3E92139836500FACE51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -171,17 +170,14 @@
 				AB35F3E82139836500FACE51 /* Main.storyboard */,
 				AB35F3EB2139836800FACE51 /* Assets.xcassets */,
 				AB4251FC21A9B0D100399376 /* ViewController.swift */,
-				AB09844221552296005C420F /* texture.png */,
 				AB35F3ED2139836800FACE51 /* LaunchScreen.storyboard */,
-				AB35F3F02139836800FACE51 /* Info.plist */,
-				AB35F41C213984B800FACE51 /* GameScene.sks */,
-				ABDFF25C21A5AA2E0059193F /* PeachyKeenJF.ttf */,
 				ABE6F60C21A857E30062E3F3 /* particleBurst.sks */,
-				AB35F420213986A500FACE51 /* SoundTrack.swift */,
 				ABE6B89D21A748720019DD98 /* particle.sks */,
-				ABE8548621B328FF00611812 /* MenuScene.sks */,
 				ABE6B89F21A75EA70019DD98 /* buttonParticle.sks */,
-				ABE6B89021A7149E0019DD98 /* RepeatWordsScene.sks */,
+				AB35F420213986A500FACE51 /* SoundTrack.swift */,
+				AB35F3F02139836800FACE51 /* Info.plist */,
+				AB45EA0721B42D3800222533 /* SKSFiles */,
+				ABDFF25C21A5AA2E0059193F /* PeachyKeenJF.ttf */,
 				ABE6B89521A73D910019DD98 /* Assets.xcassets */,
 				ABD9FF3221A1AB0200A45FEA /* Extensions.swift */,
 				ABE1AFD921A704240087FF5A /* Controller */,
@@ -207,6 +203,16 @@
 				AB35F4062139836900FACE51 /* Info.plist */,
 			);
 			path = speakAutUITests;
+			sourceTree = "<group>";
+		};
+		AB45EA0721B42D3800222533 /* SKSFiles */ = {
+			isa = PBXGroup;
+			children = (
+				AB35F41C213984B800FACE51 /* GameScene.sks */,
+				ABE8548621B328FF00611812 /* MenuScene.sks */,
+				ABE6B89021A7149E0019DD98 /* RepeatWordsScene.sks */,
+			);
+			path = SKSFiles;
 			sourceTree = "<group>";
 		};
 		ABD9FF4021A1AB5500A45FEA /* CharacterSelection */ = {
@@ -241,10 +247,7 @@
 				AB064AED21B0469500B02173 /* CelebrationViewModel.swift */,
 				ABE9A0EE2191CB50008827EF /* CardSetViewModel.swift */,
 				AB35F41A2139848100FACE51 /* CardViewModel.swift */,
-				ABF128C021B3001F0049BCE0 /* StaticTexture.swift */,
 				ABE9DD8521ADF0CE00B7C05B /* CharacterViewModel.swift */,
-				ABF128BC21B2D6B50049BCE0 /* TextureAnimationScene.swift */,
-				ABF128BE21B2DD400049BCE0 /* HeadTexture.swift */,
 				ABDFF25821A47E740059193F /* CardType.swift */,
 				ABDDD3462191B96D00641318 /* GapViewModel.swift */,
 			);
@@ -255,9 +258,12 @@
 			isa = PBXGroup;
 			children = (
 				AB35F4122139840600FACE51 /* Card.swift */,
+				ABF128BC21B2D6B50049BCE0 /* TextureAnimationScene.swift */,
 				AB35F4142139841600FACE51 /* Sentence.swift */,
 				AB35F4162139843100FACE51 /* Character.swift */,
 				AB35F4182139843B00FACE51 /* DAO.swift */,
+				ABF128C021B3001F0049BCE0 /* StaticTexture.swift */,
+				ABF128BE21B2DD400049BCE0 /* HeadTexture.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

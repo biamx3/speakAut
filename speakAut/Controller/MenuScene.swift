@@ -26,7 +26,7 @@ class MenuScene: SKScene {
         
         let chooseButton = SKSpriteNode(texture: chooseButtonTexture, color: .clear, size: chooseButtonTexture.size())
         chooseButton.position = CGPoint(x: 0, y: -self.size.height*0.3)
-        chooseButton.name = "chooseLabel"
+        chooseButton.name = "choose"
         
         let chooseButtonLabel = SKLabelNode(text: "jogar")
         chooseButtonLabel.name = "chooseLabel"
@@ -44,7 +44,7 @@ class MenuScene: SKScene {
         let position = touch.location(in: self)
         let touchedNode = atPoint(position)
         
-        if touchedNode.name?.starts(with: "char") ?? true {
+        if touchedNode.name?.starts(with: "choose") ?? true {
             touchedNode.run(SKAction.animateButton, completion: {
                 self.menuSceneDelegate?.goToSelectionScreen()
             })

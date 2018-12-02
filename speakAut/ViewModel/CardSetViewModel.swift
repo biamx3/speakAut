@@ -18,7 +18,6 @@ class CardSetViewModel: SKSpriteNode {
     var cards: [CardViewModel] = [] //private
     var gaps: [GapViewModel] = []
     var cardType: CardType = .GameScene
-    var cardPositions : [CGPoint] = []
     
     //RepeatWordsScene
     var bigCards: [CardViewModel] = []
@@ -36,6 +35,8 @@ class CardSetViewModel: SKSpriteNode {
         if self.cardType == .GameScene {
         addCards(from: cardSet)
         addGaps(from: cards)
+        shuffling()
+            
         }
         
         if self.cardType == .RepeatWordsScene {
@@ -47,44 +48,29 @@ class CardSetViewModel: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func shuffleCards2(){
-        for i in 0...self.cards.count - 1 {
-            if self.cards.count > 0 {
-                let position = self.cards.randomElement()?.position
-                let moveAction = SKAction.moveTo(x: position?.x ?? cards[i].position.x, duration: 0.2)
-                if cards[i].position != position {
-                    cards[i].run(moveAction)
-                }
-            }
-        }
-    }
-    
-    
-    func shuffleCards(){
-        if self.cards.count > 0 {
-            //Compare each card's position with the last card in the array
-            for i in 0...self.cards.count - 1{
-                let card = self.cards[i]
-                let index = i
-                let lastItem = self.cards.last
-                let lastIndex = self.cards.index(of: lastItem ?? card)
-                let nextCard = self.cards[lastIndex ?? 0]
-                
-                //Animate cards moving out of gap
-                let removeCardFromGap = SKAction.move(by: CGVector(dx: 0, dy: 180), duration: 0.2)
-                let randomRotation = self.randomRotation()
-                let removeCardFromGapGroup = SKAction.group([removeCardFromGap, randomRotation])
-                removeCardFromGapGroup.timingMode = .easeOut
-                
-                //If two cards have the same position, remove the card with the lowest zPosition from the gap
-                if index != lastIndex && card.position == nextCard.position   {
-                    if card.zPosition < nextCard.zPosition {
-                        card.run(removeCardFromGapGroup)
-                    } else {
-                        nextCard.run(removeCardFromGapGroup)
-                    }
-                }
-            }
+    func shuffling(){
+        if self.cards.count == 2 {
+            let position1 = cards[0].position.x
+            let position2 = cards[1].position.x
+            
+            var positions = [position1, position2]
+            let randomPosition = positions.randomElement()
+            let randomPositionIndex = positions.index(of: randomPosition!)
+            cards[0].position.x = randomPosition!
+            positions.remove(at: randomPositionIndex!)
+            cards[1].position.x = positions[0]
+        } else if self.cards.count == 3 {
+            let position1 = cards[0].position.x
+            let position2 = cards[1].position.x
+            let position3 = cards[2].position.x
+            
+            var positions = [position1, position2, position3]
+            let randomPosition = positions.randomElement()
+            let randomPositionIndex = positions.index(of: randomPosition!)
+            cards[0].position.x = randomPosition!
+            positions.remove(at: randomPositionIndex!)
+            cards[1].position.x = positions[0]
+            cards[2].position.x = positions[1]
         }
     }
     
@@ -109,13 +95,6 @@ class CardSetViewModel: SKSpriteNode {
             self.addChild(cardView)
             cards.append(cardView)
         }
-        
-            shuffleCards()
-        
-        for i in 0..<cardSet.count {
-            print("card position", self.cards[i].position)
-        }
-        
     }
     
     func addCardsToRepeatWordsScene(from cardSet: [Card]) {
@@ -173,19 +152,7 @@ class CardSetViewModel: SKSpriteNode {
                 self.parent?.touchesEnded(touches, with: event)
             } else if self.cardType == .RepeatWordsScene {
                 self.parent?.touchesEnded(touches, with: event)
-                
-                
-                
-//                if self.bigCards.count == self.cards.count {
-//                    if self.bigCards == self.cards {
-//
-//                    } else {
-//                        for card in self.cards {
-//                            card.repeatedCardsWrong()
-//                            self.bigCards = []
-//                        }
-//                    }
-//                }
+
         }
     }
 }
