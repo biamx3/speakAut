@@ -158,8 +158,13 @@ class GameScene: SKScene {
             if cardViews!.isOrderedInX {
                 print("correct order")
                 self.cardSetViewModel.removeGaps()
-                let celebrationViewModel = CelebrationViewModel(cardViewModel: cardViews!, cardType: .GameScene)
-                self.addChild(celebrationViewModel)
+                self.run(SKAction.wait(forDuration: 2.0), completion: {
+                    DispatchQueue.main.async {
+                    let celebrationViewModel = CelebrationViewModel(cardViewModel: cardViews!, cardType: .GameScene)
+                     self.addChild(celebrationViewModel)
+                    }
+                })
+               
             } else {
                 let tryAgainViewModel = TryAgainViewModel(cardViewModel: cardViews!, cardType: .GameScene)
                 self.addChild(tryAgainViewModel)
