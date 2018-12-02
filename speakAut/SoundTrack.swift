@@ -16,8 +16,10 @@ open class SoundTrack{
     public class var sharedInstance: SoundTrack{
         return _SoundTrack
     }
-    
+ 
 var player: AVAudioPlayer?
+var onoPlayer: AVAudioPlayer?
+var instructionsPlayer: AVAudioPlayer?
 var musicPlayer: AVAudioPlayer?
 
     func stopStound(){
@@ -25,21 +27,51 @@ var musicPlayer: AVAudioPlayer?
     }
     
     func playSound(withName: String) {
-    let url = Bundle.main.url(forResource: withName, withExtension: "mp3")!
-    do {
-        player = try AVAudioPlayer(contentsOf: url)
-        guard let player = player else { return }
+        let url = Bundle.main.url(forResource: withName, withExtension: "wav")!
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            guard let player = player else { return }
+            
+            player.prepareToPlay()
+            player.play()
+        } catch let error {
+            print(error.localizedDescription)
+        }
         
-        player.prepareToPlay()
-        player.play()
-    } catch let error {
-        print(error.localizedDescription)
     }
     
+    func playOno(withName: String) {
+        let url = Bundle.main.url(forResource: withName, withExtension: "wav")!
+        do {
+            onoPlayer = try AVAudioPlayer(contentsOf: url)
+            guard let onoPlayer = onoPlayer else { return }
+            
+            onoPlayer.volume = 0.3
+            
+            onoPlayer.prepareToPlay()
+            onoPlayer.play()
+        } catch let error {
+            print(error.localizedDescription)
+        }
+       onoPlayer?.numberOfLoops = -1
+    }
+    
+    func playInstructions(withName: String) {
+        let url = Bundle.main.url(forResource: withName, withExtension: "wav")!
+        do {
+            instructionsPlayer = try AVAudioPlayer(contentsOf: url)
+            guard let instructionsPlayer = instructionsPlayer else { return }
+            
+            instructionsPlayer.prepareToPlay()
+            instructionsPlayer.play()
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
     }
     
     func playMusic() {
-        let url = Bundle.main.url(forResource: "music", withExtension: "mp3")!
+        let url = Bundle.main.url(forResource: "music", withExtension: "wav")!
         do {
             musicPlayer = try AVAudioPlayer(contentsOf: url)
             guard let musicPlayer = musicPlayer else { return }

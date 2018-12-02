@@ -23,6 +23,28 @@
 		AB35F41B2139848100FACE51 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F41A2139848100FACE51 /* CardViewModel.swift */; };
 		AB35F41D213984B800FACE51 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = AB35F41C213984B800FACE51 /* GameScene.sks */; };
 		AB35F421213986A500FACE51 /* SoundTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35F420213986A500FACE51 /* SoundTrack.swift */; };
+		AB361D8721B45FCE003F84CF /* buttonSecondary.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D7D21B45FCD003F84CF /* buttonSecondary.wav */; };
+		AB361D8821B45FCE003F84CF /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D7E21B45FCD003F84CF /* wrong.wav */; };
+		AB361D8921B45FCE003F84CF /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D7F21B45FCD003F84CF /* correct.wav */; };
+		AB361D8A21B45FCE003F84CF /* cardInFocus.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D8021B45FCD003F84CF /* cardInFocus.wav */; };
+		AB361D8B21B45FCE003F84CF /* buttonMain.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D8121B45FCE003F84CF /* buttonMain.wav */; };
+		AB361D8C21B45FCE003F84CF /* cardFitsInGap.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D8221B45FCE003F84CF /* cardFitsInGap.wav */; };
+		AB361D8D21B45FCE003F84CF /* screenSlide.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D8321B45FCE003F84CF /* screenSlide.wav */; };
+		AB361D8E21B45FCE003F84CF /* celebration.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D8421B45FCE003F84CF /* celebration.wav */; };
+		AB361D9221B463F9003F84CF /* cardSlide.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D9121B463F9003F84CF /* cardSlide.wav */; };
+		AB361DA021B4645B003F84CF /* tente novamente.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D9421B46459003F84CF /* tente novamente.wav */; };
+		AB361DA121B4645B003F84CF /* voce acertou.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D9521B4645A003F84CF /* voce acertou.wav */; };
+		AB361DA221B4645B003F84CF /* idle_francisco.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D9621B4645A003F84CF /* idle_francisco.wav */; };
+		AB361DA321B4645B003F84CF /* idle_henrique.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D9721B4645A003F84CF /* idle_henrique.wav */; };
+		AB361DA421B4645B003F84CF /* lucianaComemoracao0.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D9821B4645A003F84CF /* lucianaComemoracao0.wav */; };
+		AB361DA521B4645B003F84CF /* coloqueAsCartas.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D9921B4645A003F84CF /* coloqueAsCartas.wav */; };
+		AB361DA621B4645B003F84CF /* escolhaOSeuPersonagem.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D9A21B4645A003F84CF /* escolhaOSeuPersonagem.wav */; };
+		AB361DA721B4645B003F84CF /* lucianaComemoracao1.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D9B21B4645A003F84CF /* lucianaComemoracao1.wav */; };
+		AB361DA821B4645B003F84CF /* dancou.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D9C21B4645B003F84CF /* dancou.wav */; };
+		AB361DA921B4645B003F84CF /* idle_andressa.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D9D21B4645B003F84CF /* idle_andressa.wav */; };
+		AB361DAA21B4645B003F84CF /* repita.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D9E21B4645B003F84CF /* repita.wav */; };
+		AB361DAB21B4645B003F84CF /* aMenina.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361D9F21B4645B003F84CF /* aMenina.wav */; };
+		AB361DB021B47E1D003F84CF /* idle_luciana.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DAF21B47E1D003F84CF /* idle_luciana.wav */; };
 		AB4251FD21A9B0D100399376 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4251FC21A9B0D100399376 /* ViewController.swift */; };
 		ABD9FF3321A1AB0300A45FEA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD9FF3221A1AB0200A45FEA /* Extensions.swift */; };
 		ABD9FF3521A1AB1700A45FEA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD9FF3421A1AB1700A45FEA /* GameScene.swift */; };
@@ -90,6 +112,28 @@
 		AB35F41A2139848100FACE51 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		AB35F41C213984B800FACE51 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		AB35F420213986A500FACE51 /* SoundTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundTrack.swift; sourceTree = "<group>"; };
+		AB361D7D21B45FCD003F84CF /* buttonSecondary.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buttonSecondary.wav; sourceTree = "<group>"; };
+		AB361D7E21B45FCD003F84CF /* wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrong.wav; sourceTree = "<group>"; };
+		AB361D7F21B45FCD003F84CF /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
+		AB361D8021B45FCD003F84CF /* cardInFocus.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cardInFocus.wav; sourceTree = "<group>"; };
+		AB361D8121B45FCE003F84CF /* buttonMain.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buttonMain.wav; sourceTree = "<group>"; };
+		AB361D8221B45FCE003F84CF /* cardFitsInGap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cardFitsInGap.wav; sourceTree = "<group>"; };
+		AB361D8321B45FCE003F84CF /* screenSlide.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = screenSlide.wav; sourceTree = "<group>"; };
+		AB361D8421B45FCE003F84CF /* celebration.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = celebration.wav; sourceTree = "<group>"; };
+		AB361D9121B463F9003F84CF /* cardSlide.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cardSlide.wav; sourceTree = "<group>"; };
+		AB361D9421B46459003F84CF /* tente novamente.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "tente novamente.wav"; sourceTree = "<group>"; };
+		AB361D9521B4645A003F84CF /* voce acertou.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "voce acertou.wav"; sourceTree = "<group>"; };
+		AB361D9621B4645A003F84CF /* idle_francisco.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = idle_francisco.wav; sourceTree = "<group>"; };
+		AB361D9721B4645A003F84CF /* idle_henrique.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = idle_henrique.wav; sourceTree = "<group>"; };
+		AB361D9821B4645A003F84CF /* lucianaComemoracao0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lucianaComemoracao0.wav; sourceTree = "<group>"; };
+		AB361D9921B4645A003F84CF /* coloqueAsCartas.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coloqueAsCartas.wav; sourceTree = "<group>"; };
+		AB361D9A21B4645A003F84CF /* escolhaOSeuPersonagem.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = escolhaOSeuPersonagem.wav; sourceTree = "<group>"; };
+		AB361D9B21B4645A003F84CF /* lucianaComemoracao1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lucianaComemoracao1.wav; sourceTree = "<group>"; };
+		AB361D9C21B4645B003F84CF /* dancou.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dancou.wav; sourceTree = "<group>"; };
+		AB361D9D21B4645B003F84CF /* idle_andressa.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = idle_andressa.wav; sourceTree = "<group>"; };
+		AB361D9E21B4645B003F84CF /* repita.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = repita.wav; sourceTree = "<group>"; };
+		AB361D9F21B4645B003F84CF /* aMenina.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = aMenina.wav; sourceTree = "<group>"; };
+		AB361DAF21B47E1D003F84CF /* idle_luciana.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = idle_luciana.wav; sourceTree = "<group>"; };
 		AB4251F921A9AFED00399376 /* speakAut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = speakAut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4251FA21A9AFED00399376 /* speakAutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = speakAutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4251FB21A9AFED00399376 /* speakAutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = speakAutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,7 +215,9 @@
 				AB35F3EB2139836800FACE51 /* Assets.xcassets */,
 				AB4251FC21A9B0D100399376 /* ViewController.swift */,
 				AB35F3ED2139836800FACE51 /* LaunchScreen.storyboard */,
+				AB361D9021B45FD4003F84CF /* SFX */,
 				ABE6F60C21A857E30062E3F3 /* particleBurst.sks */,
+				AB361D9321B4644F003F84CF /* Voice */,
 				ABE6B89D21A748720019DD98 /* particle.sks */,
 				ABE6B89F21A75EA70019DD98 /* buttonParticle.sks */,
 				AB35F420213986A500FACE51 /* SoundTrack.swift */,
@@ -203,6 +249,74 @@
 				AB35F4062139836900FACE51 /* Info.plist */,
 			);
 			path = speakAutUITests;
+			sourceTree = "<group>";
+		};
+		AB361D9021B45FD4003F84CF /* SFX */ = {
+			isa = PBXGroup;
+			children = (
+				AB361D8121B45FCE003F84CF /* buttonMain.wav */,
+				AB361D7D21B45FCD003F84CF /* buttonSecondary.wav */,
+				AB361D8221B45FCE003F84CF /* cardFitsInGap.wav */,
+				AB361D8021B45FCD003F84CF /* cardInFocus.wav */,
+				AB361D8421B45FCE003F84CF /* celebration.wav */,
+				AB361D9121B463F9003F84CF /* cardSlide.wav */,
+				AB361D7F21B45FCD003F84CF /* correct.wav */,
+				AB361D8321B45FCE003F84CF /* screenSlide.wav */,
+				AB361D7E21B45FCD003F84CF /* wrong.wav */,
+			);
+			path = SFX;
+			sourceTree = "<group>";
+		};
+		AB361D9321B4644F003F84CF /* Voice */ = {
+			isa = PBXGroup;
+			children = (
+				AB361DB121B47F7A003F84CF /* Idle */,
+				AB361DAC21B46679003F84CF /* Sentences */,
+				AB361DAD21B46688003F84CF /* Instructions */,
+				AB361D9821B4645A003F84CF /* lucianaComemoracao0.wav */,
+				AB361D9B21B4645A003F84CF /* lucianaComemoracao1.wav */,
+			);
+			path = Voice;
+			sourceTree = "<group>";
+		};
+		AB361DAC21B46679003F84CF /* Sentences */ = {
+			isa = PBXGroup;
+			children = (
+				AB361DAE21B47917003F84CF /* A menina dancou */,
+			);
+			path = Sentences;
+			sourceTree = "<group>";
+		};
+		AB361DAD21B46688003F84CF /* Instructions */ = {
+			isa = PBXGroup;
+			children = (
+				AB361D9921B4645A003F84CF /* coloqueAsCartas.wav */,
+				AB361D9A21B4645A003F84CF /* escolhaOSeuPersonagem.wav */,
+				AB361D9E21B4645B003F84CF /* repita.wav */,
+				AB361D9421B46459003F84CF /* tente novamente.wav */,
+				AB361D9521B4645A003F84CF /* voce acertou.wav */,
+			);
+			path = Instructions;
+			sourceTree = "<group>";
+		};
+		AB361DAE21B47917003F84CF /* A menina dancou */ = {
+			isa = PBXGroup;
+			children = (
+				AB361D9F21B4645B003F84CF /* aMenina.wav */,
+				AB361D9C21B4645B003F84CF /* dancou.wav */,
+			);
+			path = "A menina dancou";
+			sourceTree = "<group>";
+		};
+		AB361DB121B47F7A003F84CF /* Idle */ = {
+			isa = PBXGroup;
+			children = (
+				AB361D9D21B4645B003F84CF /* idle_andressa.wav */,
+				AB361D9621B4645A003F84CF /* idle_francisco.wav */,
+				AB361DAF21B47E1D003F84CF /* idle_luciana.wav */,
+				AB361D9721B4645A003F84CF /* idle_henrique.wav */,
+			);
+			path = Idle;
 			sourceTree = "<group>";
 		};
 		AB45EA0721B42D3800222533 /* SKSFiles */ = {
@@ -375,18 +489,40 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB361DA021B4645B003F84CF /* tente novamente.wav in Resources */,
+				AB361DA621B4645B003F84CF /* escolhaOSeuPersonagem.wav in Resources */,
 				AB35F3E52139836500FACE51 /* art.scnassets in Resources */,
+				AB361D8821B45FCE003F84CF /* wrong.wav in Resources */,
+				AB361DA521B4645B003F84CF /* coloqueAsCartas.wav in Resources */,
+				AB361DA921B4645B003F84CF /* idle_andressa.wav in Resources */,
 				ABE6B89721A73D910019DD98 /* Assets.xcassets in Resources */,
 				AB35F41D213984B800FACE51 /* GameScene.sks in Resources */,
 				AB35F3EF2139836800FACE51 /* LaunchScreen.storyboard in Resources */,
 				ABE6B8A121A75EA70019DD98 /* buttonParticle.sks in Resources */,
+				AB361D8E21B45FCE003F84CF /* celebration.wav in Resources */,
+				AB361DAA21B4645B003F84CF /* repita.wav in Resources */,
+				AB361DA421B4645B003F84CF /* lucianaComemoracao0.wav in Resources */,
+				AB361DA321B4645B003F84CF /* idle_henrique.wav in Resources */,
 				AB35F3EC2139836800FACE51 /* Assets.xcassets in Resources */,
+				AB361D9221B463F9003F84CF /* cardSlide.wav in Resources */,
 				ABE6F60D21A857E30062E3F3 /* particleBurst.sks in Resources */,
+				AB361D8A21B45FCE003F84CF /* cardInFocus.wav in Resources */,
 				ABE8548721B328FF00611812 /* MenuScene.sks in Resources */,
+				AB361D8921B45FCE003F84CF /* correct.wav in Resources */,
+				AB361DA821B4645B003F84CF /* dancou.wav in Resources */,
+				AB361D8C21B45FCE003F84CF /* cardFitsInGap.wav in Resources */,
 				ABE6B89E21A748720019DD98 /* particle.sks in Resources */,
+				AB361D8721B45FCE003F84CF /* buttonSecondary.wav in Resources */,
 				ABE6B89121A7149E0019DD98 /* RepeatWordsScene.sks in Resources */,
+				AB361D8D21B45FCE003F84CF /* screenSlide.wav in Resources */,
+				AB361DB021B47E1D003F84CF /* idle_luciana.wav in Resources */,
+				AB361DA221B4645B003F84CF /* idle_francisco.wav in Resources */,
+				AB361DA721B4645B003F84CF /* lucianaComemoracao1.wav in Resources */,
+				AB361DA121B4645B003F84CF /* voce acertou.wav in Resources */,
 				AB35F3EA2139836500FACE51 /* Main.storyboard in Resources */,
+				AB361DAB21B4645B003F84CF /* aMenina.wav in Resources */,
 				ABDFF25D21A5AA340059193F /* PeachyKeenJF.ttf in Resources */,
+				AB361D8B21B45FCE003F84CF /* buttonMain.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

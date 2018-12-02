@@ -52,7 +52,7 @@ class CarousselCharSelection: SCNScene {
         self.cameraNode = SCNNode()
         self.cameraNode.camera = camera
         self.cameraNode.position = SCNVector3(x: 0, y: 2, z: 7)
-        self.cameraNode.name = "cameraNod"
+        self.cameraNode.name = "cameraNode"
 
         self.rootNode.addChildNode(self.cameraNode)
     }
@@ -77,6 +77,14 @@ class CarousselCharSelection: SCNScene {
         self.rootNode.addChildNode(leftCharacter)
         self.rootNode.addChildNode(centralCharacter)
         self.rootNode.addChildNode(rightCharacter)
+        
+        var sound = ""
+        for character in DAO.sharedInstance.characterArray {
+            if character.name == self.centralCharacter.name {
+                sound = character.sentenceArray[0].sentenceNarration
+            }
+        }
+        //SoundTrack.sharedInstance.playOno(withName: sound)
     }
     
     func previousPosition(){

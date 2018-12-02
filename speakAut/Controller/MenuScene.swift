@@ -33,9 +33,18 @@ class MenuScene: SKScene {
         chooseButtonLabel.fontSize = 45
         chooseButtonLabel.fontName = "PeachyKeenJF"
         chooseButtonLabel.fontColor = .whiteish
-        chooseButtonLabel.zPosition = 15
+        chooseButtonLabel.zPosition = 2
         chooseButtonLabel.position = CGPoint(x: 0, y: -10)
         chooseButton.addChild(chooseButtonLabel)
+        
+        let touchArea = SKShapeNode(rectOf: chooseButtonTexture.size())
+        touchArea.fillColor = .clear
+        touchArea.strokeColor = .clear
+        touchArea.name = "touch"
+        touchArea.position = CGPoint(x: 0, y: 0)
+        chooseButton.addChild(touchArea)
+        touchArea.zPosition = 10
+        
         self.addChild(chooseButton)
     }
     
@@ -44,13 +53,8 @@ class MenuScene: SKScene {
         let position = touch.location(in: self)
         let touchedNode = atPoint(position)
         
-        if touchedNode.name?.starts(with: "choose") ?? true {
-            touchedNode.run(SKAction.animateButton, completion: {
-                self.menuSceneDelegate?.goToSelectionScreen()
-            })
-        }
-        
-        if touchedNode.name == "chooseLabel" {
+        if touchedNode.name?.starts(with: "touch") ?? true {
+            SoundTrack.sharedInstance.playSound(withName: "buttonMain")
             touchedNode.parent?.run(SKAction.animateButton, completion: {
                 self.menuSceneDelegate?.goToSelectionScreen()
             })

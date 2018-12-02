@@ -17,6 +17,7 @@ class TryAgainViewModel: SKSpriteNode {
     init(cardViewModel: [CardViewModel], cardType: CardType){
         self.cardType = cardType
         super.init(texture: nil, color: .clear, size: UIScreen.main.bounds.size)
+        SoundTrack.sharedInstance.playSound(withName: "wrong")
         self.isUserInteractionEnabled = false
         self.parent?.isUserInteractionEnabled = false
         setUpInvisibleNode()
@@ -37,7 +38,12 @@ class TryAgainViewModel: SKSpriteNode {
         errorMessage.fontColor = UIColor.greyishBrown
         errorMessage.zPosition = 15
         errorMessage.name = "error message"
-        errorMessage.position = CGPoint(x: 0, y: sceneSize.height/6.7)
+        if self.cardType == .GameScene {
+            errorMessage.position = CGPoint(x: 0, y: sceneSize.height/6.7)
+        } else {
+            errorMessage.position = CGPoint(x: 0, y: sceneSize.height/2.7)
+        }
+
         errorMessage.alpha = 0
         
         return errorMessage
@@ -45,6 +51,7 @@ class TryAgainViewModel: SKSpriteNode {
     
     //In case of GameScene
     func cardsAreWrong(cardNodes: [CardViewModel]){
+        SoundTrack.sharedInstance.playSound(withName: "tente novamente")
         let errorLabel = errorMessage()
         self.addChild(errorLabel)
         
@@ -84,6 +91,8 @@ class TryAgainViewModel: SKSpriteNode {
         let randomRotation = self.randomRotation()
         let removeCardFromGapGroup = SKAction.group([removeCardFromGap, randomRotation])
         removeCardFromGapGroup.timingMode = .easeOut
+        
+        SoundTrack.sharedInstance.playSound(withName: "cardSlide")
         
         for card in cards {
             card.run(removeCardFromGapGroup, completion: {

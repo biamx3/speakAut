@@ -90,6 +90,7 @@ class CardViewModel: SKSpriteNode {
             let cardBros = filteredCards as! [CardViewModel]
             
             //Animate up
+            SoundTrack.sharedInstance.playSound(withName: "cardInFocus")
             let scaleUp = SKAction.scale(to: 1.15, duration: 0.2)
             let rotateToCorrect = SKAction.rotate(toAngle: 0.0, duration: 0.2)
             let scaleUpGroup = SKAction.group([scaleUp, rotateToCorrect])
@@ -107,6 +108,7 @@ class CardViewModel: SKSpriteNode {
             
         else if parent.cardType == .RepeatWordsScene {
             if self.size == CGSize.card {
+                SoundTrack.sharedInstance.playSound(withName: "cardInFocus")
                 let scaleUp = SKAction.scale(to: 1.15, duration: 0.2)
                 scaleUp.timingMode = .easeOut
                 self.run(scaleUp)
@@ -148,6 +150,7 @@ class CardViewModel: SKSpriteNode {
             
             //Have cards stick to gaps
             if let index = self.near(gaps) {
+                SoundTrack.sharedInstance.playSound(withName: "cardFitsInGap")
                 let stickAnimation = SKAction.move(to: CGPoint(x: gaps[index].position.x, y:gaps[index].position.y ), duration: 0.2)
                 stickAnimation.timingMode = .easeOut
                 self.run(stickAnimation)
@@ -158,7 +161,6 @@ class CardViewModel: SKSpriteNode {
         
         //If card is being used in RepeatWordsScene
         if parent.cardType == .RepeatWordsScene {
-            
             //If the card is big, append to parent's bigCardsArray
             if self.size.width > CGSize.card.width {
                 if !parent.bigCards.contains(self) {

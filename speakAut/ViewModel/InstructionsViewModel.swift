@@ -11,6 +11,8 @@ import SpriteKit
 
 class InstructionsViewModel: SKSpriteNode {
     
+    private var wait: SKAction!
+    
     init(cardType: CardType){
         super.init(texture: SKTexture(imageNamed: "backgroundImage"), color: .clear, size: UIScreen.main.bounds.size)
         self.isUserInteractionEnabled = false
@@ -35,26 +37,28 @@ class InstructionsViewModel: SKSpriteNode {
         instructionsLabel.position = CGPoint(x: 0, y: 0)
         
         if cardType == .GameScene {
+            SoundTrack.sharedInstance.playInstructions(withName: "coloqueAsCartas")
             instructionsLabel.text = "Coloque as cartas na ordem certa!"
+            self.wait = SKAction.wait(forDuration: 4.0)
         }
         
         if cardType == .RepeatWordsScene {
+            SoundTrack.sharedInstance.playInstructions(withName: "repita")
             instructionsLabel.text = "Toque nas cartas e repita as palavras na ordem certa!"
+            self.wait = SKAction.wait(forDuration: 6.5)
         }
         
         self.addChild(instructionsLabel)
     }
     
     func animate(){
-        
         //TO DO: Play Sound
-        let wait = SKAction.wait(forDuration: 3.5)
         let moveOut = SKAction.move(to: CGPoint(x: 0, y: self.size.height*2), duration: 0.6)
-        let group = SKAction.sequence([wait, moveOut])
-        group.timingMode = .easeInEaseOut
-        
-        self.run(group, completion: {
-            self.removeFromParent()
+        self.run(self.wait, completion: {
+            SoundTrack.sharedInstance.playSound(withName: "screenSlide")
+            self.run(moveOut, completion: {
+                self.removeFromParent()
+            })
         })
     }
 }

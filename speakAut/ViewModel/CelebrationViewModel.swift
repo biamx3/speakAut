@@ -35,6 +35,10 @@ class CelebrationViewModel: SKSpriteNode {
     }
     
     func cardsAreRight(cardNodes: [CardViewModel]) {
+        SoundTrack.sharedInstance.playSound(withName: "celebration")
+        self.run(SKAction.wait(forDuration: 0.3), completion: {
+        SoundTrack.sharedInstance.playInstructions(withName: "voce acertou")
+        })
         //Turn off user interaction
         self.addChild(invisibleNode)
         self.isUserInteractionEnabled = false
@@ -59,7 +63,7 @@ class CelebrationViewModel: SKSpriteNode {
         let particleTypes:[(name:String, positionY:CGFloat)] = [(name:"particle", positionY:UIScreen.main.bounds.size.height/2), (name:"buttonParticle", positionY:0)]
         let choosedParticle = particleTypes.randomElement()!
         
-        let wait = SKAction.wait(forDuration: 6.0)
+        let wait = SKAction.wait(forDuration: 8.0)
         
         for i in 1...3 {
             if let emitter = SKEmitterNode(fileNamed: choosedParticle.name) {

@@ -97,6 +97,7 @@ class GameScene: SKScene {
 
             //If two cards have the same position, remove the card with the lowest zPosition from the gap
             if index != lastIndex && card.position == nextCard.position   {
+                SoundTrack.sharedInstance.playSound(withName: "cardSlide")
                 if card.zPosition < nextCard.zPosition {
                     print("remove")
                     card.run(removeCardFromGapGroup)
@@ -156,6 +157,7 @@ class GameScene: SKScene {
         
         if gapViews.isNear(cardViews!) {
             if cardViews!.isOrderedInX {
+                SoundTrack.sharedInstance.playSound(withName: "correct")
                 print("correct order")
                 self.cardSetViewModel.removeGaps()
                 self.run(SKAction.wait(forDuration: 2.0), completion: {

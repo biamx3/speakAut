@@ -26,14 +26,20 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
         self.sceneView!.overlaySKScene = self.spriteScene
         
         self.view.addSubview(self.sceneView!)
+        SoundTrack.sharedInstance.playInstructions(withName: "escolhaOSeuPersonagem")
     }
     
     func previousCharacter() {
         self.scene.previousPosition()
+        let sound = "idle_" + self.scene.centralCharacter.name!
+        SoundTrack.sharedInstance.playOno(withName: sound)
+
     }
     
     func nextCharacter() {
         self.scene.nextPosition()
+        let sound = "idle_" + self.scene.centralCharacter.name!
+        SoundTrack.sharedInstance.playOno(withName: sound)
     }
     
     func selectCharacter() {
@@ -49,6 +55,11 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
     
     func goToMenuScreen() {
         print("go to menu screen")
+    }
+    
+    func playFirstSound() {
+        let sound = "idle_" + self.scene.centralCharacter.name!
+        SoundTrack.sharedInstance.playOno(withName: sound)
     }
     
     func printAllNodes(tab:String, node:SKNode) {

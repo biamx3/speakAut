@@ -67,7 +67,6 @@ class CharacterViewModel: SCNNode {
     
     func defineEarTexture(){
         for i in 0 ... self.sceneArray.count - 1 {
-            print("name: ", self.characterModel.name)
             let earMesh = self.sceneArray[i].rootNode.childNode(withName: "ear", recursively: true)
             earMesh?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "art.scnassets/earTexture_\(self.characterModel.name)")
             earMesh?.geometry!.firstMaterial!.multiply.contents = SKTexture(imageNamed: "art.scnassets/earTexture_\(self.characterModel.name)")

@@ -13,6 +13,7 @@ import SceneKit
 class UICharSelection: SKScene {
     
     weak var uiCharSelectionDelegate: UICharSelectionDelegate?
+    private var invisibleNode: SKSpriteNode!
     
     override init(size: CGSize) {
         super.init(size: size)
@@ -21,11 +22,15 @@ class UICharSelection: SKScene {
         setUpCarousselButtons()
         setUpInstructionsLabel()
         setUpChooseButton()
+        setUpInvisibleNode()
+        self.run((SKAction.wait(forDuration: 2.5)), completion: {
+         self.uiCharSelectionDelegate?.playFirstSound()
+            })
     }
     
     func setUpInstructionsLabel() {
         let sceneSize = self.frame.size
-        let instructionsLabel = SKLabelNode(text: "Escolha um personagem!")
+        let instructionsLabel = SKLabelNode(text: "Escolha o seu personagem!")
         instructionsLabel.name = "instructionsLabel"
         instructionsLabel.fontName = "PeachyKeenJF"
         instructionsLabel.fontSize = 32
@@ -33,15 +38,16 @@ class UICharSelection: SKScene {
         instructionsLabel.zPosition = 15
         instructionsLabel.position = CGPoint(x: sceneSize.width/2, y: sceneSize.height - 100)
         
-//        for family in UIFont.familyNames.sorted() {
-//            let names = UIFont.fontNames(forFamilyName: family)
-//            print("Family: \(family) Font names: \(names)")
-//        }
-        
         self.addChild(instructionsLabel)
     }
     
-
+    func setUpInvisibleNode() {
+        let sceneSize = self.frame.size
+        invisibleNode = SKSpriteNode(color: .clear, size: sceneSize)
+        invisibleNode.isUserInteractionEnabled = false
+        invisibleNode.zPosition = -1
+        self.addChild(invisibleNode)
+    }
     
     func setUpCarousselButtons() {
         let sceneSize = self.frame.size
@@ -70,7 +76,7 @@ class UICharSelection: SKScene {
         let chooseButtonTexture = SKTexture(imageNamed: "bigButton")
         
         let chooseButton = SKSpriteNode(texture: chooseButtonTexture, color: .clear, size: chooseButtonTexture.size())
-        chooseButton.position = CGPoint(x: sceneSize.width/2, y: chooseButtonTexture.size().height*0.6)
+        chooseButton.position = CGPoint(x: sceneSize.width/2, y: chooseButtonTexture.size().height*0.9)
         chooseButton.name = "chooseLabel"
 
         let chooseButtonLabel = SKLabelNode(text: "escolher")
@@ -78,9 +84,18 @@ class UICharSelection: SKScene {
         chooseButtonLabel.fontSize = 45
         chooseButtonLabel.fontName = "PeachyKeenJF"
         chooseButtonLabel.fontColor = .whiteish
-        chooseButtonLabel.zPosition = 15
+        chooseButtonLabel.zPosition = 5
         chooseButtonLabel.position = CGPoint(x: 0, y: -10)
         chooseButton.addChild(chooseButtonLabel)
+        
+        let touchArea = SKShapeNode(rectOf: chooseButtonTexture.size())
+        touchArea.fillColor = .clear
+        touchArea.strokeColor = .clear
+        touchArea.name = "touch"
+        touchArea.position = CGPoint(x: 0, y: 0)
+        chooseButton.addChild(touchArea)
+        touchArea.zPosition = 10
+        
         self.addChild(chooseButton)
     }
     
@@ -91,10 +106,14 @@ class UICharSelection: SKScene {
         
         if touchedNode.name?.starts(with: "char") ?? true {
             touchedNode.run(SKAction.animateButton)
+            SoundTrack.sharedInstance.playSound(withName: "buttonMain")
         }
         
-        if touchedNode.name == "chooseLabel" {
+        if touchedNode.name == "touch" {
+            self.invisibleNode.zPosition = 20
             touchedNode.parent?.run(SKAction.animateButton)
+            SoundTrack.sharedInstance.playSound(withName: "buttonMain")
+            SoundTrack.sharedInstance.playSound(withName: "correct")
         }
     }
     
@@ -114,13 +133,13 @@ class UICharSelection: SKScene {
             //Last character
             self.uiCharSelectionDelegate?.previousCharacter()
             
-        case "charChoose":
+        case "touch":
             //Chose character
-            self.uiCharSelectionDelegate?.selectCharacter()
-            
-        case "chooseLabel":
-            //Chose character
-            self.uiCharSelectionDelegate?.selectCharacter()
+            self.run(SKAction.wait(forDuration: 0.3), completion: {
+                DispatchQueue.main.async {
+                   self.uiCharSelectionDelegate?.selectCharacter()
+                }
+            })
             
         default:
             break
@@ -137,4 +156,5 @@ protocol UICharSelectionDelegate: class {
     func nextCharacter()
     func selectCharacter()
     func goToMenuScreen()
+    func playFirstSound()
 }
