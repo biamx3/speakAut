@@ -33,6 +33,7 @@ class CharacterViewModel: SCNNode {
                 let characterNode = scene.rootNode
                 self.nodeArray.append(characterNode)
                 self.sceneArray.append(scene)
+
             }
         }
         
@@ -40,6 +41,7 @@ class CharacterViewModel: SCNNode {
         
         if self.characterModel.hasEars  {
             self.addEars()
+            self.defineEarTexture()
         }
         
         if self.characterModel.hasGlasses {
@@ -60,47 +62,18 @@ class CharacterViewModel: SCNNode {
             let characterName = self.characterModel.name
             let characterNode = self.sceneArray[i].rootNode
             characterNode.setStaticTextures(nodeName: "body", characterName: characterName)
-            characterNode.setStaticTextures(nodeName: "ear", characterName: characterName)
         }
     }
     
-//    func defineTexture(){
-//        for i in 0 ... self.sceneArray.count - 1 {
-//            let characterName = self.characterModel.name
-//            let headMesh = self.sceneArray[i].rootNode.childNode(withName: "head", recursively: true)
-//
-//            //Add texture to head
-//            headMesh?.geometry!.firstMaterial!.multiply.contents = SKColor.white
-//
-//            //Add texture to body
-//            let bodyMesh = self.sceneArray[i].rootNode.childNode(withName: "body", recursively: true)
-//            bodyMesh?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "art.scnassets/bodyTexture_\(characterName)")
-//            bodyMesh?.geometry!.firstMaterial!.multiply.contents = SKTexture(imageNamed: "art.scnassets/bodyTexture_\(characterName)")
-//            //bodyMesh?.geometry!.firstMaterial!.multiply.intensity = 0.7
-//
-//            //Add texture to ears
-//            let earMeshRight = self.sceneArray[i].rootNode.childNode(withName: "ears_r", recursively: true)
-//            earMeshRight?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "art.scnassets/earTexture_\(characterName)")
-//            let earMeshLeft = self.sceneArray[i].rootNode.childNode(withName: "ears_l", recursively: true)
-//            earMeshLeft?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "art.scnassets/earTexture_\(characterName)")
-//            earMeshRight?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "art.scnassets/earTexture_\(characterName)")
-//            earMeshRight?.geometry!.firstMaterial!.multiply.contents = SKTexture(imageNamed: "art.scnassets/earTexture_\(characterName)")
-//            //earMeshRight?.geometry!.firstMaterial!.multiply.intensity = 0.7
-//            earMeshLeft?.geometry!.firstMaterial!.multiply.contents = SKTexture(imageNamed: "art.scnassets/earTexture_\(characterName)")
-//            //earMeshLeft?.geometry!.firstMaterial!.multiply.intensity = 0.7
-//        }
-//    }
-    
-//    func animateFaceTexture(characterNode: SCNNode){
-//        let scene = TextureAnimationScene()
-//        
-//        let headMesh = characterNode.childNode(withName: "head", recursively: true)
-//        
-//        //Add texture to head
-//        headMesh?.geometry!.firstMaterial!.multiply.contents = scene
-//        headMesh?.geometry!.firstMaterial!.multiply.intensity = 0.7
-//        headMesh?.geometry!.firstMaterial!.diffuse.contents = scene
-//    }
+    func defineEarTexture(){
+        for i in 0 ... self.sceneArray.count - 1 {
+            print("name: ", self.characterModel.name)
+            let earMesh = self.sceneArray[i].rootNode.childNode(withName: "ear", recursively: true)
+            earMesh?.geometry!.firstMaterial!.diffuse.contents = SKTexture(imageNamed: "art.scnassets/earTexture_\(self.characterModel.name)")
+            earMesh?.geometry!.firstMaterial!.multiply.contents = SKTexture(imageNamed: "art.scnassets/earTexture_\(self.characterModel.name)")
+            earMesh?.geometry!.firstMaterial!.multiply.intensity = 1.0
+        }
+    }
     
     func addHair() {
         for i in 0 ... self.sceneArray.count - 1 {

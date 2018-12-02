@@ -34,12 +34,9 @@ class CarousselCharSelection: SCNScene {
         createCharacters()
         setPositionValues()
         addCamera()
-        //addLights()
         addFirstVisibleCharacters()
     }
     
-    
-
     
     func setPositionValues(){
         self.positionFarLeft = SCNVector3(-8.0, -0.5, -6.0)
