@@ -77,7 +77,7 @@ import SceneKit
         
         func yawnAnimation(){
             for character in characterArray {
-                let sentence = Sentence(animationSceneName: "yawn", headTexture: "idle", index: 3, cardArray: [], sentenceNarration: "\(character.subjectName)_bocejou")
+                let sentence = Sentence(animationSceneName: "yawn", headTexture: "yawn", index: 3, cardArray: [], sentenceNarration: "\(character.subjectName)_bocejou")
                 let card1 = Card(index: 1, word: "bocejou", imageName: "\(character.name)_bocejou", wordNarration: "bocejou")
                 sentence.cardArray.append(card1)
                 character.sentenceArray.append(sentence)
