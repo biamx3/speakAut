@@ -51,6 +51,6 @@ class Character {
     }
     
     func addIdleAnimation(){
-        sentenceArray[0].animationSceneName = "idle_\(name)"
+    sentenceArray[0].animationSceneName = "idle_\(name)"
     }
 }
