@@ -62,6 +62,7 @@ class CharacterViewModel: SCNNode {
             let characterName = self.characterModel.name
             let characterNode = self.sceneArray[i].rootNode
             characterNode.setStaticTextures(nodeName: "body", characterName: characterName)
+            //characterNode.setStaticTextures(nodeName: "head", characterName: characterName)
         }
     }
     

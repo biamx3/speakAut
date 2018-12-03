@@ -94,7 +94,7 @@ var musicPlayer: AVAudioPlayer?
         do {
             musicPlayer = try AVAudioPlayer(contentsOf: url)
             guard let musicPlayer = musicPlayer else { return }
-            
+            musicPlayer.volume = 0.6
             musicPlayer.prepareToPlay()
             musicPlayer.play()
         } catch let error {

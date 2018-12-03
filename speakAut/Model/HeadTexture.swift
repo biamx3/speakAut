@@ -15,19 +15,23 @@ struct HeadTexture {
     var animationTextures: [SKTexture] = []
     
     init(animationName: String) {
-        if animationName.starts(with: "idle") {
-            if animationName.contains("henrique") {
-                self.title = "idle_andressa"
-            } else {
-                self.title = animationName
-            }
-            let idleTextures = [[1,2,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], [1,1,1,1,1,1,2,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], [3,1,2,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], [1,1,1,1,1,1,1,1,1,1,1,2,3,1,1,1,1,1,1,1], [2,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]]
-            let chosenTexture = idleTextures.randomElement()
-            for number in chosenTexture! {
-                let name = title + "_" + String(number)
-                let texture = SKTexture(imageNamed: name)
-                self.animationTextures.append(texture)
-            }
+        self.title = animationName
+        var textures: [[Int]] = []
+        
+        switch title {
+        case "idle":
+            textures = [[1,2,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], [1,1,1,1,1,1,2,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], [3,1,2,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], [1,1,1,1,1,1,1,1,1,1,1,2,3,1,1,1,1,1,1,1], [2,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]]
+        case "sing":
+            textures = [[1,1,1,1,2,1,1,2,1,2,1,1,2,1,2,1,1,2,1,1,1,1,1,1,1,2,3,4,3,4,1,2,1,1,2,3,4,3,4,3,4,2,1], [4,4,3,3,2,1,1,1,2,1,1,2,1,2,1,1,2,1,2,1,1,2,1,1,2,3,4,3,4,1,2,1,1,2,3,4,3,4,3,4,2,1], [3,3,3,3,2,1,1,1,1,2,1,1,2,1,2,1,1,2,1,2,1,1,2,1,2,1,1,2,1,2,3,4,3,4,1,2,1,1,2,3,4,3,4,3,4,2,1]]
+        default:
+            textures = [[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4]]
+        }
+        
+        let chosenTexture = textures.randomElement()
+        for number in chosenTexture! {
+            let name = title + "_" + String(number)
+            let texture = SKTexture(imageNamed: name)
+            self.animationTextures.append(texture)
         }
     }
 }

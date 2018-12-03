@@ -90,8 +90,8 @@ extension SCNNode {
         return all
     }
     
-    func animateTextures(nodeName: String, animation: String) {
-        let scene = TextureAnimationScene(animation: animation)
+    func animateTextures(characterName: String, nodeName: String, animation: String) {
+        let scene = TextureAnimationScene(characterName: characterName, animation: animation)
         let mesh = self.childNode(withName: nodeName , recursively: true)
         mesh?.geometry!.firstMaterial!.diffuse.contents = scene
     }

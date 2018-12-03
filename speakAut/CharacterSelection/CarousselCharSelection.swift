@@ -204,7 +204,7 @@ class CarousselCharSelection: SCNScene {
         for i in 0...3 {
             let characterViewModel = CharacterViewModel(characterModel: characterArray[i])
             let characterNode: SCNNode = characterViewModel.sceneArray[0].rootNode
-            characterNode.animateTextures(nodeName: "head", animation: "idle_\(characterViewModel.characterModel.name)")
+            characterNode.animateTextures(characterName: characterViewModel.characterModel.name, nodeName: "head", animation: "idle")
             characterNode.name = characterViewModel.characterModel.name
             characterNode.scale = SCNVector3(characterNode.scale.x*2, characterNode.scale.y*2, characterNode.scale.z*2)
             self.totalCharacters.append(characterNode)

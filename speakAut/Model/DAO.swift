@@ -43,8 +43,6 @@ import SceneKit
         
             self.addProfileCard()
             
-            self.characterArray.append(francisco)
-            
             return characterArray
         }
         
@@ -59,7 +57,7 @@ import SceneKit
         
         func waveAnimation(){
             for character in characterArray {
-                let sentence = Sentence(animationSceneName: "wave", headTexture: "idle_\(character.name)", index: 1, cardArray: [], sentenceNarration: "\(character.subjectName)_acenou")
+                let sentence = Sentence(animationSceneName: "wave", headTexture: "idle", index: 1, cardArray: [], sentenceNarration: "\(character.subjectName)_acenou")
                 let card1 = Card(index: 1, word: "acenou", imageName: "\(character.name)_acenou", wordNarration: "acenou")
                 sentence.cardArray.append(card1)
                 character.sentenceArray.append(sentence)
@@ -68,7 +66,7 @@ import SceneKit
         
         func listenToMusicAnimation(){
             for character in characterArray {
-                let sentence = Sentence(animationSceneName: "listenToMusic", headTexture: "idle_\(character.name)", index: 2, cardArray: [], sentenceNarration: "\(character.subjectName)_escutouMusica")
+                let sentence = Sentence(animationSceneName: "listenToMusic", headTexture: "idle", index: 2, cardArray: [], sentenceNarration: "\(character.subjectName)_escutouMusica")
                 let card1 = Card(index: 1, word: "escutou", imageName: "\(character.name)_escutou", wordNarration: "escutou")
                 let card2 = Card(index: 2, word: "música", imageName: "musica", wordNarration: "musica")
                 sentence.cardArray.append(contentsOf: [card1, card2])
@@ -79,7 +77,7 @@ import SceneKit
         
         func yawnAnimation(){
             for character in characterArray {
-                let sentence = Sentence(animationSceneName: "yawn", headTexture: "idle_\(character.name)", index: 3, cardArray: [], sentenceNarration: "\(character.subjectName)_bocejou")
+                let sentence = Sentence(animationSceneName: "yawn", headTexture: "idle", index: 3, cardArray: [], sentenceNarration: "\(character.subjectName)_bocejou")
                 let card1 = Card(index: 1, word: "bocejou", imageName: "\(character.name)_bocejou", wordNarration: "bocejou")
                 sentence.cardArray.append(card1)
                 character.sentenceArray.append(sentence)
@@ -88,7 +86,7 @@ import SceneKit
 
         func clapAnimation(){
             for character in characterArray {
-                let sentence = Sentence(animationSceneName: "clap", headTexture: "idle_\(character.name)", index: 4, cardArray: [], sentenceNarration: "\(character.subjectName)_bateuPalmas")
+                let sentence = Sentence(animationSceneName: "clap", headTexture: "idle", index: 4, cardArray: [], sentenceNarration: "\(character.subjectName)_bateuPalmas")
                 let card1 = Card(index: 1, word: "bateu palmas", imageName: "\(character.name)_bateuPalmas", wordNarration: "bateuPalmas")
                 sentence.cardArray.append(card1)
                 character.sentenceArray.append(sentence)
@@ -98,7 +96,7 @@ import SceneKit
         
         func danceSalsa(){
             for character in characterArray {
-                let sentence = Sentence(animationSceneName: "danceSalsa", headTexture: "idle_\(character.name)", index: 5, cardArray: [], sentenceNarration: "\(character.subjectName)_dancou")
+                let sentence = Sentence(animationSceneName: "danceSalsa", headTexture: "idle", index: 5, cardArray: [], sentenceNarration: "\(character.subjectName)_dancou")
                 let card1 = Card(index: 1, word: "dançou", imageName: "\(character.name)_dancou", wordNarration: "dancou")
                 sentence.cardArray.append(card1)
                 character.sentenceArray.append(sentence)
@@ -107,7 +105,7 @@ import SceneKit
         
         func sing(){
             for character in characterArray {
-                let sentence = Sentence(animationSceneName: "sing", headTexture: "idle_\(character.name)", index: 6, cardArray: [], sentenceNarration: "\(character.subjectName)_cantouUmaMusica")
+                let sentence = Sentence(animationSceneName: "sing", headTexture: "sing", index: 6, cardArray: [], sentenceNarration: "\(character.subjectName)_cantouUmaMusica")
                 let card1 = Card(index: 1, word: "cantou", imageName: "\(character.name)_cantou", wordNarration: "cantou")
                 let card2 = Card(index: 2, word: "uma música", imageName: "musica", wordNarration: "umaMusica")
                 sentence.cardArray.append(contentsOf: [card1, card2])
