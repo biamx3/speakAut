@@ -99,6 +99,20 @@ class UICharSelection: SKScene {
         self.addChild(chooseButton)
     }
     
+    
+    func addBackButton() {
+        let sceneSize = UIScreen.main.bounds.size
+        let backButtonTexture = SKTexture(imageNamed: "backButton")
+        let touchArea = SKShapeNode(circleOfRadius: backButtonTexture.size().width*1.3)
+        touchArea.strokeColor = .clear
+        touchArea.name = "backButton"
+        touchArea.position = CGPoint(x: -sceneSize.width/2.3 , y: sceneSize.height/2.4)
+        let backButton = SKSpriteNode(texture: backButtonTexture, color: .clear, size: backButtonTexture.size())
+        backButton.name = "backButton"
+        touchArea.addChild(backButton)
+        self.scene?.addChild(touchArea)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         let position = touch.location(in: self)
