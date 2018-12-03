@@ -54,7 +54,7 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
     }
     
     func goToMenuScreen() {
-        print("go to menu screen")
+        self.navigationController?.popToViewController(ofClass: MenuViewController.self)
     }
     
     func playFirstSound() {

@@ -23,6 +23,7 @@ class UICharSelection: SKScene {
         setUpInstructionsLabel()
         setUpChooseButton()
         setUpInvisibleNode()
+        addBackButton()
         self.run((SKAction.wait(forDuration: 2.5)), completion: {
          self.uiCharSelectionDelegate?.playFirstSound()
             })
@@ -101,16 +102,18 @@ class UICharSelection: SKScene {
     
     
     func addBackButton() {
-        let sceneSize = UIScreen.main.bounds.size
+        let sceneSize = self.frame.size
         let backButtonTexture = SKTexture(imageNamed: "backButton")
         let touchArea = SKShapeNode(circleOfRadius: backButtonTexture.size().width*1.3)
         touchArea.strokeColor = .clear
         touchArea.name = "backButton"
-        touchArea.position = CGPoint(x: -sceneSize.width/2.3 , y: sceneSize.height/2.4)
+        touchArea.position = CGPoint(x: sceneSize.width/9.4, y: sceneSize.height*0.89)
         let backButton = SKSpriteNode(texture: backButtonTexture, color: .clear, size: backButtonTexture.size())
         backButton.name = "backButton"
+        backButton.zPosition = 12
+        print("button position:", backButton.position)
         touchArea.addChild(backButton)
-        self.scene?.addChild(touchArea)
+        self.addChild(touchArea)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -121,6 +124,14 @@ class UICharSelection: SKScene {
         if touchedNode.name?.starts(with: "char") ?? true {
             touchedNode.run(SKAction.animateButton)
             SoundTrack.sharedInstance.playSound(withName: "buttonMain")
+        }
+        if touchedNode.name?.starts(with: "backButton") ?? true {
+            touchedNode.run(SKAction.animateButton, completion: {
+                DispatchQueue.main.async {
+                   self.uiCharSelectionDelegate?.goToMenuScreen()
+                }
+            })
+            
         }
         
         if touchedNode.name == "touch" {

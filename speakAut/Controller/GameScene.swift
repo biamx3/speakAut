@@ -21,14 +21,15 @@ class GameScene: SKScene {
     private var invisibleNode: SKSpriteNode!
     
     override func didMove(to view: SKView) {
+        self.isUserInteractionEnabled = true
         self.cardType = .GameScene
         self.setUpInvisibleNode()
         self.scaleMode = .resizeFill
         self.cardType = .GameScene
         addCardsAndGaps()
         addBackButton()
-        self.isUserInteractionEnabled = false
         addInstructions()
+        printAllNodes(tab: "", node: self)
     }
     
     func addInstructions(){
@@ -66,7 +67,7 @@ class GameScene: SKScene {
         let sceneSize = self.frame.size
         invisibleNode = SKSpriteNode(color: .clear, size: sceneSize)
         invisibleNode.isUserInteractionEnabled = false
-        invisibleNode.zPosition = 20
+        invisibleNode.zPosition = -2
     }
     
     func randomRotation() -> SKAction {
@@ -118,7 +119,7 @@ class GameScene: SKScene {
         let backButton = SKSpriteNode(texture: backButtonTexture, color: .clear, size: backButtonTexture.size())
         backButton.name = "backButton"
         touchArea.addChild(backButton)
-        self.scene?.addChild(touchArea)
+        self.addChild(touchArea)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -128,8 +129,12 @@ class GameScene: SKScene {
         
         //Go to previous screen
         if touchedNode.name == "backButton" {
-            touchedNode.run(SKAction.animateButton)
-            self.gameSceneDelegate?.goToCharacterSelectionScreen()
+            print("touched")
+            touchedNode.run(SKAction.animateButton, completion: {
+                DispatchQueue.main.async {
+                    self.gameSceneDelegate?.goToCharacterSelectionScreen()
+                }
+            })
         }
     }
     
