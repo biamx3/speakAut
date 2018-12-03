@@ -65,6 +65,9 @@
 		AB361DDC21B48C01003F84CF /* bateuPalmas.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DDB21B48C01003F84CF /* bateuPalmas.wav */; };
 		AB361DDF21B48CFD003F84CF /* menino_dancou.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DDD21B48CFD003F84CF /* menino_dancou.wav */; };
 		AB361DE021B48CFD003F84CF /* menina_dancou.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DDE21B48CFD003F84CF /* menina_dancou.wav */; };
+		AB361DE421B4A16D003F84CF /* finalSong.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DE121B4A16B003F84CF /* finalSong.wav */; };
+		AB361DE521B4A16D003F84CF /* gameplaySong.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DE221B4A16C003F84CF /* gameplaySong.wav */; };
+		AB361DE621B4A16D003F84CF /* menuSong.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB361DE321B4A16D003F84CF /* menuSong.wav */; };
 		AB4251FD21A9B0D100399376 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4251FC21A9B0D100399376 /* ViewController.swift */; };
 		ABD9FF3321A1AB0300A45FEA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD9FF3221A1AB0200A45FEA /* Extensions.swift */; };
 		ABD9FF3521A1AB1700A45FEA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD9FF3421A1AB1700A45FEA /* GameScene.swift */; };
@@ -174,6 +177,9 @@
 		AB361DDB21B48C01003F84CF /* bateuPalmas.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bateuPalmas.wav; sourceTree = "<group>"; };
 		AB361DDD21B48CFD003F84CF /* menino_dancou.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menino_dancou.wav; sourceTree = "<group>"; };
 		AB361DDE21B48CFD003F84CF /* menina_dancou.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menina_dancou.wav; sourceTree = "<group>"; };
+		AB361DE121B4A16B003F84CF /* finalSong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = finalSong.wav; sourceTree = "<group>"; };
+		AB361DE221B4A16C003F84CF /* gameplaySong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameplaySong.wav; sourceTree = "<group>"; };
+		AB361DE321B4A16D003F84CF /* menuSong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menuSong.wav; sourceTree = "<group>"; };
 		AB4251F921A9AFED00399376 /* speakAut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = speakAut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4251FA21A9AFED00399376 /* speakAutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = speakAutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4251FB21A9AFED00399376 /* speakAutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = speakAutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -255,9 +261,8 @@
 				AB35F3EB2139836800FACE51 /* Assets.xcassets */,
 				AB4251FC21A9B0D100399376 /* ViewController.swift */,
 				AB35F3ED2139836800FACE51 /* LaunchScreen.storyboard */,
-				AB361D9021B45FD4003F84CF /* SFX */,
+				AB361DE821B4A17D003F84CF /* Sound */,
 				ABE6F60C21A857E30062E3F3 /* particleBurst.sks */,
-				AB361D9321B4644F003F84CF /* Voice */,
 				ABE6B89D21A748720019DD98 /* particle.sks */,
 				ABE6B89F21A75EA70019DD98 /* buttonParticle.sks */,
 				AB35F3F02139836800FACE51 /* Info.plist */,
@@ -416,6 +421,27 @@
 				AB361DB921B48A77003F84CF /* menino_bocejou.wav */,
 			);
 			path = bocejou;
+			sourceTree = "<group>";
+		};
+		AB361DE721B4A171003F84CF /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				AB361DE121B4A16B003F84CF /* finalSong.wav */,
+				AB361DE221B4A16C003F84CF /* gameplaySong.wav */,
+				AB361DE321B4A16D003F84CF /* menuSong.wav */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		AB361DE821B4A17D003F84CF /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				AB361DE721B4A171003F84CF /* Music */,
+				AB361D9021B45FD4003F84CF /* SFX */,
+				AB361D9321B4644F003F84CF /* Voice */,
+			);
+			name = Sound;
+			path = Soun;
 			sourceTree = "<group>";
 		};
 		AB45EA0721B42D3800222533 /* SKSFiles */ = {
@@ -600,6 +626,7 @@
 				AB361DCE21B48AFE003F84CF /* menina_bocejou.wav in Resources */,
 				AB361DA921B4645B003F84CF /* idle_andressa.wav in Resources */,
 				ABE6B89721A73D910019DD98 /* Assets.xcassets in Resources */,
+				AB361DE521B4A16D003F84CF /* gameplaySong.wav in Resources */,
 				AB35F41D213984B800FACE51 /* GameScene.sks in Resources */,
 				AB35F3EF2139836800FACE51 /* LaunchScreen.storyboard in Resources */,
 				ABE6B8A121A75EA70019DD98 /* buttonParticle.sks in Resources */,
@@ -608,6 +635,7 @@
 				AB361DAA21B4645B003F84CF /* repita.wav in Resources */,
 				AB361DA421B4645B003F84CF /* lucianaComemoracao0.wav in Resources */,
 				AB361DD821B48BE4003F84CF /* musica.wav in Resources */,
+				AB361DE421B4A16D003F84CF /* finalSong.wav in Resources */,
 				AB361DA321B4645B003F84CF /* idle_henrique.wav in Resources */,
 				AB35F3EC2139836800FACE51 /* Assets.xcassets in Resources */,
 				AB361D9221B463F9003F84CF /* cardSlide.wav in Resources */,
@@ -634,6 +662,7 @@
 				AB361DB021B47E1D003F84CF /* idle_luciana.wav in Resources */,
 				AB361DA221B4645B003F84CF /* idle_francisco.wav in Resources */,
 				AB361DD221B48B0D003F84CF /* cantou.wav in Resources */,
+				AB361DE621B4A16D003F84CF /* menuSong.wav in Resources */,
 				AB361DA721B4645B003F84CF /* lucianaComemoracao1.wav in Resources */,
 				AB361DA121B4645B003F84CF /* voce acertou.wav in Resources */,
 				AB35F3EA2139836500FACE51 /* Main.storyboard in Resources */,

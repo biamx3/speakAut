@@ -24,6 +24,7 @@ class FinalViewController: UIViewController {
         self.sceneView.scene = self.scene
         self.view.addSubview(self.sceneView)
         animateCamera()
+        SoundTrack.sharedInstance.playMusic(withName: "finalSong")
     }
     
     func animateCamera(){

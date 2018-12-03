@@ -19,7 +19,6 @@ class GameViewController: UIViewController, GameSceneDelegate {
         override func viewWillAppear(_ animated: Bool) {
             self.navigationController?.popToViewController(self, animated: true)
             //Start with GameScene Instructions!
-            // Load the SKScene from 'GameScene.sks'
             if let scene = GameScene(fileNamed: "GameScene") {
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .resizeFill
@@ -28,14 +27,13 @@ class GameViewController: UIViewController, GameSceneDelegate {
                 self.skView = SKView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
                 // Present the scene
                 skView!.presentScene(scene)
-                
             }
-            
             skView!.ignoresSiblingOrder = false
             skView!.showsFPS = false
             skView!.showsNodeCount = false
             
             self.view.addSubview(skView!)
+            SoundTrack.sharedInstance.playMusic(withName: "gameplaySong")
         }
         
     

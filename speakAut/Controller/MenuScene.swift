@@ -17,6 +17,7 @@ class MenuScene: SKScene {
         self.scaleMode = .resizeFill
         self.isUserInteractionEnabled = true
         setUpChooseButton()
+        SoundTrack.sharedInstance.playMusic(withName: "menuSong")
     }
     
     

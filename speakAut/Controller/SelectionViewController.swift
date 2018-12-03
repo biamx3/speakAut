@@ -24,7 +24,6 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
         self.spriteScene = UICharSelection(size: self.view.bounds.size)
         spriteScene.uiCharSelectionDelegate = self
         self.sceneView!.overlaySKScene = self.spriteScene
-        
         self.view.addSubview(self.sceneView!)
         SoundTrack.sharedInstance.playInstructions(withName: "escolhaOSeuPersonagem")
     }

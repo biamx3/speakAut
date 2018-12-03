@@ -89,8 +89,8 @@ var musicPlayer: AVAudioPlayer?
         
     }
     
-    func playMusic() {
-        let url = Bundle.main.url(forResource: "music", withExtension: "wav")!
+    func playMusic(withName: String) {
+        let url = Bundle.main.url(forResource: withName, withExtension: "wav")!
         do {
             musicPlayer = try AVAudioPlayer(contentsOf: url)
             guard let musicPlayer = musicPlayer else { return }
