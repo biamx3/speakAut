@@ -79,7 +79,7 @@ class CardViewModel: SKSpriteNode {
         let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
         
         let parent = self.parent as! CardSetViewModel
-        let sound = self.cardModel.wordNarration
+//        let sound = self.cardModel.wordNarration  // Pode apagar?
         SoundTrack.sharedInstance.playWord(withName: self.cardModel.wordNarration)
         
         if parent.cardType == .GameScene {

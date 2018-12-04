@@ -53,8 +53,8 @@ class CelebrationViewModel: SKSpriteNode {
             }
                 
             else if self.cardType == .RepeatWordsScene {
-                let parent = self.parent as! RepeatWordsScene!
-                parent!.goToSuccessAnimationScreen()
+                let parent = self.parent as! RepeatWordsScene
+                parent.goToSuccessAnimationScreen()
             }
         })
     }

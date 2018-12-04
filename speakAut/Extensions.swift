@@ -31,8 +31,8 @@ extension Array where Element == GapViewModel {
 
 //Animação de botões
 extension SKAction {
-        @nonobjc class var animateButton: SKAction {
-            
+    @nonobjc class var animateButton: SKAction {
+        
         let scaleSmall = SKAction.scale(to: 0.9, duration: 0.08)
         let lowerOpacity = SKAction.fadeAlpha(to: 0.95, duration: 0.08)
         let smallAnimationGroup = SKAction.group([scaleSmall, lowerOpacity])
@@ -60,14 +60,14 @@ extension SKNode {
         return nil
     }
     
-
+    
     func allDescendants()->[SKNode] {
         var all:[SKNode] = []
         for child in self.children {
             all.append(child)
-             all.append(contentsOf: child.allDescendants())
+            all.append(contentsOf: child.allDescendants())
         }
-            return all
+        return all
     }
     
     func isOneOf(_ nodes: [SKSpriteNode?])->Bool {
@@ -107,11 +107,12 @@ extension SCNNode {
 extension Array where Element == CardViewModel {
     var isOrderedInX:Bool {
         if self.count == 0 {return true}
-        let previous = self.first!
+        var previous = self.first!
         
         for element in self {
-           if element != self.first {
+            if element != self.first {
                 if previous.position.x > element.position.x {return false}
+                previous = element // O Bug era por falta dessa linha
             }
         }
         return true

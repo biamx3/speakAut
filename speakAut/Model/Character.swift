@@ -54,3 +54,17 @@ class Character {
     sentenceArray[0].animationSceneName = "idle_\(name)"
     }
 }
+
+
+//  Add Ricardo Venieris
+extension Array where Element == Character {
+    func soundName(for characterNamed:String?)->String {
+        guard let charName = characterNamed else {return ""}
+        for element in self {
+            if element.name == charName {
+                return element.sentenceArray.first?.sentenceNarration ?? ""
+            }
+        }
+        return ""
+    }
+}

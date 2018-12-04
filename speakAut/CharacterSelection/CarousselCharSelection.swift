@@ -78,12 +78,16 @@ class CarousselCharSelection: SCNScene {
         self.rootNode.addChildNode(centralCharacter)
         self.rootNode.addChildNode(rightCharacter)
         
-        var sound = ""
-        for character in DAO.sharedInstance.characterArray {
-            if character.name == self.centralCharacter.name {
-                sound = character.sentenceArray[0].sentenceNarration
-            }
-        }
+//        // Era assim
+//        var sound = ""
+//        for character in DAO.sharedInstance.characterArray {
+//            if character.name == self.centralCharacter.name {
+//                sound = character.sentenceArray[0].sentenceNarration
+//            }
+//        }
+//
+//        // Ficou assim
+//        var sound = DAO.sharedInstance.characterArray.soundName(for: self.centralCharacter.name)
         //SoundTrack.sharedInstance.playOno(withName: sound)
     }
     

@@ -22,7 +22,7 @@ class MenuScene: SKScene {
     
     
     func setUpChooseButton(){
-        let sceneSize = self.frame.size
+//        let sceneSize = self.frame.size // Nunca usado - Tirei (rvenieris)
         let chooseButtonTexture = SKTexture(imageNamed: "bigButton")
         
         let chooseButton = SKSpriteNode(texture: chooseButtonTexture, color: .clear, size: chooseButtonTexture.size())
