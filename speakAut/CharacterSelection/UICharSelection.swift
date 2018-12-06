@@ -121,11 +121,11 @@ class UICharSelection: SKScene {
         let position = touch.location(in: self)
         let touchedNode = atPoint(position)
         
-        if touchedNode.name?.starts(with: "char") ?? true {
+        if touchedNode.name?.starts(with: "char") ?? false {
             touchedNode.run(SKAction.animateButton)
             SoundTrack.sharedInstance.playSound(withName: "buttonMain")
         }
-        if touchedNode.name?.starts(with: "backButton") ?? true {
+        if touchedNode.name?.starts(with: "backButton") ?? false {
             touchedNode.run(SKAction.animateButton, completion: {
                 DispatchQueue.main.async {
                    self.uiCharSelectionDelegate?.goToMenuScreen()
