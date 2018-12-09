@@ -41,7 +41,8 @@ class GameViewController: UIViewController, GameSceneDelegate {
     
         func goToCharacterSelectionScreen() {
             DispatchQueue.main.async {
-                self.navigationController?.popToViewController(ofClass: SelectionViewController.self)
+                let selectionVC = SelectionViewController()
+                self.navigationController?.pushViewController(selectionVC, animated: true)
             }
 
         }
@@ -67,6 +68,7 @@ class GameViewController: UIViewController, GameSceneDelegate {
         
         override func viewWillDisappear(_ animated: Bool) {
             self.skView = nil
+            self.removeFromParent()
         }
 
         

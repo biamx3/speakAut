@@ -132,6 +132,8 @@ class CarouselCharSelection: SCNScene {
         self.leftCharacter = newCharacter
     }
     
+    
+    
     func nextPosition(){
         let centralCharIndex = totalCharacters.index(of: centralCharacter ?? totalCharacters[0])
         let moveToFarLeft = SCNAction.move(to: positionFarLeft, duration: 0.2)

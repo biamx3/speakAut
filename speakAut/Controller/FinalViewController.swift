@@ -12,7 +12,6 @@ import SpriteKit
 class FinalViewController: UIViewController {
     
     var sceneView: SCNView!
-    var spriteScene: UICharSelection!
     private var scene: SCNScene!
     var chosenCharacter: CharacterViewModel!
     
@@ -36,7 +35,8 @@ class FinalViewController: UIViewController {
         let sequence = SCNAction.sequence([moveCamera, wait])
         camera?.runAction(sequence, completionHandler: {
             DispatchQueue.main.async {
-                self.navigationController?.popToViewController(ofClass: GameViewController.self)
+                let gameVC = GameViewController()
+                self.navigationController?.pushViewController(gameVC, animated: true)
             }
             })
         camera?.runAction(moveCamera)
@@ -67,10 +67,6 @@ class FinalViewController: UIViewController {
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        self.sceneView = nil
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
@@ -78,6 +74,7 @@ class FinalViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         self.sceneView = nil
+        self.removeFromParent()
     }
     
 }

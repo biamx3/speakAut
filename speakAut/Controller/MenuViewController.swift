@@ -67,6 +67,7 @@ class MenuViewController: UIViewController, MenuSceneDelegate {
     
     override func viewDidDisappear(_ animated: Bool) {
         self.skView = nil
+        self.removeFromParent()
     }
     
 }

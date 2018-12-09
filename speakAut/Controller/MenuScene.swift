@@ -50,6 +50,13 @@ class MenuScene: SKScene {
     }
     
     
+    override func willMove(from view: SKView) {
+        self.removeFromParent()
+        for child in self.children {
+            child.removeFromParent()
+        }
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         let position = touch.location(in: self)

@@ -33,6 +33,13 @@ class GameScene: SKScene {
         
     }
     
+    override func willMove(from view: SKView) {
+        self.removeFromParent()
+        for child in self.children {
+            child.removeFromParent()
+        }
+    }
+    
     func addInstructions(){
         let instructionsViewModel = InstructionsViewModel(cardType: .GameScene)
         instructionsViewModel.zPosition = 15

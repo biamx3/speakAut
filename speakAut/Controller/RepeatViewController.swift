@@ -70,6 +70,7 @@ class RepeatViewController: UIViewController, RepeatViewControllerDelegate {
     
     override func viewDidDisappear(_ animated: Bool) {
         self.skView = nil
+        self.removeFromParent()
     }
     
 }

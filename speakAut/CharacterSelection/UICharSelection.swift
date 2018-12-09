@@ -154,7 +154,12 @@ class UICharSelection: SKScene {
         }
     }
     
-    
+    override func willMove(from view: SKView) {
+        self.removeFromParent()
+        for child in self.children {
+            child.removeFromParent()
+        }
+    }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }

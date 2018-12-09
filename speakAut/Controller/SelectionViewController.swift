@@ -81,6 +81,7 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
     
     override func viewDidDisappear(_ animated: Bool) {
         self.sceneView = nil
+        self.removeFromParent()
     }
     
     override func didReceiveMemoryWarning() {
