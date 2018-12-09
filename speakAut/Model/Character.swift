@@ -14,7 +14,7 @@ import SpriteKit
  
  *Values*
  
- `subjectName` String that is the name of the character.
+ `genericName` String that is the name of the character.
  
  `sentenceArray` Array of sentences each character has.
  
@@ -27,20 +27,20 @@ import SpriteKit
 class Character {
     var name: String = ""
     var article: String = ""
-    var subjectName: String = ""
+    var genericName: String = ""
     var sentenceArray: [Sentence] = []
     var hasEars: Bool = true
     var hasGlasses: Bool = false
     var firstCard: Card!
     
-    init(name: String, hasEars: Bool, hasGlasses: Bool, article: String, subjectName: String, sentenceArray: [Sentence]) {
+    init(name: String, hasEars: Bool, hasGlasses: Bool, article: String, genericName: String, sentenceArray: [Sentence]) {
         self.name = name
         self.hasEars = hasEars
         self.hasGlasses = hasGlasses
-        self.subjectName = subjectName
+        self.genericName = genericName
         self.article = article + " "
-        let firstWord = self.article + self.subjectName
-        firstCard = Card(index: 0, word: firstWord, imageName: "\(name)Profile", wordNarration: subjectName)
+        let firstWord = self.article + self.genericName
+        firstCard = Card(index: 0, word: firstWord, imageName: "\(name)Profile", wordNarration: genericName)
         self.sentenceArray = [Sentence(animationSceneName: "", headTexture: "", index: 0, cardArray: [], sentenceNarration: "")]
     }
     

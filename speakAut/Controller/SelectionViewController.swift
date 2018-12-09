@@ -14,12 +14,16 @@ class SelectionViewController: UIViewController, SCNSceneRendererDelegate, UICha
 
     private var sceneView: SCNView?
     private var spriteScene: UICharSelection!
-    private var scene = CarousselCharSelection()
+    private var scene = CarouselCharSelection()
     weak var chosenCharacter: Character!
     
     override func viewWillAppear(_ animated: Bool) {
         self.sceneView = SCNView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
-        self.sceneView! .scene = scene
+        let backgroundImage = UIImageView(image: UIImage(named: "backgroundImage"))
+        self.view.addSubview(backgroundImage)
+        //self.sceneView?.addSubview(backgroundImage)
+        self.sceneView?.backgroundColor = .clear
+        self.sceneView!.scene = scene
         self.sceneView!.delegate = self
         self.spriteScene = UICharSelection(size: self.view.bounds.size)
         spriteScene.uiCharSelectionDelegate = self

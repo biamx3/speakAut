@@ -28,10 +28,12 @@ class GameViewController: UIViewController, GameSceneDelegate {
                 // Present the scene
                 skView!.presentScene(scene)
             }
+            
             skView!.ignoresSiblingOrder = false
             skView!.showsFPS = false
             skView!.showsNodeCount = false
-            
+            let backgroundImage = UIImageView(image: UIImage(named: "backgroundImage"))
+            self.view.addSubview(backgroundImage)
             self.view.addSubview(skView!)
             SoundTrack.sharedInstance.playMusic(withName: "gameplaySong")
         }

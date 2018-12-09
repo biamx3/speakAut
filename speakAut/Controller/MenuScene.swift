@@ -56,6 +56,7 @@ class MenuScene: SKScene {
         let touchedNode = atPoint(position)
         
         if touchedNode.name?.starts(with: "touch") ?? true {
+            self.isUserInteractionEnabled = false 
             SoundTrack.sharedInstance.playSound(withName: "buttonMain")
             touchedNode.parent?.run(SKAction.animateButton, completion: {
                 self.menuSceneDelegate?.goToSelectionScreen()

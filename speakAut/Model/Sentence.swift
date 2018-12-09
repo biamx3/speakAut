@@ -35,7 +35,6 @@ class Sentence {
     var animationSceneName: String
     var headTexture: String
     var index : Int = 0
-    var animation : String = ""
     var cardArray : [Card] = []
     var sentenceNarration: String = ""
 

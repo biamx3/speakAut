@@ -49,36 +49,16 @@ class CardSetViewModel: SKSpriteNode {
     }
     
     func shuffling(){
-        //          TAVA ASSIM
-        //        if self.cards.count == 2 {
-        //            let position1 = cards[0].position.x
-        //            let position2 = cards[1].position.x
-        //
-        //            var positions = [position1, position2]
-        //            let randomPosition = positions.randomElement()
-        //            let randomPositionIndex = positions.index(of: randomPosition!)
-        //            cards[0].position.x = randomPosition!
-        //            positions.remove(at: randomPositionIndex!)
-        //            cards[1].position.x = positions[0]
-        //        } else if self.cards.count == 3 {
-        //            let position1 = cards[0].position.x
-        //            let position2 = cards[1].position.x
-        //            let position3 = cards[2].position.x
-        //
-        //            var positions = [position1, position2, position3]
-        //            let randomPosition = positions.randomElement()
-        //            let randomPositionIndex = positions.index(of: randomPosition!)
-        //            cards[0].position.x = randomPosition!
-        //            positions.remove(at: randomPositionIndex!)
-        //            cards[1].position.x = positions[0]
-        //            cards[2].position.x = positions[1]
-        //        }
-        
-        //          FICOU ASSIM
         var positions = cards.map { $0.position.x }
         positions.shuffle()
         for i in 0..<cards.count { cards[i].position.x = positions[i] }
     }
+    
+    
+    
+    
+    
+    
     
     func addCards(from cardSet: [Card]) {
         let sceneSize = self.parent?.frame.size

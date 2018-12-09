@@ -114,5 +114,6 @@ class TryAgainViewModel: SKSpriteNode {
         invisibleNode = SKSpriteNode(color: .clear, size: sceneSize)
         invisibleNode.isUserInteractionEnabled = false
         invisibleNode.zPosition = 20
+        //self.addChild(invisibleNode)
     }
 }

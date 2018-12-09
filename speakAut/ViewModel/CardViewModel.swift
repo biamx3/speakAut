@@ -79,7 +79,6 @@ class CardViewModel: SKSpriteNode {
         let cards = brothers.filter {($0.name?.starts(with: "card") ?? false)}
         
         let parent = self.parent as! CardSetViewModel
-//        let sound = self.cardModel.wordNarration  // Pode apagar?
         SoundTrack.sharedInstance.playWord(withName: self.cardModel.wordNarration)
         
         if parent.cardType == .GameScene {
@@ -167,24 +166,6 @@ class CardViewModel: SKSpriteNode {
             }
             
             self.parent?.touchesEnded(touches, with: event)
-        }
-        
-        //If card is being used in RepeatWordsScene
-        if parent.cardType == .RepeatWordsScene {
-
-            //If the card is big, append to parent's bigCardsArray
-//            if self.size.width > CGSize.card.width {
-//                if !parent.bigCards.contains(self) {
-//                    parent.bigCards.append(self)
-//                    self.parent?.touchesEnded(touches, with: event)
-//                }
-//            } else {
-//                if parent.bigCards.contains(self) {
-//                    let index = parent.bigCards.index(of: self)
-//                    parent.bigCards.remove(at: index ?? 0)
-//                    self.parent?.touchesEnded(touches, with: event)
-//                }
-//            }
         }
     }
 }

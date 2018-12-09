@@ -17,9 +17,10 @@ class UICharSelection: SKScene {
     
     override init(size: CGSize) {
         super.init(size: size)
+        self.isUserInteractionEnabled = true
         self.backgroundColor = .clear
         self.zPosition = 10
-        setUpCarousselButtons()
+        setUpCarouselButtons()
         setUpInstructionsLabel()
         setUpChooseButton()
         setUpInvisibleNode()
@@ -28,6 +29,9 @@ class UICharSelection: SKScene {
          self.uiCharSelectionDelegate?.playFirstSound()
             })
     }
+    
+    
+
     
     func setUpInstructionsLabel() {
         let sceneSize = self.frame.size
@@ -50,7 +54,7 @@ class UICharSelection: SKScene {
         self.addChild(invisibleNode)
     }
     
-    func setUpCarousselButtons() {
+    func setUpCarouselButtons() {
         let sceneSize = self.frame.size
         let charBackButtonTexture = SKTexture(imageNamed: "characterBackButton")
         let charNextButtonTexture = SKTexture(imageNamed: "characterForwardButton")
@@ -126,6 +130,7 @@ class UICharSelection: SKScene {
             SoundTrack.sharedInstance.playSound(withName: "buttonMain")
         }
         if touchedNode.name?.starts(with: "backButton") ?? false {
+            self.isUserInteractionEnabled = false
             touchedNode.run(SKAction.animateButton, completion: {
                 DispatchQueue.main.async {
                    self.uiCharSelectionDelegate?.goToMenuScreen()
@@ -135,6 +140,7 @@ class UICharSelection: SKScene {
         }
         
         if touchedNode.name == "touch" {
+            self.isUserInteractionEnabled = false
             self.invisibleNode.zPosition = 20
             SoundTrack.sharedInstance.playSound(withName: "buttonMain")
             SoundTrack.sharedInstance.playSound(withName: "correct")
@@ -163,10 +169,6 @@ class UICharSelection: SKScene {
         case "charBack":
             //Last character
             self.uiCharSelectionDelegate?.previousCharacter()
-            
-        case "touch":
-            //Chose character
-            print("touchedCharacter")
             
         default:
             break

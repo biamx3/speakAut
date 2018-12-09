@@ -1,5 +1,5 @@
 //
-//  CarousselCharSelection.swift
+//  CarouselCharSelection.swift
 //  speakAut
 //
 //  Created by Beatriz Melo Mousinho Magalhães on 14/11/18.
@@ -8,8 +8,9 @@
 
 import UIKit
 import SceneKit
+import SpriteKit
 
-class CarousselCharSelection: SCNScene {
+class CarouselCharSelection: SCNScene {
     
     private var cameraNode: SCNNode!
     private var lightNode: SCNNode!

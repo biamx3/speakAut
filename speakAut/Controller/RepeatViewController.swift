@@ -29,7 +29,8 @@ class RepeatViewController: UIViewController, RepeatViewControllerDelegate {
             skView!.presentScene(scene)
             
         }
-        
+        let backgroundImage = UIImageView(image: UIImage(named: "backgroundImage"))
+        self.view.addSubview(backgroundImage)
         skView!.ignoresSiblingOrder = false
         skView!.showsFPS = false
         skView!.showsNodeCount = false

@@ -23,13 +23,14 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         self.isUserInteractionEnabled = true
         self.cardType = .GameScene
-        self.setUpInvisibleNode()
         self.scaleMode = .resizeFill
         self.cardType = .GameScene
         addCardsAndGaps()
         addBackButton()
         addInstructions()
         printAllNodes(tab: "", node: self)
+        self.setUpInvisibleNode()
+        
     }
     
     func addInstructions(){
@@ -65,8 +66,10 @@ class GameScene: SKScene {
     
     func setUpInvisibleNode() {
         let sceneSize = self.frame.size
-        invisibleNode = SKSpriteNode(color: .clear, size: sceneSize)
+       invisibleNode = SKSpriteNode(texture: nil, color: .clear, size: UIScreen.main.bounds.size)
+        invisibleNode.position = CGPoint(x: 0, y: 0)
         invisibleNode.isUserInteractionEnabled = false
+        self.addChild(invisibleNode)
         invisibleNode.zPosition = -2
     }
     
@@ -129,6 +132,7 @@ class GameScene: SKScene {
         
         //Go to previous screen
         if touchedNode.name == "backButton" {
+            self.isUserInteractionEnabled = false
             print("touched")
             touchedNode.run(SKAction.animateButton, completion: {
                 DispatchQueue.main.async {
@@ -162,6 +166,9 @@ class GameScene: SKScene {
         
         if gapViews.isNear(self.cardSetViewModel.cards) {
             if self.cardSetViewModel.cards.isOrderedInX {
+                self.invisibleNode.zPosition = 30
+                self.isUserInteractionEnabled = false
+                self.cardSetViewModel.isUserInteractionEnabled = false
                 SoundTrack.sharedInstance.playSound(withName: "correct")
                 self.run(SKAction.wait(forDuration: 0.5), completion: {
                   SoundTrack.sharedInstance.playWord(withName: DAO.sharedInstance.chosenSentence.sentenceNarration)
@@ -176,8 +183,14 @@ class GameScene: SKScene {
                 })
                
             } else {
+                self.isUserInteractionEnabled = false
+                self.invisibleNode.zPosition = 30
                 let tryAgainViewModel = TryAgainViewModel(cardViewModel: cardViews!, cardType: .GameScene)
                 self.addChild(tryAgainViewModel)
+                self.run(SKAction.wait(forDuration: 2.2), completion: {
+                    self.invisibleNode.zPosition = -2
+                    self.isUserInteractionEnabled = true
+                })
             }
         }
     }
